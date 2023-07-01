@@ -1,5 +1,6 @@
 {
   pkgs,
+  self,
   inputs,
   ...
 }: {
@@ -20,7 +21,10 @@
   };
 
   environment = {
-    etc."programs.sqlite".source = inputs.programsdb.packages.${pkgs.system}.programs-sqlite;
+    etc = {
+    	"programs.sqlite".source = inputs.programsdb.packages.${pkgs.system}.programs-sqlite;
+    	"backup".source = self;
+    };
     shells = [pkgs.fish];
     shellAliases = {
       config = "$EDITOR ~/.config/nixos/$(hostname)/configuration.nix";
