@@ -27,6 +27,10 @@
     };
     shells = [pkgs.fish];
     shellAliases = {
+      free = "free -h";
+      cat = "bat";
+
+      # NixOS Helper Aliases
       config = "$EDITOR ~/.config/nixos/$(hostname)/configuration.nix";
       flake = "$EDITOR ~/.config/nixos/flake.nix";
       common = "$EDITOR ~/.config/nixos/common.nix";

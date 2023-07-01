@@ -15,5 +15,6 @@
     ../home-manager/git.nix
     ../home-manager/btop.nix
     ../home-manager/vscode.nix
+    ../home-manager/bat.nix
   ];
 }
