@@ -1,9 +1,9 @@
 {
-	programs.bat = {
-		enable = true;
-		config = {
-			theme = "TwoDark";
-			italic-text = "always";
-		};
-	};
+  programs.bat = {
+    enable = true;
+    config = {
+      theme = "TwoDark";
+      italic-text = "always";
+    };
+  };
 }

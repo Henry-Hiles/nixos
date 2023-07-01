@@ -92,10 +92,10 @@
     steam = {
       enable = true;
       # package = pkgs.symlinkJoin {
-        # name = pkgs.steam.name;
-        # paths = [pkgs.steam];
-        # buildInputs = [pkgs.makeWrapper];
-        # postBuild = ''wrapProgram $out/bin/steam --add-flags "-gamepadui"'';
+      # name = pkgs.steam.name;
+      # paths = [pkgs.steam];
+      # buildInputs = [pkgs.makeWrapper];
+      # postBuild = ''wrapProgram $out/bin/steam --add-flags "-gamepadui"'';
       # };
     };
     fish.interactiveShellInit = "neowofetch";
