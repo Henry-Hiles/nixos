@@ -33,7 +33,6 @@
       free = "free -h";
       ping = "prettyping";
       shutdown = "shutdown now";
-      ls = "exa -a --color=always --group-directories-first --icons";
 
       # Git
       clone = "gh repo clone";

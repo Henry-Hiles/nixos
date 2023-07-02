@@ -12,9 +12,10 @@
       programs.home-manager.enable = true;
       home.stateVersion = "23.11";
     }
+    ../home-manager/bat.nix
+	../home-manager/exa.nix
     ../home-manager/git.nix
     ../home-manager/btop.nix
     ../home-manager/vscode.nix
-    ../home-manager/bat.nix
   ];
 }
