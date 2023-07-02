@@ -12,6 +12,7 @@
       programs.home-manager.enable = true;
       home.stateVersion = "23.11";
     }
+    ../home-manager/gtk.nix
     ../home-manager/bat.nix
     ../home-manager/exa.nix
     ../home-manager/git.nix
