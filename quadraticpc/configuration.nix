@@ -75,11 +75,11 @@
       killall
       armcord
       hyfetch
+      libreoffice
       gnomeExtensions.caffeine
       gnomeExtensions.pop-shell
       gnomeExtensions.appindicator
       gnomeExtensions.search-light
-      gnomeExtensions.blur-my-shell
       gnomeExtensions.aylurs-widgets
       gnomeExtensions.just-perfection
       gnomeExtensions.burn-my-windows

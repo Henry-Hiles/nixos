@@ -1,10 +1,15 @@
-{
+{pkgs, ...}: {
   gtk = {
     enable = true;
 
     iconTheme = {
-      name = "";
-      package = pkgs.papirus-icon-theme.override {color = "#5E81AC";};
+      name = "Papirus";
+      package = pkgs.papirus-icon-theme;
     };
+
+    # cursorTheme = {
+    # name = "GoogleDot-Blue";
+    # package = pkgs.nordzy-cursor-theme;
+    # };
   };
 }
