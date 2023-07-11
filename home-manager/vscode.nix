@@ -2,17 +2,18 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
-    extensions = [
-      pkgs.vscode-extensions.eamodio.gitlens
-      pkgs.vscode-extensions.usernamehw.errorlens
-      pkgs.vscode-extensions.timonwong.shellcheck
-      pkgs.vscode-extensions.ritwickdey.liveserver
-      pkgs.vscode-extensions.dbaeumer.vscode-eslint
-      pkgs.vscode-extensions.esbenp.prettier-vscode
-      pkgs.vscode-extensions.oderwat.indent-rainbow
-      pkgs.vscode-extensions.astro-build.astro-vscode
-      pkgs.vscode-extensions.streetsidesoftware.code-spell-checker
-      pkgs.vscode-extensions.arcticicestudio.nord-visual-studio-code
+    extensions = with pkgs.vscode-extensions; [
+      eamodio.gitlens
+      usernamehw.errorlens
+      timonwong.shellcheck
+      ritwickdey.liveserver
+      dbaeumer.vscode-eslint
+      esbenp.prettier-vscode
+      oderwat.indent-rainbow
+      astro-build.astro-vscode
+      vscode-icons-team.vscode-icons
+      streetsidesoftware.code-spell-checker
+      arcticicestudio.nord-visual-studio-code
     ];
     keybindings = [
       {

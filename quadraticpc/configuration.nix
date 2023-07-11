@@ -37,6 +37,11 @@
   };
 
   services = {
+    earlyoom = {
+      enable = true;
+      enableNotifications = true;
+    };
+
     xserver = {
       enable = true;
       displayManager.gdm.enable = true;
@@ -63,6 +68,7 @@
     };
 
     sessionVariables = {
+      MANGOHUD = "1";
       XDG_DATA_HOME = "$HOME/.local/share";
       EDITOR = "micro";
       VISUAL = "micro";
@@ -70,22 +76,34 @@
       fish_greeting = "";
     };
 
-    systemPackages = with pkgs; [
-      heroic
-      killall
-      armcord
-      hyfetch
-      libreoffice
-      gnomeExtensions.caffeine
-      gnomeExtensions.pop-shell
-      gnomeExtensions.appindicator
-      gnomeExtensions.search-light
-      gnomeExtensions.aylurs-widgets
-      gnomeExtensions.just-perfection
-      gnomeExtensions.burn-my-windows
-      gnomeExtensions.fullscreen-avoider
-      gnomeExtensions.compiz-windows-effect
-    ];
+    systemPackages = with pkgs; ([
+    	tldr
+        tuba
+        kooha
+        heroic
+        nodejs
+        killall
+        armcord
+        hyfetch
+        inkscape
+        r2modman
+        libreoffice
+        nodePackages.pnpm
+        hunspellDicts.en_CA-large
+        wineWowPackages.stagingFull
+      ]
+      ++ (with gnomeExtensions; [
+        caffeine
+        pop-shell
+        app-hider
+        appindicator
+        search-light
+        aylurs-widgets
+        just-perfection
+        burn-my-windows
+        fullscreen-avoider
+        compiz-windows-effect
+      ]));
   };
 
   programs = {
@@ -101,7 +119,20 @@
     fish.interactiveShellInit = "neowofetch";
   };
 
+  zramSwap = {
+    enable = true;
+    memoryPercent = 100;
+  };
+
+  system = {
+    autoUpgrade = {
+      enable = true;
+      flake = "/home/quadradical/.config/nixos/flake.nix";
+      operation = "boot";
+    };
+    stateVersion = "23.05";
+  };
+
   sound.enable = true;
-  system.stateVersion = "23.05";
   hardware.pulseaudio.enable = false;
 }

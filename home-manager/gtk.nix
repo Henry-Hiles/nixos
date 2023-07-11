@@ -8,8 +8,8 @@
     };
 
     # cursorTheme = {
-    # name = "GoogleDot-Blue";
-    # package = pkgs.nordzy-cursor-theme;
+      # name = "Bibata-Modern-Classic";
+      # package = pkgs.bibata-cursors;
     # };
   };
 }
