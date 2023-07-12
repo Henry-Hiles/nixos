@@ -8,8 +8,8 @@
     };
 
     # cursorTheme = {
-      # name = "Bibata-Modern-Classic";
-      # package = pkgs.bibata-cursors;
+    # name = "Bibata-Modern-Classic";
+    # package = pkgs.bibata-cursors;
     # };
   };
 }

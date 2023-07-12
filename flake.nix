@@ -2,10 +2,6 @@
   inputs = {
     stylix.url = "github:danth/stylix";
     nixpkgs.url = "github:NixOs/nixpkgs/nixos-unstable";
-    firefox-gnome-theme = {
-      url = "github:rafaelmardojai/firefox-gnome-theme";
-      flake = false;
-    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,8 +23,7 @@
       nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
-          inherit inputs;
-          inherit self;
+          inherit inputs self;
         };
         modules =
           [

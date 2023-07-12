@@ -19,6 +19,7 @@
     ../home-manager/git.nix
     ../home-manager/btop.nix
     ../home-manager/vscode.nix
+    ../home-manager/neofetch.nix
     ../home-manager/mangohud.nix
   ];
 }
