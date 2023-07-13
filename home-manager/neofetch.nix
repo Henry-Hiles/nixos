@@ -1,21 +1,20 @@
 {
   xdg.configFile."neofetch/config.conf".text = ''
     print_info() {
-        prin "    ''${cl7}┌─────────''${cl0}\n Hardware Information \n''${cl7}──────────<U+F111>"
-        info "├<U+F85A>" cpu
-        info "├─<U+F879>" gpu
-        info "├<U+F2DB>" memory
-        prin "    ''${cl7}├─────────''${cl0}\n Software Information \n''${cl7}──────────<U+F111>"
-        info "├<U+F303>" distro
-        info "├<U+E615>" kernel
-        info "├<U+F2D0>" de
-        info "├<U+F292>" shell
-        info "├>" term
-        info "├<U+F48F>" theme
-        info "├<U+F8D6>" packages
-        prin "    ''${cl7}└────────────────────────────────────────<U+F111>"
-     prin "\n \n \n \n \n ''${cl3}<U+F111> \n \n ''${cl5}<U+F111> \n \n ''${cl2}<U+F111> \n \n ''${cl6}<U+F111>  \n \n ''${cl4}
-    <U+F111>  \n \n ''${cl1}<U+F111>  \n \n ''${cl7}<U+F111>  \n \n ''${cl0}<U+F111>"
+        prin "    ''${cl7}┌─────────''${cl0}\n Hardware Information \n''${cl7}──────────"
+        info "├" cpu
+        info "├─󰍹" gpu
+        info "├" memory
+        prin "    ''${cl7}├─────────''${cl0}\n Software Information \n''${cl7}──────────"
+        info "├" distro
+        info "├" kernel
+        info "├" de
+        info "├" shell
+        info "├󰆍" term
+        info "├" theme
+        info "├󰏖" packages
+        prin "    ''${cl7}└────────────────────────────────────────"
+    	prin "\n \n \n \n \n ''${cl3} \n \n ''${cl5} \n \n ''${cl2} \n \n ''${cl6}  \n \n ''${cl4}  \n \n ''${cl1}  \n \n ''${cl7}  \n \n ''${cl0}"
     }
 
     magenta="\033[1;35m"

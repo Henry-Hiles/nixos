@@ -64,7 +64,7 @@
 
   environment = {
     shellAliases = {
-      neofetch = "neowofetch";
+      neofetch = "nvidia-offload neowofetch";
     };
 
     sessionVariables = {
@@ -79,6 +79,7 @@
     systemPackages = with pkgs; ([
         tldr
         tuba
+        gimp
         heroic
         nodejs
         killall
@@ -102,12 +103,17 @@
         burn-my-windows
         fullscreen-avoider
         compiz-windows-effect
+      ])
+      ++ (with gst_all_1; [
+        gst-plugins-good
+        gst-plugins-bad
+        gst-plugins-ugly
       ]));
   };
 
   programs = {
     steam.enable = true;
-    fish.interactiveShellInit = "neowofetch";
+    fish.interactiveShellInit = "neofetch";
   };
 
   zramSwap = {
