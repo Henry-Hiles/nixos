@@ -1,7 +1,17 @@
 {
   inputs = {
+    nixpkgs-heroic.url = "github:aidalgol/nixpkgs?ref=heroic-2.9";
+    nixpkgs-google.url = "git+file:/home/quadradical/Documents/Code/nixpkgs/";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     stylix.url = "github:danth/stylix";
-    nixpkgs.url = "github:NixOs/nixpkgs/nixos-unstable";
+    firefox-gnome-theme = {
+      url = "github:rafaelmardojai/firefox-gnome-theme";
+      flake = false;
+    };
+    adwaita-steam = {
+      url = "github:tkashkin/Adwaita-for-Steam";
+      flake = false;
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,7 +33,7 @@
       nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
-          inherit inputs self;
+          inherit inputs self nixpkgs;
         };
         modules =
           [

@@ -1,9 +1,15 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  nixpkgs,
+  ...
+}: {
   boot = {
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
+    kernelPackages = pkgs.linuxPackages_zen;
     kernelParams = ["sysrq_always_enabled=1"];
   };
 
@@ -15,10 +21,6 @@
     };
 
     nvidia = {
-      modesetting.enable = true;
-      nvidiaPersistenced = true;
-      open = true;
-      nvidiaSettings = false;
       prime = {
         offload = {
           enable = true;
@@ -28,6 +30,11 @@
         intelBusId = "PCI:00:02:0";
         nvidiaBusId = "PCI:01:00:0";
       };
+      open = true;
+      nvidiaSettings = false;
+      modesetting.enable = true;
+      nvidiaPersistenced = true;
+      dynamicBoost.enable = true;
     };
   };
 
@@ -55,9 +62,15 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-      #jack.enable = true;
     };
 
+    avahi = {
+      enable = true;
+      nssmdns = true;
+      openFirewall = true;
+    };
+
+    gpm.enable = true;
     printing.enable = true;
     auto-cpufreq.enable = true;
   };
@@ -77,20 +90,25 @@
     };
 
     systemPackages = with pkgs; ([
+        fd
         tldr
         tuba
         gimp
-        heroic
+        aspell
         nodejs
         killall
         armcord
+        ripgrep
         hyfetch
         inkscape
+        pciutils
         r2modman
         libreoffice
+        mediawriter
         nodePackages.pnpm
         hunspellDicts.en_CA-large
         wineWowPackages.stagingFull
+        inputs.nixpkgs-heroic.legacyPackages.x86_64-linux.heroic
       ]
       ++ (with gnomeExtensions; [
         caffeine
@@ -103,16 +121,15 @@
         burn-my-windows
         fullscreen-avoider
         compiz-windows-effect
-      ])
-      ++ (with gst_all_1; [
-        gst-plugins-good
-        gst-plugins-bad
-        gst-plugins-ugly
       ]));
   };
 
   programs = {
     steam.enable = true;
+    wireshark = {
+      enable = true;
+      package = pkgs.wireshark;
+    };
     fish.interactiveShellInit = "neofetch";
   };
 

@@ -31,7 +31,6 @@
       "window.dialogStyle" = "custom";
       "editor.inlineSuggest.enabled" = true;
       "window.titleBarStyle" = "custom";
-      "editor.fontFamily" = "FiraCode Nerd Font";
       "editor.fontLigatures" = true;
       "editor.formatOnSave" = true;
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
@@ -41,7 +40,6 @@
       "gitlens.statusBar.enabled" = false;
       "explorer.confirmDelete" = false;
       "workbench.sideBar.location" = "right";
-      "terminal.external.linuxExec" = "alacritty";
       "git.enableSmartCommit" = true;
       "explorer.confirmDragAndDrop" = false;
       "javascript.updateImportsOnFileMove.enabled" = "always";
@@ -62,20 +60,11 @@
       "[astro]" = {
         "editor.defaultFormatter" = "astro-build.astro-vscode";
       };
-      "cSpell.language" = "en-CAen-GBen";
       "prettier.trailingComma" = "none";
       "prettier.useTabs" = true;
       "editor.minimap.enabled" = false;
-      "cSpell.userWords" = [
-        "distrohop"
-        "dotfiles"
-        "Hiles"
-        "micromark"
-        "qscan"
-        "qweather"
-        "webapps"
-      ];
       "diffEditor.ignoreTrimWhitespace" = false;
+      "editor.unicodeHighlight.nonBasicASCII" = false;
     };
   };
 }

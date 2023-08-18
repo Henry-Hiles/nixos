@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   gtk = {
     enable = true;
 
@@ -7,9 +11,9 @@
       package = pkgs.papirus-icon-theme;
     };
 
-    # cursorTheme = {
-    # name = "Bibata-Modern-Classic";
-    # package = pkgs.bibata-cursors;
-    # };
+    cursorTheme = {
+      name = "GoogleDot-Blue";
+      package = inputs.nixpkgs-google.legacyPackages.x86_64-linux.google-cursor;
+    };
   };
 }

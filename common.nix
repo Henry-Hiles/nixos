@@ -16,7 +16,7 @@
     users.quadradical = {
       isNormalUser = true;
       description = "QuadRadical";
-      extraGroups = ["networkmanager" "wheel"];
+      extraGroups = ["networkmanager" "wheel" "wireshark"];
     };
   };
 
