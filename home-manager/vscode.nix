@@ -3,15 +3,17 @@
     enable = true;
     package = pkgs.vscodium;
     extensions = with pkgs.vscode-extensions; [
+      mkhl.direnv
       eamodio.gitlens
-      usernamehw.errorlens
       timonwong.shellcheck
+      usernamehw.errorlens
+      kamadorueda.alejandra
       ritwickdey.liveserver
       dbaeumer.vscode-eslint
       esbenp.prettier-vscode
       oderwat.indent-rainbow
       astro-build.astro-vscode
-      vscode-icons-team.vscode-icons
+      pkief.material-icon-theme
       streetsidesoftware.code-spell-checker
       arcticicestudio.nord-visual-studio-code
     ];
@@ -26,7 +28,6 @@
       }
     ];
     userSettings = {
-      "editor.bracketPairColorization.enabled" = true;
       "editor.guides.bracketPairs" = "active";
       "window.dialogStyle" = "custom";
       "editor.inlineSuggest.enabled" = true;
@@ -55,6 +56,7 @@
       "gitlens.currentLine.enabled" = false;
       "gitlens.codeLens.enabled" = false;
       "workbench.colorTheme" = "Nord";
+      "workbench.iconTheme" = "material-icon-theme";
       "typescript.updateImportsOnFileMove.enabled" = "always";
       "editor.wordWrap" = "on";
       "[astro]" = {
@@ -65,6 +67,14 @@
       "editor.minimap.enabled" = false;
       "diffEditor.ignoreTrimWhitespace" = false;
       "editor.unicodeHighlight.nonBasicASCII" = false;
+      "dart.checkForSdkUpdates" = false;
+      "editor.codeActionsOnSave" = {
+        "source.fixAll" = true;
+      };
+      "editor.bracketPairColorization.enabled" = true;
+      "explorer.fileNesting.enabled" = true;
+      "explorer.fileNesting.expand" = false;
+      "window.zoomLevel" = 1;
     };
   };
 }

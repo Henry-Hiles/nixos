@@ -16,7 +16,7 @@
     users.quadradical = {
       isNormalUser = true;
       description = "QuadRadical";
-      extraGroups = ["networkmanager" "wheel" "wireshark"];
+      extraGroups = ["networkmanager" "wheel" "wireshark" "libvirtd" "libvirt" "input" "kvm"];
     };
   };
 
@@ -53,7 +53,6 @@
     };
 
     systemPackages = with pkgs; [
-      exa
       micro
       rmtrash
       prettyping
@@ -64,6 +63,5 @@
   nixpkgs.config.allowUnfree = true;
   time.timeZone = "America/Toronto";
   i18n.defaultLocale = "en_CA.UTF-8";
-  hardware.pulseaudio.enable = false;
   nix.settings.experimental-features = ["nix-command" "flakes"];
 }

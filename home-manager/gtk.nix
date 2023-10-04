@@ -13,7 +13,7 @@
 
     cursorTheme = {
       name = "GoogleDot-Blue";
-      package = inputs.nixpkgs-google.legacyPackages.x86_64-linux.google-cursor;
+      package = pkgs.google-cursor;
     };
   };
 }

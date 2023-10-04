@@ -30,7 +30,7 @@
         intelBusId = "PCI:00:02:0";
         nvidiaBusId = "PCI:01:00:0";
       };
-      open = true;
+      open = false;
       nvidiaSettings = false;
       modesetting.enable = true;
       nvidiaPersistenced = true;
@@ -41,6 +41,11 @@
   networking = {
     hostName = "quadraticpc";
     networkmanager.enable = true;
+  };
+
+  nix.settings = {
+    substituters = ["https://nix-gaming.cachix.org"];
+    trusted-public-keys = ["nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="];
   };
 
   services = {
@@ -62,6 +67,7 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+      lowLatency.enable = true;
     };
 
     avahi = {
@@ -82,11 +88,11 @@
 
     sessionVariables = {
       MANGOHUD = "1";
-      XDG_DATA_HOME = "$HOME/.local/share";
       EDITOR = "micro";
       VISUAL = "micro";
-      NIXOS_OZONE_WL = "1";
       fish_greeting = "";
+      NIXOS_OZONE_WL = "1";
+      GAMEMODERUNEXEC = "nvidia-offload";
     };
 
     systemPackages = with pkgs; ([
@@ -94,21 +100,28 @@
         tldr
         tuba
         gimp
+        heroic
         aspell
         nodejs
         killall
-        armcord
         ripgrep
         hyfetch
         inkscape
-        pciutils
         r2modman
+        pciutils
+        alejandra
+        grapejuice
         libreoffice
         mediawriter
+        virt-manager
+        wl-clipboard
+        android-studio
         nodePackages.pnpm
         hunspellDicts.en_CA-large
-        wineWowPackages.stagingFull
-        inputs.nixpkgs-heroic.legacyPackages.x86_64-linux.heroic
+        (pkgs.discord.override {
+          withOpenASAR = true;
+          withVencord = true;
+        })
       ]
       ++ (with gnomeExtensions; [
         caffeine
@@ -130,6 +143,7 @@
       enable = true;
       package = pkgs.wireshark;
     };
+    gamemode.enable = true;
     fish.interactiveShellInit = "neofetch";
   };
 
@@ -138,15 +152,9 @@
     memoryPercent = 100;
   };
 
-  system = {
-    autoUpgrade = {
-      enable = true;
-      flake = "/home/quadradical/.config/nixos/flake.nix";
-      operation = "boot";
-    };
-    stateVersion = "23.05";
-  };
+  system.stateVersion = "23.05";
 
   sound.enable = true;
   hardware.pulseaudio.enable = false;
+  virtualisation.libvirtd.enable = true;
 }

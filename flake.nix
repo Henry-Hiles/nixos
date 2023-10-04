@@ -1,16 +1,15 @@
 {
   inputs = {
-    nixpkgs-heroic.url = "github:aidalgol/nixpkgs?ref=heroic-2.9";
-    nixpkgs-google.url = "git+file:/home/quadradical/Documents/Code/nixpkgs/";
+    nixpkgs-master.url = "github:nixos/nixpkgs";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     stylix.url = "github:danth/stylix";
     firefox-gnome-theme = {
       url = "github:rafaelmardojai/firefox-gnome-theme";
       flake = false;
     };
-    adwaita-steam = {
-      url = "github:tkashkin/Adwaita-for-Steam";
-      flake = false;
+    nix-gaming = {
+      url = "github:fufexan/nix-gaming";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -37,13 +36,14 @@
         };
         modules =
           [
+            ./common.nix
             "${self}/${hostname}/configuration.nix"
             "${self}/${hostname}/hardware-configuration.nix"
-            ./common.nix
+            inputs.nix-gaming.nixosModules.pipewireLowLatency
           ]
           ++ nixpkgs.lib.optionals (builtins.pathExists "${self}/${hostname}/home-manager.nix") [
-            home-manager.nixosModules.home-manager
             "${self}/${hostname}/home-manager.nix"
+            home-manager.nixosModules.home-manager
           ]
           ++ nixpkgs.lib.optionals (builtins.pathExists "${self}/${hostname}/stylix.nix") [
             stylix.nixosModules.stylix

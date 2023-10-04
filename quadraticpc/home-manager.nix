@@ -15,10 +15,11 @@
     }
     ../home-manager/gtk.nix
     ../home-manager/bat.nix
-    ../home-manager/exa.nix
+    ../home-manager/eza.nix
     ../home-manager/git.nix
     ../home-manager/btop.nix
     ../home-manager/vscode.nix
+    ../home-manager/direnv.nix
     ../home-manager/firefox.nix
     ../home-manager/neofetch.nix
     ../home-manager/mangohud.nix
