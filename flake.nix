@@ -1,8 +1,8 @@
 {
   inputs = {
-    nixpkgs-master.url = "github:nixos/nixpkgs";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     stylix.url = "github:danth/stylix";
+    nixpkgs-local.url = "git+file:/home/quadradical/Documents/Code/nixpkgs?branch=init-monophonty";
     firefox-gnome-theme = {
       url = "github:rafaelmardojai/firefox-gnome-theme";
       flake = false;
@@ -22,17 +22,17 @@
   };
 
   outputs = {
+    self,
+    stylix,
     nixpkgs,
     home-manager,
-    stylix,
-    self,
     ...
   } @ inputs: let
     system = hostname:
       nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
-          inherit inputs self nixpkgs;
+          inherit inputs self;
         };
         modules =
           [

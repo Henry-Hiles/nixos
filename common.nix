@@ -29,7 +29,7 @@
     shellAliases = {
       # Utility
       cat = "bat";
-      rm = "rmtrash";
+      rm = "gio trash";
       free = "free -h";
       ping = "prettyping";
       shutdown = "shutdown now";
@@ -42,6 +42,7 @@
       commit = "git add -A && git commit -am";
 
       # NixOS
+      dev = "nix develop";
       garbage = "sudo nix-collect-garbage -d";
       flake = "$EDITOR ~/.config/nixos/flake.nix";
       common = "$EDITOR ~/.config/nixos/common.nix";
@@ -54,7 +55,6 @@
 
     systemPackages = with pkgs; [
       micro
-      rmtrash
       prettyping
     ];
   };

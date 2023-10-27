@@ -2,7 +2,7 @@
   programs.bat = {
     enable = true;
     config = {
-      theme = "TwoDark";
+      theme = "Nord";
       italic-text = "always";
     };
   };

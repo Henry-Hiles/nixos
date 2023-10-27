@@ -20,14 +20,8 @@
 
       search = {
         force = true;
-        default = "Rabbit Search";
+        default = "DuckDuckGo";
         engines = {
-          "Rabbit Search" = {
-            urls = [{template = "https://rabbitsearch.org/search?q={searchTerms}";}];
-            iconUpdateURL = "https://rabbit-company.com/images/logo.png";
-            updateInterval = 7 * 24 * 60 * 60 * 1000; # One week
-          };
-
           "Nix Package Search" = {
             urls = [
               {
@@ -84,7 +78,6 @@
 
           "Bing".metaData.hidden = true;
           "Google".metaData.hidden = true;
-          "DuckDuckGo".metaData.hidden = true;
           "Amazon.ca".metaData.hidden = true;
           "eBay".metaData.hidden = true;
         };

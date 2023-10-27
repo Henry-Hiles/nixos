@@ -9,6 +9,7 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
+    plymouth.enable = true;
     kernelPackages = pkgs.linuxPackages_zen;
     kernelParams = ["sysrq_always_enabled=1"];
   };
@@ -48,6 +49,10 @@
     trusted-public-keys = ["nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="];
   };
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-24.8.6"
+  ];
+
   services = {
     earlyoom = {
       enable = true;
@@ -83,7 +88,7 @@
 
   environment = {
     shellAliases = {
-      neofetch = "nvidia-offload neowofetch";
+      neofetch = "neowofetch";
     };
 
     sessionVariables = {
@@ -103,9 +108,11 @@
         heroic
         aspell
         nodejs
+        ntfs3g
         killall
         ripgrep
         hyfetch
+        fractal
         inkscape
         r2modman
         pciutils
@@ -118,10 +125,7 @@
         android-studio
         nodePackages.pnpm
         hunspellDicts.en_CA-large
-        (pkgs.discord.override {
-          withOpenASAR = true;
-          withVencord = true;
-        })
+        inputs.nixpkgs-local.legacyPackages.${system}.monophony
       ]
       ++ (with gnomeExtensions; [
         caffeine
@@ -129,6 +133,7 @@
         app-hider
         appindicator
         search-light
+        blur-my-shell
         aylurs-widgets
         just-perfection
         burn-my-windows
@@ -138,12 +143,14 @@
   };
 
   programs = {
-    steam.enable = true;
     wireshark = {
       enable = true;
       package = pkgs.wireshark;
     };
+    steam.enable = true;
+    xfconf.enable = true;
     gamemode.enable = true;
+    noisetorch.enable = true;
     fish.interactiveShellInit = "neofetch";
   };
 
