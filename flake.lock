@@ -203,11 +203,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1698392685,
-        "narHash": "sha256-yx/sbRneR2AfSAeAMqUu0hoVJdjh+qhl/7dkirp8yo8=",
+        "lastModified": 1698479159,
+        "narHash": "sha256-rJHBDwW4LbADEfhkgGHjKGfL2dF44NrlyXdXeZrQahs=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "1369d2cefb6f128c30e42fabcdebbacc07e18b3f",
+        "rev": "f92a54fef4eacdbe86b0a2054054dd58b0e2a2a4",
         "type": "github"
       },
       "original": {
@@ -245,11 +245,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1698368990,
-        "narHash": "sha256-V5dLZN6GXpRiFPhtfCRqaKIdRwHH9RkH7ZX4efUwCRs=",
+        "lastModified": 1698541868,
+        "narHash": "sha256-oaNUQMJ/zYvKkB1wI/pcPq4cf/a+c5etZWKZ8ZAg2V0=",
         "owner": "fufexan",
         "repo": "nix-gaming",
-        "rev": "e5a21c813a4ea3f16da04939bf5b6b0b6697855b",
+        "rev": "53ca82dfa2c65ddbf857ef07889ff39c8f80a35a",
         "type": "github"
       },
       "original": {
@@ -260,11 +260,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1698134075,
-        "narHash": "sha256-foCD+nuKzfh49bIoiCBur4+Fx1nozo+4C/6k8BYk4sg=",
+        "lastModified": 1698318101,
+        "narHash": "sha256-gUihHt3yPD7bVqg+k/UVHgngyaJ3DMEBchbymBMvK1E=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "8efd5d1e283604f75a808a20e6cde0ef313d07d4",
+        "rev": "63678e9f3d3afecfeafa0acead6239cdb447574c",
         "type": "github"
       },
       "original": {
@@ -294,10 +294,11 @@
     },
     "nixpkgs-local": {
       "locked": {
-        "dirtyRev": "7ab567df5f57a3a069c1da688c15d9db9f09f78a-dirty",
-        "dirtyShortRev": "7ab567df5f5-dirty",
-        "lastModified": 1698245796,
-        "narHash": "sha256-iW4t6Q2Vv5LXXyKDAvXxoILQI38N/HxQtqXzvceRqsE=",
+        "lastModified": 1698614993,
+        "narHash": "sha256-n9AU5+F66M9L+K+nuHd00I5ByGBUJIIJZKGj8L44+Kw=",
+        "ref": "refs/heads/init-monophony",
+        "rev": "420108508f734807d4daa8be0a36cc4b481756eb",
+        "revCount": 542334,
         "type": "git",
         "url": "file:/home/quadradical/Documents/Code/nixpkgs?branch=init-monophonty"
       },
@@ -330,11 +331,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1698352941,
-        "narHash": "sha256-GmB2roGZyHYcgiqadaeffbKVnJGsBVa/1pEbCxSoRgo=",
+        "lastModified": 1698586943,
+        "narHash": "sha256-9fmlYZI53maNNgfQnDRkAXWsLS5PEX2055poufAUITY=",
         "owner": "wamserma",
         "repo": "flake-programs-sqlite",
-        "rev": "e0c2f04abfc6f2314195e7dc3caff775cfd84ca0",
+        "rev": "65c9c3d0d48b6e8f9eeaa63a88ac6d1dc9a71284",
         "type": "github"
       },
       "original": {
@@ -369,11 +370,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1698085074,
-        "narHash": "sha256-0lNNuIkkyG5FhJD/I9qIZ9dynZBWfIFSXe/YGUuEzSU=",
+        "lastModified": 1698499630,
+        "narHash": "sha256-OGJUX84240wSlhRyXjrJikXmHX1VeN2ZXvfdLvrAh0o=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "91e46dec675ec37fd3f9745754d10bb7e392db98",
+        "rev": "7a7987c7828050ef9a8ca6af07ca98485053776b",
         "type": "github"
       },
       "original": {
