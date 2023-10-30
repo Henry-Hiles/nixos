@@ -203,11 +203,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1698479159,
-        "narHash": "sha256-rJHBDwW4LbADEfhkgGHjKGfL2dF44NrlyXdXeZrQahs=",
+        "lastModified": 1698670511,
+        "narHash": "sha256-jQIu3UhBMPHXzVkHQO1O2gg8SVo5lqAVoC6mOaLQcLQ=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "f92a54fef4eacdbe86b0a2054054dd58b0e2a2a4",
+        "rev": "8e5416b478e465985eec274bc3a018024435c106",
         "type": "github"
       },
       "original": {
@@ -245,11 +245,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1698541868,
-        "narHash": "sha256-oaNUQMJ/zYvKkB1wI/pcPq4cf/a+c5etZWKZ8ZAg2V0=",
+        "lastModified": 1698697174,
+        "narHash": "sha256-OlGTQvq3gXHI4AhUIBcJOps0LDSydvWUFCGDuHc2S/k=",
         "owner": "fufexan",
         "repo": "nix-gaming",
-        "rev": "53ca82dfa2c65ddbf857ef07889ff39c8f80a35a",
+        "rev": "61c53f18d78d5644f77b16be9365b764d951e258",
         "type": "github"
       },
       "original": {
@@ -294,17 +294,17 @@
     },
     "nixpkgs-local": {
       "locked": {
-        "lastModified": 1698614993,
+        "lastModified": 1698689470,
         "narHash": "sha256-n9AU5+F66M9L+K+nuHd00I5ByGBUJIIJZKGj8L44+Kw=",
         "ref": "refs/heads/init-monophony",
-        "rev": "420108508f734807d4daa8be0a36cc4b481756eb",
+        "rev": "14ff056b465b4591bd636d940cbca521acd710b3",
         "revCount": 542334,
         "type": "git",
-        "url": "file:/home/quadradical/Documents/Code/nixpkgs?branch=init-monophonty"
+        "url": "file:/home/quadradical/Documents/Code/nixpkgs?branch=init-monophony"
       },
       "original": {
         "type": "git",
-        "url": "file:/home/quadradical/Documents/Code/nixpkgs?branch=init-monophonty"
+        "url": "file:/home/quadradical/Documents/Code/nixpkgs?branch=init-monophony"
       }
     },
     "nixpkgs_2": {
@@ -331,11 +331,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1698586943,
-        "narHash": "sha256-9fmlYZI53maNNgfQnDRkAXWsLS5PEX2055poufAUITY=",
+        "lastModified": 1698649388,
+        "narHash": "sha256-/YuZcADMdhWf3L2ed8TCFuY2Dgrh1s4dYaLiC8xuz/4=",
         "owner": "wamserma",
         "repo": "flake-programs-sqlite",
-        "rev": "65c9c3d0d48b6e8f9eeaa63a88ac6d1dc9a71284",
+        "rev": "8ff45ba74f816160384f5d970de62bb0270dff06",
         "type": "github"
       },
       "original": {

@@ -23,5 +23,6 @@
     ../home-manager/firefox.nix
     ../home-manager/neofetch.nix
     ../home-manager/mangohud.nix
+    # ../home-manager/sway.nix
   ];
 }
