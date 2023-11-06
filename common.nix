@@ -59,6 +59,10 @@
     ];
   };
 
+  documentation = {
+    info.enable = false;
+    nixos.enable = false;
+  };
   security.rtkit.enable = true;
   nixpkgs.config.allowUnfree = true;
   time.timeZone = "America/Toronto";

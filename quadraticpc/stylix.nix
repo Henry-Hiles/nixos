@@ -5,6 +5,12 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
     targets.plymouth.blackBackground = false;
 
+    cursor = {
+      name = "GoogleDot-Blue";
+      package = pkgs.google-cursor;
+      size = 24;
+    };
+
     fonts = {
       serif = {
         name = "Cantarell";
