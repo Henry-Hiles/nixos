@@ -126,8 +126,8 @@
         android-studio
         nodePackages.pnpm
         hunspellDicts.en_CA-large
-        inputs.nixpkgs-local.legacyPackages.${system}.monophony
         inputs.nix-gaming.packages.${system}.wine-ge
+        inputs.nixpkgs-local.legacyPackages.${system}.monophony
       ]
       ++ (with gnomeExtensions; [
         caffeine
