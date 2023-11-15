@@ -132,11 +132,9 @@
       ++ (with gnomeExtensions; [
         caffeine
         pop-shell
-        app-hider
         appindicator
         search-light
         blur-my-shell
-        aylurs-widgets
         just-perfection
         burn-my-windows
         fullscreen-avoider
@@ -145,12 +143,12 @@
   };
 
   programs = {
-    wireshark = {
+    steam = {
       enable = true;
-      package = pkgs.wireshark;
+      package = pkgs.steam.override {
+        extraProfile = "export STEAM_EXTRA_COMPAT_TOOLS_PATHS='${inputs.nix-gaming.packages.${pkgs.system}.proton-ge}'";
+      };
     };
-    steam.enable = true;
-    xfconf.enable = true;
     gamemode.enable = true;
     noisetorch.enable = true;
     fish.interactiveShellInit = "neofetch";
