@@ -1,13 +1,13 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
     extensions = with pkgs.vscode-extensions; [
       mkhl.direnv
       eamodio.gitlens
+      jnoortheen.nix-ide
       timonwong.shellcheck
       usernamehw.errorlens
-      kamadorueda.alejandra
       ritwickdey.liveserver
       dbaeumer.vscode-eslint
       esbenp.prettier-vscode
@@ -75,6 +75,14 @@
       "explorer.fileNesting.enabled" = true;
       "explorer.fileNesting.expand" = false;
       "window.zoomLevel" = 1;
+      "[nix]" = {
+        "editor.formatOnSave" = true;
+      };
+      "nix.enableLanguageServer" = true;
+      "nix.serverPath" = lib.meta.getExe pkgs.nil;
+      "nix.serverSettings"."nil" = {
+        formatting.command = [(lib.meta.getExe pkgs.alejandra)];
+      };
     };
   };
 }

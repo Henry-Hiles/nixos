@@ -112,7 +112,6 @@
         killall
         ripgrep
         hyfetch
-        fractal
         inkscape
         r2modman
         pciutils
