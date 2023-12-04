@@ -14,14 +14,33 @@
     kernelParams = ["sysrq_always_enabled=1"];
   };
 
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+  hardware = {
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+    };
+
+    nvidia = {
+      prime = {
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
+
+        intelBusId = "PCI:00:02:0";
+        nvidiaBusId = "PCI:01:00:0";
+      };
+      open = false;
+      nvidiaSettings = false;
+      modesetting.enable = true;
+      nvidiaPersistenced = true;
+      dynamicBoost.enable = true;
+    };
   };
 
   networking = {
-    hostName = "quadraticpc";
+    hostName = "quadtop";
     networkmanager.enable = true;
   };
 
@@ -45,6 +64,7 @@
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
       layout = "us";
+      videoDrivers = ["nvidia"];
     };
 
     pipewire = {
@@ -77,6 +97,7 @@
       VISUAL = "micro";
       fish_greeting = "";
       NIXOS_OZONE_WL = "1";
+      GAMEMODERUNEXEC = "nvidia-offload";
     };
 
     systemPackages = with pkgs; ([

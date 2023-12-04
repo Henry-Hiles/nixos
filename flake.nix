@@ -50,6 +50,7 @@
   in {
     nixosConfigurations = {
       "quadraticpc" = system "quadraticpc";
+      "quadtop" = system "quadtop";
     };
 
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
