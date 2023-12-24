@@ -12,7 +12,6 @@
       cat = "bat";
       rm = "gio trash";
       free = "free -h";
-      ping = "prettyping";
       neofetch = "neowofetch";
       shutdown = "shutdown now";
 
@@ -25,14 +24,8 @@
 
       # NixOS
       dev = "nix develop";
-      garbage = "sudo nix-collect-garbage -d";
-      flake = "$EDITOR ~/.config/nixos/flake.nix";
-      common = "$EDITOR ~/.config/nixos/common.nix";
-      format = "cd ~/.config/nixos/ && nix fmt; cd -";
-      stylix = "$EDITOR ~/.config/nixos/$(hostname)/stylix.nix";
+      garbage = "sudo nix-collect-garbage -d && nix-collect-garbage -d";
       rebuild = "sudo nixos-rebuild switch --flake ~/.config/nixos/#";
-      config = "$EDITOR ~/.config/nixos/$(hostname)/configuration.nix";
-      home-manager = "$EDITOR ~/.config/nixos/$(hostname)/home-manager.nix";
     };
   };
   users.defaultUserShell = pkgs.fish;
