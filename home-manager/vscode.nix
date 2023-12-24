@@ -71,7 +71,7 @@
       "editor.unicodeHighlight.nonBasicASCII" = false;
       "dart.checkForSdkUpdates" = false;
       "editor.codeActionsOnSave" = {
-        "source.fixAll" = true;
+        "source.fixAll" = "explicit";
       };
       "editor.bracketPairColorization.enabled" = true;
       "explorer.fileNesting.enabled" = true;

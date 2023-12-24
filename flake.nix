@@ -25,11 +25,9 @@
     home-manager,
     ...
   } @ inputs: let
-    system = hostname: isDesktop: let
-      opt = nixpkgs.lib.optionals;
-      dirFiles = dir: map (file: "${dir}/${file}") (builtins.attrNames (builtins.readDir dir));
-      hostHasFile = file: (builtins.pathExists "${self}/${hostname}/${file}");
-    in
+    opt = nixpkgs.lib.optionals;
+    dirFiles = dir: map (file: "${dir}/${file}") (builtins.attrNames (builtins.readDir dir));
+    system = hostname: isDesktop:
       nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
@@ -43,15 +41,16 @@
             inputs.nix-gaming.nixosModules.pipewireLowLatency
           ]
           ++ dirFiles ./modules/common
-          ++ opt isDesktop dirFiles ./modules/common-desktop
-          ++ opt (hostHasFile "home-manager.nix") [
-            home-manager.nixosModules.home-manager
-            "${self}/${hostname}/home-manager.nix"
-          ]
-          ++ opt (hostHasFile "stylix.nix") [
-            stylix.nixosModules.stylix
-            "${self}/${hostname}/stylix.nix"
-          ];
+          ++ opt isDesktop (
+            (dirFiles ./modules/common-desktop)
+            ++ [
+              stylix.nixosModules.stylix
+              ./stylix.nix
+
+              home-manager.nixosModules.home-manager
+              ./home-manager.nix
+            ]
+          );
       };
   in {
     nixosConfigurations = {
