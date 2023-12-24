@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     stylix.url = "github:danth/stylix";
     nixpkgs-local.url = "git+file:/home/quadradical/Documents/Code/nixpkgs?branch=init-monophony";
     firefox-gnome-theme = {
@@ -8,10 +8,15 @@
       flake = false;
     };
     nix-gaming.url = "github:fufexan/nix-gaming";
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # wrapper-manager = {
+    #   url = "github:viperML/wrapper-manager";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    # wrapper-manager-hm-compat = {
+    #   url = "github:nrabulinski/wrapper-manager-hm-compat";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.home-manager.follows = "home-manager";
+    # };
     programsdb = {
       url = "github:wamserma/flake-programs-sqlite";
       inputs.nixpkgs.follows = "nixpkgs";
