@@ -25,32 +25,38 @@
     home-manager,
     ...
   } @ inputs: let
-    system = hostname:
+    system = hostname: isDesktop: let
+      opt = nixpkgs.lib.optionals;
+      dirFiles = dir: map (file: "${dir}/${file}") (builtins.attrNames (builtins.readDir dir));
+      hostHasFile = file: (builtins.pathExists "${self}/${hostname}/${file}");
+    in
       nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
           inherit inputs self;
         };
+
         modules =
           [
-            ./common.nix
             "${self}/${hostname}/configuration.nix"
             "${self}/${hostname}/hardware-configuration.nix"
             inputs.nix-gaming.nixosModules.pipewireLowLatency
           ]
-          ++ nixpkgs.lib.optionals (builtins.pathExists "${self}/${hostname}/home-manager.nix") [
-            "${self}/${hostname}/home-manager.nix"
+          ++ dirFiles ./modules/common
+          ++ opt isDesktop dirFiles ./modules/common-desktop
+          ++ opt (hostHasFile "home-manager.nix") [
             home-manager.nixosModules.home-manager
+            "${self}/${hostname}/home-manager.nix"
           ]
-          ++ nixpkgs.lib.optionals (builtins.pathExists "${self}/${hostname}/stylix.nix") [
+          ++ opt (hostHasFile "stylix.nix") [
             stylix.nixosModules.stylix
             "${self}/${hostname}/stylix.nix"
           ];
       };
   in {
     nixosConfigurations = {
-      "quadraticpc" = system "quadraticpc";
-      "quadtop" = system "quadtop";
+      "quadraticpc" = system "quadraticpc" true;
+      "quadtop" = system "quadtop" true;
     };
 
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;

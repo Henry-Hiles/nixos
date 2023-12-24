@@ -66,8 +66,6 @@
       "[astro]" = {
         "editor.defaultFormatter" = "astro-build.astro-vscode";
       };
-      "prettier.trailingComma" = "none";
-      "prettier.useTabs" = true;
       "editor.minimap.enabled" = false;
       "diffEditor.ignoreTrimWhitespace" = false;
       "editor.unicodeHighlight.nonBasicASCII" = false;
@@ -84,9 +82,8 @@
       };
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = lib.meta.getExe pkgs.nil;
-      "nix.serverSettings"."nil" = {
-        formatting.command = [(lib.meta.getExe pkgs.alejandra)];
-      };
+      "nix.formatterPath" = lib.meta.getExe pkgs.alejandra;
+      "indentRainbow.ignoreErrorLanguages" = ["*"];
     };
   };
 }

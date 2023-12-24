@@ -1,30 +1,11 @@
-{
-  pkgs,
-  self,
-  inputs,
-  ...
-}: {
-  # Shared configuration
-  programs = {
-    command-not-found.dbPath = "/etc/programs.sqlite";
-    fish.enable = true;
+{pkgs, ...}: {
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = "neofetch";
   };
-
-  users = {
-    defaultUserShell = pkgs.fish;
-
-    users.quadradical = {
-      isNormalUser = true;
-      description = "QuadRadical";
-      extraGroups = ["networkmanager" "wheel" "wireshark" "libvirtd" "libvirt" "input" "kvm"];
-    };
-  };
-
   environment = {
-    etc = {
-      "programs.sqlite".source = inputs.programsdb.packages.${pkgs.system}.programs-sqlite;
-      "backup".source = self;
-    };
+    systemPackages = [pkgs.hyfetch];
+    sessionVariables.fish_greeting = "";
     shells = [pkgs.fish];
     shellAliases = {
       # Utility
@@ -32,6 +13,7 @@
       rm = "gio trash";
       free = "free -h";
       ping = "prettyping";
+      neofetch = "neowofetch";
       shutdown = "shutdown now";
 
       # Git
@@ -52,20 +34,6 @@
       config = "$EDITOR ~/.config/nixos/$(hostname)/configuration.nix";
       home-manager = "$EDITOR ~/.config/nixos/$(hostname)/home-manager.nix";
     };
-
-    systemPackages = with pkgs; [
-      micro
-      prettyping
-    ];
   };
-
-  documentation = {
-    info.enable = false;
-    nixos.enable = false;
-  };
-  security.rtkit.enable = true;
-  nixpkgs.config.allowUnfree = true;
-  time.timeZone = "America/Toronto";
-  i18n.defaultLocale = "en_CA.UTF-8";
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  users.defaultUserShell = pkgs.fish;
 }
