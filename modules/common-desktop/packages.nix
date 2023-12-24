@@ -12,6 +12,7 @@
     aspell
     killall
     ripgrep
+    vesktop
     hyfetch
     inkscape
     r2modman
@@ -24,6 +25,7 @@
     virt-manager
     wl-clipboard
     protontricks
+    prismlauncher
     android-studio
     hunspellDicts.en_CA-large
     inputs.nix-gaming.packages.${system}.wine-ge
