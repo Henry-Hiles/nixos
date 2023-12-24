@@ -8,6 +8,10 @@
       flake = false;
     };
     nix-gaming.url = "github:fufexan/nix-gaming";
+    programsdb = {
+      url = "github:wamserma/flake-programs-sqlite";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # wrapper-manager = {
     #   url = "github:viperML/wrapper-manager";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -17,10 +21,6 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     #   inputs.home-manager.follows = "home-manager";
     # };
-    programsdb = {
-      url = "github:wamserma/flake-programs-sqlite";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
