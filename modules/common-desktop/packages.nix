@@ -25,6 +25,7 @@
     protontricks
     prismlauncher
     android-studio
+    mission-center
     hunspellDicts.en_CA-large
     inputs.nix-gaming.packages.${system}.wine-ge
   ];
