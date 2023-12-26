@@ -14,7 +14,6 @@
       ./home-manager/gtk.nix
       ./home-manager/vscode.nix
       ./home-manager/firefox.nix
-      ./home-manager/mangohud.nix
     ];
   };
 }
