@@ -17,7 +17,6 @@
       ./home-manager/git.nix
       ./home-manager/btop.nix
       ./home-manager/vscode.nix
-      ./home-manager/direnv.nix
       ./home-manager/firefox.nix
       ./home-manager/mangohud.nix
       ./home-manager/sway.nix

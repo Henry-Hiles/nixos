@@ -45,10 +45,9 @@
           modules =
             [
               ./wrappers
-              "${self}/${hostname}/configuration.nix"
-              "${self}/${hostname}/hardware-configuration.nix"
               inputs.nix-gaming.nixosModules.pipewireLowLatency
             ]
+            ++ dirFiles "${self}/${hostname}"
             ++ dirFiles ./modules/common
             ++ opt isDesktop (
               (dirFiles ./modules/common-desktop)

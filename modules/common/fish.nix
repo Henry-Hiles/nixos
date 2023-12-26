@@ -1,7 +1,10 @@
 {pkgs, ...}: {
   programs.fish = {
     enable = true;
-    interactiveShellInit = "neofetch";
+    interactiveShellInit = ''
+      direnv hook fish | source
+      neofetch
+    '';
   };
   environment = {
     sessionVariables.fish_greeting = "";
