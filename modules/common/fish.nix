@@ -11,6 +11,7 @@
     shells = [pkgs.fish];
     shellAliases = {
       # Utility
+      ls = "eza";
       cat = "bat";
       rm = "gio trash";
       free = "free -h";
