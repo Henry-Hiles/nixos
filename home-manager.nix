@@ -12,7 +12,6 @@
     sharedModules = [
       {home.stateVersion = "23.11";}
       ./home-manager/gtk.nix
-      ./home-manager/bat.nix
       ./home-manager/eza.nix
       ./home-manager/git.nix
       ./home-manager/btop.nix
