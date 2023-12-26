@@ -19,7 +19,6 @@
       ./home-manager/vscode.nix
       ./home-manager/direnv.nix
       ./home-manager/firefox.nix
-      ./home-manager/neofetch.nix
       ./home-manager/mangohud.nix
       ./home-manager/sway.nix
     ];

@@ -4,7 +4,6 @@
     interactiveShellInit = "neofetch";
   };
   environment = {
-    systemPackages = [pkgs.hyfetch];
     sessionVariables.fish_greeting = "";
     shells = [pkgs.fish];
     shellAliases = {

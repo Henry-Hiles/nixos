@@ -12,10 +12,10 @@
       url = "github:wamserma/flake-programs-sqlite";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # wrapper-manager = {
-    #   url = "github:viperML/wrapper-manager";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    wrapper-manager = {
+      url = "github:viperML/wrapper-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # wrapper-manager-hm-compat = {
     #   url = "github:nrabulinski/wrapper-manager-hm-compat";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -30,33 +30,37 @@
     home-manager,
     ...
   } @ inputs: let
-    opt = nixpkgs.lib.optionals;
-    dirFiles = dir: map (file: "${dir}/${file}") (builtins.attrNames (builtins.readDir dir));
+    dirUtils = {
+      opt = nixpkgs.lib.optionals;
+      dirFiles = dir: map (file: "${dir}/${file}") (builtins.attrNames (builtins.readDir dir));
+    };
     system = hostname: isDesktop:
-      nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {
-          inherit inputs self;
-        };
+      with dirUtils;
+        nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs self isDesktop dirUtils;
+          };
 
-        modules =
-          [
-            "${self}/${hostname}/configuration.nix"
-            "${self}/${hostname}/hardware-configuration.nix"
-            inputs.nix-gaming.nixosModules.pipewireLowLatency
-          ]
-          ++ dirFiles ./modules/common
-          ++ opt isDesktop (
-            (dirFiles ./modules/common-desktop)
-            ++ [
-              stylix.nixosModules.stylix
-              ./stylix.nix
-
-              home-manager.nixosModules.home-manager
-              ./home-manager.nix
+          modules =
+            [
+              ./wrappers
+              "${self}/${hostname}/configuration.nix"
+              "${self}/${hostname}/hardware-configuration.nix"
+              inputs.nix-gaming.nixosModules.pipewireLowLatency
             ]
-          );
-      };
+            ++ dirFiles ./modules/common
+            ++ opt isDesktop (
+              (dirFiles ./modules/common-desktop)
+              ++ [
+                stylix.nixosModules.stylix
+                ./stylix.nix
+
+                home-manager.nixosModules.home-manager
+                ./home-manager.nix
+              ]
+            );
+        };
   in {
     nixosConfigurations = {
       "quadraticpc" = system "quadraticpc" true;

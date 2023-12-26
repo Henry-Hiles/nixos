@@ -12,8 +12,6 @@
     aspell
     killall
     ripgrep
-    vesktop
-    hyfetch
     inkscape
     r2modman
     pciutils
