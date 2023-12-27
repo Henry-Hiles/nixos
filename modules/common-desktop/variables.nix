@@ -1,5 +1,5 @@
 {
   environment.sessionVariables = {
-    MANGOHUD = 1;
+    MANGOHUD = "1";
   };
 }
