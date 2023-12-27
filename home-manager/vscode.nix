@@ -21,6 +21,7 @@
       streetsidesoftware.code-spell-checker
       arcticicestudio.nord-visual-studio-code
     ];
+
     keybindings = [
       {
         key = "ctrl+s";
