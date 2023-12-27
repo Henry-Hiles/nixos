@@ -7,6 +7,8 @@
     '';
   };
   environment = {
+    # systemPackages = with pkgs.fishPlugins; [
+    # ];
     sessionVariables.fish_greeting = "";
     shells = [pkgs.fish];
     shellAliases = {
@@ -23,7 +25,7 @@
       create = "gh repo create";
 
       push = "git push";
-      commit = "git add -A && git commit -am";
+      commit = "git commit -am";
 
       # NixOS
       dev = "nix develop";
