@@ -33,6 +33,7 @@
         command = "-workbench.action.files.save";
       }
     ];
+    
     userSettings = {
       "editor.guides.bracketPairs" = "active";
       "window.dialogStyle" = "custom";
