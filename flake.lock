@@ -240,11 +240,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1703553195,
-        "narHash": "sha256-4iOPcdDwGsiVhHM26a+uSkLmdlrZGCBUabpp4NuCEdU=",
+        "lastModified": 1701611132,
+        "narHash": "sha256-roFYOQhIrZ0DUlWbughOwHzx/PoEMrK0inJbFeuOySg=",
         "owner": "fufexan",
         "repo": "nix-gaming",
-        "rev": "219145d5cba3b597de446fc0ee1d7213713aef43",
+        "rev": "6a885e460cf8596aa23d6f043aa10219494f1da8",
         "type": "github"
       },
       "original": {
@@ -287,44 +287,13 @@
         "type": "github"
       }
     },
-    "nixpkgs-local": {
-      "locked": {
-        "lastModified": 1698689470,
-        "narHash": "sha256-n9AU5+F66M9L+K+nuHd00I5ByGBUJIIJZKGj8L44+Kw=",
-        "ref": "refs/heads/init-monophony",
-        "rev": "14ff056b465b4591bd636d940cbca521acd710b3",
-        "revCount": 542334,
-        "type": "git",
-        "url": "file:/home/quadradical/Documents/Code/nixpkgs?branch=init-monophony"
-      },
-      "original": {
-        "type": "git",
-        "url": "file:/home/quadradical/Documents/Code/nixpkgs?branch=init-monophony"
-      }
-    },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1703134684,
-        "narHash": "sha256-SQmng1EnBFLzS7WSRyPM9HgmZP2kLJcPAz+Ug/nug6o=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "d6863cbcbbb80e71cecfc03356db1cda38919523",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_3": {
-      "locked": {
-        "lastModified": 1703438236,
-        "narHash": "sha256-aqVBq1u09yFhL7bj1/xyUeJjzr92fXVvQSSEx6AdB1M=",
+        "lastModified": 1701436327,
+        "narHash": "sha256-tRHbnoNI8SIM5O5xuxOmtSLnswEByzmnQcGGyNRjxsE=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "5f64a12a728902226210bf01d25ec6cbb9d9265b",
+        "rev": "91050ea1e57e50388fa87a3302ba12d188ef723a",
         "type": "github"
       },
       "original": {
@@ -358,11 +327,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1703672123,
-        "narHash": "sha256-/xhobmb2Bqv6UqPAAVtvMsUw5sgPV2CURGllf22yLJY=",
+        "lastModified": 1701724946,
+        "narHash": "sha256-U5Q21HDFz3Ba31bqYhB/mfiJKOSD0s2Dc4aeNG6CcXo=",
         "owner": "wamserma",
         "repo": "flake-programs-sqlite",
-        "rev": "f484317325850491d0cd5ede2a7417c6c316e1c2",
+        "rev": "7d5f27049db2261da0b2da5a2fcc168ef9511ed2",
         "type": "github"
       },
       "original": {
@@ -376,7 +345,7 @@
         "firefox-gnome-theme": "firefox-gnome-theme",
         "home-manager": "home-manager",
         "nix-gaming": "nix-gaming",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_2",
         "nixpkgs-local": "nixpkgs-local",
         "programsdb": "programsdb",
         "stylix": "stylix",

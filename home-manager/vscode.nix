@@ -9,6 +9,7 @@
     extensions = with pkgs.vscode-extensions; [
       mkhl.direnv
       eamodio.gitlens
+      dart-code.flutter
       jnoortheen.nix-ide
       timonwong.shellcheck
       usernamehw.errorlens
