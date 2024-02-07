@@ -34,7 +34,7 @@
       }
     ];
     
-    userSettings = {
+    userSettings = lib.mkForce {
       "editor.guides.bracketPairs" = "active";
       "window.dialogStyle" = "custom";
       "editor.inlineSuggest.enabled" = true;
@@ -87,6 +87,7 @@
       "nix.serverPath" = lib.meta.getExe pkgs.nil;
       "nix.formatterPath" = lib.meta.getExe pkgs.alejandra;
       "indentRainbow.ignoreErrorLanguages" = ["*"];
+      "dart.runPubGetOnPubspecChanges" = "never";
     };
   };
 }

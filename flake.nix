@@ -15,11 +15,6 @@
       url = "github:viperML/wrapper-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # wrapper-manager-hm-compat = {
-    #   url = "github:nrabulinski/wrapper-manager-hm-compat";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.home-manager.follows = "home-manager";
-    # };
   };
 
   outputs = {
