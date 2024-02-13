@@ -4,6 +4,7 @@
     flags = [
       "--all"
       "--icons"
+      "--hyperlink"
       "--color=always"
       "--group-directories-first"
     ];
