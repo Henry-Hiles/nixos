@@ -18,7 +18,7 @@
     pciutils
     monophony
     alejandra
-    grapejuice
+    nodejs_21
     impression
     libreoffice
     virt-manager
