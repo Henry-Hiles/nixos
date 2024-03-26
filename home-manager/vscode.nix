@@ -33,7 +33,7 @@
         command = "-workbench.action.files.save";
       }
     ];
-    
+
     userSettings = lib.mkForce {
       "editor.guides.bracketPairs" = "active";
       "window.dialogStyle" = "custom";

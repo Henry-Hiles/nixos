@@ -1,9 +1,9 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs.gnomeExtensions; [
+    open-bar
     caffeine
     pop-shell
     appindicator
-    search-light
     blur-my-shell
     just-perfection
     burn-my-windows
