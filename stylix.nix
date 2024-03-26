@@ -7,6 +7,7 @@
     cursor = {
       name = "GoogleDot-Blue";
       package = pkgs.google-cursor;
+      size = 24;
     };
 
     fonts = {
