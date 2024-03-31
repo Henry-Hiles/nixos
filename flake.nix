@@ -7,6 +7,7 @@
       flake = false;
     };
     nix-gaming.url = "github:fufexan/nix-gaming";
+    bluebuild.url = "github:blue-build/cli";
     programsdb = {
       url = "github:wamserma/flake-programs-sqlite";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -12,7 +12,7 @@
             <allow_inactive>auth_admin_keep</allow_inactive>
             <allow_active>auth_admin_keep</allow_active>
           </defaults>
-          <annotate key='org.freedesktop.policykit.exec.path'>/run/current-system/sw/bin/flatpak</annotate>
+          <annotate key='org.freedesktop.policykit.exec.path'>/home/quadradical/.local/bin/rebuildExec</annotate>
         </action>
       </policyconfig>
     '')

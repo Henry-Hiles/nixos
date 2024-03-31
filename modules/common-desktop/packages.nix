@@ -21,7 +21,6 @@
     nodejs_21
     impression
     libreoffice
-    virt-manager
     wl-clipboard
     protontricks
     prismlauncher
@@ -30,6 +29,7 @@
     nodePackages_latest.pnpm
     hunspellDicts.en_CA-large
     inputs.nix-gaming.packages.${system}.wine-ge
+    inputs.bluebuild.packages.${system}.bluebuild
     (retroarch.override {cores = with libretro; [bsnes-hd];})
   ];
 }

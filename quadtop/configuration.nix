@@ -17,6 +17,5 @@
   };
 
   services.xserver.videoDrivers = ["nvidia"];
-  virtualisation.libvirtd.enable = true;
   networking.hostName = "quadtop";
 }
