@@ -3,6 +3,7 @@
   inputs,
   ...
 }: {
+  programs.gamemode.enable = true;
   environment.systemPackages = with pkgs; [
     fd
     tldr
@@ -10,15 +11,16 @@
     gimp
     heroic
     aspell
+    muzika
     fractal
     killall
     ripgrep
+    foliate
     inkscape
     r2modman
     pciutils
-    monophony
     alejandra
-    nodejs_21
+    nodejs_22
     impression
     libreoffice
     wl-clipboard
@@ -29,7 +31,6 @@
     nodePackages_latest.pnpm
     hunspellDicts.en_CA-large
     inputs.nix-gaming.packages.${system}.wine-ge
-    inputs.bluebuild.packages.${system}.bluebuild
     (retroarch.override {cores = with libretro; [bsnes-hd];})
   ];
 }
