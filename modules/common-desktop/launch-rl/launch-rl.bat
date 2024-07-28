@@ -1,6 +1,6 @@
 @echo off
 
-set RL_PATH="Z:\home\quadradical\Documents\My Games\Rocket League\Binaries\Win64"
+set RL_PATH="Z:\home\quadradical\Documents\Games\rocketleague\Binaries\Win64"
 
 echo Launching BakkesMod...
 C:
