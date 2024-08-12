@@ -35,6 +35,7 @@
     ];
 
     userSettings = lib.mkForce {
+      "redhat.telemetry.enabled" = false;
       "editor.guides.bracketPairs" = "active";
       "window.dialogStyle" = "custom";
       "editor.inlineSuggest.enabled" = true;
@@ -68,6 +69,9 @@
       "editor.wordWrap" = "on";
       "[astro]" = {
         "editor.defaultFormatter" = "astro-build.astro-vscode";
+      };
+      "[yaml]" = {
+        "editor.defaultFormatter" = "redhat.vscode-yaml";
       };
       "editor.minimap.enabled" = false;
       "diffEditor.ignoreTrimWhitespace" = false;

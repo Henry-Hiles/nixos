@@ -9,6 +9,7 @@
     tldr
     tuba
     gimp
+    dart
     heroic
     aspell
     muzika
