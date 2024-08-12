@@ -5,8 +5,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "Henry-Hiles";
           repo = "hid-tmff2";
-          rev = "5fee95681a0091e42ecd60731db7b797fcde9d81";
-          hash = "sha256-KD+NG/GR/K1PkBUkhUrob5KrHDM6IHBFmcNbByBW57g=";
+          rev = "6330a91071df2ecbf725791b7194f85adb9e1078";
+          hash = "sha256-/JLKIc2ZPRjbyPaXXaV4U/hQ595ZshG3RW5iX9V7U4o=";
           fetchSubmodules = true;
         };
       }))
