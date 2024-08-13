@@ -3,14 +3,15 @@
     (pkgs.linuxKernel.packages.linux_zen.hid-tmff2.overrideAttrs
       (prev: {
         src = pkgs.fetchFromGitHub {
-          owner = "Henry-Hiles";
+          owner = "Kimplul";
           repo = "hid-tmff2";
-          rev = "6330a91071df2ecbf725791b7194f85adb9e1078";
-          hash = "sha256-/JLKIc2ZPRjbyPaXXaV4U/hQ595ZshG3RW5iX9V7U4o=";
+          rev = "cc4226299569b5a1402c0b937c6b3a2e0f246af4";
+          hash = "sha256-Hv6eLbf5K9qGhweKHHf7IpZaCFsLMCvC0vxBapQOSpQ=";
           fetchSubmodules = true;
         };
       }))
   ];
 
   environment.systemPackages = [pkgs.oversteer];
+  services.udev.packages = [pkgs.oversteer];
 }
