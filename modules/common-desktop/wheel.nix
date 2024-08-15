@@ -12,6 +12,6 @@
       }))
   ];
 
-  environment.systemPackages = [pkgs.oversteer];
+  environment.systemPackages = with pkgs; [oversteer linuxConsoleTools];
   services.udev.packages = [pkgs.oversteer];
 }

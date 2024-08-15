@@ -8,5 +8,6 @@
     burn-my-windows
     fullscreen-avoider
     compiz-windows-effect
+    rounded-window-corners-reborn
   ];
 }
