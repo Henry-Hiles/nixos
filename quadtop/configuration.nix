@@ -16,12 +16,6 @@
     dynamicBoost.enable = true;
   };
 
-  users.users.nadine = {
-    isNormalUser = true;
-    description = "Nadine";
-    extraGroups = ["networkmanager"];
-  };
-
   environment.sessionVariables.GAMEMODERUNEXEC = "nvidia-offload";
   services.xserver.videoDrivers = ["nvidia"];
   networking.hostName = "quadtop";

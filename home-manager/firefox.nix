@@ -20,7 +20,7 @@
 
       search = {
         force = true;
-        default = "DuckDuckGo";
+        default = "LibreY";
         engines = {
           "Nix Package Search" = {
             urls = [
@@ -76,7 +76,13 @@
             definedAliases = ["@hm"];
           };
 
+          "LibreY" = {
+            urls = [{template = "https://search.winscloud.net/search.php?q={searchTerms}";}];
+            iconUpdateURL = "https://search.winscloud.net/favicon.ico";
+          };
+
           "Bing".metaData.hidden = true;
+          "DuckDuckGo".metaData.hidden = true;
           "Google".metaData.hidden = true;
           "Amazon.ca".metaData.hidden = true;
           "eBay".metaData.hidden = true;
