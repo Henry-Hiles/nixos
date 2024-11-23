@@ -82,7 +82,6 @@
           };
 
           "Bing".metaData.hidden = true;
-          "DuckDuckGo".metaData.hidden = true;
           "Google".metaData.hidden = true;
           "Amazon.ca".metaData.hidden = true;
           "eBay".metaData.hidden = true;

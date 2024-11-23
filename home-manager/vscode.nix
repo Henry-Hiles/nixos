@@ -92,6 +92,7 @@
       "nix.formatterPath" = lib.meta.getExe pkgs.alejandra;
       "indentRainbow.ignoreErrorLanguages" = ["*"];
       "dart.runPubGetOnPubspecChanges" = "never";
+      "dart.debugExternalPackageLibraries" = true;
     };
   };
 }
