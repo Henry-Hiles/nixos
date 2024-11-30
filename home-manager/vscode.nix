@@ -86,6 +86,7 @@
       "window.zoomLevel" = 1;
       "[nix]" = {
         "editor.formatOnSave" = true;
+        "editor.defaultFormatter" = "jnoortheen.nix-ide";
       };
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = lib.meta.getExe pkgs.nil;
