@@ -90,7 +90,11 @@
       };
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = lib.meta.getExe pkgs.nil;
-      "nix.formatterPath" = lib.meta.getExe pkgs.alejandra;
+      "nix.serverSettings" = {
+        "nil" = {
+          "formatting" = {"command" = ["alejandra"];};
+        };
+      };
       "indentRainbow.ignoreErrorLanguages" = ["*"];
       "dart.runPubGetOnPubspecChanges" = "never";
       "dart.debugExternalPackageLibraries" = true;
