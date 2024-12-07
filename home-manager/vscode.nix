@@ -35,6 +35,8 @@
     ];
 
     userSettings = lib.mkForce {
+      "dart.debugExternalPackageLibraries" = true;
+      "dart.debugSdkLibraries" = true;
       "redhat.telemetry.enabled" = false;
       "editor.guides.bracketPairs" = "active";
       "window.dialogStyle" = "custom";

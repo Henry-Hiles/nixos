@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs.gnomeExtensions; [
     caffeine
+    open-bar
     pop-shell
     appindicator
     blur-my-shell
