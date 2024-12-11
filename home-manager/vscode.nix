@@ -99,7 +99,6 @@
       };
       "indentRainbow.ignoreErrorLanguages" = ["*"];
       "dart.runPubGetOnPubspecChanges" = "never";
-      "dart.debugExternalPackageLibraries" = true;
     };
   };
 }
