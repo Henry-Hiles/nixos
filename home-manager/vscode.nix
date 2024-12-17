@@ -52,6 +52,7 @@
       "explorer.confirmDelete" = false;
       "workbench.sideBar.location" = "right";
       "git.enableSmartCommit" = true;
+      "git.openRepositoryInParentFolders" = "never";
       "explorer.confirmDragAndDrop" = false;
       "javascript.updateImportsOnFileMove.enabled" = "always";
       "editor.insertSpaces" = false;
