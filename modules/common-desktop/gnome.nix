@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  hardware.i2c.enable = true;
   environment.systemPackages = with pkgs.gnomeExtensions; [
     caffeine
     open-bar
@@ -10,5 +11,6 @@
     fullscreen-avoider
     compiz-windows-effect
     rounded-window-corners-reborn
+    brightness-control-using-ddcutil
   ];
 }

@@ -13,6 +13,7 @@
     heroic
     aspell
     muzika
+    ddcutil
     fractal
     killall
     ripgrep
