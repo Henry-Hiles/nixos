@@ -13,7 +13,6 @@
     heroic
     aspell
     muzika
-    ddcutil
     fractal
     killall
     ripgrep
@@ -29,6 +28,7 @@
     protontricks
     prismlauncher
     android-studio
+    nexusmods-app-unfree
     nodePackages_latest.pnpm
     hunspellDicts.en_CA-large
     inputs.nix-gaming.packages.${system}.wine-ge
