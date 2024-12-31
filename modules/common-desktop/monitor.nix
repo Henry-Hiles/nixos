@@ -4,14 +4,17 @@
   ...
 }: {
   hardware.i2c.enable = true;
-  systemd.services.monitor = {
-    script = "if [[ $(${pkgs.coreutils}/bin/date +%H) -ge 20 ]]; then ${lib.meta.getExe pkgs.ddcutil} setvcp D6 05; fi";
-    wantedBy = ["suspend.target" "shutdown.target"];
-    before = ["suspend.target" "shutdown.target"];
+  systemd.services.monitor-off = rec {
+    script = "${lib.meta.getExe pkgs.ddcutil} setvcp D6 05";
+    wantedBy = ["sleep.target" "poweroff.target"];
+    before = wantedBy;
 
-    serviceConfig = {
-      StopWhenUnneeded = true;
-      Type = "oneshot";
-    };
+    serviceConfig = {Type = "oneshot";};
+  };
+
+  systemd.services.monitor-on = rec {
+    script = "${lib.meta.getExe pkgs.ddcutil} setvcp D6 01";
+    wantedBy = ["sleep.target" "multi-user.target"];
+    after = wantedBy;
   };
 }
