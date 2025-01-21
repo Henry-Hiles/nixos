@@ -4,12 +4,15 @@
   ...
 }: {
   programs.gamemode.enable = true;
+
+  services.xserver.excludePackages = [pkgs.xterm];
   environment.systemPackages = with pkgs; [
     fd
     tldr
     tuba
     gimp
     dart
+    ptyxis
     heroic
     aspell
     muzika
@@ -20,6 +23,7 @@
     inkscape
     r2modman
     pciutils
+    resources
     alejandra
     nodejs_22
     impression
