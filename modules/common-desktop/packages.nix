@@ -11,6 +11,7 @@
     tldr
     tuba
     gimp
+    deno
     dart
     ptyxis
     heroic
@@ -25,7 +26,6 @@
     pciutils
     resources
     alejandra
-    nodejs_22
     impression
     libreoffice
     wl-clipboard
@@ -33,7 +33,6 @@
     prismlauncher
     android-studio
     nexusmods-app-unfree
-    nodePackages_latest.pnpm
     hunspellDicts.en_CA-large
     inputs.nix-gaming.packages.${system}.wine-ge
   ];
