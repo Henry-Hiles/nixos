@@ -29,8 +29,8 @@
 
       # NixOS
       dev = "nix develop";
-      garbage = "sudo nix-collect-garbage -d && nix-collect-garbage -d";
-      rebuild = "sudo nixos-rebuild switch --flake ~/.config/nixos/#";
+      garbage = "run0 nix-collect-garbage -d && nix-collect-garbage -d";
+      rebuild = "run0 nixos-rebuild switch --flake ~/.config/nixos/#";
     };
   };
   users.defaultUserShell = pkgs.fish;
