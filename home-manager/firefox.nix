@@ -1,6 +1,6 @@
 {
-  pkgs,
   inputs,
+  pkgs,
   ...
 }: {
   home.file.".mozilla/firefox/quadradical/chrome/firefox-gnome-theme".source = inputs.firefox-gnome-theme;
@@ -10,13 +10,6 @@
     enable = true;
     profiles.quadradical = {
       isDefault = true;
-      userChrome = ''
-        @import "firefox-gnome-theme/userChrome.css";
-        @import "nord.css"
-      '';
-      userContent = ''
-        @import "firefox-gnome-theme/userContent.css";
-      '';
 
       search = {
         force = true;
@@ -87,13 +80,14 @@
           "eBay".metaData.hidden = true;
         };
       };
-      settings = {
-        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-        "svg.context-properties.content.enabled" = true;
-        "browser.uidensity" = 0;
-        "browser.uiCustomization.state" = "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"downloads-button\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\"],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"save-to-pocket-button\",\"developer-button\"],\"dirtyAreaCache\":[\"nav-bar\",\"PersonalToolbar\",\"toolbar-menubar\",\"TabsToolbar\"],\"currentVersion\":19}";
-        "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
-      };
+
+      userChrome = ''
+        @import "firefox-gnome-theme/userChrome.css";
+        @import "nord.css"
+      '';
+      userContent = ''
+        @import "firefox-gnome-theme/userContent.css";
+      '';
     };
   };
 }

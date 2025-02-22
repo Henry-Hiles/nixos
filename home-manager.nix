@@ -14,7 +14,7 @@
       ./home-manager/gtk.nix
       ./home-manager/vscode.nix
       ./home-manager/firefox.nix
-	    {stylix.targets.hyprland.enable = false;}
+      {stylix.targets.hyprland.enable = false;}
     ];
   };
 }
