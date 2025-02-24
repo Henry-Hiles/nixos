@@ -28,9 +28,9 @@
       commit = "git commit -am";
 
       # NixOS
-      dev = "nix develop";
       garbage = "run0 nix-collect-garbage -d && nix-collect-garbage -d";
       rebuild = "run0 nixos-rebuild switch --flake ~/.config/nixos/#";
+      update = "pushd ~/.config/nixos && nix flake update && rebuild && popd";
     };
   };
   users.defaultUserShell = pkgs.fish;

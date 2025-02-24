@@ -1,4 +1,29 @@
 {lib, ...}: {
+  # From https://hedgedoc.grimmauld.de/s/rVnTq0-Rs
+  nixpkgs.overlays = lib.singleton (final: prev: {
+    firefox = prev.firefox.overrideAttrs (old: {
+      nativeBuildInputs = (old.nativeBuildInputs or []) ++ (with prev; [zip unzip gnused]);
+      buildCommand =
+        ''
+          export buildRoot="$(pwd)"
+        ''
+        + old.buildCommand
+        + ''
+          pushd $buildRoot
+          unzip $out/lib/firefox/browser/omni.ja -d patched_omni || ret=$?
+          if [[ $ret && $ret -ne 2 ]]; then
+            echo "unzip exited with unexpected error"
+            exit $ret
+          fi
+          rm $out/lib/firefox/browser/omni.ja
+          cd patched_omni
+          sed -i 's/"enterprise_only"\s*:\s*true,//' modules/policies/schema.sys.mjs
+          zip -0DXqr $out/lib/firefox/browser/omni.ja * # potentially qr9XD
+          popd
+        '';
+    });
+  });
+
   programs.firefox = {
     enable = true;
 
@@ -65,41 +90,40 @@
           "enhancerforyoutube@maximerf.addons.mozilla.org"
         ]));
 
-      # Have to disable search engines for now because mozilla stupidly only supports it on ESR...
-
-      # SearchEngines = {
-      #   Default = "DuckDuckGo";
-      #   Remove = ["Bing" "Google" "Amazon.ca" "eBay"];
-      #   Add = [
-      #     {
-      #       Name = "Nix Package Search";
-      #       URLTemplate = "https://search.nixos.org/packages?channel=unstable&query={searchTerms}";
-      #       IconURL = "https://github.com/NixOS/nixos-artwork/raw/refs/heads/master/logo/nix-snowflake-white.svg";
-      #       Alias = "np";
-      #     }
-      #     {
-      #       Name = "NixOS Option Search";
-      #       URLTemplate = "https://search.nixos.org/options?channel=unstable&query={searchTerms}";
-      #       IconURL = "https://github.com/NixOS/nixos-artwork/raw/refs/heads/master/logo/nix-snowflake-white.svg";
-      #       Alias = "no";
-      #     }
-      #     {
-      #       Name = "NixOS Wiki";
-      #       URLTemplate = "https://nixos.wiki/index.php?search={searchTerms}";
-      #       IconURL = "https://github.com/NixOS/nixos-artwork/raw/refs/heads/master/logo/nix-snowflake-white.svg";
-      #       Alias = "nw";
-      #     }
-      #     {
-      #       Name = "Home Manager Option Search";
-      #       URLTemplate = "https://mipmip.github.io/home-manager-option-search?query={searchTerms}";
-      #       IconURL = "https://github.com/NixOS/nixos-artwork/raw/refs/heads/master/logo/nix-snowflake-white.svg";
-      #       Alias = "hm";
-      #     }
-      #   ];
-      # };
+      SearchEngines = {
+        Default = "DuckDuckGo";
+        Remove = ["Bing" "Google" "Amazon.ca" "eBay"];
+        Add = [
+          {
+            Name = "Nix Package Search";
+            URLTemplate = "https://search.nixos.org/packages?channel=unstable&query={searchTerms}";
+            IconURL = "https://github.com/NixOS/nixos-artwork/raw/refs/heads/master/logo/nix-snowflake-white.svg";
+            Alias = "np";
+          }
+          {
+            Name = "NixOS Option Search";
+            URLTemplate = "https://search.nixos.org/options?channel=unstable&query={searchTerms}";
+            IconURL = "https://github.com/NixOS/nixos-artwork/raw/refs/heads/master/logo/nix-snowflake-white.svg";
+            Alias = "no";
+          }
+          {
+            Name = "NixOS Wiki";
+            URLTemplate = "https://nixos.wiki/index.php?search={searchTerms}";
+            IconURL = "https://github.com/NixOS/nixos-artwork/raw/refs/heads/master/logo/nix-snowflake-white.svg";
+            Alias = "nw";
+          }
+          {
+            Name = "Home Manager Option Search";
+            URLTemplate = "https://mipmip.github.io/home-manager-option-search?query={searchTerms}";
+            IconURL = "https://github.com/NixOS/nixos-artwork/raw/refs/heads/master/logo/nix-snowflake-white.svg";
+            Alias = "hm";
+          }
+        ];
+      };
 
       Preferences = {
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        "browser.uiCustomization.state" = "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"downloads-button\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\"],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"save-to-pocket-button\",\"developer-button\"],\"dirtyAreaCache\":[\"nav-bar\",\"PersonalToolbar\",\"toolbar-menubar\",\"TabsToolbar\"],\"currentVersion\":19}";
       };
     };
   };
