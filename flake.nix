@@ -28,16 +28,12 @@
       opt = nixpkgs.lib.optionals;
       dirFiles = dir: map (file: "${dir}/${file}") (builtins.attrNames (builtins.readDir dir));
     };
-    nixpkgs-teams = import inputs.nixpkgs-teams {
-      system = "x86_64-linux";
-      config.allowUnfree = true;
-    };
     system = hostname: isDesktop:
       with dirUtils;
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = {
-            inherit inputs self isDesktop dirUtils nixpkgs-teams;
+            inherit inputs self isDesktop dirUtils;
           };
 
           modules =
