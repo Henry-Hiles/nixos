@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   wrappers.neofetch = {
-    basePackage = pkgs.hyfetch;
+    basePackage = pkgs.hyfetch; # Neowofetch
     flags = [
       "--config"
       ./neofetch.conf

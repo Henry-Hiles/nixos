@@ -1,0 +1,10 @@
+[
+    {
+        "command": "workbench.action.files.saveAll",
+        "key": "ctrl+s"
+    },
+    {
+        "command": "-workbench.action.files.save",
+        "key": "ctrl+s"
+    }
+]

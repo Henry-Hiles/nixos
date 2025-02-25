@@ -6,10 +6,8 @@
       neofetch
     '';
   };
+
   environment = {
-    # systemPackages = with pkgs.fishPlugins; [
-    # ];
-    sessionVariables.fish_greeting = "";
     shells = [pkgs.fish];
     shellAliases = {
       # Utility

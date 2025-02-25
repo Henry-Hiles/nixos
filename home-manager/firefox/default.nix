@@ -1,6 +1,6 @@
 {inputs, ...}: {
   home.file.".mozilla/firefox/quadradical/chrome/firefox-gnome-theme".source = inputs.firefox-gnome-theme;
-  home.file.".mozilla/firefox/quadradical/chrome/nord.css".source = ./firefox-nord.css;
+  home.file.".mozilla/firefox/quadradical/chrome/nord.css".source = ./nord.css;
 
   programs.firefox = {
     enable = true;
