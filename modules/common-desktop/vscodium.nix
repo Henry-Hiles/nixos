@@ -1,40 +1,10 @@
 {
-  pkgs,
   lib,
+  pkgs,
   ...
 }: {
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscodium;
-    extensions = with pkgs.vscode-extensions; [
-      mkhl.direnv
-      eamodio.gitlens
-      dart-code.flutter
-      jnoortheen.nix-ide
-      timonwong.shellcheck
-      usernamehw.errorlens
-      ritwickdey.liveserver
-      dbaeumer.vscode-eslint
-      esbenp.prettier-vscode
-      oderwat.indent-rainbow
-      astro-build.astro-vscode
-      pkief.material-icon-theme
-      streetsidesoftware.code-spell-checker
-      arcticicestudio.nord-visual-studio-code
-    ];
-
-    keybindings = [
-      {
-        key = "ctrl+s";
-        command = "workbench.action.files.saveAll";
-      }
-      {
-        key = "ctrl+s";
-        command = "-workbench.action.files.save";
-      }
-    ];
-
-    userSettings = lib.mkForce {
+  systemd.tmpfiles.settings.vscodium = {
+    "/home/quadradical/.config/VSCodium/User/settings.json"."f+".argument = builtins.toJSON {
       "dart.debugExternalPackageLibraries" = true;
       "dart.debugSdkLibraries" = true;
       "redhat.telemetry.enabled" = false;
@@ -101,5 +71,16 @@
       "indentRainbow.ignoreErrorLanguages" = ["*"];
       "dart.runPubGetOnPubspecChanges" = "never";
     };
+
+    "/home/quadradical/.config/VSCodium/User/keybindings.json"."f+".argument = builtins.toJSON [
+      {
+        key = "ctrl+s";
+        command = "workbench.action.files.saveAll";
+      }
+      {
+        key = "ctrl+s";
+        command = "-workbench.action.files.save";
+      }
+    ];
   };
 }
