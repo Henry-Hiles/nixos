@@ -1,4 +1,9 @@
-{lib, ...}: {
+{
+  lib,
+  inputs,
+  self,
+  ...
+}: {
   # From https://hedgedoc.grimmauld.de/s/rVnTq0-Rs
   nixpkgs.overlays = lib.singleton (final: prev: {
     firefox = prev.firefox.overrideAttrs (old: {
@@ -23,6 +28,12 @@
         '';
     });
   });
+
+  systemd.tmpfiles.settings.firefox = {
+    "/home/quadradical/.mozilla/firefox/quadradical/chrome"."D".user = "quadradical";
+    "/home/quadradical/.mozilla/firefox/quadradical/chrome/userChrome.css"."f+".argument = "@import '${self}/nord.css';@import '${inputs.firefox-gnome-theme}/userChrome.css';";
+    "/home/quadradical/.mozilla/firefox/quadradical/chrome/userContent.css"."f+".argument = "@import '${inputs.firefox-gnome-theme}/userContent.css'";
+  };
 
   programs.firefox = {
     enable = true;
