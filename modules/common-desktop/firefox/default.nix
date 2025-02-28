@@ -1,7 +1,7 @@
 {
   lib,
+  pkgs,
   inputs,
-  self,
   ...
 }: {
   # From https://hedgedoc.grimmauld.de/s/rVnTq0-Rs
@@ -29,11 +29,12 @@
     });
   });
 
-  systemd.tmpfiles.settings.firefox = {
-    "/home/quadradical/.mozilla/firefox/quadradical/chrome"."D".user = "quadradical";
-    "/home/quadradical/.mozilla/firefox/quadradical/chrome/userChrome.css"."f+".argument = "@import '${self}/nord.css';@import '${inputs.firefox-gnome-theme}/userChrome.css';";
-    "/home/quadradical/.mozilla/firefox/quadradical/chrome/userContent.css"."f+".argument = "@import '${inputs.firefox-gnome-theme}/userContent.css'";
-  };
+  systemd.tmpfiles.settings.firefox."/home/quadradical/.mozilla/firefox/quadradical/chrome"."L+".argument =
+    toString
+    (pkgs.symlinkJoin {
+      name = "firefox-gnome-theme";
+      paths = [./. inputs.firefox-gnome-theme];
+    });
 
   programs.firefox = {
     enable = true;
@@ -133,6 +134,7 @@
       };
 
       Preferences = {
+        "gnomeTheme.oledBlack" = true; # Enable nord theme
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         "browser.uiCustomization.state" = "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"downloads-button\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\"],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"save-to-pocket-button\",\"developer-button\"],\"dirtyAreaCache\":[\"nav-bar\",\"PersonalToolbar\",\"toolbar-menubar\",\"TabsToolbar\"],\"currentVersion\":19}";
       };
