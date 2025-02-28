@@ -3,6 +3,28 @@
   pkgs,
   ...
 }: {
+  environment.systemPackages = with pkgs; [
+    (vscode-with-extensions.override {
+      vscode = vscodium;
+      vscodeExtensions = with vscode-extensions; [
+        mkhl.direnv
+        eamodio.gitlens
+        dart-code.flutter
+        jnoortheen.nix-ide
+        timonwong.shellcheck
+        usernamehw.errorlens
+        ritwickdey.liveserver
+        dbaeumer.vscode-eslint
+        esbenp.prettier-vscode
+        oderwat.indent-rainbow
+        astro-build.astro-vscode
+        pkief.material-icon-theme
+        streetsidesoftware.code-spell-checker
+        arcticicestudio.nord-visual-studio-code
+      ];
+    })
+  ];
+
   systemd.tmpfiles.settings.vscodium = {
     "/home/quadradical/.config/VSCodium/User/settings.json"."f+".argument = builtins.toJSON {
       "dart.debugExternalPackageLibraries" = true;
