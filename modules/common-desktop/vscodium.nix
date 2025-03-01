@@ -26,6 +26,7 @@
   ];
 
   systemd.tmpfiles.settings.vscodium = {
+    "/home/quadradical/.config/VSCodium/User"."D".user = "quadradical";
     "/home/quadradical/.config/VSCodium/User/settings.json"."f+".argument = builtins.toJSON {
       "dart.debugExternalPackageLibraries" = true;
       "dart.debugSdkLibraries" = true;

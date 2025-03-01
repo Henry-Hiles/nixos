@@ -29,15 +29,38 @@
     });
   });
 
-  systemd.tmpfiles.settings.firefox."/home/quadradical/.mozilla/firefox/quadradical/chrome"."L+".argument =
-    toString
-    (pkgs.symlinkJoin {
-      name = "firefox-gnome-theme";
-      paths = [./. inputs.firefox-gnome-theme];
+  systemd.tmpfiles.settings.firefox = {
+    "/home/quadradical/.mozilla"."D".user = "quadradical";
+    "/home/quadradical/.mozilla/firefox"."D".user = "quadradical";
+    "/home/quadradical/.mozilla/firefox/quadradical"."D".user = "quadradical";
+    "/home/quadradical/.mozilla/firefox/profiles.ini"."f+".argument = builtins.toJSON (lib.generators.toINI {} {
+      General = {
+        StartWithLastProfile = 1;
+      };
+      Profile0 = {
+        Default = 1;
+        IsRelative = 1;
+        Name = "quadradical";
+        Path = "quadradical";
+      };
     });
+    "/home/quadradical/.mozilla/firefox/quadradical/chrome"."L+".argument =
+      toString
+      (pkgs.symlinkJoin {
+        name = "firefox-gnome-theme";
+        paths = [./. inputs.firefox-gnome-theme];
+      });
+  };
 
   programs.firefox = {
     enable = true;
+
+    # autoConfig = lib.concatStringsSep "\n" (lib.mapAttrsToList (pref: value: "lockPref(\"${pref}\", ${builtins.toJSON value});") {
+    preferences = {
+      "browser.aboutConfig.showWarning" = false;
+      "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+      "browser.uiCustomization.state" = "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"downloads-button\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\"],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"save-to-pocket-button\",\"developer-button\"],\"dirtyAreaCache\":[\"nav-bar\",\"PersonalToolbar\",\"toolbar-menubar\",\"TabsToolbar\"],\"currentVersion\":19}";
+    };
 
     policies = {
       ShowHomeButton = false;
@@ -65,6 +88,16 @@
         Fingerprinting = true;
       };
 
+      UserMessaging = {
+        WhatsNew = false;
+        ExtensionRecommendations = false;
+        FeatureRecommendations = false;
+        UrlbarInterventions = false;
+        SkipOnboarding = true;
+        MoreFromMozilla = false;
+        FirefoxLabs = false;
+      };
+
       FirefoxHome = {
         TopSites = true;
         SponsoredTopSites = false;
@@ -82,7 +115,7 @@
         Locked = true;
       };
 
-      ExtensionSettings = lib.mkForce (lib.listToAttrs (lib.map (id: {
+      ExtensionSettings = lib.mkForce (lib.listToAttrs (map (id: {
           name = id;
           value = {
             install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/${id}/latest.xpi";
@@ -111,6 +144,12 @@
             URLTemplate = "https://search.nixos.org/packages?channel=unstable&query={searchTerms}";
             IconURL = "https://github.com/NixOS/nixos-artwork/raw/refs/heads/master/logo/nix-snowflake-white.svg";
             Alias = "np";
+            preferences = {
+              "gnomeTheme.oledBlack" = true; # Enable nord theme
+              "svg.context-properties.content.enabled" = true;
+              "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+              "browser.uiCustomization.state" = "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"downloads-button\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\"],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"save-to-pocket-button\",\"developer-button\"],\"dirtyAreaCache\":[\"nav-bar\",\"PersonalToolbar\",\"toolbar-menubar\",\"TabsToolbar\"],\"currentVersion\":19}";
+            };
           }
           {
             Name = "NixOS Option Search";
@@ -131,12 +170,6 @@
             Alias = "hm";
           }
         ];
-      };
-
-      Preferences = {
-        "gnomeTheme.oledBlack" = true; # Enable nord theme
-        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-        "browser.uiCustomization.state" = "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"downloads-button\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\"],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"save-to-pocket-button\",\"developer-button\"],\"dirtyAreaCache\":[\"nav-bar\",\"PersonalToolbar\",\"toolbar-menubar\",\"TabsToolbar\"],\"currentVersion\":19}";
       };
     };
   };
