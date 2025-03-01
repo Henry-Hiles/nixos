@@ -16,6 +16,7 @@
     dynamicBoost.enable = true;
   };
 
+  programs.gamemode.enable = true;
   environment.sessionVariables.GAMEMODERUNEXEC = "nvidia-offload";
   services.xserver.videoDrivers = ["nvidia"];
   networking.hostName = "quadtop";

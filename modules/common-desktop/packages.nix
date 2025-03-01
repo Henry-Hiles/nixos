@@ -3,8 +3,6 @@
   inputs,
   ...
 }: {
-  programs.gamemode.enable = true;
-
   services.xserver.excludePackages = [pkgs.xterm];
   environment.systemPackages = with pkgs; [
     fd
