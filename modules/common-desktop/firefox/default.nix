@@ -30,9 +30,7 @@
   });
 
   systemd.tmpfiles.settings.firefox = {
-    "/home/quadradical/.mozilla"."D".user = "quadradical";
-    "/home/quadradical/.mozilla/firefox"."D".user = "quadradical";
-    "/home/quadradical/.mozilla/firefox/quadradical"."D".user = "quadradical";
+    # "/home/quadradical/.mozilla/firefox/quadradical"."d".user = "quadradical";
     "/home/quadradical/.mozilla/firefox/profiles.ini"."f+".argument = builtins.toJSON (lib.generators.toINI {} {
       General = {
         StartWithLastProfile = 1;

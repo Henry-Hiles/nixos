@@ -16,6 +16,7 @@
       fullscreen-avoider
       compiz-windows-effect
       rounded-window-corners-reborn
+      pkgs.ddcutil
       brightness-control-using-ddcutil
     ];
 
