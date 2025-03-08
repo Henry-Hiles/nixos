@@ -1,5 +1,3 @@
 {pkgs, ...}: {
-  services.udev.packages = [
-    pkgs.android-udev-rules
-  ];
+  services.udev.packages = [pkgs.android-udev-rules];
 }

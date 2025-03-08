@@ -35,11 +35,11 @@
       General = {
         StartWithLastProfile = 1;
       };
-      Profile0 = {
+      Profile0 = rec {
         Default = 1;
         IsRelative = 1;
         Name = "quadradical";
-        Path = "quadradical";
+        Path = Name;
       };
     });
     "/home/quadradical/.mozilla/firefox/quadradical/chrome"."L+".argument =
@@ -160,12 +160,6 @@
             URLTemplate = "https://nixos.wiki/index.php?search={searchTerms}";
             IconURL = "https://github.com/NixOS/nixos-artwork/raw/refs/heads/master/logo/nix-snowflake-white.svg";
             Alias = "nw";
-          }
-          {
-            Name = "Home Manager Option Search";
-            URLTemplate = "https://mipmip.github.io/home-manager-option-search?query={searchTerms}";
-            IconURL = "https://github.com/NixOS/nixos-artwork/raw/refs/heads/master/logo/nix-snowflake-white.svg";
-            Alias = "hm";
           }
         ];
       };

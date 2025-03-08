@@ -29,6 +29,7 @@
     wl-clipboard
     protontricks
     prismlauncher
+    authenticator
     android-studio
     nexusmods-app-unfree
     hunspellDicts.en_CA-large
