@@ -6,7 +6,7 @@
   programs.dconf.profiles.user.databases = [
     {
       # Can't lock because of home manager
-      #   lockAll = true;
+      # lockAll = true;
       settings = lib.mapAttrs (_:
         lib.mapAttrs (name: value:
           if builtins.isInt value
@@ -147,7 +147,7 @@
           smbgcolor = ["0.827" "0.855" "0.890"];
           smbgoverride = false;
           trigger-autotheme = false;
-          trigger-reload = true;
+          trigger-reload = false;
           vw-color = ["0.302" "0.510" "0.765"];
           winbcolor = ["0.302" "0.510" "0.765"];
         };
@@ -197,6 +197,8 @@
 
         "org/gnome/shell/extensions/burn-my-windows".active-profile = toString ./burn-my-windows.conf;
 
+        "org/gnome/desktop/wm/preferences".focus-mode = "mouse";
+
         "org/gnome/shell" = {
           disable-user-extensions = true;
           enabled-extensions = [
@@ -208,13 +210,15 @@
             "burn-my-windows@schneegans.github.com"
             "fullscreen-avoider@noobsai.github.com"
             "appindicatorsupport@rgcjonas.gmail.com"
-            "just-perfection-desktop@just-perfection"
             "compiz-windows-effect@hermes83.github.com"
             "user-theme@gnome-shell-extensions.gcampax.github.com"
             "display-brightness-ddcutil@themightydeity.github.com"
             "system-monitor@gnome-shell-extensions.gcampax.github.com"
             "launch-new-instance@gnome-shell-extensions.gcampax.github.com"
           ];
+		  disabled-extensions = [
+	  	    "just-perfection-desktop@just-perfection"
+		  ];
         };
 
         "org/gnome/settings-daemon/plugins/media-keys".custom-keybindings = ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"];
@@ -246,9 +250,9 @@
           monospace-font-name = "FiraCode Nerd Font 11";
         };
 
-        "org/gnome/Ptyxis".default-profile-uuid = "quadradical";
-
-        "org/gnome/Ptyxis/Profiles/quadradical".palette = "nord";
+#         "org/gnome/Ptyxis".default-profile-uuid = "quadradical";
+# 
+#         "org/gnome/Ptyxis/Profiles/quadradical".palette = "nord";
       });
     }
   ];
