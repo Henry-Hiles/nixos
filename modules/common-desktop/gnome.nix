@@ -5,6 +5,8 @@
   };
 
   environment = {
+    sessionVariables.XDG_CURRENT_DESKTOP = "GNOME";
+
     systemPackages = with pkgs.gnomeExtensions; [
       caffeine
       open-bar
