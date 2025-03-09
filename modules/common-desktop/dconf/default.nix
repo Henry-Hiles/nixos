@@ -1,8 +1,16 @@
-{lib, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   programs.dconf.profiles.user.databases = [
     {
       lockAll = true;
-      settings = with lib.gvariant; {
+      settings = lib.mapAttrs (_:
+        lib.mapAttrs (name: value:
+          if builtins.isInt value
+          then lib.gvariant.mkInt32 value
+          else value)) (with lib.gvariant; {
         "org/gnome/shell/extensions/rounded-window-corners-reborn" = {
           border-width = -5;
           skip-libadwaita-app = false;
@@ -178,6 +186,7 @@
           hide-system-indicator = true;
           only-all-slider = true;
           position-system-menu = 3.0;
+          show-internal-slider = false;
           show-all-slider = true;
           show-display-name = false;
           show-osd = true;
@@ -185,7 +194,7 @@
           step-change-keyboard = 2.0;
         };
 
-        "org/gnome/shell/extensions/burn-my-windows".active-profile = ./burn-my-windows.conf;
+        "org/gnome/shell/extensions/burn-my-windows".active-profile = toString ./burn-my-windows.conf;
 
         "org/gnome/shell" = {
           disable-user-extensions = true;
@@ -239,7 +248,7 @@
         "org/gnome/Ptyxis".default-profile-uuid = "quadradical";
 
         "org/gnome/Ptyxis/Profiles/quadradical".palette = "nord";
-      };
+      });
     }
   ];
 }
