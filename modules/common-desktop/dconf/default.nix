@@ -5,7 +5,8 @@
 }: {
   programs.dconf.profiles.user.databases = [
     {
-      lockAll = true;
+      # Can't lock because of home manager
+      #   lockAll = true;
       settings = lib.mapAttrs (_:
         lib.mapAttrs (name: value:
           if builtins.isInt value
