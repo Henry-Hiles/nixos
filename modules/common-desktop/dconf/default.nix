@@ -216,9 +216,9 @@
             "system-monitor@gnome-shell-extensions.gcampax.github.com"
             "launch-new-instance@gnome-shell-extensions.gcampax.github.com"
           ];
-		  disabled-extensions = [
-	  	    "just-perfection-desktop@just-perfection"
-		  ];
+          disabled-extensions = [
+            "just-perfection-desktop@just-perfection"
+          ];
         };
 
         "org/gnome/settings-daemon/plugins/media-keys".custom-keybindings = ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"];
@@ -250,9 +250,9 @@
           monospace-font-name = "FiraCode Nerd Font 11";
         };
 
-#         "org/gnome/Ptyxis".default-profile-uuid = "quadradical";
-# 
-#         "org/gnome/Ptyxis/Profiles/quadradical".palette = "nord";
+        #         "org/gnome/Ptyxis".default-profile-uuid = "quadradical";
+        #
+        #         "org/gnome/Ptyxis/Profiles/quadradical".palette = "nord";
       });
     }
   ];
