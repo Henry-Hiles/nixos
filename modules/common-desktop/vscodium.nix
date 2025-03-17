@@ -9,6 +9,7 @@
       vscodeExtensions = with vscode-extensions; [
         mkhl.direnv
         eamodio.gitlens
+        dart-code.dart-code
         dart-code.flutter
         jnoortheen.nix-ide
         timonwong.shellcheck
