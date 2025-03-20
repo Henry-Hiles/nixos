@@ -6,23 +6,32 @@
   environment.systemPackages = with pkgs; [
     (vscode-with-extensions.override {
       vscode = vscodium;
-      vscodeExtensions = with vscode-extensions; [
-        mkhl.direnv
-        eamodio.gitlens
-        dart-code.dart-code
-        dart-code.flutter
-        jnoortheen.nix-ide
-        timonwong.shellcheck
-        usernamehw.errorlens
-        ritwickdey.liveserver
-        dbaeumer.vscode-eslint
-        esbenp.prettier-vscode
-        oderwat.indent-rainbow
-        astro-build.astro-vscode
-        pkief.material-icon-theme
-        streetsidesoftware.code-spell-checker
-        arcticicestudio.nord-visual-studio-code
-      ];
+      vscodeExtensions = with vscode-extensions;
+        [
+          mkhl.direnv
+          eamodio.gitlens
+          dart-code.dart-code
+          dart-code.flutter
+          jnoortheen.nix-ide
+          timonwong.shellcheck
+          usernamehw.errorlens
+          ritwickdey.liveserver
+          dbaeumer.vscode-eslint
+          esbenp.prettier-vscode
+          oderwat.indent-rainbow
+          astro-build.astro-vscode
+          pkief.material-icon-theme
+          streetsidesoftware.code-spell-checker
+          arcticicestudio.nord-visual-studio-code
+        ]
+        ++ vscode-utils.extensionsFromVscodeMarketplace [
+          {
+            name = "arb-editor";
+            publisher = "google";
+            version = "0.2.1";
+            sha256 = "sha256-uHdQeW9ZXYg6+VnD6cb5CU10/xV5hCtxt5K+j0qb7as=";
+          }
+        ];
     })
   ];
 

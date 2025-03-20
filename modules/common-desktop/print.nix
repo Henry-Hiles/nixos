@@ -6,7 +6,6 @@
       openFirewall = true;
     };
 
-    gpm.enable = true;
     printing.enable = true;
   };
 }
