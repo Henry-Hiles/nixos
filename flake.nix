@@ -1,8 +1,8 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    ragenix = {
-      url = "github:yaxitech/ragenix";
+    agenix = {
+      url = "github:Henry-Hiles/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
@@ -40,7 +40,7 @@
         modules = with dirUtils;
           [
             ./wrappers
-            inputs.ragenix.nixosModules.default
+            inputs.agenix.nixosModules.default
             inputs.nix-gaming.nixosModules.pipewireLowLatency
           ]
           ++ dirFiles "${inputs.self}/${hostname}"
