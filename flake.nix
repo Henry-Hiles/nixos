@@ -26,9 +26,10 @@
   };
 
   outputs = inputs: let
+    lib = inputs.nixpkgs.lib;
     dirUtils = {
       opt = inputs.nixpkgs.lib.optionals;
-      dirFiles = dir: map (file: "${dir}/${file}") (builtins.attrNames (builtins.readDir dir));
+      dirFiles = type: dir: lib.filter (lib.hasSuffix type) (lib.filesystem.listFilesRecursive dir);
     };
     system = hostname: isDesktop:
       inputs.nixpkgs.lib.nixosSystem {
@@ -43,10 +44,10 @@
             inputs.agenix.nixosModules.default
             inputs.nix-gaming.nixosModules.pipewireLowLatency
           ]
-          ++ dirFiles "${inputs.self}/${hostname}"
-          ++ dirFiles ./modules/common
+          ++ dirFiles ".nix" "${inputs.self}/${hostname}"
+          ++ dirFiles ".nix" ./modules/common
           ++ opt isDesktop (
-            (dirFiles ./modules/common-desktop)
+            (dirFiles ".nix" ./modules/common-desktop)
             ++ [
               inputs.stylix.nixosModules.stylix
               ./stylix.nix

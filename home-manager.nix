@@ -13,6 +13,6 @@
     };
     sharedModules =
       [{home.stateVersion = "23.11";}]
-      ++ dirUtils.dirFiles ./home-manager;
+      ++ dirUtils.dirFiles ".nix" ./home-manager;
   };
 }

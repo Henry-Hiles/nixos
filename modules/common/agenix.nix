@@ -3,13 +3,16 @@
   inputs,
   lib,
   ...
-}: let
-  secretsPath = ../../secrets;
-in {
+}: {
   environment.systemPackages = [inputs.agenix.packages.x86_64-linux.default]; # TODO: USE WRAPPER
 
-  age.secrets = lib.listToAttrs (map (name: _: {
-    name = name;
-    value.file = "${secretsPath}/${name}";
-  }) (lib.filter (name: lib.hasSuffix ".age" name) (dirUtils.dirFiles secretsPath)));
+  age = {
+    identityPaths = [
+      "/home/quadradical/.ssh/id_ed25519"
+    ];
+    secrets = lib.listToAttrs (map (path: {
+      name = lib.last (builtins.split "/" (toString path));
+      value.file = path;
+    }) (dirUtils.dirFiles ".age" ../../secrets));
+  };
 }
