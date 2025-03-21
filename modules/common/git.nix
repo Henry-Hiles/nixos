@@ -7,5 +7,5 @@
     };
   };
 
-  environment.systemPackages = [pkgs.git-credential-manager];
+  environment.systemPackages = [pkgs.gh];
 }

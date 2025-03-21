@@ -1,6 +1,14 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    ragenix = {
+      url = "github:yaxitech/ragenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     stylix.url = "github:danth/stylix";
     nix-gaming.url = "github:fufexan/nix-gaming";
     firefox-gnome-theme = {
@@ -17,49 +25,43 @@
     };
   };
 
-  outputs = {
-    self,
-    stylix,
-    nixpkgs,
-    home-manager,
-    ...
-  } @ inputs: let
+  outputs = inputs: let
     dirUtils = {
-      opt = nixpkgs.lib.optionals;
+      opt = inputs.nixpkgs.lib.optionals;
       dirFiles = dir: map (file: "${dir}/${file}") (builtins.attrNames (builtins.readDir dir));
     };
     system = hostname: isDesktop:
-      with dirUtils;
-        nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit inputs self isDesktop dirUtils;
-          };
-
-          modules =
-            [
-              ./wrappers
-              inputs.nix-gaming.nixosModules.pipewireLowLatency
-            ]
-            ++ dirFiles "${self}/${hostname}"
-            ++ dirFiles ./modules/common
-            ++ opt isDesktop (
-              (dirFiles ./modules/common-desktop)
-              ++ [
-                stylix.nixosModules.stylix
-                ./stylix.nix
-
-                home-manager.nixosModules.home-manager
-                ./home-manager.nix
-              ]
-            );
+      inputs.nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs isDesktop dirUtils;
         };
+
+        modules = with dirUtils;
+          [
+            ./wrappers
+            inputs.ragenix.nixosModules.default
+            inputs.nix-gaming.nixosModules.pipewireLowLatency
+          ]
+          ++ dirFiles "${inputs.self}/${hostname}"
+          ++ dirFiles ./modules/common
+          ++ opt isDesktop (
+            (dirFiles ./modules/common-desktop)
+            ++ [
+              inputs.stylix.nixosModules.stylix
+              ./stylix.nix
+
+              inputs.home-manager.nixosModules.home-manager
+              ./home-manager.nix
+            ]
+          );
+      };
   in {
     nixosConfigurations = {
       "quadraticpc" = system "quadraticpc" true;
       "quadtop" = system "quadtop" true;
     };
 
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+    formatter.x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.alejandra;
   };
 }
