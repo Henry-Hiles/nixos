@@ -57,6 +57,7 @@
       };
   in {
     nixosConfigurations = {
+      "quadraticserver" = system "quadraticserver" false;
       "quadraticpc" = system "quadraticpc" true;
       "quadtop" = system "quadtop" true;
     };
