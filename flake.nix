@@ -10,7 +10,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix.url = "github:danth/stylix";
-    nix-gaming.url = "github:fufexan/nix-gaming";
     firefox-gnome-theme = {
       url = "github:rafaelmardojai/firefox-gnome-theme";
       flake = false;
@@ -42,9 +41,8 @@
           [
             ./wrappers
             inputs.agenix.nixosModules.default
-            inputs.nix-gaming.nixosModules.pipewireLowLatency
           ]
-          ++ dirFiles ".nix" "${inputs.self}/${hostname}"
+          ++ dirFiles ".nix" "${./clients}/${hostname}"
           ++ dirFiles ".nix" ./modules/common
           ++ opt isDesktop (
             (dirFiles ".nix" ./modules/common-desktop)
