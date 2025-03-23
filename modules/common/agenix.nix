@@ -4,8 +4,7 @@
   lib,
   ...
 }: {
-  environment.systemPackages = [inputs.agenix.packages.x86_64-linux.default]; # TODO: USE WRAPPER
-
+  environment.systemPackages = [inputs.agenix.packages.x86_64-linux.default];
   age = {
     identityPaths = [
       "/home/quadradical/.ssh/id_ed25519"

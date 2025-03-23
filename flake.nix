@@ -45,7 +45,7 @@
           ]
           ++ dirFiles ".nix" "${./clients}/${hostname}"
           ++ dirFiles ".nix" ./modules/common
-          ++ opt (!isDesktop) (dirFiles ./modules/server)
+          ++ opt (!isDesktop) (dirFiles ".nix" ./modules/server)
           ++ opt isDesktop (
             (dirFiles ".nix" ./modules/desktop)
             ++ [
