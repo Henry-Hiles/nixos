@@ -1,7 +1,11 @@
 {
-  # networking.firewall.allowedTCPPorts = [8448]; # TODO: Is this needed?
+  networking.firewall.allowedTCPPorts = [8448];
+
   services = {
-    caddy.virtualHosts."matrix.henryhiles.com".extraConfig = "reverse_proxy unix//run/conduwuit/socket";
+    caddy.virtualHosts."matrix.henryhiles.com" = {
+      serverAliases = ["matrix.henryhiles.com:8448"];
+      extraConfig = "reverse_proxy unix//run/conduwuit/socket";
+    };
 
     conduwuit = {
       enable = true;
