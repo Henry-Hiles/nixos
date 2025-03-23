@@ -27,11 +27,11 @@
   outputs = inputs: let
     lib = inputs.nixpkgs.lib;
     dirUtils = {
-      opt = inputs.nixpkgs.lib.optionals;
+      opt = lib.optionals;
       dirFiles = type: dir: lib.filter (lib.hasSuffix type) (lib.filesystem.listFilesRecursive dir);
     };
     system = hostname: isDesktop:
-      inputs.nixpkgs.lib.nixosSystem {
+      lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
           inherit inputs isDesktop dirUtils;
