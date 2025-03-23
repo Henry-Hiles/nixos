@@ -1,6 +1,3 @@
 {
-  networking.networkmanager = {
-    enable = true;
-    wifi.macAddress = "random";
-  };
+  networking.networkmanager.enable = true;
 }
