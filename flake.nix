@@ -40,12 +40,14 @@
         modules = with dirUtils;
           [
             ./wrappers
+            {networking.hostName = hostname;}
             inputs.agenix.nixosModules.default
           ]
           ++ dirFiles ".nix" "${./clients}/${hostname}"
           ++ dirFiles ".nix" ./modules/common
+          ++ opt (!isDesktop) (dirFiles ./modules/server)
           ++ opt isDesktop (
-            (dirFiles ".nix" ./modules/common-desktop)
+            (dirFiles ".nix" ./modules/desktop)
             ++ [
               inputs.stylix.nixosModules.stylix
               ./stylix.nix
@@ -56,10 +58,10 @@
           );
       };
   in {
-    nixosConfigurations = {
-      "quadraticserver" = system "quadraticserver" false;
-      "quadraticpc" = system "quadraticpc" true;
-      "quadtop" = system "quadtop" true;
+    nixosConfigurations = builtins.mapAttrs (name: value: system name value) {
+      "quadraticserver" = false;
+      "quadraticpc" = true;
+      "quadtop" = true;
     };
 
     formatter.x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.alejandra;

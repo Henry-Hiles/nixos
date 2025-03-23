@@ -28,6 +28,7 @@
       # NixOS
       clean = "nh clean all";
       rebuild = "nh os switch";
+      rebuildServer = "nixos-rebuild switch --flake ~/.config/nixos#quadraticserver --target-host quadradical@192.168.0.132 --use-remote-sudo";
       update = "pushd ~/.config/nixos && nix flake update && popd && rebuild";
     };
   };

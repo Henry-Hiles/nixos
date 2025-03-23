@@ -1,1 +1,0 @@
-{networking.hostName = "quadraticserver";}
