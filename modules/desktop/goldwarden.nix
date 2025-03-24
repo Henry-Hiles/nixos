@@ -1,0 +1,1 @@
+{programs.goldwarden.enable = true;}
