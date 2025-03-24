@@ -9,10 +9,7 @@
       };
       commit.gpgsign = true;
       pull.rebase = true;
-      gpg = {
-        format = "ssh";
-        ssh.allowedSignersFile = pkgs.writeText "allowedSigners" "henry@henryhiles.com ${builtins.elemAt (import ../../secrets/keys.nix) 0}";
-      };
+      gpg.format = "ssh";
     };
   };
   environment.systemPackages = [pkgs.gh];
