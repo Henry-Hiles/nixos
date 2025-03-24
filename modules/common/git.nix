@@ -5,7 +5,7 @@
       user = {
         name = "Henry-Hiles";
         email = "henry@henryhiles.com";
-        signingKey = builtins.elemAt (import ../../secrets/keys.nix) 0;
+        signingKey = "${builtins.elemAt (import ../../secrets/keys.nix) 0} henry@henryhiles.com";
       };
       commit.gpgsign = true;
       pull.rebase = true;
