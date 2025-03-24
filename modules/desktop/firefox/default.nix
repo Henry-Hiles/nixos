@@ -126,6 +126,7 @@
           "jid1-MnnxcxisBPnSXQ@jetpack" # Privacy Badger
           "frankerfacez@frankerfacez.com"
           "7esoorv3@alefvanoon.anonaddy.me" # LibRedirect
+          "{446900e4-71c2-419f-a6a7-df9c091e268b}" # Bitwarden
           "{4ce83447-8255-43c2-b8f7-e02eb8c2cc39}" # Draw on Page
           "{ac34afe8-3a2e-4201-b745-346c0cf6ec7d}" # Better Youtube Shorts
           "{2327d818-55d3-441d-aea2-8b44aa2cb9aa}" # Toggle Website Colors
