@@ -8,6 +8,7 @@
         signingKey = builtins.elemAt (import ../../secrets/keys.nix) 0;
       };
       commit.gpgsign = true;
+      pull.rebase = true;
       gpg.format = "ssh";
     };
   };
