@@ -31,7 +31,6 @@
       gnome-tour
       gnome-music
       gnome-console
-      gnome-calendar
       gnome-software
       gnome-characters
       gnome-text-editor
