@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
     agenix = {
       url = "github:Henry-Hiles/agenix";
       inputs.nixpkgs.follows = "nixpkgs";

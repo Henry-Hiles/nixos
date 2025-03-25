@@ -10,6 +10,6 @@
       };
     };
 
-    caddy.virtualHosts."vaultwarden.henryhiles.com".extraConfig = "reverse_proxy 127.0.0.1:8000";
+    caddy.virtualHosts."vaultwarden.henryhiles.com".extraConfig = "reverse_proxy localhost:8000";
   };
 }
