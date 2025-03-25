@@ -3,7 +3,7 @@
   services.openssh = {
     enable = true;
     settings = {
-      PasswordAuthentication = true; # TODO: False
+      PasswordAuthentication = false;
       AllowUsers = ["quadradical"];
       PermitRootLogin = "no";
     };

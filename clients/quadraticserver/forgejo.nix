@@ -19,6 +19,7 @@
           ROOT_URL = "https://${domain}";
           HTTP_ADDR = socket;
           PROTOCOL = "http+unix";
+          SSH_LISTEN_PORT = 2200;
         };
       };
     };

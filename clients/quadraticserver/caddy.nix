@@ -3,5 +3,5 @@
     enable = true;
     email = "henry@henryhiles.com";
   };
-  networking.firewall.allowedTCPPorts = [80 443];
+  networking.firewall.allowedTCPPorts = [2200 443];
 }
