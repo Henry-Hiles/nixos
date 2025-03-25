@@ -19,7 +19,9 @@
           ROOT_URL = "https://${domain}";
           HTTP_ADDR = socket;
           PROTOCOL = "http+unix";
-          SSH_LISTEN_PORT = 2200;
+          START_SSH_SERVER = true;
+          SSH_LISTEN_PORT = 2222;
+          BUILTIN_SSH_SERVER_USER = "git";
         };
       };
     };
