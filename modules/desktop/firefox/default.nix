@@ -164,7 +164,7 @@
           }
           {
             Name = "NixOS Wiki";
-            URLTemplate = "https://nixos.wiki/index.php?search={searchTerms}";
+            URLTemplate = "https://wiki.nixos.org/w/index.php?search={searchTerms}";
             IconURL = "https://github.com/NixOS/nixos-artwork/raw/refs/heads/master/logo/nix-snowflake-white.svg";
             Alias = "nw";
           }
