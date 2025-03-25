@@ -1,19 +1,22 @@
-{
+{config, ...}: {
   networking.firewall.allowedTCPPorts = [8448];
 
-  services = {
+  services = let
+    domain = "matrix.henryhiles.com";
+    socket = "/run/conduwuit/socket";
+  in {
     conduwuit = {
       enable = true;
-      group = "caddy";
+      group = config.services.caddy.group;
       settings.global = {
         server_name = "henryhiles.com";
-        unix_socket_path = "/run/conduwuit/socket";
+        unix_socket_path = socket;
       };
     };
 
-    caddy.virtualHosts."matrix.henryhiles.com" = {
-      serverAliases = ["matrix.henryhiles.com:8448"];
-      extraConfig = "reverse_proxy unix//run/conduwuit/socket";
+    caddy.virtualHosts."${domain}" = {
+      serverAliases = ["${domain}:8448"];
+      extraConfig = "reverse_proxy unix/${socket}";
     };
   };
 }
