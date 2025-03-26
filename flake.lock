@@ -10,15 +10,15 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1742517297,
-        "narHash": "sha256-VjwwSOo+GguEgQfIffuzOjEzuDzSVmkp79P66BkGVSE=",
-        "owner": "Henry-Hiles",
+        "lastModified": 1736955230,
+        "narHash": "sha256-uenf8fv2eG5bKM8C/UvFaiJMZ4IpUFaQxk9OH5t/1gA=",
+        "owner": "ryantm",
         "repo": "agenix",
-        "rev": "bb138ac0e555de4f434b842099afd5e6c30b942b",
+        "rev": "e600439ec4c273cf11e06fe4d9d906fb98fa097c",
         "type": "github"
       },
       "original": {
-        "owner": "Henry-Hiles",
+        "owner": "ryantm",
         "repo": "agenix",
         "type": "github"
       }

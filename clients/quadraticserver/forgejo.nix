@@ -13,6 +13,7 @@
       settings = {
         service.DISABLE_REGISTRATION = true;
         repository.GO_GET_CLONE_URL_PROTOCOL = "ssh";
+        actions.DEFAULT_ACTIONS_URL = "github";
 
         server = {
           DOMAIN = domain;
