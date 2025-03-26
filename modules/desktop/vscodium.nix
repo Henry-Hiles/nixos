@@ -19,6 +19,7 @@
           dbaeumer.vscode-eslint
           esbenp.prettier-vscode
           oderwat.indent-rainbow
+          rust-lang.rust-analyzer
           astro-build.astro-vscode
           pkief.material-icon-theme
           streetsidesoftware.code-spell-checker
