@@ -1,6 +1,10 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   wrappers.agenix = {
-    basePackage = pkgs.agenix-cli;
+    basePackage = inputs.agenix-cli.packages.${pkgs.system}.default;
 
     env.AGENIX_ROOT.value = let
       path = ".agenix.toml";
