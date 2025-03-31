@@ -8,10 +8,10 @@
         domain = "https://${domain}";
         signupsAllowed = false;
         passwordHintsAllowed = false;
-        rocketAddress = "127.0.0.1";
+        rocketAddress = "127.0.0.2";
       };
     };
 
-    caddy.virtualHosts."${domain}".extraConfig = "reverse_proxy localhost:8000";
+    caddy.virtualHosts."${domain}".extraConfig = "reverse_proxy 127.0.0.2:8000";
   };
 }

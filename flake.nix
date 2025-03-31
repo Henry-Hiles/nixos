@@ -2,6 +2,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     agenix-cli.url = "github:cole-h/agenix-cli";
+    grapevine.url = "gitlab:matrix/grapevine?host=gitlab.computer.surgery";
     simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
     agenix = {
       url = "github:ryantm/agenix";
