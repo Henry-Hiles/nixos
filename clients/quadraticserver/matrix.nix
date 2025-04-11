@@ -11,7 +11,7 @@
       settings = {
         server_name = "henryhiles.com";
         database.backend = "rocksdb";
-        federation.max_concurrent_requests = 10000;
+        federation.max_concurrent_requests = 99999;
 
         server_discovery = {
           server.authority = "${domain}:443";
