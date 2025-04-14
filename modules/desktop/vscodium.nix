@@ -38,7 +38,7 @@
 
   systemd.tmpfiles.settings.vscodium = {
     # "/home/quadradical/.config/VSCodium/User"."d".user = "quadradical";
-    "/home/quadradical/.config/VSCodium/User/settings.json"."f+".argument = builtins.toJSON {
+    "/home/quadradical/.config/VSCodium/User/settings.json"."L+".argument = toString ((pkgs.formats.json {}).generate "settings.json" {
       "arb-editor.suppressedWarnings" = ["missing_metadata_for_key"];
       "dart.debugExternalPackageLibraries" = true;
       "dart.debugSdkLibraries" = true;
@@ -105,9 +105,9 @@
       };
       "indentRainbow.ignoreErrorLanguages" = ["*"];
       "dart.runPubGetOnPubspecChanges" = "never";
-    };
+    });
 
-    "/home/quadradical/.config/VSCodium/User/keybindings.json"."f+".argument = builtins.toJSON [
+    "/home/quadradical/.config/VSCodium/User/keybindings.json"."L+".argument = toString ((pkgs.formats.json {}).generate "settings.json" [
       {
         key = "ctrl+s";
         command = "workbench.action.files.saveAll";
@@ -116,6 +116,6 @@
         key = "ctrl+s";
         command = "-workbench.action.files.save";
       }
-    ];
+    ]);
   };
 }

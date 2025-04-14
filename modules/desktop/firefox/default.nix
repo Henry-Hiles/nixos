@@ -31,7 +31,7 @@
 
   systemd.tmpfiles.settings.firefox = {
     # "/home/quadradical/.mozilla/firefox/quadradical"."d".user = "quadradical";
-    "/home/quadradical/.mozilla/firefox/profiles.ini"."f+".argument = builtins.toJSON (lib.generators.toINI {} {
+    "/home/quadradical/.mozilla/firefox/profiles.ini"."L+".argument = toString ((pkgs.formats.ini {}).generate "profiles.ini" {
       General = {
         StartWithLastProfile = 1;
       };

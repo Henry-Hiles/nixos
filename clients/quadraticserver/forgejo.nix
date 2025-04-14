@@ -39,9 +39,7 @@
         name = "monolith";
         url = "https://git.henryhiles.com";
         tokenFile = config.age.secrets."runnerToken.age".path;
-        labels = [
-          "native:host"
-        ];
+        labels = ["native:host"];
       };
     };
 
