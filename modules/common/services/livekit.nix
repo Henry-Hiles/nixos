@@ -6,7 +6,7 @@
 }: let
   cfg = config.services.livekit;
 in {
-  meta.maintainers = with lib.maintainers; [quadradical];
+  meta.maintainers = [lib.maintainers.quadradical];
   options.services.livekit = {
     enable = lib.mkEnableOption "Livekit SFU";
     package = lib.mkPackageOption pkgs "livekit" {};
