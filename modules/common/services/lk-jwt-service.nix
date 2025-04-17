@@ -14,7 +14,7 @@ in {
     livekit = {
       url = lib.mkOption {
         type = lib.types.str;
-        description = "The URL that livekit runs on, prefixed with `ws://`.";
+        description = "The URL that livekit runs on, prefixed with `ws://` or `wss://` (recommended).";
       };
 
       keyFile = lib.mkOption {
