@@ -14,7 +14,6 @@ in {
     livekit = {
       url = lib.mkOption {
         type = lib.types.str;
-        default = "127.0.0.1";
         description = "The URL that livekit runs on, prefixed with `ws://`.";
       };
 
