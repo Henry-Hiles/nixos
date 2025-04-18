@@ -5,13 +5,14 @@
   ...
 }: let
   cfg = config.services.livekit;
+  format = pkgs.formats.json {};
 in {
   meta.maintainers = with lib.maintainers; [quadradical];
   options.services.livekit = {
     enable = lib.mkEnableOption "Enable the livekit server";
     package = lib.mkPackageOption pkgs "livekit" {};
 
-    keyFile = lib.mkOption {
+    environmentFile = lib.mkOption {
       type = lib.types.path;
       description = ''
         LiveKit key file, with syntax `LIVEKIT_KEYS=\"key: secret\"`
@@ -34,24 +35,38 @@ in {
       '';
     };
 
-    port = lib.mkOption {
-      type = lib.types.port;
-      default = 7880;
-      description = "Main TCP port for RoomService and RTC endpoint.";
-    };
+    settings = lib.mkOption {
+      type = lib.types.submodule {
+        freeformType = format.type;
+        options = {
+          port = lib.mkOption {
+            type = lib.types.port;
+            default = 7880;
+            description = "Main TCP port for RoomService and RTC endpoint.";
+          };
 
-    rtc = {
-      portRangeStart = lib.mkOption {
-        type = lib.types.int;
-        default = 50000;
-        description = "Start of UDP port range for WebRTC";
-      };
+          rtc = {
+            port_range_start = lib.mkOption {
+              type = lib.types.int;
+              default = 50000;
+              description = "Start of UDP port range for WebRTC";
+            };
 
-      portRangeEnd = lib.mkOption {
-        type = lib.types.int;
-        default = 51000;
-        description = "End of UDP port range for WebRTC";
+            port_range_end = lib.mkOption {
+              type = lib.types.int;
+              default = 51000;
+              description = "End of UDP port range for WebRTC";
+            };
+          };
+        };
       };
+      default = {};
+      description = ''
+        LiveKit configuration file expressed in nix.
+
+        For an example configuration, see <https://docs.livekit.io/home/self-hosting/deployment/#configuration>.
+        For all possible values, see <https://github.com/livekit/livekit/blob/master/config-sample.yaml>.
+      '';
     };
   };
 
@@ -76,7 +91,7 @@ in {
       after = ["network-online.target"];
 
       serviceConfig = {
-        EnvironmentFile = cfg.keyFile;
+        EnvironmentFile = cfg.environmentFile;
         DynamicUser = true;
         LockPersonality = true;
         MemoryDenyWriteExecute = true;
@@ -103,18 +118,7 @@ in {
           "~@privileged"
           "~@resources"
         ];
-        ExecStart = "${lib.getExe cfg.package} --config-body=${
-          builtins.toJSON (
-            builtins.toJSON {
-              port = cfg.port;
-              rtc = {
-                port_range_start = cfg.rtc.portRangeStart;
-                port_range_end = cfg.rtc.portRangeEnd;
-                use_external_ip = cfg.useExternalIP;
-              };
-            }
-          )
-        }";
+        ExecStart = "${lib.getExe cfg.package} --config ${format.generate "livekit.json" cfg.settings}";
         Restart = "on-failure";
         RestartSec = 5;
         UMask = "077";

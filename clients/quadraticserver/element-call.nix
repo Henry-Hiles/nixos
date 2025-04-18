@@ -10,13 +10,13 @@
       enable = true;
       livekit = {
         url = "wss://${domain}/livekit/sfu";
-        keyFile = config.age.secrets."livekitKeys.age".path;
+        environmentFile = config.age.secrets."livekitKeys.age".path;
       };
     };
 
     livekit = {
       enable = true;
-      keyFile = config.age.secrets."livekitKeys.age".path;
+      environmentFile = config.age.secrets."livekitKeys.age".path;
     };
 
     caddy.virtualHosts."${domain}".extraConfig = ''

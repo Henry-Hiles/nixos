@@ -20,10 +20,10 @@ in {
         '';
       };
 
-      keyFile = lib.mkOption {
+      environmentFile = lib.mkOption {
         type = lib.types.path;
         description = ''
-          Path to a file showing LiveKit keys, where you must declare some of: `LIVEKIT_KEY`, `LIVEKIT_SECRET`, `LIVEKIT_KEY_FROM_FILE`, `LIVEKIT_SECRET_FROM_FILE`, and/or `LIVEKIT_KEY_FILE`.
+          Path to a file of environment variables, where you must declare some of: `LIVEKIT_KEY`, `LIVEKIT_SECRET`, `LIVEKIT_KEY_FROM_FILE`, `LIVEKIT_SECRET_FROM_FILE`, and/or `LIVEKIT_KEY_FILE`.
           For more information, see <https://github.com/element-hq/lk-jwt-service#configuration>.
         '';
       };
@@ -46,7 +46,7 @@ in {
       environment.LIVEKIT_URL = cfg.livekit.url;
 
       serviceConfig = {
-        EnvironmentFile = cfg.livekit.keyFile;
+        EnvironmentFile = cfg.livekit.environmentFile;
         DynamicUser = true;
         LockPersonality = true;
         MemoryDenyWriteExecute = true;
