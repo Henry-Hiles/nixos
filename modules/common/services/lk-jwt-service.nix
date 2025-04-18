@@ -11,22 +11,21 @@ in {
     enable = lib.mkEnableOption "Enable lk-jwt-service";
     package = lib.mkPackageOption pkgs "lk-jwt-service" {};
 
-    livekit = {
-      url = lib.mkOption {
-        type = lib.types.str;
-        description = ''
-          The URL that livekit runs on, prefixed with `ws://` or `wss://` (recommended).
-          For example, `wss://example.com/livekit/sfu`
-        '';
-      };
+    livekitUrl = lib.mkOption {
+      type = lib.types.strMatching "^wss?://.*";
+      example = "wss://example.com/livekit/sfu";
+      description = ''
+        The public websocket URL for livekit.
+        The proto needs to be either  `wss://` (recommended) or `ws://` (insecure).
+      '';
+    };
 
-      environmentFile = lib.mkOption {
-        type = lib.types.path;
-        description = ''
-          Path to a file of environment variables, where you must declare some of: `LIVEKIT_KEY`, `LIVEKIT_SECRET`, `LIVEKIT_KEY_FROM_FILE`, `LIVEKIT_SECRET_FROM_FILE`, and/or `LIVEKIT_KEY_FILE`.
-          For more information, see <https://github.com/element-hq/lk-jwt-service#configuration>.
-        '';
-      };
+    keyFile = lib.mkOption {
+      type = lib.types.path;
+      description = ''
+        Path to your LiveKit key file, with syntax `APIkey: secret`.
+        For more information, see <https://github.com/element-hq/lk-jwt-service#configuration>.
+      '';
     };
 
     port = lib.mkOption {
@@ -43,10 +42,13 @@ in {
       wantedBy = ["multi-user.target"];
       wants = ["network-online.target"];
       after = ["network-online.target"];
-      environment.LIVEKIT_URL = cfg.livekit.url;
+      environment = {
+        LIVEKIT_URL = cfg.livekitUrl;
+        LIVEKIT_JWT_PORT = toString cfg.port;
+        LIVEKIT_KEY_FILE = "/run/credentials/lk-jwt-service.service/livekit-secrets";
+      };
 
       serviceConfig = {
-        EnvironmentFile = cfg.livekit.environmentFile;
         DynamicUser = true;
         LockPersonality = true;
         MemoryDenyWriteExecute = true;
@@ -72,6 +74,7 @@ in {
           "~@privileged"
           "~@resources"
         ];
+        LoadCredential = ["livekit-secrets:${cfg.keyFile}"];
         ExecStart = lib.getExe cfg.package;
         Restart = "on-failure";
         RestartSec = 5;

@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  utils,
   ...
 }: let
   cfg = config.services.livekit;
@@ -12,10 +13,10 @@ in {
     enable = lib.mkEnableOption "Enable the livekit server";
     package = lib.mkPackageOption pkgs "livekit" {};
 
-    environmentFile = lib.mkOption {
+    keyFile = lib.mkOption {
       type = lib.types.path;
       description = ''
-        LiveKit key file, with syntax `LIVEKIT_KEYS=\"key: secret\"`
+        LiveKit key file, with syntax `APIkey: secret`.
         The key and secret are used by other clients or services to connect to your Livekit instance.
       '';
     };
@@ -23,16 +24,7 @@ in {
     openFirewall = lib.mkOption {
       type = lib.types.bool;
       default = false;
-      description = "Opens ports 50000 to 51000 on the firewall.";
-    };
-
-    useExternalIP = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-      description = ''
-        When set to true, attempts to discover the host's public IP via STUN.
-        This is useful for cloud environments such as AWS & Google where hosts have an internal IP that maps to an external one
-      '';
+      description = "Opens port range for LiveKit on the firewall.";
     };
 
     settings = lib.mkOption {
@@ -57,6 +49,15 @@ in {
               default = 51000;
               description = "End of UDP port range for WebRTC";
             };
+
+            use_external_ip = lib.mkOption {
+              type = lib.types.bool;
+              default = false;
+              description = ''
+                When set to true, attempts to discover the host's public IP via STUN.
+                This is useful for cloud environments such as AWS & Google where hosts have an internal IP that maps to an external one
+              '';
+            };
           };
         };
       };
@@ -73,12 +74,12 @@ in {
   config = lib.mkIf cfg.enable {
     networking.firewall = lib.mkIf cfg.openFirewall {
       allowedTCPPorts = [
-        cfg.port
+        cfg.settings.port
       ];
       allowedUDPPortRanges = [
         {
-          from = cfg.rtc.port_range_start;
-          to = cfg.rtc.port_range_end;
+          from = cfg.settings.rtc.port_range_start;
+          to = cfg.settings.rtc.port_range_end;
         }
       ];
     };
@@ -91,7 +92,6 @@ in {
       after = ["network-online.target"];
 
       serviceConfig = {
-        EnvironmentFile = cfg.environmentFile;
         DynamicUser = true;
         LockPersonality = true;
         MemoryDenyWriteExecute = true;
@@ -118,7 +118,12 @@ in {
           "~@privileged"
           "~@resources"
         ];
-        ExecStart = "${lib.getExe cfg.package} --config ${format.generate "livekit.json" cfg.settings}";
+        LoadCredential = ["livekit-secrets:${cfg.keyFile}"];
+        ExecStart = utils.escapeSystemdExecArgs [
+          (lib.getExe cfg.package)
+          "--config=${format.generate "livekit.json" cfg.settings}"
+          "--key-file=/run/credentials/livekit.service/livekit-secrets"
+        ];
         Restart = "on-failure";
         RestartSec = 5;
         UMask = "077";

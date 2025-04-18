@@ -6,17 +6,15 @@
   services = let
     domain = "call.henryhiles.com";
   in {
-    lk-jwt-service = {
-      enable = true;
-      livekit = {
-        url = "wss://${domain}/livekit/sfu";
-        environmentFile = config.age.secrets."livekitKeys.age".path;
-      };
-    };
-
     livekit = {
       enable = true;
-      environmentFile = config.age.secrets."livekitKeys.age".path;
+      keyFile = config.age.secrets."livekitKeys.age".path;
+    };
+
+    lk-jwt-service = {
+      enable = true;
+      livekitUrl = "wss://${domain}/livekit/sfu";
+      keyFile = config.services.livekit.keyFile;
     };
 
     caddy.virtualHosts."${domain}".extraConfig = ''
