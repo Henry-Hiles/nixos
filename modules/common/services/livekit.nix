@@ -6,14 +6,17 @@
 }: let
   cfg = config.services.livekit;
 in {
-  meta.maintainers = [lib.maintainers.quadradical];
+  meta.maintainers = with lib.maintainers; [quadradical];
   options.services.livekit = {
-    enable = lib.mkEnableOption "Livekit SFU";
+    enable = lib.mkEnableOption "Enable the livekit server";
     package = lib.mkPackageOption pkgs "livekit" {};
 
     keyFile = lib.mkOption {
       type = lib.types.path;
-      description = "LiveKit key file, with syntax `LIVEKIT_KEYS=\"key: secret\"`;";
+      description = ''
+        LiveKit key file, with syntax `LIVEKIT_KEYS=\"key: secret\"`
+        The key and secret are used by other clients or services to connect to your Livekit instance.
+      '';
     };
 
     openFirewall = lib.mkOption {
@@ -75,7 +78,6 @@ in {
       serviceConfig = {
         EnvironmentFile = cfg.keyFile;
         DynamicUser = true;
-        User = "livekit";
         LockPersonality = true;
         MemoryDenyWriteExecute = true;
         ProtectClock = true;
@@ -101,18 +103,18 @@ in {
           "~@privileged"
           "~@resources"
         ];
-        CapabilityBoundingSet = [
-          "CAP_NET_BIND_SERVICE"
-          "CAP_NET_RAW"
-        ];
-        ExecStart = "${cfg.package}/bin/livekit-server --config-body=${builtins.toJSON (builtins.toJSON {
-          port = cfg.port;
-          rtc = {
-            port_range_start = cfg.rtc.portRangeStart;
-            port_range_end = cfg.rtc.portRangeEnd;
-            use_external_ip = cfg.useExternalIP;
-          };
-        })}";
+        ExecStart = "${lib.getExe cfg.package} --config-body=${
+          builtins.toJSON (
+            builtins.toJSON {
+              port = cfg.port;
+              rtc = {
+                port_range_start = cfg.rtc.portRangeStart;
+                port_range_end = cfg.rtc.portRangeEnd;
+                use_external_ip = cfg.useExternalIP;
+              };
+            }
+          )
+        }";
         Restart = "on-failure";
         RestartSec = 5;
         UMask = "077";

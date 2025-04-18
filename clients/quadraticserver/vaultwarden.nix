@@ -1,6 +1,6 @@
 {
   services = let
-    domain = "vaultwarden.henryhiles.com";
+    domain = "vault.henryhiles.com";
   in {
     vaultwarden = {
       enable = true;

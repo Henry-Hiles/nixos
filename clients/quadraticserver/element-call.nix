@@ -3,11 +3,13 @@
   config,
   ...
 }: {
-  services = {
+  services = let
+    domain = "call.henryhiles.com";
+  in {
     lk-jwt-service = {
       enable = true;
       livekit = {
-        url = "wss://call.henryhiles.com/livekit/sfu";
+        url = "wss://${domain}/livekit/sfu";
         keyFile = config.age.secrets."livekitKeys.age".path;
       };
     };
@@ -17,7 +19,7 @@
       keyFile = config.age.secrets."livekitKeys.age".path;
     };
 
-    caddy.virtualHosts."call.henryhiles.com".extraConfig = ''
+    caddy.virtualHosts."${domain}".extraConfig = ''
       root * ${pkgs.element-call}
       route {
       	respond /config.json `${builtins.toJSON {
@@ -27,7 +29,7 @@
             "server_name" = "henryhiles.com";
           };
         };
-        livekit.livekit_service_url = "https://call.henryhiles.com/livekit";
+        livekit.livekit_service_url = "https://${domain}/livekit";
       }}` 200
 
       	handle /livekit/sfu/get {

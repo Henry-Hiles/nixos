@@ -14,14 +14,17 @@ in {
     livekit = {
       url = lib.mkOption {
         type = lib.types.str;
-        description = "The URL that livekit runs on, prefixed with `ws://` or `wss://` (recommended).";
+        description = ''
+          The URL that livekit runs on, prefixed with `ws://` or `wss://` (recommended).
+          For example, `wss://example.com/livekit/sfu`
+        '';
       };
 
       keyFile = lib.mkOption {
         type = lib.types.path;
         description = ''
           Path to a file showing LiveKit keys, where you must declare some of: `LIVEKIT_KEY`, `LIVEKIT_SECRET`, `LIVEKIT_KEY_FROM_FILE`, `LIVEKIT_SECRET_FROM_FILE`, and/or `LIVEKIT_KEY_FILE`.
-          For more information see <https://github.com/element-hq/lk-jwt-service>.
+          For more information, see <https://github.com/element-hq/lk-jwt-service#configuration>.
         '';
       };
     };
@@ -29,7 +32,7 @@ in {
     port = lib.mkOption {
       type = lib.types.port;
       default = 8080;
-      description = "Port that lk-jwt-service should run on";
+      description = "Port that lk-jwt-service should listen on.";
     };
   };
 
@@ -45,7 +48,6 @@ in {
       serviceConfig = {
         EnvironmentFile = cfg.livekit.keyFile;
         DynamicUser = true;
-        User = "lk-jwt-service";
         LockPersonality = true;
         MemoryDenyWriteExecute = true;
         ProtectClock = true;
@@ -70,11 +72,7 @@ in {
           "~@privileged"
           "~@resources"
         ];
-        CapabilityBoundingSet = [
-          "CAP_NET_BIND_SERVICE"
-          "CAP_NET_RAW"
-        ];
-        ExecStart = "${cfg.package}/bin/lk-jwt-service";
+        ExecStart = lib.getExe cfg.package;
         Restart = "on-failure";
         RestartSec = 5;
         UMask = "077";
