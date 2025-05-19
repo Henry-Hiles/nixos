@@ -4,7 +4,6 @@
     tuba
     gimp
     deno
-    dart
     ptyxis
     heroic
     aspell
@@ -15,14 +14,10 @@
     r2modman
     pciutils
     resources
-    alejandra
-    impression
     libreoffice
     wl-clipboard
-    protontricks
     prismlauncher
     authenticator
-    android-studio
     nexusmods-app-unfree
     hunspellDicts.en_CA-large
   ];
