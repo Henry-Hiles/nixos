@@ -85,7 +85,6 @@
             "compiz-windows-effect@hermes83.github.com"
             "user-theme@gnome-shell-extensions.gcampax.github.com"
             "display-brightness-ddcutil@themightydeity.github.com"
-            "system-monitor@gnome-shell-extensions.gcampax.github.com"
             "launch-new-instance@gnome-shell-extensions.gcampax.github.com"
           ];
           disabled-extensions = [
