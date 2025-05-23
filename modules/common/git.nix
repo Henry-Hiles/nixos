@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   programs.git = {
     enable = true;
     config = {
@@ -17,5 +21,17 @@
       gpg.format = "ssh";
     };
   };
-  environment.systemPackages = [pkgs.gh];
+  environment = {
+    systemPackages = [pkgs.gh];
+    shellAliases = let
+      gitExe = lib.meta.getExe pkgs.git;
+      ghExe = lib.meta.getExe pkgs.gh;
+    in {
+      clone = "${ghExe} repo clone";
+      create = "${ghExe} repo create";
+
+      push = "${gitExe} push";
+      commit = "${gitExe} commit -am";
+    };
+  };
 }

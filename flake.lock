@@ -563,6 +563,26 @@
         "type": "github"
       }
     },
+    "nh": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1747943020,
+        "narHash": "sha256-LlMUdltEdGxVLDZRSDQn3/i/WWn7Jakdz4wQxLxzfZ8=",
+        "owner": "nix-community",
+        "repo": "nh",
+        "rev": "24c12228e1f1e4fc953e37283fe442ca169951ed",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nh",
+        "type": "github"
+      }
+    },
     "nix-filter": {
       "locked": {
         "lastModified": 1731533336,
@@ -768,6 +788,7 @@
         "firefox-gnome-theme": "firefox-gnome-theme",
         "grapevine": "grapevine",
         "home-manager": "home-manager_2",
+        "nh": "nh",
         "nixpkgs": "nixpkgs_4",
         "programsdb": "programsdb",
         "stylix": "stylix",
