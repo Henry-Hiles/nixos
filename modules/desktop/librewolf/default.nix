@@ -34,7 +34,7 @@
     package = pkgs.librewolf;
 
     autoConfig = lib.concatStringsSep "\n" (lib.mapAttrsToList (pref: value: "lockPref(\"${pref}\", ${builtins.toJSON value});") {
-      "svg.context-properties.content.enabled" = true; # This doesn't work
+      "svg.context-properties.content.enabled" = true;
       "privacy.fingerprintingProtection.overrides" = "+AllTargets,-CSSPrefersColorScheme";
       "media.peerconnection.enabled" = true;
       "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
