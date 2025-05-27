@@ -1,37 +1,16 @@
 {
   lib,
   pkgs,
+  config,
   inputs,
   ...
 }: {
-  # From https://hedgedoc.grimmauld.de/s/rVnTq0-Rs
-  nixpkgs.overlays = lib.singleton (final: prev: {
-    firefox = prev.firefox.overrideAttrs (old: {
-      nativeBuildInputs = (old.nativeBuildInputs or []) ++ (with prev; [zip unzip gnused]);
-      buildCommand =
-        ''
-          export buildRoot="$(pwd)"
-        ''
-        + old.buildCommand
-        + ''
-          pushd $buildRoot
-          unzip $out/lib/firefox/browser/omni.ja -d patched_omni || ret=$?
-          if [[ $ret && $ret -ne 2 ]]; then
-            echo "unzip exited with unexpected error"
-            exit $ret
-          fi
-          rm $out/lib/firefox/browser/omni.ja
-          cd patched_omni
-          sed -i 's/"enterprise_only"\s*:\s*true,//' modules/policies/schema.sys.mjs
-          zip -0DXqr $out/lib/firefox/browser/omni.ja * # potentially qr9XD
-          popd
-        '';
-    });
-  });
+  environment.etc."librewolf/policies/policies.json".source = config.environment.etc."firefox/policies/policies.json".source;
 
-  systemd.tmpfiles.settings.firefox = {
-    # "/home/quadradical/.mozilla/firefox/quadradical"."d".user = "quadradical";
-    "/home/quadradical/.mozilla/firefox/profiles.ini"."L+".argument = toString ((pkgs.formats.ini {}).generate "profiles.ini" {
+  systemd.tmpfiles.settings.librewolf = {
+    "/home/quadradical/.librewolf"."d".user = "quadradical";
+    "/home/quadradical/.librewolf/quadradical"."d".user = "quadradical";
+    "/home/quadradical/.librewolf/profiles.ini"."L+".argument = toString ((pkgs.formats.ini {}).generate "profiles.ini" {
       General = {
         StartWithLastProfile = 1;
       };
@@ -42,7 +21,7 @@
         Path = Name;
       };
     });
-    "/home/quadradical/.mozilla/firefox/quadradical/chrome"."L+".argument =
+    "/home/quadradical/.librewolf/quadradical/chrome"."L+".argument =
       toString
       (pkgs.symlinkJoin {
         name = "firefox-gnome-theme";
@@ -52,28 +31,41 @@
 
   programs.firefox = {
     enable = true;
+    package = pkgs.librewolf;
 
-    # autoConfig = lib.concatStringsSep "\n" (lib.mapAttrsToList (pref: value: "lockPref(\"${pref}\", ${builtins.toJSON value});") {
-    preferences = {
-      "browser.aboutConfig.showWarning" = false;
+    autoConfig = lib.concatStringsSep "\n" (lib.mapAttrsToList (pref: value: "lockPref(\"${pref}\", ${builtins.toJSON value});") {
+      "svg.context-properties.content.enabled" = true; # This doesn't work
+      "privacy.fingerprintingProtection.overrides" = "+AllTargets,-CSSPrefersColorScheme";
+      "media.peerconnection.enabled" = true;
       "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       "browser.uiCustomization.state" = "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"downloads-button\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\"],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"save-to-pocket-button\",\"developer-button\"],\"dirtyAreaCache\":[\"nav-bar\",\"PersonalToolbar\",\"toolbar-menubar\",\"TabsToolbar\"],\"currentVersion\":19}";
-    };
+    });
 
     policies = {
       ShowHomeButton = false;
 
-      DisablePocket = true;
-      DisableTelemetry = true;
-      DisableFirefoxStudies = true;
+      DisableAccounts = true;
+      DisableFormHistory = true;
       DisableFirefoxScreenshots = true;
       DisableSetDesktopBackground = true;
       DisableMasterPasswordCreation = true;
 
-      # We use bitwarden for these
+      # We use the Bitwarden extension for these
       PasswordManagerEnabled = false;
       AutofillAddressEnabled = false;
       AutofillCreditCardEnabled = false;
+
+      SanitizeOnShutdown = {
+        Cache = false;
+        Cookies = false;
+        Downloads = true;
+        FormData = true;
+        History = false;
+        Sessions = false;
+        SiteSettings = false;
+        OfflineApps = true;
+        Locked = true;
+      };
 
       DontCheckDefaultBrowser = true;
 
@@ -143,6 +135,7 @@
 
       SearchEngines = {
         Default = "DuckDuckGo";
+        PreventInstalls = true;
         Remove = ["Bing" "Google" "Amazon.ca" "eBay"];
         Add = [
           {
@@ -150,13 +143,6 @@
             URLTemplate = "https://search.nixos.org/packages?channel=unstable&query={searchTerms}";
             IconURL = "https://github.com/NixOS/nixos-artwork/raw/refs/heads/master/logo/nix-snowflake-white.svg";
             Alias = "np";
-            preferences = {
-              "gnomeTheme.oledBlack" = true; # Enable nord theme (doesn't work)
-              "svg.context-properties.content.enabled" = true; # This doesn't work either
-              "signon.firefoxRelay.feature" = "disabled";
-              "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-              "browser.uiCustomization.state" = "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"downloads-button\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\"],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"save-to-pocket-button\",\"developer-button\"],\"dirtyAreaCache\":[\"nav-bar\",\"PersonalToolbar\",\"toolbar-menubar\",\"TabsToolbar\"],\"currentVersion\":19}";
-            };
           }
           {
             Name = "NixOS Option Search";
