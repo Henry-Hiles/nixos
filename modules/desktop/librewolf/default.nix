@@ -139,7 +139,6 @@
       SearchEngines = {
         Default = "DuckDuckGo";
         PreventInstalls = true;
-        Remove = ["Bing" "Google" "Amazon.ca" "eBay"];
         Add = [
           {
             Name = "Nix Package Search";
