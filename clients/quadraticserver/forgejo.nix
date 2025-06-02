@@ -32,16 +32,16 @@
       };
     };
 
-    gitea-actions-runner = {
-      package = pkgs.forgejo-actions-runner;
-      instances.default = {
-        enable = true;
-        name = "monolith";
-        url = domain;
-        tokenFile = config.age.secrets."runnerToken.age".path;
-        labels = ["native:host"];
-      };
-    };
+    # gitea-actions-runner = {
+    #   package = pkgs.forgejo-actions-runner;
+    #   instances.default = {
+    #     enable = true;
+    #     name = "monolith";
+    #     url = domain;
+    #     tokenFile = config.age.secrets."runnerToken.age".path;
+    #     labels = ["native:host"];
+    #   };
+    # };
 
     caddy.virtualHosts."${domain}".extraConfig = "reverse_proxy unix/${socket}";
   };
