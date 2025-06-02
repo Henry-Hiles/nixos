@@ -4,7 +4,7 @@
   ...
 }: {
   services = let
-    domain = "call.henryhiles.com";
+    domain = "call.federated.nexus";
   in {
     livekit = {
       enable = true;
@@ -23,8 +23,8 @@
       	respond /config.json `${builtins.toJSON {
         default_server_config = {
           "m.homeserver" = {
-            "base_url" = "https://matrix.henryhiles.com";
-            "server_name" = "henryhiles.com";
+            "base_url" = config.services.grapevine.settings.server_discovery.client.base_url;
+            "server_name" = config.services.grapevine.settings.server_name;
           };
         };
         livekit.livekit_service_url = "https://${domain}/livekit";

@@ -3,13 +3,13 @@
   networking.firewall.allowedTCPPorts = [8448];
 
   services = let
-    domain = "matrix.henryhiles.com";
-    # socket = "/run/grapvine/socket";
+    domain = "federated.nexus";
+    subdomain = "matrix.${domain}";
   in {
     grapevine = {
       enable = true;
       settings = {
-        server_name = "henryhiles.com";
+        server_name = domain;
         database.backend = "rocksdb";
         federation = {
           max_concurrent_requests = 10000;
@@ -17,8 +17,8 @@
         };
 
         server_discovery = {
-          server.authority = "${domain}:443";
-          client.base_url = "https://${domain}";
+          server.authority = "${subdomain}:443";
+          client.base_url = "https://${subdomain}";
         };
 
         listen = [
@@ -30,8 +30,8 @@
       };
     };
 
-    caddy.virtualHosts."${domain}" = {
-      serverAliases = ["${domain}:8448"];
+    caddy.virtualHosts."${subdomain}" = {
+      serverAliases = ["${subdomain}:8448"];
       extraConfig = "reverse_proxy 127.0.0.3:6167";
     };
   };
