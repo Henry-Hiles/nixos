@@ -4,7 +4,7 @@
   ...
 }: {
   services = let
-    domain = "git.henryhiles.com";
+    domain = "git.federated.nexus";
     socket = "/run/forgejo/socket";
   in {
     forgejo = {
@@ -37,7 +37,7 @@
       instances.default = {
         enable = true;
         name = "monolith";
-        url = "https://git.henryhiles.com";
+        url = domain;
         tokenFile = config.age.secrets."runnerToken.age".path;
         labels = ["native:host"];
       };

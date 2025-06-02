@@ -12,10 +12,8 @@
         "listen.owner" = user;
         "listen.group" = group;
       };
-      mail.dsn = "smtp://username:password@example.com:25";
-      nginx = {};
+      nginx = null;
     };
-    nginx.enable = false; # We use caddy instead
 
     caddy.virtualHosts."${domain}".extraConfig = ''
       encode zstd gzip
