@@ -13,7 +13,7 @@
       };
       url = {
         "git@github.com:".insteadOf = ["https://github.com/"];
-        "git@git.henryhiles.com:".insteadOf = ["https://git.henryhiles.com"];
+        "git@git.federated.nexus:".insteadOf = ["https://git.federated.nexus"];
       };
       init.defaultBranch = "main";
       commit.gpgsign = true;

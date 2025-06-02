@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
   services = let
     domain = "git.federated.nexus";
     socket = "/run/forgejo/socket";
