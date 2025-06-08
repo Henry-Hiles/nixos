@@ -11,6 +11,7 @@
       settings = {
         server_name = domain;
         database.backend = "rocksdb";
+        media.allow_unauthenticated_access = true;
         federation = {
           max_concurrent_requests = 10000;
           self_test = false;
