@@ -29,7 +29,7 @@
         require = false;
       };
       permissions = {
-        config.services.grapevine.settings.server_name = "full";
+        "${config.services.grapevine.settings.server_name}" = "full";
         "@quadradical:${config.services.grapevine.settings.server_name}" = "admin";
       };
     };

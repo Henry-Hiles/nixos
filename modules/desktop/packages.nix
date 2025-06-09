@@ -9,6 +9,7 @@
     aspell
     muzika
     foliate
+    fractal
     inkscape
     r2modman
     pciutils
@@ -16,7 +17,6 @@
     libreoffice
     wl-clipboard
     prismlauncher
-    cinny-desktop
     authenticator
     nexusmods-app-unfree
     hunspellDicts.en_CA-large
