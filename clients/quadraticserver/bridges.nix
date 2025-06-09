@@ -38,7 +38,7 @@ in {
   imports = [inputs.nix-matrix-appservices.nixosModule];
 
   services.matrix-appservices.services.whatsapp = {
-    port = 8081;
+    port = 29318;
     format = "mautrix-go";
     serviceConfig.EnvironmentFile = config.age.secrets."whatsapp.age".path;
     package = pkgs.mautrix-whatsapp.override {withGoolm = true;};
