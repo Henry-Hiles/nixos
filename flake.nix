@@ -62,7 +62,7 @@
             {networking.hostName = hostname;}
             inputs.agenix.nixosModules.default
           ]
-          ++ dirFiles ".nix" "${./clients}/${hostname}"
+          ++ dirFiles ".nix" ./clients/${hostname}
           ++ dirFiles ".nix" ./modules/common
           ++ opt (!isDesktop) (dirFiles ".nix" ./modules/server)
           ++ opt isDesktop (
