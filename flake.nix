@@ -1,8 +1,22 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    agenix-cli.url = "github:cole-h/agenix-cli";
-    grapevine.url = "gitlab:matrix/grapevine?ref=olivia/openid-api&host=gitlab.computer.surgery";
+    grapevine = {
+      url = "gitlab:matrix/grapevine?ref=olivia/openid-api&host=gitlab.computer.surgery";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-matrix-appservices = {
+      url = "gitlab:coffeetables/nix-matrix-appservices";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    agenix-cli = {
+      url = "github:cole-h/agenix-cli";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -11,7 +25,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    stylix.url = "github:danth/stylix";
     firefox-gnome-theme = {
       url = "github:rafaelmardojai/firefox-gnome-theme";
       flake = false;
