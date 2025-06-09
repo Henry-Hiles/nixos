@@ -36,18 +36,18 @@ in {
     value
     // {
       inherit settings;
-      package = value.package.override {withGoolm = true;};
+      format = "mautrix-go";
     }) {
     whatsapp = {
       port = 29318;
       serviceConfig.EnvironmentFile = config.age.secrets."whatsapp.age".path;
-      package = pkgs.mautrix-whatsapp;
+      package = pkgs.mautrix-whatsapp.override {withGoolm = true;};
     };
 
-    discord = {
-      port = 29319;
-      serviceConfig.EnvironmentFile = config.age.secrets."discord.age".path;
-      package = pkgs.mautrix-discord;
-    };
+    # discord = {
+    #   port = 29319;
+    #   serviceConfig.EnvironmentFile = config.age.secrets."discord.age".path;
+    #   package = pkgs.mautrix-discord;
+    # };
   };
 }
