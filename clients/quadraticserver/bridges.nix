@@ -5,16 +5,11 @@
   ...
 }: let
   settings = {
+    backfill.enabled = true;
+
     appservice = {
       as_token = "$CUSTOM_AS_TOKEN";
       hs_token = "$CUSTOM_HS_TOKEN";
-    };
-
-    backfill = {
-      enabled = true;
-      max_initial_messages = 50;
-      max_catchup_messages = 20;
-      unread_hours_threshold = 300;
     };
 
     homeserver = {
@@ -29,7 +24,7 @@
         require = false;
       };
       permissions = {
-        "${config.services.grapevine.settings.server_name}" = "full";
+        "${config.services.grapevine.settings.server_name}" = "user";
         "@quadradical:${config.services.grapevine.settings.server_name}" = "admin";
       };
     };
@@ -37,11 +32,22 @@
 in {
   imports = [inputs.nix-matrix-appservices.nixosModule];
 
-  services.matrix-appservices.services.whatsapp = {
-    port = 29318;
-    format = "mautrix-go";
-    serviceConfig.EnvironmentFile = config.age.secrets."whatsapp.age".path;
-    package = pkgs.mautrix-whatsapp.override {withGoolm = true;};
-    inherit settings;
+  services.matrix-appservices.services = builtins.mapAttrs (name: value:
+    value
+    // {
+      inherit settings;
+      package = value.package.override {withGoolm = true;};
+    }) {
+    whatsapp = {
+      port = 29318;
+      serviceConfig.EnvironmentFile = config.age.secrets."whatsapp.age".path;
+      package = pkgs.mautrix-whatsapp;
+    };
+
+    discord = {
+      port = 29319;
+      serviceConfig.EnvironmentFile = config.age.secrets."discord.age".path;
+      package = pkgs.mautrix-discord;
+    };
   };
 }
