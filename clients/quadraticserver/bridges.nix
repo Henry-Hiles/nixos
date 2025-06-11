@@ -31,6 +31,7 @@
   };
 
   domain = "ooye.federated.nexus";
+  runtimeDir = "matrix-ooye";
 in {
   imports = [inputs.nix-matrix-appservices.nixosModule inputs.ooye.modules.default];
 
@@ -55,15 +56,18 @@ in {
       homeserverName = "federated.nexus";
       discordTokenPath = config.age.secrets."discordToken.age".path;
       discordClientSecretPath = config.age.secrets."discordClientSecret.age".path;
-      socket = "/var/lib/matrix-ooye/socket";
+      socket = "/run/matrix-ooye/socket";
       bridgeOrigin = "https://${domain}";
     };
 
     caddy.virtualHosts."${domain}".extraConfig = "reverse_proxy unix/${matrix-ooye.socket}";
   };
 
-  systemd.services.matrix-ooye.serviceConfig = {
-    UMask = "0007";
-    Group = "caddy";
+  systemd.services = {
+    matrix-ooye.serviceConfig = {
+      RuntimeDirectory = runtimeDir;
+      UMask = "0007";
+      Group = "caddy";
+    };
   };
 }
