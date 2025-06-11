@@ -10,9 +10,10 @@
         [
           mkhl.direnv
           eamodio.gitlens
-          dart-code.dart-code
           dart-code.flutter
+          dart-code.dart-code
           jnoortheen.nix-ide
+          unifiedjs.vscode-mdx
           timonwong.shellcheck
           usernamehw.errorlens
           ritwickdey.liveserver
