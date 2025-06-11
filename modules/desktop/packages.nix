@@ -10,6 +10,7 @@
     muzika
     foliate
     fractal
+    gapless
     inkscape
     r2modman
     pciutils
