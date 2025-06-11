@@ -768,6 +768,26 @@
         "type": "github"
       }
     },
+    "ooye": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1737779835,
+        "narHash": "sha256-iZ/kQ/XFqIx053AuSHhCwu3HA8627ognYiJl/LRNpD0=",
+        "ref": "refs/heads/master",
+        "rev": "11cc65efa2909bdc7e3e978bf1f56f6d141bf82a",
+        "revCount": 11,
+        "type": "git",
+        "url": "https://cgit.rory.gay/nix/OOYE-module.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://cgit.rory.gay/nix/OOYE-module.git"
+      }
+    },
     "programsdb": {
       "inputs": {
         "nixpkgs": [
@@ -816,6 +836,7 @@
         "nh": "nh",
         "nix-matrix-appservices": "nix-matrix-appservices",
         "nixpkgs": "nixpkgs_2",
+        "ooye": "ooye",
         "programsdb": "programsdb",
         "stylix": "stylix",
         "wrapper-manager": "wrapper-manager"

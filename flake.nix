@@ -9,6 +9,10 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    ooye = {
+      url = "git+https://cgit.rory.gay/nix/OOYE-module.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-matrix-appservices = {
       url = "gitlab:coffeetables/nix-matrix-appservices";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -29,20 +29,41 @@
       };
     };
   };
-in {
-  imports = [inputs.nix-matrix-appservices.nixosModule];
 
-  services.matrix-appservices.services = builtins.mapAttrs (name: value:
-    value
-    // {
-      inherit settings;
-      format = "mautrix-go";
-      package = value.package.override {withGoolm = true;};
-    }) {
-    whatsapp = {
-      port = 29318;
-      serviceConfig.EnvironmentFile = config.age.secrets."whatsapp.age".path;
-      package = pkgs.mautrix-whatsapp;
+  domain = "ooye.federated.nexus";
+in {
+  imports = [inputs.nix-matrix-appservices.nixosModule inputs.ooye.modules.default];
+
+  services = rec {
+    matrix-appservices.services = builtins.mapAttrs (name: value:
+      value
+      // {
+        inherit settings;
+        format = "mautrix-go";
+        package = value.package.override {withGoolm = true;};
+      }) {
+      whatsapp = {
+        port = 29318;
+        serviceConfig.EnvironmentFile = config.age.secrets."whatsapp.age".path;
+        package = pkgs.mautrix-whatsapp;
+      };
     };
+
+    matrix-ooye = {
+      enable = true;
+      homeserver = config.services.grapevine.settings.server_discovery.client.base_url;
+      homeserverName = "federated.nexus";
+      discordTokenPath = config.age.secrets."discordToken.age".path;
+      discordClientSecretPath = config.age.secrets."discordClientSecret.age".path;
+      socket = "/var/lib/matrix-ooye/socket";
+      bridgeOrigin = "https://${domain}";
+    };
+
+    caddy.virtualHosts."${domain}".extraConfig = "reverse_proxy unix/${matrix-ooye.socket}";
+  };
+
+  systemd.services.matrix-ooye.serviceConfig = {
+    UMask = "0007";
+    Group = "caddy";
   };
 }
