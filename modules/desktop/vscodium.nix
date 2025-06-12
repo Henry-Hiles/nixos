@@ -38,7 +38,8 @@
   ];
 
   systemd.tmpfiles.settings.vscodium = {
-    # "/home/quadradical/.config/VSCodium/User"."d".user = "quadradical";
+    "/home/quadradical/.config/VSCodium"."d".user = "quadradical";
+    "/home/quadradical/.config/VSCodium/User"."d".user = "quadradical";
     "/home/quadradical/.config/VSCodium/User/settings.json"."L+".argument = toString ((pkgs.formats.json {}).generate "settings.json" {
       "arb-editor.suppressedWarnings" = ["missing_metadata_for_key"];
       "dart.debugExternalPackageLibraries" = true;

@@ -34,13 +34,14 @@
     package = pkgs.librewolf;
 
     autoConfig = lib.concatStringsSep "\n" (lib.mapAttrsToList (pref: value: "lockPref(\"${pref}\", ${builtins.toJSON value});") {
-      "browser.discovery.containers.enabled" = false;
+      "webgl.disabled" = false;
+      "media.peerconnection.enabled" = true;
       "privacy.resistFingerprinting" = false;
       "privacy.fingerprintingProtection" = true;
-      "privacy.fingerprintingProtection.overrides" = "+AllTargets,-CSSPrefersColorScheme";
-      "media.peerconnection.enabled" = true;
+      "browser.discovery.containers.enabled" = false;
       "svg.context-properties.content.enabled" = true;
       "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+      "privacy.fingerprintingProtection.overrides" = "+AllTargets,-CSSPrefersColorScheme";
       "browser.uiCustomization.state" = "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"downloads-button\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\"],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"save-to-pocket-button\",\"developer-button\"],\"dirtyAreaCache\":[\"nav-bar\",\"PersonalToolbar\",\"toolbar-menubar\",\"TabsToolbar\"],\"currentVersion\":19}";
     });
 
