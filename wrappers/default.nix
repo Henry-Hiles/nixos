@@ -5,11 +5,12 @@
   isDesktop,
   ...
 }: {
-  environment.systemPackages = with dirUtils; [
-    (inputs.wrapper-manager.lib.build {
+  environment.systemPackages = [
+    (inputs.wrapper-manager.lib {
       inherit pkgs;
       specialArgs = {inherit inputs;};
-      modules = dirFiles ".nix" ./common ++ opt isDesktop (dirFiles ".nix" ./common-desktop);
+      modules = with dirUtils; dirFiles ".nix" ./common ++ opt isDesktop (dirFiles ".nix" ./common-desktop);
     })
+    .config.build.toplevel
   ];
 }

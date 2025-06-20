@@ -1,6 +1,11 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    wrapper-manager.url = "github:viperML/wrapper-manager";
+    firefox-gnome-theme = {
+      url = "github:rafaelmardojai/firefox-gnome-theme";
+      flake = false;
+    };
     grapevine = {
       url = "gitlab:matrix/grapevine?ref=olivia/openid-api&host=gitlab.computer.surgery";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -11,6 +16,10 @@
     };
     ooye = {
       url = "git+https://cgit.rory.gay/nix/OOYE-module.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    matrixoidc = {
+      url = "git+https://git.federated.nexus/Henry-Hiles/matrixoidc";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-matrix-appservices = {
@@ -29,16 +38,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    firefox-gnome-theme = {
-      url = "github:rafaelmardojai/firefox-gnome-theme";
-      flake = false;
-    };
     programsdb = {
       url = "github:wamserma/flake-programs-sqlite";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    wrapper-manager = {
-      url = "github:viperML/wrapper-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nh = {
