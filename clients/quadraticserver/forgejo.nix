@@ -7,7 +7,10 @@
       enable = true;
       package = pkgs.forgejo; # Not LTS
       settings = {
-        service.DISABLE_REGISTRATION = true;
+        service = {
+          ENABLE_INTERNAL_SIGNIN = false;
+          ALLOW_ONLY_EXTERNAL_REGISTRATION = true;
+        };
         repository.GO_GET_CLONE_URL_PROTOCOL = "ssh";
         actions.DEFAULT_ACTIONS_URL = "github";
 
