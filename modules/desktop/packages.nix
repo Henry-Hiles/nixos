@@ -19,7 +19,7 @@
     wl-clipboard
     prismlauncher
     authenticator
-    nexusmods-app-unfree
+    # nexusmods-app-unfree
     hunspellDicts.en_CA-large
   ];
 }

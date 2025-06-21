@@ -829,17 +829,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1749767813,
-        "narHash": "sha256-1vMSz6xcGc90rDo5BVdB/e6hbP+RrovyGNXhaUWrVKU=",
+        "lastModified": 1750475211,
+        "narHash": "sha256-M+qvH/Z4yl4SfEdce8egsm01NpLzUBT/bMWjcm5CL4Y=",
         "ref": "refs/heads/master",
-        "rev": "fe1e8f28844350efdce4b15342e69c82b1e3369a",
-        "revCount": 12,
+        "rev": "616ca2d32b610066d0dcf12496baa46f718dbdcd",
+        "revCount": 14,
         "type": "git",
-        "url": "https://cgit.rory.gay/nix/OOYE-module.git"
+        "url": "https://git.federated.nexus/Henry-Hiles/OOYE-module"
       },
       "original": {
         "type": "git",
-        "url": "https://cgit.rory.gay/nix/OOYE-module.git"
+        "url": "https://git.federated.nexus/Henry-Hiles/OOYE-module"
       }
     },
     "programsdb": {
