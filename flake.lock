@@ -829,11 +829,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1750475211,
-        "narHash": "sha256-M+qvH/Z4yl4SfEdce8egsm01NpLzUBT/bMWjcm5CL4Y=",
+        "lastModified": 1750513223,
+        "narHash": "sha256-BcHbwm7cVfxb0ocicnn21PNE7ijyLlUZk1utzrR06Ys=",
         "ref": "refs/heads/master",
-        "rev": "616ca2d32b610066d0dcf12496baa46f718dbdcd",
-        "revCount": 14,
+        "rev": "236f3406c2a79887cfc010e29ba83c63c330695c",
+        "revCount": 15,
         "type": "git",
         "url": "https://git.federated.nexus/Henry-Hiles/OOYE-module"
       },
@@ -850,11 +850,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1750413286,
-        "narHash": "sha256-g2ORiqHTWOS8W7xEBRDrqbo/uXEs/ZN85kG0pCSbk/o=",
+        "lastModified": 1750512214,
+        "narHash": "sha256-qb6BTAyIrzMa47Wa9T++AUbO6On4c3p9npHbLlrvJ9I=",
         "owner": "wamserma",
         "repo": "flake-programs-sqlite",
-        "rev": "afd1949edb9a0f2433c3d05a4401b95add9620aa",
+        "rev": "9fd1ee32264cea8782dd7127156a3d42ad77fde8",
         "type": "github"
       },
       "original": {
@@ -938,11 +938,11 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1750369088,
-        "narHash": "sha256-njtrVYrl+4I3ikgAoKLyQ+5MZ1BKwazAiEpLq2efwrE=",
+        "lastModified": 1750459519,
+        "narHash": "sha256-5r+n+UspGQmATwiaA/HPoHgLWkmlIFEweHC3A4fqk80=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "8c1421ae02475a874f2a09cc4a7ad6de63fbc9e8",
+        "rev": "faa5a34c3fd533b289ed082ff2b0e579634e3e4f",
         "type": "github"
       },
       "original": {

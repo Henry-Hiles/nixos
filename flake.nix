@@ -15,7 +15,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ooye = {
-      url = "git+https://git.federated.nexus/Henry-Hiles/OOYE-module";
+      url = "git+https://cgit.rory.gay/nix/OOYE-module.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     matrixoidc = {
