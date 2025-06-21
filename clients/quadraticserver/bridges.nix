@@ -49,16 +49,16 @@ in {
       };
     };
 
-    # matrix-ooye = {
-    #   enable = true;
-    #   homeserver = config.services.grapevine.settings.server_discovery.client.base_url;
-    #   homeserverName = "federated.nexus";
-    #   discordTokenPath = config.age.secrets."discordToken.age".path;
-    #   discordClientSecretPath = config.age.secrets."discordClientSecret.age".path;
+    matrix-ooye = {
+      enable = true;
+      homeserver = config.services.grapevine.settings.server_discovery.client.base_url;
+      homeserverName = "federated.nexus";
+      discordTokenPath = config.age.secrets."discordToken.age".path;
+      discordClientSecretPath = config.age.secrets."discordClientSecret.age".path;
+      socket = "8081";
+      bridgeOrigin = "https://${domain}";
+    };
 
-    #   bridgeOrigin = "https://${domain}";
-    # };
-
-    # caddy.virtualHosts."${domain}".extraConfig = "reverse_proxy unix/${matrix-ooye.socket}";
+    caddy.virtualHosts."${domain}".extraConfig = "reverse_proxy 127.0.0.1:8081";
   };
 }
