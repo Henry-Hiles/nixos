@@ -45,12 +45,10 @@
 
         route {
           jwtauth {
-            from_header Authorization
+            from_cookies id_token
             sign_key {$JWK_SECRET}
-            sign_alg HS256
             issuer_whitelist ${auth}
             audience_whitelist proxy
-            user_claims sub
           }
 
           reverse_proxy unix/${socket}
