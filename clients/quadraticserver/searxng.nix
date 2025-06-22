@@ -3,7 +3,10 @@
   lib,
   ...
 }: {
-  services = with config.services.searx.settings.server; {
+  services = let
+    socket = "/var/run/searx/socket";
+    domain = "search.federated.nexus";
+  in {
     searx = {
       enable = true;
       environmentFile = config.age.secrets."searxngSecret.age".path;
@@ -12,7 +15,6 @@
         general = {
           instance_name = "Federated Nexus Search";
           contact_url = "mailto:henry@henryhiles.com";
-          debug = true;
         };
         search = {
           autocomplete = "duckduckgo";
@@ -20,10 +22,10 @@
         };
 
         server = {
-          base_url = "search.federated.nexus";
+          base_url = "https://${domain}";
 
-          port = 80;
-          bind_address = "127.0.0.4";
+          port = "8080";
+          bind_address = "unix://${socket}";
         };
 
         engines = lib.mapAttrsToList (name: value: {inherit name;} // value) {
@@ -31,6 +33,39 @@
         };
       };
     };
-    caddy.virtualHosts."${base_url}".extraConfig = "reverse_proxy ${bind_address}";
+
+    caddy = {
+      environmentFile = config.age.secrets."oidcJwtSecretEnv.age".path;
+      virtualHosts."${domain}".extraConfig = let
+        auth = "https://auth.federated.nexus";
+      in ''
+        handle_errors 401 {
+          redir https://federated.nexus/login?redirect_uri=${auth}/bridge?redirect_uri=https://${domain}{uri} 302
+        }
+
+        route {
+          jwtauth {
+            from_header Authorization
+            sign_key {$JWK_SECRET}
+            sign_alg HS256
+            issuer_whitelist ${auth}
+            audience_whitelist proxy
+            user_claims sub
+          }
+
+          reverse_proxy unix/${socket}
+        }
+      '';
+    };
+  };
+  systemd.services = let
+    commonConfig = builtins.mapAttrs (_: value: lib.mkForce value) {
+      Group = "caddy";
+      RuntimeDirectoryMode = "0770";
+      UMask = "007";
+    };
+  in {
+    searx.serviceConfig = commonConfig;
+    searx-init.serviceConfig = commonConfig;
   };
 }

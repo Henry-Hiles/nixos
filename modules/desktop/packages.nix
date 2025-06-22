@@ -4,12 +4,11 @@
     tuba
     gimp
     deno
-    ptyxis
     heroic
     aspell
+    ptyxis
     muzika
     foliate
-    fractal
     gapless
     inkscape
     r2modman
@@ -19,6 +18,7 @@
     wl-clipboard
     prismlauncher
     authenticator
+    cinny-desktop
     # nexusmods-app-unfree
     hunspellDicts.en_CA-large
   ];
