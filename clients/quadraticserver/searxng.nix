@@ -26,14 +26,14 @@
           };
 
           images = {
-            "duckduckgo images" = {};
+            "duckduckgo images".disabled = false;
             "google images" = {};
           };
 
           map.openstreetmap = {};
 
           videos = {
-            peertube = {};
+            peertube.disabled = false;
             youtube = {};
           };
 
