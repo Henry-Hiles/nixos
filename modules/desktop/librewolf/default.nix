@@ -138,9 +138,14 @@
         ]));
 
       SearchEngines = {
-        Default = "DuckDuckGo";
+        Default = "Federated Nexus Search";
         PreventInstalls = true;
         Add = [
+          {
+            Name = "Federated Nexus Search";
+            URLTemplate = "https://search.federated.nexus/search?q={searchTerms}";
+            IconURL = "https://federated.nexus/images/icon.svg";
+          }
           {
             Name = "Nix Package Search";
             URLTemplate = "https://search.nixos.org/packages?channel=unstable&query={searchTerms}";
