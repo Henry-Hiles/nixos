@@ -19,7 +19,7 @@
     prismlauncher
     authenticator
     cinny-desktop
-    # nexusmods-app-unfree
+    nexusmods-app-unfree
     hunspellDicts.en_CA-large
   ];
 }

@@ -8,5 +8,5 @@
       hash = "sha256-sdhX/dAQ7lIxBo/ZW6XYX8SRuacLO9HobtIVKD/cw0o=";
     };
   };
-  networking.firewall.allowedTCPPorts = [2222 443 8448]; # Git SSH, HTTPS, and Matrix
+  networking.firewall.allowedTCPPorts = [2222 443]; # Git SSH, HTTPS, and Matrix
 }
