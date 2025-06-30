@@ -70,6 +70,7 @@
             ./wrappers
             {networking.hostName = hostname;}
             inputs.agenix.nixosModules.default
+            inputs.run0-sudo-shim.nixosModules.default
           ]
           ++ dirFiles ".nix" ./clients/${hostname}
           ++ dirFiles ".nix" ./modules/common
