@@ -6,6 +6,10 @@
       url = "github:rafaelmardojai/firefox-gnome-theme";
       flake = false;
     };
+    run0-sudo-shim = {
+      url = "github:lordgrimmauld/run0-sudo-shim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     grapevine = {
       url = "gitlab:matrix/grapevine?ref=olivia/openid-api&host=gitlab.computer.surgery";
       inputs.nixpkgs.follows = "nixpkgs";
