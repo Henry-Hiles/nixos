@@ -31,9 +31,6 @@
       };
     };
 
-    caddy.virtualHosts."${subdomain}" = {
-      serverAliases = ["${subdomain}:8448"];
-      extraConfig = "reverse_proxy 127.0.0.3:6167";
-    };
+    caddy.virtualHosts."${subdomain}".extraConfig = "reverse_proxy 127.0.0.3:6167";
   };
 }
