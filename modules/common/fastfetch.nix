@@ -14,7 +14,7 @@
 
       {
         type = "custom";
-        format = "{#light_blue}┌─────────{#} Hardware Information {#light_blue}──────────";
+        format = "{#cyan}┌─────────{#} Hardware Information {#cyan}──────────";
       }
       {
         type = "cpu";
@@ -31,7 +31,7 @@
 
       {
         type = "custom";
-        format = "{#light_blue}├─────────{#} Software Information {#light_blue}──────────";
+        format = "{#cyan}├─────────{#} Software Information {#cyan}──────────";
       }
       {
         type = "os";
@@ -83,7 +83,7 @@
       }
       {
         type = "custom";
-        format = "{#light_blue}└────────────────────────────────────────";
+        format = "{#cyan}└────────────────────────────────────────";
       }
 
       "break"
