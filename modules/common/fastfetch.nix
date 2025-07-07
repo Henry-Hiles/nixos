@@ -3,18 +3,24 @@
   lib,
   ...
 }: {
-  environment.shellAliases.neofetch = "${lib.getExe pkgs.fastfetch} --config ${pkgs.writers.writeJSON "fastfetch.json" {
-    logo = rec {
-      height = 16;
-      width = height;
+  environment.shellAliases.neofetch = let
+    color = "#4E94E4";
+  in "${lib.getExe pkgs.fastfetch} --config ${pkgs.writers.writeJSON "fastfetch.json" {
+    logo = {
+      height = 18;
+      type = "chafa";
+      source = ../../logo.png;
     };
-    display.separator = "  ";
+    display = {
+      separator = "  ";
+      color.keys = color;
+    };
     modules = [
       "break"
 
       {
         type = "custom";
-        format = "{#cyan}┌─────────{#} Hardware Information {#cyan}──────────";
+        format = "{#${color}}┌─────────{#} Hardware Information {#${color}}──────────";
       }
       {
         type = "cpu";
@@ -31,7 +37,7 @@
 
       {
         type = "custom";
-        format = "{#cyan}├─────────{#} Software Information {#cyan}──────────";
+        format = "{#${color}}├─────────{#} Software Information {#${color}}──────────";
       }
       {
         type = "os";
@@ -83,7 +89,7 @@
       }
       {
         type = "custom";
-        format = "{#cyan}└────────────────────────────────────────";
+        format = "{#${color}}└────────────────────────────────────────";
       }
 
       "break"
