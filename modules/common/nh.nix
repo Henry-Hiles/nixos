@@ -18,6 +18,6 @@ in {
     clean = "${exe} clean all";
     update = "env -C ~/.config/nixos nix flake update && rebuild";
     rebuild = "${exe} os switch";
-    rebuildServer = "${exe} os switch --hostname quadraticserver --target-host 192.168.0.132";
+    rebuild-server = "${exe} os switch --hostname quadraticserver --target-host 192.168.0.132";
   };
 }
