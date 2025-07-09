@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
+  networking.firewall.allowedTCPPorts = [22];
   services = let
     domain = "git.federated.nexus";
     socket = "/run/forgejo/socket";
@@ -21,7 +26,6 @@
           PROTOCOL = "http+unix";
 
           START_SSH_SERVER = true;
-          SSH_LISTEN_PORT = 2222;
           BUILTIN_SSH_SERVER_USER = "git";
 
           LANDING_PAGE = "explore";
@@ -31,17 +35,15 @@
       };
     };
 
-    # gitea-actions-runner = {
-    #   package = pkgs.forgejo-actions-runner;
-    #   instances.default = {
-    #     enable = true;
-    #     name = "monolith";
-    #     url = domain;
-    #     tokenFile = config.age.secrets."runnerToken.age".path;
-    #     labels = ["native:host"];
-    #   };
-    # };
-
     caddy.virtualHosts."${domain}".extraConfig = "reverse_proxy unix/${socket}";
+  };
+
+  systemd.sockets.forgejo = {
+    requiredBy = ["forgejo.service"];
+    wantedBy = ["sockets.target"];
+
+    listenStreams = [
+      (toString config.services.forgejo.settings.server.SSH_PORT)
+    ];
   };
 }

@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  networking.firewall.allowedTCPPorts = [443];
   services.caddy = {
     enable = true;
     email = "henry@henryhiles.com";
@@ -8,5 +9,4 @@
       hash = "sha256-sdhX/dAQ7lIxBo/ZW6XYX8SRuacLO9HobtIVKD/cw0o=";
     };
   };
-  networking.firewall.allowedTCPPorts = [2222 443]; # Git SSH, HTTPS, and Matrix
 }
