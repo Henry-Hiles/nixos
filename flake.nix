@@ -82,11 +82,9 @@
           ++ opt isDesktop (
             (dirFiles ".nix" ./modules/desktop)
             ++ [
+              inputs.home-manager.nixosModules.home-manager
               inputs.stylix.nixosModules.stylix
               ./stylix.nix
-
-              inputs.home-manager.nixosModules.home-manager
-              ./home-manager.nix
             ]
           );
       };

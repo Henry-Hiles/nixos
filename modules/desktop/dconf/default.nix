@@ -116,9 +116,9 @@
           font-hinting = "slight";
           font-antialiasing = "grayscale";
 
-          font-name = "Cantarell 11";
+          font-name = "sans";
           document-font-name = font-name;
-          monospace-font-name = "FiraCode Nerd Font 11";
+          monospace-font-name = "monospace";
         };
 
         #         "org/gnome/Ptyxis".default-profile-uuid = "quadradical";

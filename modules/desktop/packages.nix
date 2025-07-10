@@ -16,9 +16,11 @@
     resources
     libreoffice
     wl-clipboard
+    google-cursor
     prismlauncher
     authenticator
     cinny-desktop
+    papirus-icon-theme
     nexusmods-app-unfree
     hunspellDicts.en_CA-large
   ];
