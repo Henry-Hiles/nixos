@@ -8,7 +8,6 @@
     wl-clipboard
     google-cursor
     authenticator
-    cinny-desktop
     papirus-icon-theme
   ];
 }

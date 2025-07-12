@@ -14,16 +14,26 @@ in {
     enable = true;
     partitions."03-root".Type = "root";
   };
-  boot.initrd.systemd = {
-    enable = true;
-    root = "gpt-auto";
-  };
-  boot.initrd.supportedFilesystems.ext4 = true;
 
-  fileSystems."/".device = "/dev/disk/by-label/nixos";
-  fileSystems."/".fsType = "ext4";
-  fileSystems."/boot".device = "/dev/disk/by-label/ESP";
-  fileSystems."/boot".fsType = "vfat";
+  boot.initrd = {
+    supportedFilesystems.ext4 = true;
+    systemd = {
+      enable = true;
+      root = "gpt-auto";
+    };
+  };
+
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-label/nixos";
+      fsType = "ext4";
+    };
+    "/boot" = {
+      device = "/dev/disk/by-label/ESP";
+      fsType = "vfat";
+    };
+  };
+
   image.repart = {
     name = "image";
     partitions = {

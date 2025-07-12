@@ -5,6 +5,7 @@
     inkscape
     r2modman
     libreoffice
+    cinny-desktop
     prismlauncher
     nexusmods-app-unfree
   ];

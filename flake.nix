@@ -1,5 +1,6 @@
 {
   inputs = {
+    gnome-mobile.url = "github:chuangzhu/nixpkgs-gnome-mobile";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     wrapper-manager.url = "github:viperML/wrapper-manager";
     flake-parts.url = "github:hercules-ci/flake-parts";
@@ -47,16 +48,12 @@
       url = "github:wamserma/flake-programs-sqlite";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nh = {
-      url = "github:nix-community/nh";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     firefox-gnome-theme = {
       url = "github:rafaelmardojai/firefox-gnome-theme";
       flake = false;
     };
     sdm845 = {
-      url = "github:linyinfeng/dotfiles";
+      url = "github:Henry-Hiles/dotfiles-fork";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -67,25 +64,25 @@
       opt = lib.optionals;
       dirFiles = type: dir: lib.filter (lib.hasSuffix type) (lib.filesystem.listFilesRecursive dir);
     };
-    system = hostname: isDesktop: isGraphical: arch:
+    system = info:
       lib.nixosSystem {
-        system = "${arch}-linux";
         specialArgs = {
-          inherit inputs isDesktop dirUtils;
+          inherit inputs dirUtils;
+          isDesktop = info.isDesktop or false;
         };
 
         modules = with dirUtils;
           [
-            ./wrappers
-            {networking.hostName = hostname;}
+            ./wrappers/default.nix
+            {networking.hostName = info.hostname;}
             inputs.agenix.nixosModules.default
             inputs.run0-sudo-shim.nixosModules.default
           ]
-          ++ dirFiles ".nix" ./clients/${hostname}
+          ++ dirFiles ".nix" ./clients/${info.hostname}
           ++ dirFiles ".nix" ./modules/common
-          ++ opt (!isDesktop) (dirFiles ".nix" ./modules/server)
-          ++ opt isDesktop (dirFiles ".nix" ./modules/desktop)
-          ++ opt isGraphical (
+          ++ opt (info.isServer or false) (dirFiles ".nix" ./modules/server)
+          ++ opt (info.isDesktop or false) (dirFiles ".nix" ./modules/desktop)
+          ++ opt (info.isGraphical or info.isDesktop or false) (
             (dirFiles ".nix" ./modules/graphical)
             ++ [
               inputs.home-manager.nixosModules.home-manager
@@ -102,15 +99,11 @@
         formatter = pkgs.alejandra;
       };
 
-      flake.nixosConfigurations = builtins.mapAttrs (name: value: system name value.isDesktop (value.isGraphical or value.isDesktop) (value.arch or "x86_64")) {
-        "quadraticserver".isDesktop = false;
+      flake.nixosConfigurations = builtins.mapAttrs (name: value: system (value // {hostname = name;})) {
         "quadraticpc".isDesktop = true;
         "quadtop".isDesktop = true;
-        "quadphone" = {
-          isDesktop = true;
-          isGraphical = true;
-          arch = "aarch64";
-        };
+        "quadraticserver".isServer = true;
+        "quadphone".isGraphical = true;
       };
     };
 }

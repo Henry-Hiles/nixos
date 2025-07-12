@@ -1084,6 +1084,21 @@
         "type": "github"
       }
     },
+    "gnome-mobile": {
+      "locked": {
+        "lastModified": 1748795015,
+        "narHash": "sha256-+XyXaa3KmgOykQpo6k4XsEaHWDGj8inCxMMGOWat4EM=",
+        "owner": "chuangzhu",
+        "repo": "nixpkgs-gnome-mobile",
+        "rev": "825ebb10c8bf02cb4b6553f3b85e169dc92484d7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "chuangzhu",
+        "repo": "nixpkgs-gnome-mobile",
+        "type": "github"
+      }
+    },
     "gnome-shell": {
       "flake": false,
       "locked": {
@@ -1596,26 +1611,6 @@
       "original": {
         "owner": "nix-community",
         "repo": "naersk",
-        "type": "github"
-      }
-    },
-    "nh": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1751375534,
-        "narHash": "sha256-9z1W64dDVtVxqgPzUbjIQqRfygg1hdivUOZ6d/H+yFg=",
-        "owner": "nix-community",
-        "repo": "nh",
-        "rev": "d0abb8eebe32f79ce4659e68dd777cf497a5d3d2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "nh",
         "type": "github"
       }
     },
@@ -2548,10 +2543,10 @@
         "disko": "disko",
         "firefox-gnome-theme": "firefox-gnome-theme",
         "flake-parts": "flake-parts",
+        "gnome-mobile": "gnome-mobile",
         "grapevine": "grapevine",
         "home-manager": "home-manager_2",
         "matrixoidc": "matrixoidc",
-        "nh": "nh",
         "nix-matrix-appservices": "nix-matrix-appservices",
         "nixpkgs": "nixpkgs_2",
         "ooye": "ooye",
@@ -2732,16 +2727,16 @@
         "weird-deployer": "weird-deployer"
       },
       "locked": {
-        "lastModified": 1752251688,
-        "narHash": "sha256-u2hG3OGbZnhDNliMdWk5iGXRS5q6/XLLhvBCN7Fi/jE=",
-        "owner": "linyinfeng",
-        "repo": "dotfiles",
-        "rev": "0662e5ab50c35541d0b56cf5b568ca3c940b52bf",
+        "lastModified": 1752351560,
+        "narHash": "sha256-l78+LOhFBdKktQJ9ipDcJ+gne7hprjQUqeafVGU8EzQ=",
+        "owner": "Henry-Hiles",
+        "repo": "dotfiles-fork",
+        "rev": "1daa02b1628000a8958d444100693b8a3763c401",
         "type": "github"
       },
       "original": {
-        "owner": "linyinfeng",
-        "repo": "dotfiles",
+        "owner": "Henry-Hiles",
+        "repo": "dotfiles-fork",
         "type": "github"
       }
     },
