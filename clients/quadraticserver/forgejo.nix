@@ -35,7 +35,13 @@
       };
     };
 
-    caddy.virtualHosts."${domain}".extraConfig = "reverse_proxy unix/${socket}";
+    caddy.virtualHosts."${domain}".extraConfig = ''
+      respond /robots.txt <<EOF
+        User-agent: *
+        Disallow: /*/*/archive/
+        EOF 200
+      reverse_proxy unix/${socket}
+    '';
   };
 
   systemd.sockets.forgejo = {
