@@ -2132,6 +2132,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-goolm": {
+      "locked": {
+        "lastModified": 1752617119,
+        "narHash": "sha256-MhkyyznD3+aSpttLMttWICMWKCtZPUN1eZD95yNOISE=",
+        "owner": "Henry-Hiles",
+        "repo": "nixpkgs",
+        "rev": "b99b5e51b67239b147b697bec0626d67cc98092a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Henry-Hiles",
+        "ref": "mautrix-gmessages-goolm",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-latest": {
       "locked": {
         "lastModified": 1752250779,
@@ -2549,6 +2565,7 @@
         "matrixoidc": "matrixoidc",
         "nix-matrix-appservices": "nix-matrix-appservices",
         "nixpkgs": "nixpkgs_2",
+        "nixpkgs-goolm": "nixpkgs-goolm",
         "ooye": "ooye",
         "programsdb": "programsdb",
         "run0-sudo-shim": "run0-sudo-shim",

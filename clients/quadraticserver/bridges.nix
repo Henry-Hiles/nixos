@@ -40,12 +40,18 @@ in {
       // {
         inherit settings;
         format = "mautrix-go";
+        port = 8000;
         package = value.package.override {withGoolm = true;};
       }) {
       whatsapp = {
-        port = 29318;
+        host = "127.0.0.4";
         serviceConfig.EnvironmentFile = config.age.secrets."whatsapp.age".path;
         package = pkgs.mautrix-whatsapp;
+      };
+      gmessages = {
+        host = "127.0.0.5";
+        serviceConfig.EnvironmentFile = config.age.secrets."gmessages.age".path;
+        package = inputs.nixpkgs-goolm.legacyPackages.${pkgs.system}.mautrix-gmessages;
       };
     };
 
