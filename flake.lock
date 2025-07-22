@@ -1275,11 +1275,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1753180535,
-        "narHash": "sha256-KEtlzMs2O7FDvciFtjk9W4hyau013Pj9qZNK9a0PxEc=",
+        "lastModified": 1753181343,
+        "narHash": "sha256-CLQfNtUqirNVSYoW/kYbvL4PeeNasmZonaPnjO3+1YQ=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "847711c7ffa9944b0c5c39a8342ac8eb6a9f9abc",
+        "rev": "0cdfcdbb525b77b951c889b6131047bc374f48fe",
         "type": "github"
       },
       "original": {
@@ -1531,11 +1531,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1753199198,
-        "narHash": "sha256-EpuiJsrNADlwkJ8O/qt/EG0qKjJOQ0SIOe5mQyeBI1M=",
+        "lastModified": 1753208113,
+        "narHash": "sha256-HDCv8NV382o8Tiv+bCtLfIXRSaiVuSm4jl8bMNbQDTA=",
         "ref": "refs/heads/main",
-        "rev": "444fff5b6264bfb382aaaf1dc58f2a7d7e685392",
-        "revCount": 36,
+        "rev": "43f59851b80740a1dc5509eb0790ac665ba1d54a",
+        "revCount": 38,
         "type": "git",
         "url": "https://git.federated.nexus/Henry-Hiles/matrixoidc"
       },
