@@ -165,6 +165,7 @@
             Alias = "nw";
           }
         ];
+        Remove = ["Bing"];
       };
     };
   };

@@ -1,12 +1,19 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   networking.firewall.allowedTCPPorts = [443];
-  services.caddy = {
-    enable = true;
-    email = "henry@henryhiles.com";
+  services = {
+    nginx.enable = lib.mkForce false;
+    caddy = {
+      enable = true;
+      email = "hen" + "ry@he" + "nryhi" + "les.c" + "om";
 
-    package = pkgs.caddy.withPlugins {
-      plugins = ["github.com/ggicci/caddy-jwt@v1.1.0"];
-      hash = "sha256-sdhX/dAQ7lIxBo/ZW6XYX8SRuacLO9HobtIVKD/cw0o=";
+      package = pkgs.caddy.withPlugins {
+        plugins = ["github.com/ggicci/caddy-jwt@v1.1.0"];
+        hash = "sha256-sdhX/dAQ7lIxBo/ZW6XYX8SRuacLO9HobtIVKD/cw0o=";
+      };
     };
   };
 }
