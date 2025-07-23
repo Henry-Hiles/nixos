@@ -9,14 +9,6 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # mailserver = {
-    #   url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    mailserver = {
-      url = "git+file:///home/quadradical/Documents/Code/nixos-mailserver";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     run0-sudo-shim = {
       url = "github:lordgrimmauld/run0-sudo-shim";
       inputs.nixpkgs.follows = "nixpkgs";
