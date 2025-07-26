@@ -42,7 +42,6 @@ in {
 
     minio = {
       enable = true;
-      browser = false;
       rootCredentialsFile = config.age.secrets."minioCredentials.age".path;
     };
 
@@ -50,15 +49,11 @@ in {
       cfg = config.services.lasuite-docs;
     in ''
       handle_errors {
-        @401 expression {http.error.status_code} == 401
-        rewrite @401 /401
-
-        @403 expression {http.error.status_code} == 403
-        rewrite @403 /403
-
-        @404 expression {http.error.status_code} == 404
-        rewrite @404 /404
+        rewrite * /{http.error.status_code}
+        file_server
       }
+
+      redir /api/v1.0/logout/None /
 
       root * ${pkgs.lasuite-docs-frontend}
       file_server
@@ -67,7 +62,6 @@ in {
       rewrite @uuidDocs /docs/[id]/index.html
 
       reverse_proxy /api/* unix/${socket}
-
       reverse_proxy /admin/* unix/${socket}
 
       reverse_proxy /collaboration/ws/* http://localhost:${toString cfg.collaborationServer.port}
@@ -93,7 +87,8 @@ in {
       EnvironmentFile = config.age.secrets."minioCredentials.age".path;
       ExecStart = pkgs.writeShellScript "init-minio" ''
         mc alias set minio ${s3Domain} "$MINIO_ROOT_USER" "$MINIO_ROOT_PASSWORD" --api s3v4
-        mc --config-dir "$CONFIG_DIR" mb --ignore-existing minio/lasuite-docs
+        mc mb --ignore-existing minio/lasuite-docs
+        mc anonymous get minio/lasuite-docs
       '';
     };
   };

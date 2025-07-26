@@ -1427,11 +1427,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1753487470,
-        "narHash": "sha256-cUmvWt+y31DtRY6Mi9UQybZhaP/ooh4jqdMLzcN35Hg=",
+        "lastModified": 1753538890,
+        "narHash": "sha256-GadAOR4VJXtYnpunNnjBQqaO2s9BJxD49ui9OmrHdBg=",
         "ref": "refs/heads/main",
-        "rev": "957a6c6c97df642866c039ef586d1c52293ad552",
-        "revCount": 41,
+        "rev": "a86c8e2b26a6d12eaf6fd74f79111a08fc2768d6",
+        "revCount": 42,
         "type": "git",
         "url": "https://git.federated.nexus/Henry-Hiles/matrixoidc"
       },
@@ -2244,11 +2244,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1753250450,
-        "narHash": "sha256-i+CQV2rPmP8wHxj0aq4siYyohHwVlsh40kV89f3nw1s=",
+        "lastModified": 1753429684,
+        "narHash": "sha256-9h7+4/53cSfQ/uA3pSvCaBepmZaz/dLlLVJnbQ+SJjk=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "fc02ee70efb805d3b2865908a13ddd4474557ecf",
+        "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
         "type": "github"
       },
       "original": {
@@ -2505,11 +2505,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1753433875,
-        "narHash": "sha256-kwrggwH9zeiLVonO9aA2Wngl/ZAL/1VbJxbBKgyfbXo=",
+        "lastModified": 1753515282,
+        "narHash": "sha256-vSihpZor6HFdbUU0pX8MTB1ZLM+XFmhDsFF7S35iIT8=",
         "owner": "wamserma",
         "repo": "flake-programs-sqlite",
-        "rev": "79677d017c844fec0511558ee4f96291c85a946e",
+        "rev": "e2a9f0bb925432018eb1d4bbbd40b1377e42422c",
         "type": "github"
       },
       "original": {
