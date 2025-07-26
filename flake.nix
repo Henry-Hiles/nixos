@@ -2,7 +2,6 @@
   inputs = {
     gnome-mobile.url = "github:chuangzhu/nixpkgs-gnome-mobile";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixpkgs-goolm.url = "github:Henry-Hiles/nixpkgs?ref=mautrix-gmessages-goolm";
     wrapper-manager.url = "github:viperML/wrapper-manager";
     flake-parts.url = "github:hercules-ci/flake-parts";
     disko = {

@@ -19,11 +19,13 @@ in {
       inherit s3Url domain;
 
       settings = {
-        OIDC_CREATE_USER = true;
         OIDC_OP_AUTHORIZATION_ENDPOINT = "https://federated.nexus/login";
         OIDC_OP_TOKEN_ENDPOINT = "http://${authDomain}/token";
         OIDC_OP_USER_ENDPOINT = "http://${authDomain}/userinfo";
         OIDC_RP_SIGN_ALGO = "HS256";
+
+        LOGIN_REDIRECT_URL = "http://${domain}";
+
         OIDC_USERINFO_FULLNAME_FIELDS = ''["name"]'';
         OIDC_USERINFO_SHORTNAME_FIELD = "name";
 
@@ -68,12 +70,7 @@ in {
 
       reverse_proxy /admin/* unix/${socket}
 
-      reverse_proxy /collaboration/ws/* http://localhost:${toString cfg.collaborationServer.port} {
-        transport http {
-          versions h2c 1.1
-        }
-      }
-
+      reverse_proxy /collaboration/ws/* http://localhost:${toString cfg.collaborationServer.port}
       reverse_proxy /collaboration/api/* http://localhost:${toString cfg.collaborationServer.port}
 
       rewrite /media-auth /api/v1.0/documents/media-auth/

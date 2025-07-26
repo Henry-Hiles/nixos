@@ -51,7 +51,7 @@ in {
       gmessages = {
         host = "127.0.0.5";
         serviceConfig.EnvironmentFile = config.age.secrets."gmessages.age".path;
-        package = inputs.nixpkgs-goolm.legacyPackages.${pkgs.system}.mautrix-gmessages;
+        package = pkgs.mautrix-gmessages;
       };
     };
 

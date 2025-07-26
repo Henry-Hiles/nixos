@@ -106,7 +106,7 @@
     };
 
     caddy = {
-      environmentFile = config.age.secrets."oidcJwtSecretEnv.age".path;
+      environmentFile = config.age.secrets."base64JwtSecret.age".path;
       virtualHosts."${domain}".extraConfig = let
         auth = "https://auth.federated.nexus";
       in ''
