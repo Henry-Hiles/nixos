@@ -74,19 +74,10 @@ in {
       reverse_proxy /collaboration/api/* http://localhost:${toString cfg.collaborationServer.port}
 
       rewrite /media-auth /api/v1.0/documents/media-auth/
-      reverse_proxy /api/v1.0/documents/media-auth/ unix/${socket} {
-        header_up X-Original-URL {uri}
-        header_up -Content-Length
-        header_up X-Original-Method {method}
-        header_up -X-Forwarded-For
-      }
+      reverse_proxy /api/v1.0/documents/media-auth/ unix/${socket}
 
       rewrite /media/* /lasuite-docs
-      reverse_proxy /lasuite-docs ${s3Domain} {
-        header_up Authorization {http.reverse_proxy.header.X-Upstream-Authorization}
-        header_up X-Amz-Date {http.reverse_proxy.header.X-Upstream-X-Amz-Date}
-        header_up X-Amz-Content-SHA256 {http.reverse_proxy.header.X-Upstream-X-Amz-Content-Sha256}
-      }
+      reverse_proxy /lasuite-docs ${s3Domain}
     '';
   };
 
@@ -99,9 +90,6 @@ in {
 
     serviceConfig = {
       Type = "oneshot";
-      after = ["minio.service"];
-      requires = ["minio.service"];
-
       EnvironmentFile = config.age.secrets."minioCredentials.age".path;
       ExecStart = pkgs.writeShellScript "init-minio" ''
         mc alias set minio ${s3Domain} "$MINIO_ROOT_USER" "$MINIO_ROOT_PASSWORD" --api s3v4
