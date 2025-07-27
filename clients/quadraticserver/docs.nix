@@ -1,15 +1,32 @@
 {
+  inputs,
   config,
   pkgs,
   ...
 }: let
-  authDomain = "auth.federated.nexus";
-  domain = "docs.federated.nexus";
-  socket = "/run/lasuite-docs/socket";
   s3Domain = "http://127.0.0.1${config.services.minio.listenAddress}";
-  s3Url = "${s3Domain}/lasuite-docs";
 in {
-  services = {
+  imports = [inputs.lasuite-docs-proxy.nixosModules.default];
+
+  services = let
+    proxySocket = "/var/run/lasuite-docs-proxy/socket";
+    authDomain = "auth.federated.nexus";
+    domain = "docs.federated.nexus";
+    s3Url = "${s3Domain}/lasuite-docs";
+    socket = "/run/lasuite-docs/socket";
+  in {
+    lasuite-docs-proxy = {
+      enable = true;
+      args = [
+        "--socket"
+        proxySocket
+        "--authUri"
+        "https://docs.federated.nexus/api/v1.0/documents/media-auth/"
+        "--minioUri"
+        s3Url
+      ];
+      group = "caddy";
+    };
     lasuite-docs = {
       enable = true;
       enableNginx = false;
@@ -67,11 +84,9 @@ in {
       reverse_proxy /collaboration/ws/* http://localhost:${toString cfg.collaborationServer.port}
       reverse_proxy /collaboration/api/* http://localhost:${toString cfg.collaborationServer.port}
 
-      rewrite /media-auth /api/v1.0/documents/media-auth/
       reverse_proxy /api/v1.0/documents/media-auth/ unix/${socket}
 
-      rewrite /media/* /lasuite-docs
-      reverse_proxy /lasuite-docs ${s3Domain}
+      reverse_proxy /media/* unix/${proxySocket}
     '';
   };
 

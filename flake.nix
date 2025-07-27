@@ -28,6 +28,10 @@
       url = "git+https://git.federated.nexus/Henry-Hiles/matrixoidc";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    lasuite-docs-proxy = {
+      url = "git+https://git.federated.nexus/Henry-Hiles/lasuite_docs_proxy";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-matrix-appservices = {
       url = "gitlab:coffeetables/nix-matrix-appservices";
       inputs.nixpkgs.follows = "nixpkgs";
