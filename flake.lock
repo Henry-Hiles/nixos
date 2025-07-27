@@ -1466,11 +1466,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1753538890,
-        "narHash": "sha256-GadAOR4VJXtYnpunNnjBQqaO2s9BJxD49ui9OmrHdBg=",
+        "lastModified": 1753645986,
+        "narHash": "sha256-zR94Qw7F4TB03aKNr4O/QcbTEH45N9XQItjWRnJ/BRA=",
         "ref": "refs/heads/main",
-        "rev": "a86c8e2b26a6d12eaf6fd74f79111a08fc2768d6",
-        "revCount": 42,
+        "rev": "a5c4f900a279868f4d504914b53f27929ddc430c",
+        "revCount": 45,
         "type": "git",
         "url": "https://git.federated.nexus/Henry-Hiles/matrixoidc"
       },

@@ -32,6 +32,11 @@ in {
       enableNginx = false;
       redis.createLocally = true;
       postgresql.createLocally = true;
+      frontendPackage = pkgs.lasuite-docs-frontend.overrideAttrs {
+        env.NODE_ENV = "production";
+        env.NEXT_PUBLIC_PUBLISH_AS_MIT = false;
+        env.PUBLISH_AS_MIT = false;
+      };
       bind = "unix:${socket}";
       inherit s3Url domain;
 
@@ -40,8 +45,6 @@ in {
         OIDC_OP_TOKEN_ENDPOINT = "http://${authDomain}/token";
         OIDC_OP_USER_ENDPOINT = "http://${authDomain}/userinfo";
         OIDC_RP_SIGN_ALGO = "HS256";
-        OIDC_USERINFO_FULLNAME_FIELDS = ''["name"]'';
-        OIDC_USERINFO_SHORTNAME_FIELD = "name";
 
         LOGIN_REDIRECT_URL = "http://${domain}";
 
@@ -71,7 +74,7 @@ in {
 
       redir /api/v1.0/logout/None /
 
-      root * ${pkgs.lasuite-docs-frontend}
+      root * ${cfg.frontendPackage}
       file_server
 
       @uuidDocs path_regexp uuidDocs ^/docs/[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}/?$
