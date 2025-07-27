@@ -40,11 +40,10 @@ in {
         OIDC_OP_TOKEN_ENDPOINT = "http://${authDomain}/token";
         OIDC_OP_USER_ENDPOINT = "http://${authDomain}/userinfo";
         OIDC_RP_SIGN_ALGO = "HS256";
-
-        LOGIN_REDIRECT_URL = "http://${domain}";
-
         OIDC_USERINFO_FULLNAME_FIELDS = ''["name"]'';
         OIDC_USERINFO_SHORTNAME_FIELD = "name";
+
+        LOGIN_REDIRECT_URL = "http://${domain}";
 
         AWS_S3_ENDPOINT_URL = s3Domain;
         AWS_S3_ACCESS_KEY_ID = "minioadmin";
