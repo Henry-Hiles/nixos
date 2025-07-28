@@ -32,11 +32,6 @@ in {
       enableNginx = false;
       redis.createLocally = true;
       postgresql.createLocally = true;
-      frontendPackage = pkgs.lasuite-docs-frontend.overrideAttrs {
-        NODE_ENV = "production";
-        NEXT_PUBLIC_PUBLISH_AS_MIT = false;
-        PUBLISH_AS_MIT = false;
-      };
       bind = "unix:${socket}";
       inherit s3Url domain;
 
