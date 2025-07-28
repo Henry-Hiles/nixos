@@ -83,7 +83,6 @@
             "fullscreen-avoider@noobsai.github.com"
             "appindicatorsupport@rgcjonas.gmail.com"
             "compiz-windows-effect@hermes83.github.com"
-            "user-theme@gnome-shell-extensions.gcampax.github.com"
             "display-brightness-ddcutil@themightydeity.github.com"
             "launch-new-instance@gnome-shell-extensions.gcampax.github.com"
           ];

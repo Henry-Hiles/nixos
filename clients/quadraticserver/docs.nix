@@ -33,9 +33,9 @@ in {
       redis.createLocally = true;
       postgresql.createLocally = true;
       frontendPackage = pkgs.lasuite-docs-frontend.overrideAttrs {
-        env.NODE_ENV = "production";
-        env.NEXT_PUBLIC_PUBLISH_AS_MIT = false;
-        env.PUBLISH_AS_MIT = false;
+        NODE_ENV = "production";
+        NEXT_PUBLIC_PUBLISH_AS_MIT = false;
+        PUBLISH_AS_MIT = false;
       };
       bind = "unix:${socket}";
       inherit s3Url domain;
@@ -46,7 +46,7 @@ in {
         OIDC_OP_USER_ENDPOINT = "http://${authDomain}/userinfo";
         OIDC_RP_SIGN_ALGO = "HS256";
 
-        LOGIN_REDIRECT_URL = "http://${domain}";
+        LOGIN_REDIRECT_URL = "https://${domain}";
 
         AWS_S3_ENDPOINT_URL = s3Domain;
         AWS_S3_ACCESS_KEY_ID = "minioadmin";
