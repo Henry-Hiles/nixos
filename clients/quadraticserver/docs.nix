@@ -40,8 +40,8 @@ in {
 
       settings = {
         OIDC_OP_AUTHORIZATION_ENDPOINT = "https://federated.nexus/login";
-        OIDC_OP_TOKEN_ENDPOINT = "http://${authDomain}/token";
-        OIDC_OP_USER_ENDPOINT = "http://${authDomain}/userinfo";
+        OIDC_OP_TOKEN_ENDPOINT = "https://${authDomain}/token";
+        OIDC_OP_USER_ENDPOINT = "https://${authDomain}/userinfo";
         OIDC_RP_SIGN_ALGO = "HS256";
 
         LOGIN_REDIRECT_URL = "https://${domain}";
@@ -49,7 +49,7 @@ in {
         AWS_S3_ENDPOINT_URL = s3Domain;
         AWS_S3_ACCESS_KEY_ID = "minioadmin";
         AWS_STORAGE_BUCKET_NAME = "lasuite-docs";
-        MEDIA_BASE_URL = "http://${domain}";
+        MEDIA_BASE_URL = "https://${domain}";
 
         DJANGO_ALLOWED_HOSTS = domain;
       };
