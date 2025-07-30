@@ -5,8 +5,11 @@
   ...
 }: let
   s3Domain = "http://127.0.0.1${config.services.minio.listenAddress}";
+  cfg = config.services.lasuite-docs;
 in {
   imports = [inputs.lasuite-docs-proxy.nixosModules.default];
+
+  systemd.services.lasuite-docs-collaboration-server.serviceConfig.EnvironmentFile = cfg.environmentFile;
 
   services = let
     proxySocket = "/var/run/lasuite-docs-proxy/socket";
@@ -44,6 +47,7 @@ in {
         OIDC_OP_USER_ENDPOINT = "https://${authDomain}/userinfo";
         OIDC_RP_SIGN_ALGO = "HS256";
 
+        COLLABORATION_API_URL = "https://${domain}/collaboration/api/";
         LOGIN_REDIRECT_URL = "https://${domain}";
 
         AWS_S3_ENDPOINT_URL = s3Domain;
@@ -63,7 +67,7 @@ in {
     };
 
     caddy.virtualHosts."${domain}".extraConfig = let
-      cfg = config.services.lasuite-docs;
+      collabUrl = "http://localhost:${toString cfg.collaborationServer.port}";
     in ''
       handle_errors {
         rewrite * /{http.error.status_code}
@@ -81,8 +85,8 @@ in {
       reverse_proxy /api/* unix/${socket}
       reverse_proxy /admin/* unix/${socket}
 
-      reverse_proxy /collaboration/ws/* http://localhost:${toString cfg.collaborationServer.port}
-      reverse_proxy /collaboration/api/* http://localhost:${toString cfg.collaborationServer.port}
+      reverse_proxy /collaboration/ws/* ${collabUrl}
+      reverse_proxy /collaboration/api/* ${collabUrl}
 
       reverse_proxy /api/v1.0/documents/media-auth/ unix/${socket}
 
