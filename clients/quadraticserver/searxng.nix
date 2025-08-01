@@ -78,7 +78,6 @@
         };
 
         server = {
-          port = "8080";
           method = "GET";
           base_url = "https://${domain}";
           bind_address = "unix://${socket}";

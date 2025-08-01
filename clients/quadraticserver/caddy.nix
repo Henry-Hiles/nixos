@@ -41,10 +41,7 @@
   };
 
   options.services.caddy.authedHosts = lib.mkOption {
-    type = lib.types.attrsOf (lib.mkOption {
-      type = lib.types.lines;
-      default = "";
-    });
+    type = lib.types.attrsOf lib.types.lines;
     default = [];
   };
 }

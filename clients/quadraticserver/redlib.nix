@@ -3,9 +3,10 @@
     redlib = {
       enable = true;
       address = "127.0.0.6";
-      settings.THEME = "nord";
+      port = 8082;
+      settings.REDLIB_DEFAULT_THEME = "nord";
     };
 
-    caddy.authedHosts."auth.federated.nexus" = with config.services.redlib; "reverse_proxy ${address}:${port}";
+    caddy.authedHosts."redlib.federated.nexus" = with config.services.redlib; "reverse_proxy ${address}:${toString port}";
   };
 }
