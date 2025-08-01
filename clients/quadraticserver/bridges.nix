@@ -65,6 +65,6 @@ in {
       bridgeOrigin = "https://${domain}";
     };
 
-    caddy.virtualHosts."${domain}".extraConfig = "reverse_proxy 127.0.0.1:8081";
+    caddy.virtualHosts."${domain}".extraConfig = "reverse_proxy 127.0.0.1:${config.services.matrix-ooye.socket}";
   };
 }

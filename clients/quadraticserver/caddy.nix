@@ -1,63 +1,50 @@
-{pkgs, ...}: {
-  networking.firewall.allowedTCPPorts = [443];
-  services.caddy = {
-    enable = true;
-    email = "hen" + "ry@he" + "nryhi" + "les.c" + "om";
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
+  config = {
+    networking.firewall.allowedTCPPorts = [443];
+    services.caddy = {
+      enable = true;
+      email = "hen" + "ry@he" + "nryhi" + "les.c" + "om";
+      environmentFile = config.age.secrets."base64JwtSecret.age".path;
+      package = pkgs.caddy.withPlugins {
+        plugins = ["github.com/ggicci/caddy-jwt@v1.1.0"];
+        hash = "sha256-sdhX/dAQ7lIxBo/ZW6XYX8SRuacLO9HobtIVKD/cw0o=";
+      };
 
-    package = pkgs.caddy.withPlugins {
-      plugins = ["github.com/ggicci/caddy-jwt@v1.1.0"];
-      hash = "sha256-sdhX/dAQ7lIxBo/ZW6XYX8SRuacLO9HobtIVKD/cw0o=";
+      virtualHosts =
+        lib.mapAttrs (domain: host: {
+          extraConfig = let
+            auth = "https://auth.federated.nexus";
+          in ''
+            handle_errors 401 {
+              redir https://federated.nexus/login?redirect_uri=${auth}/bridge?redirect_uri=https://${domain}{uri} 302
+            }
+
+            route {
+              jwtauth {
+                from_cookies id_token
+                sign_key {$JWK_SECRET}
+                issuer_whitelist ${auth}
+                audience_whitelist proxy
+              }
+
+              ${host}
+            }
+          '';
+        })
+        config.services.caddy.authedHosts;
     };
   };
-}
-# WAF demo
-# {
-#   config,
-#   pkgs,
-#   lib,
-#   ...
-# }: {
-#   config = {
-#     networking.firewall.allowedTCPPorts = [443];
-#     services.caddy = {
-#       enable = true;
-#       email = "henry@henryhiles.com";
-#       globalConfig = "order coraza_waf first";
-#       virtualHosts = lib.mapAttrs (_: hostCfg:
-#         hostCfg
-#         // {
-#           extraConfig = ''
-#             route {
-#               coraza_waf {
-#                 load_owasp_crs
-#                 directives `
-#                   Include @coraza.conf-recommended
-#                   Include @crs-setup.conf.example
-#                   Include @owasp_crs/*.conf
-#                   SecRuleRemoveById 920420
-#                   SecRuleRemoveById 911100
-#                   SecRuleEngine On
-#                 `
-#               }
-#             }
-#             ${hostCfg.extraConfig or ""}
-#           '';
-#         })
-#       config.services.caddy.wafHosts;
-#       package = pkgs.caddy.withPlugins {
-#         plugins = ["github.com/ggicci/caddy-jwt@v1.1.0" "github.com/corazawaf/coraza-caddy/v2@v2.1.0"];
-#         hash = "sha256-1TmIs8CWMlNHF4NRqj7/W/pqRUIpcOFbJGALqPINVtk=";
-#       };
-#     };
-#   };
-#   options.services.caddy.wafHosts = lib.mkOption {
-#     type = lib.types.attrsOf (lib.types.submodule {
-#       options.extraConfig = lib.mkOption {
-#         type = lib.types.lines;
-#         default = "";
-#       };
-#     });
-#     default = {};
-#   };
-# }
 
+  options.services.caddy.authedHosts = lib.mkOption {
+    type = lib.types.attrsOf (lib.mkOption {
+      type = lib.types.lines;
+      default = "";
+    });
+    default = [];
+  };
+}

@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: {
+{lib, ...}: {
   services = let
     socket = "/var/run/searx/socket";
     domain = "search.federated.nexus";
@@ -105,27 +101,7 @@
       };
     };
 
-    caddy = {
-      environmentFile = config.age.secrets."base64JwtSecret.age".path;
-      virtualHosts."${domain}".extraConfig = let
-        auth = "https://auth.federated.nexus";
-      in ''
-        handle_errors 401 {
-          redir https://federated.nexus/login?redirect_uri=${auth}/bridge?redirect_uri=https://${domain}{uri} 302
-        }
-
-        route {
-          jwtauth {
-            from_cookies id_token
-            sign_key {$JWK_SECRET}
-            issuer_whitelist ${auth}
-            audience_whitelist proxy
-          }
-
-          reverse_proxy unix/${socket}
-        }
-      '';
-    };
+    caddy.authedHosts."${domain}" = "reverse_proxy unix/${socket}";
   };
   systemd.services = let
     commonConfig = builtins.mapAttrs (_: value: lib.mkForce value) {

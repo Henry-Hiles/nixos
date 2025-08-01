@@ -5,6 +5,7 @@
   services = let
     domain = "federated.nexus";
     subdomain = "matrix.${domain}";
+    address = "127.0.0.3";
   in {
     grapevine = {
       enable = true;
@@ -25,12 +26,12 @@
         listen = [
           {
             type = "tcp";
-            address = "127.0.0.3";
+            inherit address;
           }
         ];
       };
     };
 
-    caddy.virtualHosts."${subdomain}".extraConfig = "reverse_proxy 127.0.0.3:6167";
+    caddy.virtualHosts."${subdomain}".extraConfig = "reverse_proxy ${address}:6167";
   };
 }
