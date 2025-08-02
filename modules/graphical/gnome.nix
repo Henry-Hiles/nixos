@@ -8,6 +8,7 @@
     sessionVariables.XDG_CURRENT_DESKTOP = "GNOME";
 
     systemPackages = with pkgs.gnomeExtensions; [
+      valent
       caffeine
       pop-shell
       appindicator
@@ -34,6 +35,7 @@
       gnome-console
       gnome-software
       gnome-characters
+      gnome-connections
       gnome-text-editor
       gnome-system-monitor
     ];

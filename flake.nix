@@ -32,6 +32,10 @@
       url = "git+https://git.federated.nexus/Henry-Hiles/lasuite_docs_proxy";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nexusbot = {
+      url = "git+https://git.federated.nexus/federated-nexus/nexusbot";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-matrix-appservices = {
       url = "gitlab:coffeetables/nix-matrix-appservices";
       inputs.nixpkgs.follows = "nixpkgs";
