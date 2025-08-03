@@ -24,6 +24,8 @@
         "#admins:federated.nexus"
         "--successUri"
         "https://federated.nexus/success"
+        "--inviteTo"
+        "#community:federated.nexus"
         "--adminName"
         "grapevine"
         "--email"
