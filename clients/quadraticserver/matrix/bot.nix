@@ -13,7 +13,26 @@
       enable = true;
       botPasswordFile = config.age.secrets."botPassword.age".path;
       smtpPasswordFile = config.age.secrets."smtpPassword.age".path;
-      args = ["--socket" socket "--homeserver" config.services.grapevine.settings.server_discovery.client.base_url "--name" "nexusbot" "--inviteTo" "#community:federated.nexus" "--adminRoom" "#admins:federated.nexus" "--successUri" "https://federated.nexus/success"];
+      args = [
+        "--socket"
+        socket
+        "--homeserver"
+        config.services.grapevine.settings.server_discovery.client.base_url
+        "--name"
+        "nexusbot"
+        "--adminRoom"
+        "#admins:federated.nexus"
+        "--successUri"
+        "https://federated.nexus/success"
+        "--adminName"
+        "grapevine"
+        "--email"
+        "henry@henryhiles.com"
+        "--mailDomain"
+        "mail.henryhiles.com"
+        "--mailName"
+        "Federated Nexus Registrations"
+      ];
       group = "caddy";
     };
 
