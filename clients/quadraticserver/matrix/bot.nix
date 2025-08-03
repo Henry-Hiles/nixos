@@ -24,6 +24,8 @@
         "#admins:federated.nexus"
         "--successUri"
         "https://federated.nexus/success"
+        "--failureUri"
+        "https://federated.nexus/failure"
         "--inviteTo"
         "#community:federated.nexus"
         "--adminName"
