@@ -8,6 +8,8 @@
   services = let
     socket = "/var/run/nexusbot/socket";
     domain = "register.federated.nexus";
+    alias =
+      "inf" + "o@f" + "edera" + "ted.n" + "exus";
   in {
     nexusbot = {
       enable = true;
@@ -31,11 +33,13 @@
         "--adminName"
         "grapevine"
         "--email"
-        "henry@henryhiles.com"
+        config.services.caddy.email
+        "--emailAlias"
+        alias
         "--mailDomain"
         "mail.henryhiles.com"
         "--mailName"
-        "Federated Nexus Registrations"
+        "Federated Nexus"
       ];
       group = "caddy";
     };
