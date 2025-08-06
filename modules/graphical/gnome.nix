@@ -34,6 +34,7 @@
       gnome-music
       gnome-console
       gnome-software
+      gnome-user-docs
       gnome-characters
       gnome-connections
       gnome-text-editor
