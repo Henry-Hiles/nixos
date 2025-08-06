@@ -27,15 +27,18 @@
       totem
       xterm
       evince
+      decibels
       snapshot
       epiphany
       gnome-logs
       gnome-tour
       gnome-music
+      simple-scan
       gnome-console
       gnome-software
       gnome-user-docs
       gnome-characters
+      gnome-font-viewer
       gnome-connections
       gnome-text-editor
       gnome-system-monitor
