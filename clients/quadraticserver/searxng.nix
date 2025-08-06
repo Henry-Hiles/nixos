@@ -68,7 +68,7 @@
 
         search = {
           autocomplete = "duckduckgo";
-          favicon_resolver = "duckduckgo";
+          favicon_resolver = "google";
         };
 
         ui = {
