@@ -12,7 +12,7 @@
       environmentFile = config.age.secrets."base64JwtSecret.age".path;
       package = pkgs.caddy.withPlugins {
         plugins = ["github.com/ggicci/caddy-jwt@v1.1.0"];
-        hash = "sha256-sdhX/dAQ7lIxBo/ZW6XYX8SRuacLO9HobtIVKD/cw0o=";
+        hash = "sha256-erLYIrrzX19iLEBgq8KIgq+6RDg99Z7tN7FCViG19s4=";
       };
 
       virtualHosts =
