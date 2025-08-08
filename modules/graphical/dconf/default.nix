@@ -53,8 +53,6 @@
           allow-zero-brightness = true;
           button-location = 1;
           ddcutil-binary-path = lib.meta.getExe pkgs.ddcutil;
-          ddcutil-queue-ms = 130.0;
-          ddcutil-sleep-multiplier = 40.0;
           decrease-brightness-shortcut = ["XF86MonBrightnessDown"];
           increase-brightness-shortcut = ["XF86MonBrightnessUp"];
           hide-system-indicator = true;
@@ -76,7 +74,6 @@
           disable-user-extensions = true;
           enabled-extensions = [
             "blur-my-shell@aunetx"
-            "caffeine@patapon.info"
             "pop-shell@system76.com"
             "rounded-window-corners@fxgn"
             "burn-my-windows@schneegans.github.com"

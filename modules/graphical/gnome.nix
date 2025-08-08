@@ -9,7 +9,6 @@
 
     systemPackages = with pkgs.gnomeExtensions; [
       valent
-      caffeine
       pop-shell
       appindicator
       blur-my-shell
