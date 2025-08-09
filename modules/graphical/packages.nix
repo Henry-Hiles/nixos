@@ -2,6 +2,7 @@
   services.xserver.excludePackages = [pkgs.xterm];
   environment.systemPackages = with pkgs; [
     tuba
+    gradia
     ptyxis
     gapless
     resources
