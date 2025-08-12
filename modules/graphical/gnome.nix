@@ -27,7 +27,6 @@
       xterm
       evince
       decibels
-      snapshot
       epiphany
       gnome-logs
       gnome-tour
