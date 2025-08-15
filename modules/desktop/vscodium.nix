@@ -46,6 +46,7 @@
       "redhat.telemetry.enabled" = false;
       "editor.guides.bracketPairs" = "active";
       "window.dialogStyle" = "custom";
+      "prettier.htmlWhitespaceSensitivity" = "strict";
       "editor.inlineSuggest.enabled" = true;
       "window.titleBarStyle" = "custom";
       "editor.fontLigatures" = true;
