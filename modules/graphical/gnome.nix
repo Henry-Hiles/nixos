@@ -23,6 +23,7 @@
 
     gnome.excludePackages = with pkgs; [
       yelp
+      orca
       totem
       xterm
       evince
