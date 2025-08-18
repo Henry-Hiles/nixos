@@ -8,7 +8,6 @@
     resources
     wl-clipboard
     google-cursor
-    authenticator
     papirus-icon-theme
   ];
 }
