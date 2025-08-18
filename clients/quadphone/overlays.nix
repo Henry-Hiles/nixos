@@ -1,8 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+{lib, ...}: {
   nixpkgs.overlays = [
     (_: super: {
       ruby_3_3 = super.ruby_3_3.overrideAttrs (old: {
@@ -16,10 +12,10 @@
         ];
       });
       gnome-user-share = super.gnome-user-share.overrideAttrs (old: {
-        postPatch = lib.optionalString (pkgs.stdenv.buildPlatform != pkgs.stdenv.hostPlatform) ''
+        postPatch = lib.optionalString (super.stdenv.buildPlatform != super.stdenv.hostPlatform) ''
           substituteInPlace src/meson.build \
-            --replace-fail "cargo_options += [ '--target-dir', meson.project_build_root() / 'src' ]" "cargo_options += [ '--target-dir', meson.project_build_root() / 'src', '--target=${pkgs.stdenv.hostPlatform.rust.rustcTarget}' ]" \
-            --replace-fail "'cp', 'src' / rust_target / meson.project_name(), '@OUTPUT@'," "'cp', 'src' / '${pkgs.stdenv.hostPlatform.rust.cargoShortTarget}' / rust_target / meson.project_name(), '@OUTPUT@',"
+            --replace-fail "cargo_options += [ '--target-dir', meson.project_build_root() / 'src' ]" "cargo_options += [ '--target-dir', meson.project_build_root() / 'src', '--target=${super.stdenv.hostPlatform.rust.rustcTarget}' ]" \
+            --replace-fail "'cp', 'src' / rust_target / meson.project_name(), '@OUTPUT@'," "'cp', 'src' / '${super.stdenv.hostPlatform.rust.cargoShortTarget}' / rust_target / meson.project_name(), '@OUTPUT@',"
         '';
       });
     })

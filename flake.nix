@@ -8,6 +8,7 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    fontsCross.url = "github:Artturin/nixpkgs/fontscross";
     run0-sudo-shim = {
       url = "github:lordgrimmauld/run0-sudo-shim";
       inputs.nixpkgs.follows = "nixpkgs";

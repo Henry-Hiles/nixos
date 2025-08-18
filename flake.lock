@@ -1054,6 +1054,22 @@
         "type": "github"
       }
     },
+    "fontsCross": {
+      "locked": {
+        "lastModified": 1755477642,
+        "narHash": "sha256-sNX3Yl+9c5oFrbHiHHLFMdTei99s5DkYRHflxvlYRDQ=",
+        "owner": "Artturin",
+        "repo": "nixpkgs",
+        "rev": "371eef69fe2afce2175b8bd8a44e1daad99cefa2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Artturin",
+        "ref": "fontscross",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "fromYaml": {
       "flake": false,
       "locked": {
@@ -2629,6 +2645,7 @@
         "disko": "disko",
         "firefox-gnome-theme": "firefox-gnome-theme",
         "flake-parts": "flake-parts",
+        "fontsCross": "fontsCross",
         "gnome-mobile": "gnome-mobile",
         "grapevine": "grapevine",
         "home-manager": "home-manager_2",
