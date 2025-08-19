@@ -4,11 +4,11 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     wrapper-manager.url = "github:viperML/wrapper-manager";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    ibus-fix.url = "github:Artturin/nixpkgs/i18inputmethodcross";
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    fontsCross.url = "github:Artturin/nixpkgs/fontscross";
     run0-sudo-shim = {
       url = "github:lordgrimmauld/run0-sudo-shim";
       inputs.nixpkgs.follows = "nixpkgs";
