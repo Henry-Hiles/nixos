@@ -165,8 +165,20 @@
             IconURL = "https://github.com/NixOS/nixos-artwork/raw/refs/heads/master/logo/nix-snowflake-white.svg";
             Alias = "nw";
           }
+          {
+            Name = "Nixpkgs PR Tracker";
+            URLTemplate = "https://nixpk.gs/pr-tracker.html?pr={searchTerms}";
+            IconURL = "https://github.com/NixOS/nixos-artwork/raw/refs/heads/master/logo/nix-snowflake-white.svg";
+            Alias = "nt";
+          }
+          {
+            Name = "Noogle";
+            URLTemplate = "https://noogle.dev/q?term={searchTerms}";
+            IconURL = "https://github.com/NixOS/nixos-artwork/raw/refs/heads/master/logo/nix-snowflake-white.svg";
+            Alias = "noo";
+          }
         ];
-        Remove = ["Bing"];
+        Remove = ["Bing" "LibRedirect" "Wikipedia (en)"];
       };
     };
   };
