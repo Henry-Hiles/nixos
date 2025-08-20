@@ -8,6 +8,5 @@
     authenticator
     cinny-desktop
     prismlauncher
-    nexusmods-app-unfree
   ];
 }

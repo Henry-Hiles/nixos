@@ -175,7 +175,13 @@
             Name = "Noogle";
             URLTemplate = "https://noogle.dev/q?term={searchTerms}";
             IconURL = "https://github.com/NixOS/nixos-artwork/raw/refs/heads/master/logo/nix-snowflake-white.svg";
-            Alias = "noo";
+            Alias = "ng";
+          }
+          {
+            Name = "NüschtOS Search";
+            URLTemplate = "https://search.xn--nschtos-n2a.de/?query={searchTerms}";
+            IconURL = "https://github.com/NixOS/nixos-artwork/raw/refs/heads/master/logo/nix-snowflake-white.svg";
+            Alias = "nu";
           }
         ];
         Remove = ["Bing" "LibRedirect" "Wikipedia (en)"];
