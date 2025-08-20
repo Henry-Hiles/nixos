@@ -1,9 +1,9 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     gimp
+    gale
     heroic
     inkscape
-    r2modman
     libreoffice
     authenticator
     cinny-desktop

@@ -18,7 +18,7 @@
   boot.initrd.allowMissingModules = true;
 
   nixpkgs = {
-    hostPlatform = "aarch64-linux";
+    hostPlatform = "aarch64-linux"; # Do i use binfmt here
     config.allowBroken = true;
   };
 }
