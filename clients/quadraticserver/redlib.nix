@@ -9,4 +9,6 @@
 
     caddy.authedHosts."redlib.federated.nexus" = with config.services.redlib; "reverse_proxy ${address}:${toString port}";
   };
+
+  systemd.services.redlib.serviceConfig.Restart = "always";
 }

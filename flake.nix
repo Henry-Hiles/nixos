@@ -19,10 +19,7 @@
     };
     stylix = {
       url = "github:danth/stylix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        base16.url = "github:SuperSandro2000/base16.nix/patch-1";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     ooye = {
       url = "git+https://cgit.rory.gay/nix/OOYE-module.git";

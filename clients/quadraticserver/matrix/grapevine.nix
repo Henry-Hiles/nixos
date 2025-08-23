@@ -1,6 +1,12 @@
-{inputs, ...}: {
+{
+  inputs,
+  lib,
+  ...
+}: {
   imports = [inputs.grapevine.nixosModules.default];
   networking.firewall.allowedTCPPorts = [8448];
+
+  systemd.services.grapevine.serviceConfig.Restart = lib.mkForce "always";
 
   services = let
     domain = "federated.nexus";

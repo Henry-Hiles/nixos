@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   inputs,
   config,
@@ -67,4 +68,6 @@ in {
 
     caddy.virtualHosts."${domain}".extraConfig = "reverse_proxy 127.0.0.1:${config.services.matrix-ooye.socket}";
   };
+
+  systemd.services.matrix-ooye.serviceConfig.Restart = lib.mkForce "always";
 }

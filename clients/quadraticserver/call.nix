@@ -1,8 +1,14 @@
 {
+  lib,
   pkgs,
   config,
   ...
 }: {
+  systemd.services = {
+    livekit.serviceConfig.Restart = lib.mkForce "always";
+    lk-jwt-service.serviceConfig.Restart = lib.mkForce "always";
+  };
+
   services = let
     domain = "call.federated.nexus";
   in {

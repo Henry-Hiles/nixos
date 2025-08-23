@@ -9,7 +9,15 @@
 in {
   imports = [inputs.lasuite-docs-proxy.nixosModules.default];
 
-  systemd.services.lasuite-docs-collaboration-server.serviceConfig.EnvironmentFile = cfg.environmentFile;
+  systemd.services = {
+    lasuite-docs-collaboration-server.serviceConfig = {
+      EnvironmentFile = cfg.environmentFile;
+      Restart = "always";
+    };
+
+    lasuite-docs-celery.serviceConfig.Restart = "always";
+    lasuite-docs.serviceConfig.Restart = "always";
+  };
 
   services = let
     proxySocket = "/var/run/lasuite-docs-proxy/socket";

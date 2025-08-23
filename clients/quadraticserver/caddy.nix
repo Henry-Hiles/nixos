@@ -5,6 +5,7 @@
   ...
 }: {
   config = {
+    systemd.services.caddy.serviceConfig.Restart = lib.mkForce "always";
     networking.firewall.allowedTCPPorts = [443];
     services.caddy = {
       enable = true;

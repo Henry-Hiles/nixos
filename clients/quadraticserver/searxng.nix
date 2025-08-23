@@ -109,7 +109,7 @@
       UMask = "007";
     };
   in {
-    searx.serviceConfig = commonConfig;
+    searx.serviceConfig = commonConfig // {Restart = "always";};
     searx-init.serviceConfig = commonConfig;
   };
 }
