@@ -35,6 +35,7 @@
 
     autoConfig = lib.concatStringsSep "\n" (lib.mapAttrsToList (pref: value: "lockPref(\"${pref}\", ${builtins.toJSON value});") {
       "webgl.disabled" = false;
+      "browser.tabs.groups.enabled" = false;
       "media.peerconnection.enabled" = true;
       "privacy.resistFingerprinting" = false;
       "privacy.fingerprintingProtection" = true;
