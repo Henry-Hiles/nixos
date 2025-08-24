@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  boot.blacklistedKernelModules = ["usb-thrustmaster" "hid-thrustmaster"];
+  boot.blacklistedKernelModules = ["xpad"];
   boot.extraModulePackages = [config.boot.kernelPackages.hid-tmff2];
 
   environment.systemPackages = with pkgs; [oversteer linuxConsoleTools];
