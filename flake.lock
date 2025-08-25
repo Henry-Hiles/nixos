@@ -156,11 +156,11 @@
         "fromYaml": "fromYaml"
       },
       "locked": {
-        "lastModified": 1755473996,
-        "narHash": "sha256-qcMhnL7aGAuFuutH4rq9fvAhCpJWVHLcHVZLtPctPlo=",
-        "owner": "SuperSandro2000",
+        "lastModified": 1746562888,
+        "narHash": "sha256-YgNJQyB5dQiwavdDFBMNKk1wyS77AtdgDk/VtU6wEaI=",
+        "owner": "SenchoPens",
         "repo": "base16.nix",
-        "rev": "e37d495352e3dde37c9977f6e7951a4a6d26599a",
+        "rev": "806a1777a5db2a1ef9d5d6f493ef2381047f2b89",
         "type": "github"
       },
       "original": {
@@ -545,11 +545,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1755519972,
-        "narHash": "sha256-bU4nqi3IpsUZJeyS8Jk85ytlX61i4b0KCxXX9YcOgVc=",
+        "lastModified": 1756115622,
+        "narHash": "sha256-iv8xVtmLMNLWFcDM/HcAPLRGONyTRpzL9NS09RnryRM=",
         "owner": "nix-community",
         "repo": "disko",
-        "rev": "4073ff2f481f9ef3501678ff479ed81402caae6d",
+        "rev": "bafad29f89e83b2d861b493aa23034ea16595560",
         "type": "github"
       },
       "original": {
@@ -652,11 +652,11 @@
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
-        "lastModified": 1754312136,
-        "narHash": "sha256-9veVYpPCwKNjIK5gOigl5nEUN6tmrSHXUv4bVZkRuOE=",
+        "lastModified": 1756083905,
+        "narHash": "sha256-UqYGTBgI5ypGh0Kf6zZjom/vABg7HQocB4gmxzl12uo=",
         "owner": "rafaelmardojai",
         "repo": "firefox-gnome-theme",
-        "rev": "6f173d0873dd33c5653dee89a831af3e49db3e36",
+        "rev": "b655eaf16d4cbec9c3472f62eee285d4b419a808",
         "type": "github"
       },
       "original": {
@@ -1231,11 +1231,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1755625756,
-        "narHash": "sha256-t57ayMEdV9g1aCfHzoQjHj1Fh3LDeyblceADm2hsLHM=",
+        "lastModified": 1756022458,
+        "narHash": "sha256-J1i35r4HfNDdPpwL0vOBaZopQudAUVtartEerc1Jryc=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "dd026d86420781e84d0732f2fa28e1c051117b59",
+        "rev": "9e3a33c0bcbc25619e540b9dfea372282f8a9740",
         "type": "github"
       },
       "original": {
@@ -1500,11 +1500,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1755540870,
-        "narHash": "sha256-kxuS+KAIfAT4s5NbtouCzfAN7c5FbNFkx2AgyP47eBQ=",
+        "lastModified": 1755959989,
+        "narHash": "sha256-Spe0L9ImranbPAHLlPpIgDU+5aKWLrzvQsXFz7j6RTQ=",
         "ref": "refs/heads/main",
-        "rev": "a48c2fcd42b1133a5163eb283f6f307f0148fbdc",
-        "revCount": 48,
+        "rev": "424e9b7b029c6d386fee190cbb3ff2750dfa0a90",
+        "revCount": 49,
         "type": "git",
         "url": "https://git.federated.nexus/Henry-Hiles/matrixoidc"
       },
@@ -1695,11 +1695,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1755643339,
-        "narHash": "sha256-29L6J2K+I/1fhUN6ZnJYaXFONljXQdTdj1yXyRTpK7M=",
+        "lastModified": 1755960008,
+        "narHash": "sha256-kjqGfWvpJl8Kl8P8a98q1V6L1x3qO7wKqdSWcMa9RVk=",
         "ref": "refs/heads/main",
-        "rev": "403953df933d70f69d1f8aab5dc050665ad8d963",
-        "revCount": 19,
+        "rev": "fa1d74714dd59e763794bce46e865a49b58a5840",
+        "revCount": 20,
         "type": "git",
         "url": "https://git.federated.nexus/federated-nexus/nexusbot"
       },
@@ -2886,11 +2886,11 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1755636375,
-        "narHash": "sha256-HQQ7LdyHWCUcRBeGLTwJm+tJ8hmuglSzP/ZLeNBjFkk=",
+        "lastModified": 1755997543,
+        "narHash": "sha256-/fejmCQ7AWa655YxyPxRDbhdU7c5+wYsFSjmEMXoBCM=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "2567b924669c566d132ce4cafd4bc0a119846b52",
+        "rev": "f47c0edcf71e802378b1b7725fa57bb44fe85ee8",
         "type": "github"
       },
       "original": {
