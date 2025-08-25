@@ -21,6 +21,7 @@
           esbenp.prettier-vscode
           oderwat.indent-rainbow
           astro-build.astro-vscode
+          tamasfe.even-better-toml
           pkief.material-icon-theme
           streetsidesoftware.code-spell-checker
           arcticicestudio.nord-visual-studio-code
