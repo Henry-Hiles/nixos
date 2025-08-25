@@ -12,7 +12,8 @@
         signingKey = builtins.elemAt (import ../../secrets/keys.nix) 0;
       };
       url = {
-        "git@github.com:".insteadOf = ["https://github.com/"];
+        "git@github.com:".insteadOf = ["https://github.com"];
+        "git@codeberg.org:".insteadOf = ["https://codeberg.org"];
         "git@git.federated.nexus:".insteadOf = ["https://git.federated.nexus"];
       };
       init.defaultBranch = "main";
