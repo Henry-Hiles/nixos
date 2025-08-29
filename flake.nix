@@ -79,6 +79,11 @@
             hostPlatform = info.system;
             localSystem = info.system;
             buildPlatform = "x86_64-linux";
+
+            overlays = let
+              overlays = lib.filesystem.listFilesRecursive ./cross-overlays/${info.hostname};
+            in
+              map (file: import file inputs) overlays;
           };
         };
 
@@ -108,6 +113,14 @@
 
       perSystem = {pkgs, ...}: {
         formatter = pkgs.alejandra;
+        apps.image = {
+          type = "app";
+          program = pkgs.writeShellApplication {
+            name = "image";
+            runtimeInputs = with pkgs; [nix-output-monitor];
+            text = "nix build .#nixosConfigurations.quadphone.config.system.build.image | nom";
+          };
+        };
       };
 
       flake.nixosConfigurations = builtins.mapAttrs (name: value: system ({system = "x86_64-linux";} // value // {hostname = name;})) {
