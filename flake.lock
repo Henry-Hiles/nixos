@@ -1231,11 +1231,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1756022458,
-        "narHash": "sha256-J1i35r4HfNDdPpwL0vOBaZopQudAUVtartEerc1Jryc=",
+        "lastModified": 1756261190,
+        "narHash": "sha256-eiy0klFK5EVJLNilutR7grsZN/7Itj9DyD75eyOf83k=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "9e3a33c0bcbc25619e540b9dfea372282f8a9740",
+        "rev": "77f348da3176dc68b20a73dab94852a417daf361",
         "type": "github"
       },
       "original": {
@@ -1500,10 +1500,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1755959989,
-        "narHash": "sha256-Spe0L9ImranbPAHLlPpIgDU+5aKWLrzvQsXFz7j6RTQ=",
+        "lastModified": 1756487742,
+        "narHash": "sha256-SaaRHD6NxMTP24yTUHE8ZweEdv02fve271mnMAj5qio=",
         "ref": "refs/heads/main",
-        "rev": "424e9b7b029c6d386fee190cbb3ff2750dfa0a90",
+        "rev": "682147283df9a33241afdf55659cab4a79c44a7e",
         "revCount": 49,
         "type": "git",
         "url": "https://git.federated.nexus/Henry-Hiles/matrixoidc"
@@ -2368,11 +2368,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1755615617,
-        "narHash": "sha256-HMwfAJBdrr8wXAkbGhtcby1zGFvs+StOp19xNsbqdOg=",
+        "lastModified": 1756386758,
+        "narHash": "sha256-1wxxznpW2CKvI9VdniaUnTT2Os6rdRJcRUf65ZK9OtE=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "20075955deac2583bb12f07151c2df830ef346b4",
+        "rev": "dfb2f12e899db4876308eba6d93455ab7da304cd",
         "type": "github"
       },
       "original": {
