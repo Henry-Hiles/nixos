@@ -71,9 +71,15 @@
     };
     system = info:
       lib.nixosSystem {
+        inherit (info) system;
         specialArgs = {
           inherit inputs dirUtils;
           isDesktop = info.isDesktop or false;
+          crossPkgs = import inputs.nixpkgs {
+            hostPlatform = info.system;
+            localSystem = info.system;
+            buildPlatform = "x86_64-linux";
+          };
         };
 
         modules = with dirUtils;
@@ -104,11 +110,14 @@
         formatter = pkgs.alejandra;
       };
 
-      flake.nixosConfigurations = builtins.mapAttrs (name: value: system (value // {hostname = name;})) {
+      flake.nixosConfigurations = builtins.mapAttrs (name: value: system ({system = "x86_64-linux";} // value // {hostname = name;})) {
         "quadraticpc".isDesktop = true;
         "quadtop".isDesktop = true;
         "quadraticserver".isServer = true;
-        "quadphone".isGraphical = true;
+        "quadphone" = {
+          isGraphical = true;
+          system = "aarch64-linux";
+        };
       };
     };
 }

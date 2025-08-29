@@ -1,7 +1,7 @@
 {
   config,
   inputs,
-  pkgs,
+  crossPkgs,
   lib,
   ...
 }: {
@@ -10,7 +10,8 @@
       import
       "${inputs.sdm845}/nixos/profiles/boot/kernel/sdm845-mainline"
       {
-        inherit pkgs lib config;
+        inherit lib config;
+        pkgs = crossPkgs;
         inputs = inputs.sdm845.inputs;
       })
   ];
@@ -18,7 +19,7 @@
   boot.initrd.allowMissingModules = true;
 
   nixpkgs = {
-    hostPlatform = "aarch64-linux"; # Do i use binfmt here
+    hostPlatform = "aarch64-linux";
     config.allowBroken = true;
   };
 }
