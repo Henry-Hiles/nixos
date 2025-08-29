@@ -118,7 +118,7 @@
           program = pkgs.writeShellApplication {
             name = "image";
             runtimeInputs = with pkgs; [nix-output-monitor];
-            text = "nix build .#nixosConfigurations.quadphone.config.system.build.image | nom";
+            text = "nom build .#nixosConfigurations.quadphone.config.system.build.image";
           };
         };
       };
