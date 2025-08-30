@@ -18,8 +18,5 @@
 
   boot.initrd.allowMissingModules = true;
 
-  nixpkgs = {
-    hostPlatform = "aarch64-linux";
-    config.allowBroken = true;
-  };
+  nixpkgs.config.allowBroken = true;
 }

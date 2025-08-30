@@ -35,6 +35,18 @@ in {
     };
   };
 
+  # TODO: Fix:
+  # error: builder for '/nix/store/4pbzqss4j7xpbj742zjbhrbl5azdgfnl-image.drv' failed with exit code 1;
+  #      last 7 log lines:
+  #      > structuredAttrs is enabled
+  #      > Running phase: patchPhase
+  #      > 'repart.d' -> '/build/amended-repart.d'
+  #      > Running phase: updateAutotoolsGnuConfigScriptsPhase
+  #      > Running phase: buildPhase
+  #      > Building image with systemd-repart...
+  #      > unshare: unshare failed: Invalid argument
+  #      For full logs, run 'nix log /nix/store/4pbzqss4j7xpbj742zjbhrbl5azdgfnl-image.drv'.
+
   image.repart = {
     name = "image";
     partitions = {
