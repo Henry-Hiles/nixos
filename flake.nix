@@ -73,38 +73,42 @@
         inherit (info) system;
         specialArgs = {
           inherit inputs dirUtils;
-          isDesktop = info.isDesktop or false;
+          inherit (info) type;
+
           crossPkgs = import inputs.nixpkgs {
             hostPlatform = info.system;
             localSystem = info.system;
             buildPlatform = "x86_64-linux";
 
-            overlays = let
-              overlays = lib.filesystem.listFilesRecursive ./cross-overlays/${info.hostname};
-            in
-              map (file: import file inputs) overlays;
+            overlays = let path = ./cross-overlays/${info.hostname}; in dirUtils.opt (builtins.pathExists path) (map (file: import file inputs) (lib.filesystem.listFilesRecursive path));
+
+            config.permittedInsecurePackages = [
+              "libsoup-2.74.3"
+            ];
           };
         };
 
-        modules = with dirUtils;
-          [
-            ./wrappers/default.nix
-            {networking.hostName = info.hostname;}
-            inputs.agenix.nixosModules.default
-            inputs.run0-sudo-shim.nixosModules.default
-          ]
-          ++ dirFiles ".nix" ./clients/${info.hostname}
-          ++ dirFiles ".nix" ./modules/common
-          ++ opt (info.isServer or false) (dirFiles ".nix" ./modules/server)
-          ++ opt (info.isDesktop or false) (dirFiles ".nix" ./modules/desktop)
-          ++ opt (info.isGraphical or info.isDesktop or false) (
-            (dirFiles ".nix" ./modules/graphical)
-            ++ [
-              inputs.home-manager.nixosModules.home-manager
-              inputs.stylix.nixosModules.stylix
-              ./stylix.nix
+        modules = let
+          clientPath = ./clients/${info.hostname};
+        in
+          with dirUtils;
+            [
+              ./wrappers/default.nix
+              {networking.hostName = info.hostname;}
+              inputs.agenix.nixosModules.default
+              inputs.run0-sudo-shim.nixosModules.default
             ]
-          );
+            ++ dirFiles ".nix" ./modules/common
+            ++ dirFiles ".nix" ./modules/${info.type}
+            ++ opt (builtins.pathExists clientPath) (dirFiles ".nix" clientPath)
+            ++ opt info.graphical (
+              (dirFiles ".nix" ./modules/graphical)
+              ++ [
+                inputs.home-manager.nixosModules.home-manager
+                inputs.stylix.nixosModules.stylix
+                ./stylix.nix
+              ]
+            );
       };
   in
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
@@ -117,17 +121,32 @@
           program = pkgs.writeShellApplication {
             name = "image";
             runtimeInputs = with pkgs; [nix-output-monitor];
-            text = "nom build .#nixosConfigurations.quadphone.config.system.build.image";
+            text = "nom build .#nixosConfigurations.\"$1\".config.system.build.image";
           };
         };
       };
 
-      flake.nixosConfigurations = builtins.mapAttrs (name: value: system ({system = "x86_64-linux";} // value // {hostname = name;})) {
-        "quadraticpc".isDesktop = true;
-        "quadtop".isDesktop = true;
-        "quadraticserver".isServer = true;
+      flake.nixosConfigurations = builtins.mapAttrs (name: value:
+        system (
+          {
+            system = "x86_64-linux";
+            graphical = true;
+            hostname = name;
+          }
+          // value
+        )) {
+        "quadraticpc".type = "desktop";
+        "quadtop".type = "desktop";
+        "quadraticserver" = {
+          type = "server";
+          graphical = false;
+        };
         "quadphone" = {
-          isGraphical = true;
+          type = "mobile";
+          system = "aarch64-linux";
+        };
+        "everquad" = {
+          type = "mobile";
           system = "aarch64-linux";
         };
       };

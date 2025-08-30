@@ -6,7 +6,7 @@
     inkscape
     libreoffice
     authenticator
-    cinny-desktop
     prismlauncher
+    cinny-desktop
   ];
 }

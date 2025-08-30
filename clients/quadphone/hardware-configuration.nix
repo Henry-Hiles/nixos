@@ -17,6 +17,4 @@
   ];
 
   boot.initrd.allowMissingModules = true;
-
-  nixpkgs.config.allowBroken = true;
 }
