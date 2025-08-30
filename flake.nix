@@ -4,7 +4,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     wrapper-manager.url = "github:viperML/wrapper-manager";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    ibus-fix.url = "github:Artturin/nixpkgs/i18inputmethodcross";
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";

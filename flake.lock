@@ -1265,22 +1265,6 @@
         "type": "github"
       }
     },
-    "ibus-fix": {
-      "locked": {
-        "lastModified": 1755615982,
-        "narHash": "sha256-x+vQv6K/A70KbLa+xB4wmu2X1eVa4FJ2Y3auQ3Ef41U=",
-        "owner": "Artturin",
-        "repo": "nixpkgs",
-        "rev": "28555291142cfb7f19e3fcf086f2ef0e54a167c6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Artturin",
-        "ref": "i18inputmethodcross",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "kukui-nixos": {
       "inputs": {
         "conf2nix": [
@@ -2648,7 +2632,6 @@
         "gnome-mobile": "gnome-mobile",
         "grapevine": "grapevine",
         "home-manager": "home-manager_2",
-        "ibus-fix": "ibus-fix",
         "lasuite-docs-proxy": "lasuite-docs-proxy",
         "matrixoidc": "matrixoidc",
         "nexusbot": "nexusbot",
