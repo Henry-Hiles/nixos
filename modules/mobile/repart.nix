@@ -37,14 +37,8 @@ in {
 
   image.repart = {
     name = "image";
+    split = true;
     partitions = {
-      "10-uboot-padding" = {
-        repartConfig = {
-          Type = "linux-generic";
-          Label = "uboot-padding";
-          SizeMinBytes = "10M";
-        };
-      };
       "20-esp" = {
         contents = {
           "/EFI/EDK2-UEFI-SHELL/SHELL.EFI".source = "${crossPkgs.edk2-uefi-shell.overrideAttrs {env.NIX_CFLAGS_COMPILE = "-Wno-error=maybe-uninitialized";}}/shell.efi";
@@ -61,8 +55,9 @@ in {
         };
         repartConfig = {
           Type = "esp";
-          Format = "vfat";
           Label = "ESP";
+          Format = "vfat";
+          SplitName = "boot";
           SizeMinBytes = "500M";
           GrowFileSystem = true;
         };
@@ -75,6 +70,7 @@ in {
           Format = "ext4";
           Label = "nixos";
           Minimize = "guess";
+          SplitName = "userdata";
           GrowFileSystem = true;
         };
       };
