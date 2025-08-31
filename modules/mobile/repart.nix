@@ -57,7 +57,7 @@ in {
           Type = "esp";
           Label = "ESP";
           Format = "vfat";
-          SplitName = "boot";
+          SplitName = "system";
           SizeMinBytes = "500M";
           GrowFileSystem = true;
         };
