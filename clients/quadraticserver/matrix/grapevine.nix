@@ -22,6 +22,7 @@
         federation = {
           max_concurrent_requests = 10000;
           self_test = false;
+          trusted_servers = ["matrix.org" "tchncs.de" "maunium.net"];
         };
 
         server_discovery = {
