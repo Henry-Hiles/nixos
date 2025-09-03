@@ -5,7 +5,6 @@
         defaultHomeserver = 0;
         homeserverList = ["federated.nexus"];
         allowCustomHomeservers = false;
-        elementCallUrl = "https://call.federated.nexus";
       };
       cinny-unwrapped = pkgs.cinny-unwrapped.overrideAttrs (old: rec {
         src = pkgs.fetchFromGitHub {
