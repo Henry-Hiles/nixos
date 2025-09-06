@@ -37,10 +37,8 @@
     })
   ];
 
-  systemd.tmpfiles.settings.vscodium = {
-    "/home/quadradical/.config/VSCodium"."d".user = "quadradical";
-    "/home/quadradical/.config/VSCodium/User"."d".user = "quadradical";
-    "/home/quadradical/.config/VSCodium/User/settings.json"."L+".argument = toString ((pkgs.formats.json {}).generate "settings.json" {
+  users.users.quadradical.maid.file.xdg_config = {
+    "VSCodium/User/settings.json".text = builtins.toJSON {
       "arb-editor.suppressedWarnings" = ["missing_metadata_for_key"];
       "dart.debugExternalPackageLibraries" = true;
       "dart.debugSdkLibraries" = true;
@@ -108,9 +106,9 @@
       };
       "indentRainbow.ignoreErrorLanguages" = ["*"];
       "dart.runPubGetOnPubspecChanges" = "never";
-    });
+    };
 
-    "/home/quadradical/.config/VSCodium/User/keybindings.json"."L+".argument = toString ((pkgs.formats.json {}).generate "settings.json" [
+    "/home/quadradical/.config/VSCodium/User/keybindings.json".source = builtins.toJSON [
       {
         key = "ctrl+s";
         command = "workbench.action.files.saveAll";
@@ -119,6 +117,6 @@
         key = "ctrl+s";
         command = "-workbench.action.files.save";
       }
-    ]);
+    ];
   };
 }

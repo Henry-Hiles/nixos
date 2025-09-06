@@ -4,6 +4,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     wrapper-manager.url = "github:viperML/wrapper-manager";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    nix-maid.url = "github:viperML/nix-maid";
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -105,6 +106,7 @@
               (dirFiles ".nix" ./modules/graphical)
               ++ [
                 inputs.home-manager.nixosModules.home-manager
+                inputs.nix-maid.nixosModules.default
                 inputs.stylix.nixosModules.stylix
                 ./stylix.nix
               ]

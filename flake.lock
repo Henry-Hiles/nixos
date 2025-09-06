@@ -1934,6 +1934,21 @@
         "type": "github"
       }
     },
+    "nix-maid": {
+      "locked": {
+        "lastModified": 1757070786,
+        "narHash": "sha256-CD5lOndYyqeGWaH4MD/z5ZFMdcCzOudfuOdMw4MyVRk=",
+        "owner": "viperML",
+        "repo": "nix-maid",
+        "rev": "e4682858e1643653e888d2555ef67a603374f0b9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "viperML",
+        "repo": "nix-maid",
+        "type": "github"
+      }
+    },
     "nix-matrix-appservices": {
       "inputs": {
         "devshell": "devshell",
@@ -2635,6 +2650,7 @@
         "lasuite-docs-proxy": "lasuite-docs-proxy",
         "matrixoidc": "matrixoidc",
         "nexusbot": "nexusbot",
+        "nix-maid": "nix-maid",
         "nix-matrix-appservices": "nix-matrix-appservices",
         "nixpkgs": "nixpkgs_2",
         "ooye": "ooye",
