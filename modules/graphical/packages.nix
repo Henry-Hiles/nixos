@@ -3,7 +3,6 @@
   environment.systemPackages = with pkgs; [
     tuba
     gradia
-    ptyxis
     gapless
     resources
     wl-clipboard
