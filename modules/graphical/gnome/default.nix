@@ -23,7 +23,7 @@
         icon-theme = "Papirus";
         toolkit-accessibility = false;
 
-        font-name = "sans";
+        font-name = "sans 11";
         document-font-name = font-name;
         monospace-font-name = "monospace";
 
