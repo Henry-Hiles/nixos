@@ -20,7 +20,7 @@
       };
     };
 
-    "/home/quadradical/.librewolf/quadradical/chrome".source =
+    ".librewolf/quadradical/chrome".source =
       toString
       (pkgs.symlinkJoin {
         name = "firefox-gnome-theme";
