@@ -183,6 +183,12 @@
             IconURL = "https://github.com/NixOS/nixos-artwork/raw/refs/heads/master/logo/nix-snowflake-white.svg";
             Alias = "nu";
           }
+          {
+            Name = "Harmony";
+            URLTemplate = "https://harmony.pulsewidth.org.uk/release?url={searchTerms}";
+            IconURL = "https://harmony.pulsewidth.org.uk/favicon.ico";
+            Alias = "hm";
+          }
         ];
         Remove = ["Bing" "LibRedirect" "Wikipedia (en)"];
       };
