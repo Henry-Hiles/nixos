@@ -36,6 +36,7 @@
       "webgl.disabled" = false;
       "browser.tabs.groups.enabled" = false;
       "media.peerconnection.enabled" = true;
+      "media.webrtc.hw.h264.enabled" = false;
       "privacy.resistFingerprinting" = false;
       "privacy.fingerprintingProtection" = true;
       "browser.discovery.containers.enabled" = false;
