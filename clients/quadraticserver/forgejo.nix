@@ -40,6 +40,7 @@
       respond /robots.txt <<EOF
         User-agent: *
         Disallow: /*/*/archive/
+        Disallow: /*/*/src/commit
         EOF 200
       reverse_proxy unix/${socket}
     '';
