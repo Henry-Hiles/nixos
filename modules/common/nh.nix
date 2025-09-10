@@ -7,7 +7,8 @@
 
   environment.shellAliases = {
     clean = "nh clean all";
-    update = "env -C ~/.config/nixos nix flake update && rebuild";
+    update = "env -C ~/.config/nixos nix flake update";
+    upgrade = "nh os switch --update";
     rebuild = "nh os switch";
     rebuild-server = "nh os switch --hostname quadraticserver --target-host 192.168.0.132";
   };
