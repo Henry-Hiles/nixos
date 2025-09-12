@@ -1,10 +1,16 @@
-{lib, ...}: {
+{
+  lib,
+  inputs,
+  pkgs,
+  ...
+}: {
   services = let
     socket = "/var/run/searx/socket";
     domain = "search.federated.nexus";
   in {
     searx = {
       enable = true;
+      package = inputs.nixpkgs-master.legacyPackages.${pkgs.system}.searxng;
       settings = let
         enginesByCategory = {
           general = {
