@@ -1,0 +1,13 @@
+diff --git a/src/backend/impress/settings.py b/src/backend/impress/settings.py
+index 9059dd29..010cc524 100755
+--- a/impress/settings.py
++++ b/impress/settings.py
+@@ -248,6 +248,9 @@ class Base(Configuration):
+             ("de-de", "Deutsch"),
+             ("nl-nl", "Nederlands"),
+             ("es-es", "Español"),
++            ("br-fr", "Brezhoneg"),
++            ("uk-ua", "Українська"),
++            ("ru-ru", "Русский"),
+         )
+     )
