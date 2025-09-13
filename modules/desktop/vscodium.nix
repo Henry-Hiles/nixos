@@ -101,7 +101,7 @@
       "nix.serverPath" = lib.meta.getExe pkgs.nil;
       "nix.serverSettings" = {
         "nil" = {
-          "formatting" = {"command" = [(lib.getExe pkgs.alejandra)];};
+          "formatting" = {"command" = [(lib.getExe pkgs.nixfmt)];};
         };
       };
       "indentRainbow.ignoreErrorLanguages" = ["*"];
