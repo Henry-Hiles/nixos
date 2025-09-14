@@ -1,1 +1,2 @@
-{pkgs, ...}: {nix.package = pkgs.lix;}
+{ }
+# {pkgs, ...}: {nix.package = pkgs.lix;}
