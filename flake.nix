@@ -14,10 +14,6 @@
       url = "github:lordgrimmauld/run0-sudo-shim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    grapevine = {
-      url = "gitlab:matrix/grapevine?ref=olivia/openid-api&host=gitlab.computer.surgery";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -64,39 +60,49 @@
     };
   };
 
-  outputs = inputs: let
-    lib = inputs.nixpkgs.lib;
-    dirUtils = {
-      opt = lib.optionals;
-      dirFiles = type: dir: lib.filter (lib.hasSuffix type) (lib.filesystem.listFilesRecursive dir);
-    };
-    system = info:
-      lib.nixosSystem {
-        inherit (info) system;
-        specialArgs = {
-          inherit inputs dirUtils;
-          inherit (info) type;
+  outputs =
+    inputs:
+    let
+      lib = inputs.nixpkgs.lib;
+      dirUtils = {
+        opt = lib.optionals;
+        dirFiles = type: dir: lib.filter (lib.hasSuffix type) (lib.filesystem.listFilesRecursive dir);
+      };
+      system =
+        info:
+        lib.nixosSystem {
+          inherit (info) system;
+          specialArgs = {
+            inherit inputs dirUtils;
+            inherit (info) type;
 
-          crossPkgs = import inputs.nixpkgs {
-            hostPlatform = info.system;
-            localSystem = info.system;
-            buildPlatform = "x86_64-linux";
+            crossPkgs = import inputs.nixpkgs {
+              hostPlatform = info.system;
+              localSystem = info.system;
+              buildPlatform = "x86_64-linux";
 
-            overlays = let path = ./cross-overlays/${info.hostname}; in dirUtils.opt (builtins.pathExists path) (map (file: import file inputs) (lib.filesystem.listFilesRecursive path));
+              overlays =
+                let
+                  path = ./cross-overlays/${info.hostname};
+                in
+                dirUtils.opt (builtins.pathExists path) (
+                  map (file: import file inputs) (lib.filesystem.listFilesRecursive path)
+                );
 
-            config.permittedInsecurePackages = [
-              "libsoup-2.74.3"
-            ];
+              config.permittedInsecurePackages = [
+                "libsoup-2.74.3"
+              ];
+            };
           };
-        };
 
-        modules = let
-          clientPath = ./clients/${info.hostname};
-        in
-          with dirUtils;
+          modules =
+            let
+              clientPath = ./clients/${info.hostname};
+            in
+            with dirUtils;
             [
               ./wrappers/default.nix
-              {networking.hostName = info.hostname;}
+              { networking.hostName = info.hostname; }
               inputs.agenix.nixosModules.default
               inputs.run0-sudo-shim.nixosModules.default
             ]
@@ -112,45 +118,55 @@
                 ./stylix.nix
               ]
             );
-      };
-  in
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = ["aarch64-linux" "x86_64-linux"];
+        };
+    in
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [
+        "aarch64-linux"
+        "x86_64-linux"
+      ];
 
-      perSystem = {pkgs, ...}: {
-        apps.image = {
-          type = "app";
-          program = pkgs.writeShellApplication {
-            name = "image";
-            runtimeInputs = with pkgs; [nix-output-monitor];
-            text = "nom build .#nixosConfigurations.\"$1\".config.system.build.image";
+      perSystem =
+        { pkgs, ... }:
+        {
+          apps.image = {
+            type = "app";
+            program = pkgs.writeShellApplication {
+              name = "image";
+              runtimeInputs = with pkgs; [ nix-output-monitor ];
+              text = "nom build .#nixosConfigurations.\"$1\".config.system.build.image";
+            };
           };
         };
-      };
 
-      flake.nixosConfigurations = builtins.mapAttrs (name: value:
-        system (
+      flake.nixosConfigurations =
+        builtins.mapAttrs
+          (
+            name: value:
+            system (
+              {
+                system = "x86_64-linux";
+                graphical = true;
+                hostname = name;
+              }
+              // value
+            )
+          )
           {
-            system = "x86_64-linux";
-            graphical = true;
-            hostname = name;
-          }
-          // value
-        )) {
-        "quadraticpc".type = "desktop";
-        "quadtop".type = "desktop";
-        "quadraticserver" = {
-          type = "server";
-          graphical = false;
-        };
-        "quadphone" = {
-          type = "mobile";
-          system = "aarch64-linux";
-        };
-        "everquad" = {
-          type = "mobile";
-          system = "aarch64-linux";
-        };
-      };
+            "quadraticpc".type = "desktop";
+            "quadtop".type = "desktop";
+            "quadraticserver" = {
+              type = "server";
+              graphical = false;
+            };
+            "quadphone" = {
+              type = "mobile";
+              system = "aarch64-linux";
+            };
+            "everquad" = {
+              type = "mobile";
+              system = "aarch64-linux";
+            };
+          };
     };
 }
