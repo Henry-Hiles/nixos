@@ -15,7 +15,7 @@
     in
     {
       matrix-continuwuity = {
-        enable = false;
+        enable = true;
         package = inputs.continuwuity.packages.${pkgs.system}.default;
         group = "caddy";
         settings.global = {
