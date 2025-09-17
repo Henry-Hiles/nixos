@@ -3,24 +3,26 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   config = {
     systemd.services.caddy.serviceConfig.Restart = lib.mkForce "always";
-    networking.firewall.allowedTCPPorts = [443];
+    networking.firewall.allowedTCPPorts = [ 443 ];
     services.caddy = {
       enable = true;
       email = "hen" + "ry@he" + "nryhi" + "les.c" + "om";
       environmentFile = config.age.secrets."base64JwtSecret.age".path;
       package = pkgs.caddy.withPlugins {
-        plugins = ["github.com/ggicci/caddy-jwt@v1.1.0"];
-        hash = "sha256-RvpZh7iL5vsuvTTSHYYu2blAdO0tINxWWuT9IPlni7o=";
+        plugins = [ "github.com/ggicci/caddy-jwt@v1.1.0" ];
+        hash = "sha256-ZpPFPJwjIEpF7NpbfmeGvM3auM8W0KZU9GoCDKC0HQM=";
       };
 
-      virtualHosts =
-        lib.mapAttrs (domain: host: {
-          extraConfig = let
+      virtualHosts = lib.mapAttrs (domain: host: {
+        extraConfig =
+          let
             auth = "https://auth.federated.nexus";
-          in ''
+          in
+          ''
             handle_errors 401 {
               redir https://federated.nexus/login?redirect_uri=${auth}/bridge?redirect_uri=https://${domain}{uri} 302
             }
@@ -36,13 +38,12 @@
               ${host}
             }
           '';
-        })
-        config.services.caddy.authedHosts;
+      }) config.services.caddy.authedHosts;
     };
   };
 
   options.services.caddy.authedHosts = lib.mkOption {
     type = lib.types.attrsOf lib.types.lines;
-    default = [];
+    default = [ ];
   };
 }

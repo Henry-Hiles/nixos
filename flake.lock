@@ -425,11 +425,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1757826201,
-        "narHash": "sha256-TY080DNfqLq61PweM2W8aPM/+/uMNbexh7lxw2EVvB0=",
+        "lastModified": 1758149649,
+        "narHash": "sha256-jL/6GwVTu/vCHdBg0+5IZEfalHJHBzDeroJDdvC9Nms=",
         "ref": "refs/heads/main",
-        "rev": "3dd04bd9dfe5bc49876f1e90a74592a12f642131",
-        "revCount": 5541,
+        "rev": "0672ce5b88ee9dad0cda778e1d19db4bab791351",
+        "revCount": 5557,
         "type": "git",
         "url": "https://forgejo.ellis.link/continuwuation/continuwuity"
       },
