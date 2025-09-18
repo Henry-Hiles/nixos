@@ -137,11 +137,11 @@
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1757683818,
-        "narHash": "sha256-q7q0pWT+wu5AUU1Qlbwq8Mqb+AzHKhaMCVUq/HNZfo8=",
+        "lastModified": 1756403898,
+        "narHash": "sha256-S4SJDmVTtbcXaJkYrMFkcA5SDrpfRHlBbzwp6IRRPAw=",
         "owner": "zhaofengli",
         "repo": "attic",
-        "rev": "7c5d79ad62cda340cb8c80c99b921b7b7ffacf69",
+        "rev": "2524dd1c007bc7a0a9e9c863a1b02de8d54b319b",
         "type": "github"
       },
       "original": {
@@ -425,17 +425,14 @@
         ]
       },
       "locked": {
-        "lastModified": 1758202579,
-        "narHash": "sha256-+40cyBpAVtOP4nL54wkKJiHhjqguaTuHI900qIdH59g=",
-        "ref": "refs/heads/main",
-        "rev": "3034c03ad155d98aa103587155ca3a0d11702d81",
-        "revCount": 5563,
-        "type": "git",
-        "url": "https://forgejo.ellis.link/continuwuation/continuwuity"
+        "lastModified": 1758231451,
+        "narHash": "sha256-/MFeLIHRdFsMmv3qT6G5K9o5gWg4e4vD1CAnfqenX9o=",
+        "path": "/home/quadradical/Documents/Code/continuwuity",
+        "type": "path"
       },
       "original": {
-        "type": "git",
-        "url": "https://forgejo.ellis.link/continuwuation/continuwuity"
+        "path": "/home/quadradical/Documents/Code/continuwuity",
+        "type": "path"
       }
     },
     "crane": {
@@ -729,11 +726,11 @@
         "rust-analyzer-src": "rust-analyzer-src"
       },
       "locked": {
-        "lastModified": 1758004879,
-        "narHash": "sha256-kV7tQzcNbmo58wg2uE2MQ/etaTx+PxBMHeNrLP8vOgk=",
+        "lastModified": 1757400094,
+        "narHash": "sha256-5Rcs6juMoMTaMJSR1glravl4QB9yLAFBD8s7KLi4kdQ=",
         "owner": "nix-community",
         "repo": "fenix",
-        "rev": "07e5ce53dd020e6b337fdddc934561bee0698fa2",
+        "rev": "0682b9b518792c9428865c511a4c40c9ad85c243",
         "type": "github"
       },
       "original": {
@@ -1995,11 +1992,11 @@
     },
     "nix-filter": {
       "locked": {
-        "lastModified": 1757882181,
-        "narHash": "sha256-+cCxYIh2UNalTz364p+QYmWHs0P+6wDhiWR4jDIKQIU=",
+        "lastModified": 1731533336,
+        "narHash": "sha256-oRam5PS1vcrr5UPgALW0eo1m/5/pls27Z/pabHNy2Ms=",
         "owner": "numtide",
         "repo": "nix-filter",
-        "rev": "59c44d1909c72441144b93cf0f054be7fe764de5",
+        "rev": "f7653272fd234696ae94229839a99b73c9ab7de0",
         "type": "github"
       },
       "original": {
