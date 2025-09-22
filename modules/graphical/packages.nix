@@ -8,6 +8,5 @@
     wl-clipboard
     google-cursor
     papirus-icon-theme
-    # crossPkgs.cinny-desktop
   ];
 }

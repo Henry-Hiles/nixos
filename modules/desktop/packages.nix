@@ -7,6 +7,5 @@
     libreoffice
     authenticator
     prismlauncher
-    # cinny-desktop
   ];
 }
