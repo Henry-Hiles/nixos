@@ -47,16 +47,13 @@ in
         enableNginx = false;
         redis.createLocally = true;
         postgresql.createLocally = true;
-        backendPackage = inputs.nixpkgs-lasuite.legacyPackages.${pkgs.system}.lasuite-docs.overrideAttrs {
+        backendPackage = pkgs.lasuite-docs.overrideAttrs {
           patches = [ ./enable-languages.patch ];
         };
-        collaborationServer.package =
-          inputs.nixpkgs-lasuite.legacyPackages.${pkgs.system}.lasuite-docs-collaboration-server;
-        frontendPackage =
-          inputs.nixpkgs-lasuite.legacyPackages.${pkgs.system}.lasuite-docs-frontend.overrideAttrs
-            {
-              NEXT_PUBLIC_PUBLISH_AS_MIT = "false";
-            };
+        collaborationServer.package = pkgs.lasuite-docs-collaboration-server;
+        frontendPackage = pkgs.lasuite-docs-frontend.overrideAttrs {
+          NEXT_PUBLIC_PUBLISH_AS_MIT = "false";
+        };
         bind = "unix:${socket}";
         inherit s3Url domain;
 

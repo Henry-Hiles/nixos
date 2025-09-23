@@ -1,5 +1,6 @@
-{pkgs, ...}: {
-  services.xserver.excludePackages = [pkgs.xterm];
+{ pkgs, ... }:
+{
+  services.xserver.excludePackages = [ pkgs.xterm ];
   environment.systemPackages = with pkgs; [
     tuba
     gradia

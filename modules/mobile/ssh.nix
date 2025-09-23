@@ -1,1 +1,1 @@
-{imports = [../server/ssh.nix];}
+{ imports = [ ../server/ssh.nix ]; }

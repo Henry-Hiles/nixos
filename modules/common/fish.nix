@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
@@ -7,6 +8,6 @@
     '';
   };
 
-  environment.shells = [pkgs.fish];
+  environment.shells = [ pkgs.fish ];
   users.defaultUserShell = pkgs.fish;
 }

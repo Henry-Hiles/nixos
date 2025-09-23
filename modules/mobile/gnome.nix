@@ -1,4 +1,5 @@
-{crossPkgs, ...}: {
+{ crossPkgs, ... }:
+{
   nixpkgs.overlays = [
     (self: super: {
       gnome-shell = crossPkgs.gnome-shell;

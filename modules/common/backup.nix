@@ -1,1 +1,4 @@
-{inputs, ...}: {environment.etc."backup".source = inputs.self;}
+{ inputs, ... }:
+{
+  environment.etc."backup".source = inputs.self;
+}

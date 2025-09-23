@@ -1,6 +1,7 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   environment = {
-    systemPackages = [pkgs.micro];
+    systemPackages = [ pkgs.micro ];
     sessionVariables.EDITOR = "micro";
   };
 }

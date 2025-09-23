@@ -7,7 +7,11 @@
   users.users.quadradical.maid.gsettings.settings.org.gnome = {
     desktop = {
       wm.preferences.focus-mode = "mouse";
-      search-providers.sort-order = ["org.gnome.Contacts.desktop" "org.gnome.Documents.desktop" "org.gnome.Nautilus.desktop"];
+      search-providers.sort-order = [
+        "org.gnome.Contacts.desktop"
+        "org.gnome.Documents.desktop"
+        "org.gnome.Nautilus.desktop"
+      ];
 
       background = rec {
         picture-uri = "file://${./background.jpg}";
@@ -41,11 +45,15 @@
 
     shell = {
       remember-mount-password = true;
-      favorite-apps = ["librewolf.desktop" "org.gnome.Geary.desktop" "org.gnome.Nautilus.desktop"];
+      favorite-apps = [
+        "librewolf.desktop"
+        "org.gnome.Geary.desktop"
+        "org.gnome.Nautilus.desktop"
+      ];
     };
 
     mutter.edge-tiling = false;
     system.location.enabled = true;
-    settings-daemon.plugins.media-keys.calculator-static = [];
+    settings-daemon.plugins.media-keys.calculator-static = [ ];
   };
 }

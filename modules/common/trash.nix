@@ -1,1 +1,4 @@
-{pkgs, ...}: {environment.shellAliases.rm = "${pkgs.glib}/bin/gio trash";}
+{ pkgs, ... }:
+{
+  environment.shellAliases.rm = "${pkgs.glib}/bin/gio trash";
+}

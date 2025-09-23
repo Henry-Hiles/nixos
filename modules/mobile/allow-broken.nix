@@ -1,1 +1,1 @@
-{nixpkgs.config.allowBroken = true;}
+{ nixpkgs.config.allowBroken = true; }

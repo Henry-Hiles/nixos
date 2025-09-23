@@ -1,1 +1,1 @@
-{documentation.man.generateCaches = false;}
+{ documentation.man.generateCaches = false; }

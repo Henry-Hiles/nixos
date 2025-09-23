@@ -2,7 +2,8 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   programs.git = {
     enable = true;
     config = {
@@ -12,9 +13,9 @@
         signingKey = builtins.elemAt (import ../../secrets/keys.nix) 0;
       };
       url = {
-        "git@github.com:".insteadOf = ["https://github.com"];
-        "git@codeberg.org:".insteadOf = ["https://codeberg.org"];
-        "git@git.federated.nexus:".insteadOf = ["https://git.federated.nexus"];
+        "git@github.com:".insteadOf = [ "https://github.com" ];
+        "git@codeberg.org:".insteadOf = [ "https://codeberg.org" ];
+        "git@git.federated.nexus:".insteadOf = [ "https://git.federated.nexus" ];
       };
       init.defaultBranch = "main";
       commit.gpgsign = true;
@@ -23,16 +24,18 @@
     };
   };
   environment = {
-    systemPackages = [pkgs.gh];
-    shellAliases = let
-      gitExe = lib.meta.getExe pkgs.git;
-      ghExe = lib.meta.getExe pkgs.gh;
-    in {
-      clone = "${ghExe} repo clone";
-      create = "${ghExe} repo create";
+    systemPackages = [ pkgs.gh ];
+    shellAliases =
+      let
+        gitExe = lib.meta.getExe pkgs.git;
+        ghExe = lib.meta.getExe pkgs.gh;
+      in
+      {
+        clone = "${ghExe} repo clone";
+        create = "${ghExe} repo create";
 
-      push = "${gitExe} push";
-      commit = "${gitExe} commit -am";
-    };
+        push = "${gitExe} push";
+        commit = "${gitExe} commit -am";
+      };
   };
 }

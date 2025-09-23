@@ -2,7 +2,8 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   environment = {
     systemPackages = with pkgs.gnomeExtensions; [
       valent
@@ -102,8 +103,8 @@
         allow-zero-brightness = true;
         button-location = 1;
         ddcutil-binary-path = lib.meta.getExe pkgs.ddcutil;
-        decrease-brightness-shortcut = ["XF86MonBrightnessDown"];
-        increase-brightness-shortcut = ["XF86MonBrightnessUp"];
+        decrease-brightness-shortcut = [ "XF86MonBrightnessDown" ];
+        increase-brightness-shortcut = [ "XF86MonBrightnessUp" ];
         hide-system-indicator = true;
         only-all-slider = true;
         position-system-menu = 3.0;

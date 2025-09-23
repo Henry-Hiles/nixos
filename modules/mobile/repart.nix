@@ -5,10 +5,12 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   efiArch = pkgs.stdenv.hostPlatform.efiArch;
-in {
-  imports = ["${modulesPath}/image/repart.nix"];
+in
+{
+  imports = [ "${modulesPath}/image/repart.nix" ];
   boot.loader.grub.enable = false;
 
   systemd.repart = {
@@ -41,9 +43,15 @@ in {
     partitions = {
       "20-esp" = {
         contents = {
-          "/EFI/EDK2-UEFI-SHELL/SHELL.EFI".source = "${crossPkgs.edk2-uefi-shell.overrideAttrs {env.NIX_CFLAGS_COMPILE = "-Wno-error=maybe-uninitialized";}}/shell.efi";
-          "/EFI/BOOT/BOOT${lib.toUpper efiArch}.EFI".source = "${pkgs.systemd}/lib/systemd/boot/efi/systemd-boot${efiArch}.efi";
-          "/EFI/Linux/${config.system.boot.loader.ukiFile}".source = "${config.system.build.uki}/${config.system.boot.loader.ukiFile}";
+          "/EFI/EDK2-UEFI-SHELL/SHELL.EFI".source = "${
+            crossPkgs.edk2-uefi-shell.overrideAttrs {
+              env.NIX_CFLAGS_COMPILE = "-Wno-error=maybe-uninitialized";
+            }
+          }/shell.efi";
+          "/EFI/BOOT/BOOT${lib.toUpper efiArch}.EFI".source =
+            "${pkgs.systemd}/lib/systemd/boot/efi/systemd-boot${efiArch}.efi";
+          "/EFI/Linux/${config.system.boot.loader.ukiFile}".source =
+            "${config.system.build.uki}/${config.system.boot.loader.ukiFile}";
           "/loader/loader.conf".source = crossPkgs.writeText "loader.conf" ''
             timeout 5
             console-mode keep
@@ -63,8 +71,8 @@ in {
         };
       };
       "30-root" = {
-        storePaths = [config.system.build.toplevel];
-        contents."/boot".source = crossPkgs.runCommand "boot" {} "mkdir $out";
+        storePaths = [ config.system.build.toplevel ];
+        contents."/boot".source = crossPkgs.runCommand "boot" { } "mkdir $out";
         repartConfig = {
           Type = "root";
           Format = "ext4";

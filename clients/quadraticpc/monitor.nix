@@ -2,14 +2,19 @@
   pkgs,
   lib,
   ...
-}: let
+}:
+let
   setvcp = "${lib.meta.getExe pkgs.ddcutil} setvcp D6";
-in {
+in
+{
   hardware.i2c.enable = true;
   systemd.services = {
     monitor-off = rec {
       script = "${setvcp} 05";
-      wantedBy = ["sleep.target" "final.target"];
+      wantedBy = [
+        "sleep.target"
+        "final.target"
+      ];
       before = wantedBy;
 
       serviceConfig.Type = "oneshot";
@@ -18,7 +23,10 @@ in {
 
     monitor-on = rec {
       script = "${setvcp} 01";
-      wantedBy = ["sleep.target" "multi-user.target"];
+      wantedBy = [
+        "sleep.target"
+        "multi-user.target"
+      ];
       after = wantedBy;
     };
   };

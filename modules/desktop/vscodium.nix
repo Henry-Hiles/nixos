@@ -2,11 +2,13 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   environment.systemPackages = with pkgs; [
     (vscode-with-extensions.override {
       vscode = vscodium;
-      vscodeExtensions = with vscode-extensions;
+      vscodeExtensions =
+        with vscode-extensions;
         [
           mkhl.direnv
           eamodio.gitlens
@@ -39,7 +41,7 @@
 
   users.users.quadradical.maid.file.xdg_config = {
     "VSCodium/User/settings.json".text = builtins.toJSON {
-      "arb-editor.suppressedWarnings" = ["missing_metadata_for_key"];
+      "arb-editor.suppressedWarnings" = [ "missing_metadata_for_key" ];
       "dart.debugExternalPackageLibraries" = true;
       "dart.debugSdkLibraries" = true;
       "redhat.telemetry.enabled" = false;
@@ -67,7 +69,7 @@
       "window.menuBarVisibility" = "compact";
       "git.confirmSync" = false;
       "editor.detectIndentation" = false;
-      "errorLens.enabledDiagnosticLevels" = ["error"];
+      "errorLens.enabledDiagnosticLevels" = [ "error" ];
       "git.mergeEditor" = true;
       "terminal.integrated.shellIntegration.enabled" = false;
       "gitlens.currentLine.enabled" = false;
@@ -101,10 +103,12 @@
       "nix.serverPath" = lib.meta.getExe pkgs.nil;
       "nix.serverSettings" = {
         "nil" = {
-          "formatting" = {"command" = [(lib.getExe pkgs.nixfmt)];};
+          "formatting" = {
+            "command" = [ (lib.getExe pkgs.nixfmt) ];
+          };
         };
       };
-      "indentRainbow.ignoreErrorLanguages" = ["*"];
+      "indentRainbow.ignoreErrorLanguages" = [ "*" ];
       "dart.runPubGetOnPubspecChanges" = "never";
     };
 

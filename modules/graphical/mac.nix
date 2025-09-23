@@ -1,1 +1,1 @@
-{networking.networkmanager.wifi.macAddress = "random";}
+{ networking.networkmanager.wifi.macAddress = "random"; }
