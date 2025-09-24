@@ -20,6 +20,7 @@ let
     encryption = {
       allow = true;
       default = true;
+      pickle_key = "generate";
     };
 
     bridge.permissions = {
