@@ -12,26 +12,19 @@ let
   settings = {
     backfill.enabled = true;
 
-    appservice = {
-      as_token = "$CUSTOM_AS_TOKEN";
-      hs_token = "$CUSTOM_HS_TOKEN";
-    };
-
     homeserver = {
       domain = server_name;
       address = client;
     };
 
-    bridge = {
-      encryption = {
-        allow = true;
-        default = true;
-        require = false;
-      };
-      permissions = {
-        "${server_name}" = "user";
-        "@quadradical:${server_name}" = "admin";
-      };
+    encryption = {
+      allow = true;
+      default = true;
+    };
+
+    bridge.permissions = {
+      "${server_name}" = "user";
+      "@quadradical:${server_name}" = "admin";
     };
   };
 in
@@ -46,30 +39,23 @@ in
       domain = "ooye.federated.nexus";
     in
     {
-      matrix-appservices.services =
-        builtins.mapAttrs
-          (
-            name: value:
-            value
-            // {
-              inherit settings;
-              format = "mautrix-go";
-              port = 8000;
-              package = value.package.override { withGoolm = true; };
-            }
-          )
-          {
-            whatsapp = {
-              host = "127.0.0.4";
-              serviceConfig.EnvironmentFile = config.age.secrets."whatsapp.age".path;
-              package = pkgs.mautrix-whatsapp;
-            };
-            gmessages = {
-              host = "127.0.0.5";
-              serviceConfig.EnvironmentFile = config.age.secrets."gmessages.age".path;
-              package = pkgs.mautrix-gmessages;
-            };
-          };
+      matrix-appservices.services.gmessages = {
+        host = "127.0.0.5";
+        serviceConfig.EnvironmentFile = config.age.secrets."gmessages.age".path;
+        format = "mautrix-go";
+        port = 8000;
+        package = pkgs.mautrix-gmessages.override { withGoolm = true; };
+        inherit settings;
+      };
+
+      mautrix-whatsapp = {
+        enable = true;
+        package = pkgs.mautrix-whatsapp.override { withGoolm = true; };
+        settings = settings // {
+          appservice.hostname = "127.0.0.4";
+        };
+        environmentFile = config.age.secrets."whatsapp.age".path;
+      };
 
       matrix-ooye = {
         enable = true;
