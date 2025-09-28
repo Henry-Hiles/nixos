@@ -45,6 +45,10 @@
           Disallow: /*/*/archive/
           Disallow: /*/*/src/commit
           EOF 200
+
+        defender garbage {
+          ranges aliyun vpn aws deepseek githubcopilot gcloud oci azurepubliccloud openai mistral vultr cloudflare digitalocean linode
+        }
         reverse_proxy unix/${socket}
       '';
     };

@@ -46,7 +46,12 @@ in
         format = "mautrix-go";
         port = 8000;
         package = pkgs.mautrix-gmessages.override { withGoolm = true; };
-        inherit settings;
+        settings = settings // {
+          appservice = {
+            as_token = "$CUSTOM_AS_TOKEN";
+            hs_token = "$CUSTOM_HS_TOKEN";
+          };
+        };
       };
 
       mautrix-whatsapp = {
