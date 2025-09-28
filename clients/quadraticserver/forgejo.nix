@@ -21,7 +21,11 @@
           };
           oauth2_client.ENABLE_AUTO_REGISTRATION = true;
           repository.GO_GET_CLONE_URL_PROTOCOL = "ssh";
-          actions.DEFAULT_ACTIONS_URL = "github";
+          actions = {
+            # Disable for now
+            ENABLED = false;
+            DEFAULT_ACTIONS_URL = "github";
+          };
 
           server = {
             DOMAIN = domain;
