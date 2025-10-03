@@ -55,7 +55,7 @@ in
       };
 
       mautrix-whatsapp = {
-        enable = true;
+        enable = false;
         package = pkgs.mautrix-whatsapp.override { withGoolm = true; };
         settings = settings // {
           appservice.hostname = "127.0.0.4";
