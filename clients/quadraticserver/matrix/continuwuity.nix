@@ -1,9 +1,4 @@
-{
-  inputs,
-  pkgs,
-  lib,
-  ...
-}:
+{ lib, ... }:
 {
   systemd.services.continuwuity.serviceConfig.Restart = lib.mkForce "always";
 
@@ -16,7 +11,6 @@
     {
       matrix-continuwuity = {
         enable = true;
-        package = inputs.nixpkgs-continuwuity.legacyPackages.${pkgs.system}.matrix-continuwuity;
         group = "caddy";
         settings.global = {
           server_name = domain;
