@@ -1042,11 +1042,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1759337100,
-        "narHash": "sha256-CcT3QvZ74NGfM+lSOILcCEeU+SnqXRvl1XCRHenZ0Us=",
+        "lastModified": 1759573136,
+        "narHash": "sha256-ILSPD0Dm8p0w0fCVzOx98ZH8yFDrR75GmwmH3fS2VnE=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "004753ae6b04c4b18aa07192c1106800aaacf6c3",
+        "rev": "5f06ceafc6c9b773a776b9195c3f47bbe1defa43",
         "type": "github"
       },
       "original": {
@@ -1490,11 +1490,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1759512612,
-        "narHash": "sha256-7X1Une4h7MDaf4SIdNHagASQFeXjo27pW1OPAW6K4AE=",
+        "lastModified": 1759591064,
+        "narHash": "sha256-Bd/liiNYhDuEyeZ1r5ljUWVYOM2lo9/ZOUUte9z0yf4=",
         "ref": "refs/heads/main",
-        "rev": "ad9d2ebb82675e8d0a455a37709251ac25459d4d",
-        "revCount": 26,
+        "rev": "94ba4801a9211f7f43bd2533d93ae71de6e321d4",
+        "revCount": 27,
         "type": "git",
         "url": "https://git.federated.nexus/federated-nexus/nexusbot"
       },
