@@ -5,6 +5,7 @@
     tuba
     gradia
     gapless
+    showtime
     resources
     wl-clipboard
     google-cursor
