@@ -1490,11 +1490,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1759699514,
-        "narHash": "sha256-B68hAcOOeD/VKOzljwNFYmpL005GjWglSqRrw5/11mg=",
+        "lastModified": 1759891394,
+        "narHash": "sha256-nT6hEHFiPITSun9er55nAQcq7kZNPVRsx3L6M2U6MSI=",
         "ref": "refs/heads/main",
-        "rev": "8818825f17fd039776ccb382551cacd55ecc49a8",
-        "revCount": 28,
+        "rev": "cdd40794186363c9108e2b92c4bdffbb604e2c0e",
+        "revCount": 29,
         "type": "git",
         "url": "https://git.federated.nexus/federated-nexus/nexusbot"
       },
