@@ -1,7 +1,7 @@
 { config, ... }:
 {
   services.draupnir = {
-    enable = true;
+    enable = false; # Blocked on https://forgejo.ellis.link/continuwuation/continuwuity/issues/1098
     settings =
       let
         serverName = config.services.matrix-continuwuity.settings.global.server_name;
