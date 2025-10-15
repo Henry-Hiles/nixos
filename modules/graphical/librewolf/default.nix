@@ -204,6 +204,12 @@
             IconURL = "https://harmony.pulsewidth.org.uk/favicon.ico";
             Alias = "hm";
           }
+          {
+            Name = "Pub";
+            URLTemplate = "https://pub.dev/packages?q={searchTerms}";
+            IconURL = "https://pub.dev/favicon.ico";
+            Alias = "pub";
+          }
         ];
         Remove = [
           "Bing"
