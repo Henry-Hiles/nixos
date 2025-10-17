@@ -7,7 +7,7 @@
 {
   options.services.caddy.authedHosts = lib.mkOption {
     type = lib.types.attrsOf lib.types.lines;
-    default = [ ];
+    default = { };
   };
 
   config = {
