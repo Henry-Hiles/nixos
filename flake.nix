@@ -158,6 +158,10 @@
               type = "server";
               graphical = false;
             };
+            "nova" = {
+              type = "server";
+              graphical = false;
+            };
             "quadphone" = {
               type = "mobile";
               system = "aarch64-linux";

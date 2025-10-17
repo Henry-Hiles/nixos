@@ -11,8 +11,6 @@ let
 in
 {
   imports = [ "${modulesPath}/image/repart.nix" ];
-  boot.loader.grub.enable = false;
-
   systemd.repart = {
     enable = true;
     partitions."03-root".Type = "root";

@@ -5,6 +5,11 @@
   ...
 }:
 {
+  options.services.caddy.authedHosts = lib.mkOption {
+    type = lib.types.attrsOf lib.types.lines;
+    default = [ ];
+  };
+
   config = {
     systemd.services.caddy.serviceConfig.Restart = lib.mkForce "always";
     networking.firewall.allowedTCPPorts = [ 443 ];
@@ -43,10 +48,5 @@
           '';
       }) config.services.caddy.authedHosts;
     };
-  };
-
-  options.services.caddy.authedHosts = lib.mkOption {
-    type = lib.types.attrsOf lib.types.lines;
-    default = [ ];
   };
 }

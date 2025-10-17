@@ -66,7 +66,7 @@ in
       matrix-ooye = {
         enable = true;
         homeserver = client;
-        homeserverName = "federated.nexus";
+        homeserverName = server_name;
         discordTokenPath = config.age.secrets."discordToken.age".path;
         discordClientSecretPath = config.age.secrets."discordClientSecret.age".path;
         socket = "8081";
