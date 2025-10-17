@@ -1,11 +1,19 @@
-{ config, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   options.quad.matrix = {
     enable = lib.mkEnableOption "matrix";
 
     domain = lib.mkOption { type = lib.types.string; };
     settings = lib.mkOption {
-      type = lib.types.submodule { };
+      type = lib.types.submodule {
+        freeformType = (pkgs.formats.toml { }).type;
+
+      };
       default = { };
     };
   };

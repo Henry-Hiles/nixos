@@ -7,7 +7,7 @@
 
   environment.shellAliases =
     let
-      build = "nixos-rebuild switch --flake ~/.config/nixos#quadraticserver server --ask-sudo-password --target-host ";
+      build = "nixos-rebuild switch --flake ~/.config/nixos#quadraticserver --sudo --ask-sudo-password --target-host ";
     in
     {
       clean = "nh clean all";
