@@ -1,7 +1,7 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
   users = {
-    mutableUsers = true;
+    mutableUsers = lib.mkForce true;
     users.flori = {
       isNormalUser = true;
       openssh.authorizedKeys.keys = [
