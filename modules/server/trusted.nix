@@ -1,1 +1,1 @@
-{ nix.settings.trusted-users = [ "quadradical" ]; }
+{ nix.settings.trusted-users = [ "@wheel" ]; }
