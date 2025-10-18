@@ -8,7 +8,7 @@
   options.quad.matrix = {
     enable = lib.mkEnableOption "matrix";
 
-    domain = lib.mkOption { type = lib.types.string; };
+    domain = lib.mkOption { type = lib.types.str; };
     settings = lib.mkOption {
       type = lib.types.submodule {
         freeformType = (pkgs.formats.toml { }).type;
