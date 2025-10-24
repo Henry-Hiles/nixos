@@ -1,5 +1,4 @@
 {
-  lib,
   pkgs,
   inputs,
   config,
@@ -58,6 +57,4 @@ in
       environmentFile = config.age.secrets."whatsapp.age".path;
     };
   };
-
-  systemd.services.matrix-ooye.serviceConfig.Restart = lib.mkForce "always";
 }
