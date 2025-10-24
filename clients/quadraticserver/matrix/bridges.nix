@@ -62,19 +62,6 @@ in
         };
         environmentFile = config.age.secrets."whatsapp.age".path;
       };
-
-      matrix-ooye = {
-        enable = true;
-        homeserver = client;
-        homeserverName = domain;
-        discordTokenPath = config.age.secrets."discordToken.age".path;
-        discordClientSecretPath = config.age.secrets."discordClientSecret.age".path;
-        socket = "8081";
-        bridgeOrigin = "https://${domain}";
-      };
-
-      caddy.virtualHosts."${domain}".extraConfig =
-        "reverse_proxy 127.0.0.1:${config.services.matrix-ooye.socket}";
     };
 
   systemd.services.matrix-ooye.serviceConfig.Restart = lib.mkForce "always";

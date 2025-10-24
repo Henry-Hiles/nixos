@@ -17,10 +17,6 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    ooye = {
-      url = "git+https://cgit.rory.gay/nix/OOYE-module.git";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     matrixoidc = {
       url = "git+https://git.federated.nexus/Henry-Hiles/matrixoidc";
       inputs.nixpkgs.follows = "nixpkgs";

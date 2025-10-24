@@ -2177,26 +2177,6 @@
         "type": "github"
       }
     },
-    "ooye": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1760299705,
-        "narHash": "sha256-TM90FaqKZhHpB/ZI3aKyxrAL/GIU3X+PIHRXCa5ueeY=",
-        "ref": "refs/heads/master",
-        "rev": "3e9884d2b0d4126e97d0d254e85dbcf67f423a15",
-        "revCount": 21,
-        "type": "git",
-        "url": "https://cgit.rory.gay/nix/OOYE-module.git"
-      },
-      "original": {
-        "type": "git",
-        "url": "https://cgit.rory.gay/nix/OOYE-module.git"
-      }
-    },
     "oranc": {
       "inputs": {
         "crane": [
@@ -2377,7 +2357,6 @@
         "nix-maid": "nix-maid",
         "nix-matrix-appservices": "nix-matrix-appservices",
         "nixpkgs": "nixpkgs",
-        "ooye": "ooye",
         "run0-sudo-shim": "run0-sudo-shim",
         "sdm845": "sdm845",
         "stylix": "stylix",
