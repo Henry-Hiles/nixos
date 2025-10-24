@@ -7,13 +7,13 @@
 }:
 let
   client = config.services.matrix-continuwuity.settings.global.well_known.client;
-  server_name = config.services.matrix-continuwuity.settings.global.server_name;
+  domain = config.quad.matrix.domain;
 
   settings = {
     backfill.enabled = true;
 
     homeserver = {
-      domain = server_name;
+      inherit domain;
       address = client;
     };
 
@@ -24,8 +24,8 @@ let
     };
 
     bridge.permissions = {
-      "${server_name}" = "user";
-      "@quadradical:${server_name}" = "admin";
+      "${domain}" = "user";
+      "@quadradical:${domain}" = "admin";
     };
   };
 in
@@ -66,7 +66,7 @@ in
       matrix-ooye = {
         enable = true;
         homeserver = client;
-        homeserverName = server_name;
+        homeserverName = domain;
         discordTokenPath = config.age.secrets."discordToken.age".path;
         discordClientSecretPath = config.age.secrets."discordClientSecret.age".path;
         socket = "8081";

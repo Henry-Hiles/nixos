@@ -4,7 +4,7 @@
     enable = false; # Blocked on https://forgejo.ellis.link/continuwuation/continuwuity/issues/1098
     settings =
       let
-        serverName = config.services.matrix-continuwuity.settings.global.server_name;
+        serverName = config.quad.matrix.domain;
         homeserverUrl = config.services.matrix-continuwuity.settings.global.well_known.client;
       in
       {

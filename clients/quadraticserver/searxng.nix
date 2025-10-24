@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
 {
   services =
     let
@@ -8,6 +8,9 @@
     {
       searx = {
         enable = true;
+        package = pkgs.searxng.overrideAttrs {
+          patches = [ ./google.patch ];
+        };
         settings =
           let
             enginesByCategory = {

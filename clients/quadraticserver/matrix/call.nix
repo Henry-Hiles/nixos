@@ -34,7 +34,7 @@
              default_server_config = {
                "m.homeserver" = {
                  "base_url" = config.services.matrix-continuwuity.settings.global.well_known.client;
-                 "server_name" = config.services.matrix-continuwuity.settings.global.server_name;
+                 "server_name" = config.quad.matrix.domain;
                };
              };
              livekit.livekit_service_url = "https://${domain}/livekit";
