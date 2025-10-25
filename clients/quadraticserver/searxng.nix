@@ -12,8 +12,8 @@
           let
             enginesByCategory = {
               general = {
-                google = { };
-                duckduckgo = { };
+                brave = { };
+                bing.disabled = false;
               };
 
               "social media" = {
