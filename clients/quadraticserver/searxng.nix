@@ -13,7 +13,7 @@
             enginesByCategory = {
               general = {
                 brave = { };
-                bing.disabled = false;
+                mullvadleta.disabled = false;
               };
 
               "social media" = {
