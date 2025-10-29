@@ -12,8 +12,8 @@
       user = {
         qmk_home = "/home/quadradical/Documents/Code/qmk_firmware";
         overlay_dir = "/home/quadradical/Documents/Code/qmk_userspace";
-        keyboard = "keychron/v1_max/ansi_encoder";
-        keymap = "default";
+        keyboard = "nuphy/air75_v2/ansi";
+        keymap = "via";
       };
     }
   );
