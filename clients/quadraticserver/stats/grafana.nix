@@ -33,9 +33,7 @@
               name = "Prometheus";
               type = "prometheus";
               url = with config.services.prometheus; "http://${listenAddress}:${toString port}";
-              jsonData = {
-                timeInterval = config.services.prometheus.globalConfig.scrape_interval;
-              };
+              jsonData.timeInterval = config.services.prometheus.globalConfig.scrape_interval;
             }
           ];
 
@@ -45,7 +43,7 @@
               options.path = pkgs.fetchurl {
                 name = "dashboard-node-exporter-full.json";
                 url = "https://grafana.com/api/dashboards/1860/revisions/42/download";
-                hash = "";
+                hash = "sha256-pNgn6xgZBEu6LW0lc0cXX2gRkQ8lg/rer34SPE3yEl4=";
               };
             }
           ];
@@ -54,5 +52,6 @@
       caddy.virtualHosts."${domain}".extraConfig =
         "reverse_proxy unix/${config.services.grafana.settings.server.socket}";
     };
-  users.users.grafana = "caddy";
+
+  users.users.caddy.extraGroups = [ "grafana" ];
 }

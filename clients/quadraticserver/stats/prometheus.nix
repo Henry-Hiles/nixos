@@ -11,7 +11,7 @@
         static_configs = [
           {
             targets = with config.services.prometheus.exporters.node; [
-              "${toStringlistenAddress}:${toString port}"
+              "${listenAddress}:${toString port}"
             ];
           }
         ];
