@@ -10,7 +10,6 @@
     let
       socket = "/var/run/nexusbot/socket";
       domain = "register.federated.nexus";
-      alias = "inf" + "o@f" + "edera" + "ted.n" + "exus";
     in
     {
       nexusbot = {
@@ -37,7 +36,7 @@
           "--email"
           config.services.caddy.email
           "--emailAlias"
-          alias
+          ("inf" + "o@f" + "edera" + "ted.n" + "exus")
           "--mailDomain"
           "mail.henryhiles.com"
           "--mailName"
