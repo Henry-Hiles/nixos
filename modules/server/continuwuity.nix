@@ -12,14 +12,16 @@
     settings = lib.mkOption {
       type = lib.types.submodule {
         freeformType = (pkgs.formats.toml { }).type;
-
       };
       default = { };
     };
   };
 
   config = {
-    systemd.services.continuwuity.serviceConfig.Restart = lib.mkForce "always";
+    systemd.services.continuwuity.serviceConfig = {
+      Restart = lib.mkForce "always";
+      RuntimeMaxSec = "1d";
+    };
     services =
       let
         subdomain = "matrix.${config.quad.matrix.domain}";
