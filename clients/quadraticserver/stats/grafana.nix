@@ -24,9 +24,8 @@ in
           users.default_theme = "system";
           server = {
             inherit domain;
+            root_url = "https://${domain}";
             protocol = "socket";
-
-            enable_gzip = true;
           };
 
           security = {
