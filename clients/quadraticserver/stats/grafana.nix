@@ -1,5 +1,16 @@
 { config, pkgs, ... }:
+
+let
+  secretName = "grafanaSecret";
+  passwordName = "grafanaPassword";
+  credentialDirectory = "/run/credentials/grafana.service/";
+in
 {
+  systemd.services.grafana.serviceConfig.LoadCredential = [
+    "${secretName}:${config.age.secrets."grafanaSecret.age".path}"
+    "${passwordName}:${config.age.secrets."grafanaPassword.age".path}"
+  ];
+
   services =
     let
       domain = "status.federated.nexus";
@@ -20,10 +31,10 @@
 
           security = {
             cookie_secure = true;
-            secret_key = "$__file{${config.age.secrets."grafanaSecret.age".path}}";
+            secret_key = "$__file{${credentialDirectory}${secretName}}";
 
             admin_user = "quadradical";
-            admin_password = "$__file{${config.age.secrets."grafanaPassword.age".path}}";
+            admin_password = "$__file{${credentialDirectory}${passwordName}}";
           };
         };
 
