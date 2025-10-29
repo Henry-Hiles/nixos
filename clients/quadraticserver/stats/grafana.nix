@@ -43,12 +43,30 @@ in
             {
               name = "Prometheus";
               type = "prometheus";
+              uid = "prometheus";
               url = with config.services.prometheus; "http://${listenAddress}:${toString port}";
               jsonData.timeInterval = config.services.prometheus.globalConfig.scrape_interval;
             }
           ];
 
           dashboards.settings.providers = [
+            {
+              name = "Status";
+              options.path = (import ../../../lib/status.nix { inherit pkgs; }) [
+                {
+                  name = "Continuwuity (Matrix)";
+                  service = "continuwuity.service";
+                }
+                {
+                  name = "Forgejo (Git)";
+                  service = "forgejo.service";
+                }
+                {
+                  name = "SearXNG (Search)";
+                  service = "searx.service";
+                }
+              ];
+            }
             {
               name = "Node exporter";
               options.path = pkgs.fetchurl {
@@ -60,8 +78,10 @@ in
           ];
         };
       };
-      caddy.virtualHosts."${domain}".extraConfig =
-        "reverse_proxy unix/${config.services.grafana.settings.server.socket}";
+      caddy.virtualHosts."${domain}".extraConfig = ''
+        redir / /public-dashboards/cf91b463711b401b8bf6336125f70cd3
+        reverse_proxy unix/${config.services.grafana.settings.server.socket}
+      '';
     };
 
   users.users.caddy.extraGroups = [ "grafana" ];
