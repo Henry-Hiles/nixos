@@ -10,6 +10,7 @@
         declarativePlugins = [ ];
         settings = {
           analytics.feedback_links_enabled = false;
+          users.default_theme = "system";
           server = {
             inherit domain;
             protocol = "socket";
