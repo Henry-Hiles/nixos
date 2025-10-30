@@ -2,31 +2,30 @@
 services:
 pkgs.writers.writeJSON "status.json" {
   title = "Service Status";
-  panels = map (
+  panels = lib.imap0 (
+    index:
     { name, service }:
     {
+      title = name;
+      type = "stat";
+      gridPos = rec {
+        h = 3;
+        w = 4;
+        x = index * w;
+        y = index * h;
+      };
       datasource = {
         type = "prometheus";
         uid = "prometheus";
       };
       fieldConfig = {
         defaults = {
-          color = {
-            mode = "thresholds";
-          };
+          color.mode = "thresholds";
           mappings = [
             {
               options = {
-                "0" = {
-                  color = "red";
-                  index = 1;
-                  text = "Failed";
-                };
-                "1" = {
-                  color = "green";
-                  index = 0;
-                  text = "Running";
-                };
+                "0".text = "Failed";
+                "1".text = "Running";
               };
               type = "value";
             }
@@ -52,8 +51,6 @@ pkgs.writers.writeJSON "status.json" {
           expr = "node_systemd_unit_state{name=\"${service}\",state=\"active\"}";
         }
       ];
-      title = name;
-      type = "stat";
     }
   ) services;
 }
