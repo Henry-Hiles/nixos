@@ -20,9 +20,6 @@ in
         enable = true;
         declarativePlugins = [ ];
         settings = {
-          "auth.anonymous".enabled = true;
-          analytics.feedback_links_enabled = false;
-          users.default_theme = "system";
           server = {
             inherit domain;
             root_url = "https://${domain}";
@@ -37,34 +34,10 @@ in
             admin_password = "$__file{${credentialDirectory}${passwordName}}";
           };
 
-          dashboards.default_home_dashboard_path = toString (
-            (import ../../../lib/status.nix attrs) [
-              {
-                name = "Matrix";
-                service = "continuwuity.service";
-              }
-              {
-                name = "LaSuite Docs";
-                service = "lasuite-docs.service";
-              }
-              {
-                name = "Forgejo (Git)";
-                service = "forgejo.service";
-              }
-              {
-                name = "SearXNG (Search)";
-                service = "searx.service";
-              }
-              {
-                name = "Redlib";
-                service = "redlib.service";
-              }
-              {
-                name = "GMessages Bridge";
-                service = "matrix-as-gmessages.service";
-              }
-            ]
-          );
+          "auth.anonymous".enabled = true;
+          analytics.feedback_links_enabled = false;
+          users.default_theme = "system";
+          dashboards.default_home_dashboard_path = toString (import ../../../lib/status.nix attrs);
         };
 
         provision = {
