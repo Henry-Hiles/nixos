@@ -40,8 +40,12 @@ in
           dashboards.default_home_dashboard_path = toString (
             (import ../../../lib/status.nix attrs) [
               {
-                name = "Continuwuity (Matrix)";
+                name = "Matrix";
                 service = "continuwuity.service";
+              }
+              {
+                name = "LaSuite Docs";
+                service = "lasuite-docs.service";
               }
               {
                 name = "Forgejo (Git)";
@@ -50,6 +54,14 @@ in
               {
                 name = "SearXNG (Search)";
                 service = "searx.service";
+              }
+              {
+                name = "Redlib";
+                service = "redlib.service";
+              }
+              {
+                name = "GMessages Bridge";
+                service = "matrix-as-gmessages.service";
               }
             ]
           );
