@@ -4,7 +4,7 @@
     enable = true;
     listenAddress = "127.0.0.7";
 
-    globalConfig.scrape_interval = "10s";
+    globalConfig.scrape_interval = "3s";
     scrapeConfigs = [
       {
         job_name = "node";

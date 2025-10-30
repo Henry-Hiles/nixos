@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, ... }@attrs:
 
 let
   secretName = "grafanaSecret";
@@ -20,6 +20,7 @@ in
         enable = true;
         declarativePlugins = [ ];
         settings = {
+          "auth.anonymous".enabled = true;
           analytics.feedback_links_enabled = false;
           users.default_theme = "system";
           server = {
@@ -35,6 +36,23 @@ in
             admin_user = "quadradical";
             admin_password = "$__file{${credentialDirectory}${passwordName}}";
           };
+
+          dashboards.default_home_dashboard_path = toString (
+            (import ../../../lib/status.nix attrs) [
+              {
+                name = "Continuwuity (Matrix)";
+                service = "continuwuity.service";
+              }
+              {
+                name = "Forgejo (Git)";
+                service = "forgejo.service";
+              }
+              {
+                name = "SearXNG (Search)";
+                service = "searx.service";
+              }
+            ]
+          );
         };
 
         provision = {
@@ -51,23 +69,6 @@ in
 
           dashboards.settings.providers = [
             {
-              name = "Status";
-              options.path = (import ../../../lib/status.nix { inherit pkgs; }) [
-                {
-                  name = "Continuwuity (Matrix)";
-                  service = "continuwuity.service";
-                }
-                {
-                  name = "Forgejo (Git)";
-                  service = "forgejo.service";
-                }
-                {
-                  name = "SearXNG (Search)";
-                  service = "searx.service";
-                }
-              ];
-            }
-            {
               name = "Node exporter";
               options.path = pkgs.fetchurl {
                 name = "dashboard-node-exporter-full.json";
@@ -78,10 +79,8 @@ in
           ];
         };
       };
-      caddy.virtualHosts."${domain}".extraConfig = ''
-        redir / /public-dashboards/cf91b463711b401b8bf6336125f70cd3
-        reverse_proxy unix/${config.services.grafana.settings.server.socket}
-      '';
+      caddy.virtualHosts."${domain}".extraConfig =
+        "reverse_proxy unix/${config.services.grafana.settings.server.socket}";
     };
 
   users.users.caddy.extraGroups = [ "grafana" ];
