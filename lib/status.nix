@@ -1,6 +1,7 @@
 { pkgs, lib, ... }:
 pkgs.writers.writeJSON "status.json" {
   title = "Service Status";
+  refresh = "10s";
   panels =
     let
       status = null;
@@ -43,6 +44,7 @@ pkgs.writers.writeJSON "status.json" {
             type = "prometheus";
             uid = "prometheus";
           };
+          options.graphMode = "none";
           fieldConfig = {
             defaults = {
               color.mode = "thresholds";
@@ -68,7 +70,6 @@ pkgs.writers.writeJSON "status.json" {
                   }
                 ];
               };
-              unit = "none";
             };
           };
           targets = [
