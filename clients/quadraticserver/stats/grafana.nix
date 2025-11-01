@@ -3,12 +3,14 @@
 let
   secretName = "grafanaSecret";
   passwordName = "grafanaPassword";
+  mailPasswordName = "mailPassword";
   credentialDirectory = "/run/credentials/grafana.service/";
 in
 {
   systemd.services.grafana.serviceConfig.LoadCredential = [
     "${secretName}:${config.age.secrets."grafanaSecret.age".path}"
     "${passwordName}:${config.age.secrets."grafanaPassword.age".path}"
+    "${mailPasswordName}:${config.age.secrets."smtpPassword.age".path}"
   ];
 
   services =
@@ -34,9 +36,18 @@ in
             admin_password = "$__file{${credentialDirectory}${passwordName}}";
           };
 
+          smtp = {
+            enabled = true;
+            host = "mail.henryhiles.com";
+            user = config.services.caddy.email;
+            password = "$__file{${credentialDirectory}${mailPasswordName}}";
+            from_address = "alerts@federated.nexus";
+            from_name = "Grafana Alerts";
+          };
+
           "auth.anonymous".enabled = true;
-          analytics.feedback_links_enabled = false;
           users.default_theme = "system";
+          analytics.feedback_links_enabled = false;
           dashboards.default_home_dashboard_path = toString (import ../../../lib/status.nix attrs);
         };
 
@@ -62,6 +73,42 @@ in
               };
             }
           ];
+
+          alerting = {
+            contactPoints = [
+              {
+                name = "Email";
+                receivers = [
+                  {
+                    type = "email";
+                    uid = "email";
+                    settings.addresses = config.services.grafana.settings.smtp.user;
+                  }
+                ];
+              }
+            ];
+
+            settings = {
+              policies = [
+                {
+                  orgId = 1;
+                  receiver = "grafana-default-email";
+                  group_by = [ "..." ];
+                  matchers = [
+                    "alertname = Watchdog"
+                    "severity =~ \"warning|critical\""
+                  ];
+                  mute_time_intervals = [
+                    "abc"
+                  ];
+                  group_wait = "30s";
+                  group_interval = "5m";
+                  repeat_interval = "4h";
+                }
+              ];
+
+            };
+          };
         };
       };
       caddy.virtualHosts."${domain}".extraConfig =
