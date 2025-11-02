@@ -182,7 +182,7 @@
           }
           {
             Name = "Nixpkgs PR Tracker";
-            URLTemplate = "https://nixpk.gs/pr-tracker.html?pr={searchTerms}";
+            URLTemplate = "https://nixpkgs-tracker.ocfox.me/?pr={searchTerms}";
             IconURL = "https://github.com/NixOS/nixos-artwork/raw/refs/heads/master/logo/nix-snowflake-white.svg";
             Alias = "nt";
           }
