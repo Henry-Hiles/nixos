@@ -6,6 +6,7 @@
     enableReleaseChecks = false;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
     targets = {
+      qt.enable = false;
       plymouth = {
         enable = true;
         logo = ./logo.png;
