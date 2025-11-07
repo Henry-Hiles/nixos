@@ -25,6 +25,10 @@
       url = "git+https://git.federated.nexus/Henry-Hiles/lasuite_docs_proxy";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    cozybot = {
+      url = "git+https://git.federated.nexus/Henry-Hiles/cozybot";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nexusbot = {
       url = "git+https://git.federated.nexus/federated-nexus/nexusbot";
       inputs.nixpkgs.follows = "nixpkgs";
