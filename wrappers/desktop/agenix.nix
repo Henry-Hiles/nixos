@@ -5,7 +5,7 @@
 }:
 {
   wrappers.agenix = {
-    basePackage = inputs.agenix-cli.packages.${pkgs.system}.default;
+    basePackage = inputs.agenix-cli.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
     env.AGENIX_ROOT.value =
       let
