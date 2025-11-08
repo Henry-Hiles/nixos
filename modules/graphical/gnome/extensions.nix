@@ -12,7 +12,6 @@
       blur-my-shell
       just-perfection
       burn-my-windows
-      fullscreen-avoider
       launch-new-instance
       compiz-windows-effect
       rounded-window-corners-reborn
