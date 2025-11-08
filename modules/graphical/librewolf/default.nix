@@ -146,7 +146,6 @@
               "{446900e4-71c2-419f-a6a7-df9c091e268b}" # Bitwarden
               "{4ce83447-8255-43c2-b8f7-e02eb8c2cc39}" # Draw on Page
               "{ac34afe8-3a2e-4201-b745-346c0cf6ec7d}" # Better Youtube Shorts
-              "{2327d818-55d3-441d-aea2-8b44aa2cb9aa}" # Toggle Website Colors
               "{a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7}" # User-Agent Switcher and Manager
               "enhancerforyoutube@maximerf.addons.mozilla.org"
             ]
