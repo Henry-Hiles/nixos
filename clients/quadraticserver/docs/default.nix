@@ -117,9 +117,9 @@ in
     after = [ "minio.service" ];
     requires = [ "minio.service" ];
     wantedBy = [ "multi-user.target" ];
-    path = [
-      pkgs.getent
-      pkgs.minio-client
+    path = with pkgs; [
+      getent
+      minio-client
     ];
 
     serviceConfig = {
