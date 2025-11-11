@@ -18,10 +18,7 @@
   };
 
   config = {
-    systemd.services.continuwuity.serviceConfig = {
-      Restart = lib.mkForce "always";
-      RuntimeMaxSec = "1d";
-    };
+    systemd.services.continuwuity.serviceConfig.Restart = lib.mkForce "always";
     services =
       let
         subdomain = "matrix.${config.quad.matrix.domain}";
