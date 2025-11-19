@@ -20,7 +20,10 @@
             ALLOW_ONLY_EXTERNAL_REGISTRATION = true;
           };
           oauth2_client.ENABLE_AUTO_REGISTRATION = true;
-          repository.GO_GET_CLONE_URL_PROTOCOL = "ssh";
+          repository = {
+            GO_GET_CLONE_URL_PROTOCOL = "ssh";
+            DISABLE_DOWNLOAD_SOURCE_ARCHIVES = true;
+          };
           actions = {
             # Disable for now
             ENABLED = false;
