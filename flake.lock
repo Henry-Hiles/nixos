@@ -334,11 +334,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1762640945,
-        "narHash": "sha256-tlIuOhGMz/ZMa85I/pwfcHw4iH1due4xwFrYUWOxVYU=",
+        "lastModified": 1763679085,
+        "narHash": "sha256-pBWrZW3LacNgpk7bekDStcwCcqHJof6i2f0LgovX3M0=",
         "ref": "refs/heads/main",
-        "rev": "62659eeb1d2443a1e281ca0d389e4447093ae94a",
-        "revCount": 10,
+        "rev": "a2e93e30ee080f33976e978de19fe054df28e73b",
+        "revCount": 11,
         "type": "git",
         "url": "https://git.federated.nexus/Henry-Hiles/cozybot"
       },
