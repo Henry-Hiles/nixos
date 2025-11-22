@@ -137,6 +137,7 @@
               "historyblock@kain"
               "uBlock0@raymondhill.net"
               "sponsorBlocker@ajay.app"
+              "firefox@tampermonkey.net"
               "firefox-addon@pronoundb.org"
               "jid1-MnnxcxisBPnSXQ@jetpack" # Privacy Badger
               "frankerfacez@frankerfacez.com"
