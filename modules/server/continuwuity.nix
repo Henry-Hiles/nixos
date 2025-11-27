@@ -18,7 +18,11 @@
   };
 
   config = {
-    systemd.services.continuwuity.serviceConfig.Restart = lib.mkForce "always";
+    systemd.services.continuwuity.serviceConfig = {
+      TimeoutStartSec = 30;
+      Restart = lib.mkForce "always";
+      ExecStartPost = "/bin/sh -c 'until ${lib.getExe pkgs.curl} -s -f https://matrix.federated.nexus/.well-known/matrix/client; do sleep 1; done'";
+    };
     services =
       let
         subdomain = "matrix.${config.quad.matrix.domain}";
