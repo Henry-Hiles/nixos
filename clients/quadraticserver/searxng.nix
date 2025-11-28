@@ -12,8 +12,8 @@
           let
             enginesByCategory = {
               general = {
+                duckduckgo = { };
                 brave = { };
-                mullvadleta.disabled = false;
               };
 
               "social media" = {
