@@ -22,7 +22,7 @@
           "github.com/ggicci/caddy-jwt@v1.1.0"
           "pkg.jsn.cam/caddy-defender@v0.9.0"
         ];
-        hash = "sha256-HbVHQb97MQwaoXwf1EP0fr+4yKuZC6nTicvxw6JZAkY=";
+        hash = "sha256-t1qQtYpBKCWeHV8ML200LzB+Sc8iAGl2kc9pvOCKdac=";
       };
 
       virtualHosts = lib.mapAttrs (domain: host: {
