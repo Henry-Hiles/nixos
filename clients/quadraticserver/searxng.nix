@@ -13,7 +13,7 @@
             enginesByCategory = {
               general = {
                 duckduckgo = { };
-                brave = { };
+                startpage = { };
               };
 
               "social media" = {
