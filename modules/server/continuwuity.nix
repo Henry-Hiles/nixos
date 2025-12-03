@@ -49,6 +49,8 @@
             allow_incoming_presence = false;
             allow_outgoing_presence = false;
 
+            db_cache_capacity_mb = 512;
+
             well_known = {
               client = "https://${subdomain}";
               server = "${subdomain}:443";
