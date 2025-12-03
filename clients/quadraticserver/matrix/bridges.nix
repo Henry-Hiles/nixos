@@ -34,19 +34,19 @@ in
   ];
 
   services = {
-    matrix-appservices.services.gmessages = {
-      host = "127.0.0.5";
-      serviceConfig.EnvironmentFile = config.age.secrets."gmessages.age".path;
-      format = "mautrix-go";
-      port = 8000;
-      package = pkgs.mautrix-gmessages.override { withGoolm = true; };
-      settings = settings // {
-        appservice = {
-          as_token = "$CUSTOM_AS_TOKEN";
-          hs_token = "$CUSTOM_HS_TOKEN";
-        };
-      };
-    };
+    # matrix-appservices.services.gmessages = {
+    #   host = "127.0.0.5";
+    #   serviceConfig.EnvironmentFile = config.age.secrets."gmessages.age".path;
+    #   format = "mautrix-go";
+    #   port = 8000;
+    #   package = pkgs.mautrix-gmessages.override { withGoolm = true; };
+    #   settings = settings // {
+    #     appservice = {
+    #       as_token = "$CUSTOM_AS_TOKEN";
+    #       hs_token = "$CUSTOM_HS_TOKEN";
+    #     };
+    #   };
+    # };
 
     mautrix-whatsapp = {
       enable = false;
