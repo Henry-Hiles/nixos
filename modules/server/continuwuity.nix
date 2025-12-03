@@ -45,6 +45,10 @@
             ignore_messages_from_server_names = [ ];
             url_preview_domain_explicit_allowlist = [ "*" ];
 
+            allow_local_presence = false;
+            allow_incoming_presence = false;
+            allow_outgoing_presence = false;
+
             well_known = {
               client = "https://${subdomain}";
               server = "${subdomain}:443";
