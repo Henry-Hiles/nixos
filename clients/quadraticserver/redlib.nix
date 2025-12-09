@@ -7,13 +7,18 @@
   services = {
     redlib = {
       enable = true;
-      package = pkgs.redlib.overrideAttrs (oldAttrs: {
+      package = pkgs.redlib.overrideAttrs (oldAttrs: rec {
         doCheck = false;
         src = pkgs.fetchFromGitHub {
-          owner = "redlib-org";
+          owner = "Silvenga";
           repo = "redlib";
-          rev = "a989d19ca92713878e9a20dead4252f266dc4936";
-          hash = "sha256-YJZVkCi8JQ1U47s52iOSyyf32S3b35pEqw4YTW8FHVY=";
+          rev = "9e1c09610cdcb073d16559713dee6409d1a08b20";
+          hash = "sha256-ERTEoT7w8oGA0ztrzc9r9Bl/7OOay+APg3pW+h3tgvM=";
+        };
+
+        cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
+          inherit src;
+          hash = "sha256-ageSjIX0BLVYlLAjeojQq5N6/VASOIpwXNR/3msl/p4=";
         };
       });
 
