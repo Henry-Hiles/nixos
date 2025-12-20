@@ -7,6 +7,7 @@
     {
       vaultwarden = {
         enable = true;
+        environmentFile = config.age.secrets."vaultwardenToken.age".path;
         config = {
           domain = "https://${domain}";
           signupsAllowed = false;
