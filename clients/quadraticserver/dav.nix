@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
   services =
     let
@@ -10,12 +10,15 @@
         hostname = domain;
         appSecretFile = config.age.secrets."davSecret.age".path;
         adminPasswordFile = config.age.secrets."davPassword.age".path;
+        nginx = null;
+
+        # https://github.com/NixOS/nixpkgs/pull/457476#issuecomment-3678028689
+        package = pkgs.callPackage ../../lib/tempVendoredDavis.nix { };
 
         poolConfig = with config.services.caddy; {
           "listen.owner" = user;
           "listen.group" = group;
         };
-        nginx = null;
       };
 
       caddy.virtualHosts."${domain}".extraConfig = ''
