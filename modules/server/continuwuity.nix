@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   pkgs,
   lib,
@@ -31,6 +32,7 @@
       {
         matrix-continuwuity = {
           enable = config.quad.matrix.enable;
+          package = inputs.continuwuity.packages.${pkgs.stdenv.hostPlatform.system}.default;
           group = "caddy";
           settings.global = config.quad.matrix.settings // {
             server_name = config.quad.matrix.domain;

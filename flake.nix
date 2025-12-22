@@ -5,6 +5,10 @@
     wrapper-manager.url = "github:viperML/wrapper-manager";
     flake-parts.url = "github:hercules-ci/flake-parts";
     nix-maid.url = "github:viperML/nix-maid";
+    continuwuity = {
+      url = "git+https://forgejo.ellis.link/continuwuation/continuwuity/?rev=f4ccb819137d13996de23392d5607bb5ade0a246";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
