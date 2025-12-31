@@ -23,19 +23,13 @@
       gpg.format = "ssh";
     };
   };
-  environment = {
-    systemPackages = [ pkgs.gh ];
-    shellAliases =
-      let
-        gitExe = lib.meta.getExe pkgs.git;
-        ghExe = lib.meta.getExe pkgs.gh;
-      in
-      {
-        clone = "${ghExe} repo clone";
-        create = "${ghExe} repo create";
+  environment.shellAliases =
+    let
+      gitExe = lib.meta.getExe pkgs.git;
+    in
+    {
 
-        push = "${gitExe} push";
-        commit = "${gitExe} commit -am";
-      };
-  };
+      push = "${gitExe} push";
+      commit = "${gitExe} commit -am";
+    };
 }
