@@ -25,6 +25,12 @@
         hash = "sha256-t1qQtYpBKCWeHV8ML200LzB+Sc8iAGl2kc9pvOCKdac=";
       };
 
+      globalConfig = ''
+        metrics {
+          per_host
+        }
+      '';
+
       virtualHosts = lib.mapAttrs (domain: host: {
         extraConfig =
           let

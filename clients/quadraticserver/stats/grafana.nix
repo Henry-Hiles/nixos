@@ -61,6 +61,25 @@ in
                 hash = "sha256-pNgn6xgZBEu6LW0lc0cXX2gRkQ8lg/rer34SPE3yEl4=";
               };
             }
+            {
+              name = "Caddy Hosts";
+              options.path = pkgs.stdenv.mkDerivation {
+                pname = "caddy-hosts-json";
+                version = "1.0.0";
+                dontUnpack = true;
+
+                src = pkgs.fetchurl {
+                  name = "caddy-hosts.json";
+                  url = "https://grafana.com/api/dashboards/24146/revisions/1/download";
+                  hash = "sha256-vw/O3bNKQ0tJwhsZKYvkMU6jeqkG+sfCtA7YT0vp3YY=";
+                };
+
+                installPhase = ''
+                  mkdir -p $out
+                  sed 's|''${DS_PROMETHEUS}|prometheus|g' $src > $out/caddy-exporter.json
+                '';
+              };
+            }
           ];
         };
       };

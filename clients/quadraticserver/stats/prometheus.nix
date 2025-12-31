@@ -16,33 +16,23 @@
           }
         ];
       }
+      {
+        job_name = "caddy";
+        static_configs = [
+          { targets = [ "localhost:2019" ]; }
+        ];
+      }
     ];
 
-    exporters.node = {
-      enable = true;
-      listenAddress = "127.0.0.3";
-      enabledCollectors = [
-        "systemd"
-        "processes"
-      ];
-      # disabledCollectors = [
-      #   "arp"
-      #   "bcache"
-      #   "bonding"
-      #   "btrfs"
-      #   "conntrack"
-      #   "dmi"
-      #   "edac"
-      #   "entropy"
-      #   "exec"
-      #   "fibrechannel"
-      #   "filefd"
-      #   "hwmon"
-      #   "infiniband"
-      #   "ipvs"
-      #   "mdadm"
-      #   "netclass"
-      # ];
+    exporters = {
+      node = {
+        enable = true;
+        listenAddress = "127.0.0.3";
+        enabledCollectors = [
+          "systemd"
+          "processes"
+        ];
+      };
     };
   };
 }
