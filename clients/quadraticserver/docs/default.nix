@@ -50,7 +50,6 @@ in
         backendPackage = pkgs.lasuite-docs.overrideAttrs {
           patches = [ ./enable-languages.patch ];
         };
-        collaborationServer.package = pkgs.lasuite-docs-collaboration-server;
         frontendPackage = pkgs.lasuite-docs-frontend.overrideAttrs {
           NEXT_PUBLIC_PUBLISH_AS_MIT = "false";
         };
