@@ -47,6 +47,7 @@
         "privacy.fingerprintingProtection" = true;
         "browser.discovery.containers.enabled" = false;
         "svg.context-properties.content.enabled" = true;
+        "widget.use-xdg-desktop-portal.file-picker" = 1;
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         "privacy.fingerprintingProtection.overrides" = "+AllTargets,-CSSPrefersColorScheme,-JSDateTimeUTC";
         "browser.uiCustomization.state" =
