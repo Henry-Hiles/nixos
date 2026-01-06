@@ -30,7 +30,7 @@
 
         if [ "$ext" = "epub" ]; then
           ebook-convert "$fullpath" "/run/media/quadradical/Kindle/documents/$name.mobi"
-          rm $fullpath"
+          rm "$fullpath"
         else
           mv "$fullpath" "/run/media/quadradical/Kindle/documents/$name.pdf"
         fi
