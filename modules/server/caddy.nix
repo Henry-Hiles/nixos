@@ -12,7 +12,10 @@
 
   config = {
     systemd.services.caddy.serviceConfig.Restart = lib.mkForce "always";
-    networking.firewall.allowedTCPPorts = [ 443 ];
+    networking.firewall.allowedTCPPorts = [
+      80
+      443
+    ];
     services.caddy = {
       enable = true;
       email = "henry@henryhiles.com";

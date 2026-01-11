@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   services.dnsproxy = {
     enable = true;
@@ -9,5 +10,5 @@
     };
   };
 
-  environment.etc."resolv.conf".text = "nameserver 127.0.0.1";
+  environment.etc."resolv.conf".text = lib.mkForce "nameserver 127.0.0.1";
 }
