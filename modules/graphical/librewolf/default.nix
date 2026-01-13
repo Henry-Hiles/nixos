@@ -44,6 +44,7 @@
         "media.peerconnection.enabled" = true;
         "media.webrtc.hw.h264.enabled" = false;
         "privacy.resistFingerprinting" = false;
+        "browser.ml.linkPreview.enabled" = false;
         "privacy.fingerprintingProtection" = true;
         "browser.discovery.containers.enabled" = false;
         "svg.context-properties.content.enabled" = true;
