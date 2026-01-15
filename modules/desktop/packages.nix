@@ -8,6 +8,5 @@
     libreoffice
     authenticator
     prismlauncher
-    nexusmods-app-unfree
   ];
 }
