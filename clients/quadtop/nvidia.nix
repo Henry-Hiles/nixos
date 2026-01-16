@@ -14,6 +14,7 @@
     nvidiaSettings = false;
     nvidiaPersistenced = false;
     dynamicBoost.enable = true;
+    powerManagement.finegrained = true;
   };
 
   programs.gamemode.enable = true;
