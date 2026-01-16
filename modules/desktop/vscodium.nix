@@ -22,6 +22,7 @@
           dbaeumer.vscode-eslint
           esbenp.prettier-vscode
           oderwat.indent-rainbow
+          rust-lang.rust-analyzer
           astro-build.astro-vscode
           tamasfe.even-better-toml
           pkief.material-icon-theme
