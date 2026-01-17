@@ -9,7 +9,13 @@ let
   cfg = config.services.lasuite-docs;
 in
 {
-  imports = [ inputs.lasuite-docs-proxy.nixosModules.default ];
+  disabledModules = [
+    "services/web-apps/lasuite-docs.nix"
+  ];
+  imports = [
+    inputs.lasuite-docs-proxy.nixosModules.default
+    "${inputs.nixpkgs-lasuite}/nixos/modules/services/web-apps/lasuite-docs.nix"
+  ];
 
   systemd.services = {
     lasuite-docs-collaboration-server.serviceConfig = {
@@ -49,9 +55,9 @@ in
         postgresql.createLocally = true;
         backendPackage =
           inputs.nixpkgs-lasuite.legacyPackages.${pkgs.stdenv.hostPlatform.system}.lasuite-docs.overrideAttrs
-            {
-              patches = [ ./enable-languages.patch ];
-            };
+            (old: {
+              patches = (old.patches or [ ]) ++ [ ./enable-languages.patch ];
+            });
         frontendPackage =
           inputs.nixpkgs-lasuite.legacyPackages.${pkgs.stdenv.hostPlatform.system}.lasuite-docs-frontend.overrideAttrs
             {
