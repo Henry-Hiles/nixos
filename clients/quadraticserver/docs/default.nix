@@ -14,7 +14,7 @@ in
   ];
   imports = [
     inputs.lasuite-docs-proxy.nixosModules.default
-    "${inputs.nixpkgs-lasuite}/nixos/modules/services/web-apps/lasuite-docs.nix"
+    "${inputs.nixpkgs-master}/nixos/modules/services/web-apps/lasuite-docs.nix"
   ];
 
   systemd.services = {
@@ -54,17 +54,17 @@ in
         redis.createLocally = true;
         postgresql.createLocally = true;
         backendPackage =
-          inputs.nixpkgs-lasuite.legacyPackages.${pkgs.stdenv.hostPlatform.system}.lasuite-docs.overrideAttrs
+          inputs.nixpkgs-master.legacyPackages.${pkgs.stdenv.hostPlatform.system}.lasuite-docs.overrideAttrs
             (old: {
               patches = (old.patches or [ ]) ++ [ ./enable-languages.patch ];
             });
         frontendPackage =
-          inputs.nixpkgs-lasuite.legacyPackages.${pkgs.stdenv.hostPlatform.system}.lasuite-docs-frontend.overrideAttrs
+          inputs.nixpkgs-master.legacyPackages.${pkgs.stdenv.hostPlatform.system}.lasuite-docs-frontend.overrideAttrs
             {
               NEXT_PUBLIC_PUBLISH_AS_MIT = "false";
             };
         collaborationServer.package =
-          inputs.nixpkgs-lasuite.legacyPackages.${pkgs.stdenv.hostPlatform.system}.lasuite-docs-collaboration-server;
+          inputs.nixpkgs-master.legacyPackages.${pkgs.stdenv.hostPlatform.system}.lasuite-docs-collaboration-server;
         bind = "unix:${socket}";
         inherit s3Url domain;
 
