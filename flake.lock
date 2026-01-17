@@ -2155,6 +2155,21 @@
         "type": "github"
       }
     },
+    "nixpkgs-lasuite": {
+      "locked": {
+        "lastModified": 1768663811,
+        "narHash": "sha256-yLh+eSqrsDL9ITH6WmVfcOv9GkABaIkocZ9DkR6dBac=",
+        "owner": "Henry-Hiles",
+        "repo": "nixpkgs",
+        "rev": "950f864b43d347f211cb5df74ead1c0bce2b4e97",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Henry-Hiles",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-latest": {
       "locked": {
         "lastModified": 1752336159,
@@ -2560,6 +2575,7 @@
         "nix-maid": "nix-maid",
         "nix-matrix-appservices": "nix-matrix-appservices",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-lasuite": "nixpkgs-lasuite",
         "nixpkgs-master": "nixpkgs-master",
         "run0-sudo-shim": "run0-sudo-shim",
         "sdm845": "sdm845",
