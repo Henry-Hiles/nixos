@@ -1,4 +1,9 @@
-{ config, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
 {
   services =
     let
@@ -10,6 +15,7 @@
         hostname = domain;
         appSecretFile = config.age.secrets."davSecret.age".path;
         adminPasswordFile = config.age.secrets."davPassword.age".path;
+        package = inputs.nixpkgs-master.legacyPackages.${pkgs.system}.davis;
         nginx = null;
 
         poolConfig = with config.services.caddy; {

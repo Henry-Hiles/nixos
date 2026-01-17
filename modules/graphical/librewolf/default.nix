@@ -42,7 +42,6 @@
         "webgl.disabled" = false;
         "browser.tabs.groups.enabled" = false;
         "media.peerconnection.enabled" = true;
-        "media.webrtc.hw.h264.enabled" = false;
         "privacy.resistFingerprinting" = false;
         "browser.ml.linkPreview.enabled" = false;
         "privacy.fingerprintingProtection" = true;

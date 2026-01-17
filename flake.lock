@@ -2261,6 +2261,21 @@
         "type": "github"
       }
     },
+    "nixpkgs-master": {
+      "locked": {
+        "lastModified": 1768659755,
+        "narHash": "sha256-QLZVje0QuaTtt59qrg9/eGYgq4Xmfnp9Rct67l0+vms=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "e56d3f4ff61f60002f239d7b06de4cd9c389bb47",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-riscv": {
       "locked": {
         "lastModified": 1752147015,
@@ -2545,6 +2560,7 @@
         "nix-maid": "nix-maid",
         "nix-matrix-appservices": "nix-matrix-appservices",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-master": "nixpkgs-master",
         "run0-sudo-shim": "run0-sudo-shim",
         "sdm845": "sdm845",
         "stylix": "stylix",
