@@ -111,8 +111,9 @@ in
           @uuidDocs path_regexp uuidDocs ^/docs/[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}/?$
           rewrite @uuidDocs /docs/[id]/index.html
 
+          reverse_proxy /static/admin/* unix/${socket}
           reverse_proxy /api/* unix/${socket}
-          reverse_proxy /admin/* unix/${socket}
+          reverse_proxy /admin* unix/${socket}
 
           reverse_proxy /collaboration/ws/* ${collabUrl}
           reverse_proxy /collaboration/api/* ${collabUrl}
