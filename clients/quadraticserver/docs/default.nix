@@ -14,7 +14,7 @@ in
   ];
   imports = [
     inputs.lasuite-docs-proxy.nixosModules.default
-    "${inputs.nixpkgs-master}/nixos/modules/services/web-apps/lasuite-docs.nix"
+    "${inputs.nixpkgs-custom}/nixos/modules/services/web-apps/lasuite-docs.nix"
   ];
 
   systemd.services = {

@@ -3,6 +3,7 @@
     gnome-mobile.url = "github:chuangzhu/nixpkgs-gnome-mobile";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:nixos/nixpkgs";
+    nixpkgs-custom.url = "github:Henry-Hiles/nixpkgs";
     wrapper-manager.url = "github:viperML/wrapper-manager";
     flake-parts.url = "github:hercules-ci/flake-parts";
     nix-maid.url = "github:viperML/nix-maid";
