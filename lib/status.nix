@@ -101,8 +101,8 @@ pkgs.writers.writeJSON "status.json" {
           service = "redlib.service";
         }
         {
-          name = "GMessages Bridge";
-          service = "matrix-as-gmessages.service";
+          name = "Zipline";
+          service = "zipline.service";
         }
       ]
     );
