@@ -93,10 +93,6 @@
                 dirUtils.opt (builtins.pathExists path) (
                   map (file: import file inputs) (lib.filesystem.listFilesRecursive path)
                 );
-
-              config.permittedInsecurePackages = [
-                "libsoup-2.74.3"
-              ];
             };
           };
 

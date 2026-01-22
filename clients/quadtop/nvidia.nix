@@ -16,7 +16,4 @@
     dynamicBoost.enable = true;
     powerManagement.finegrained = true;
   };
-
-  programs.gamemode.enable = true;
-  environment.sessionVariables.GAMEMODERUNEXEC = "nvidia-offload";
 }
