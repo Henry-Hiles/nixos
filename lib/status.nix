@@ -100,10 +100,6 @@ pkgs.writers.writeJSON "status.json" {
           name = "Redlib";
           service = "redlib.service";
         }
-        {
-          name = "Zipline";
-          service = "zipline.service";
-        }
       ]
     );
 }
