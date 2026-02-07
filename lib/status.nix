@@ -2,6 +2,10 @@
 pkgs.writers.writeJSON "status.json" {
   title = "Service Status";
   refresh = "10s";
+  time = rec {
+    from = "now";
+    to = from;
+  };
   panels =
     let
       status = null;
