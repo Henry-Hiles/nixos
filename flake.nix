@@ -8,7 +8,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     nix-maid.url = "github:viperML/nix-maid";
     continuwuity = {
-      url = "git+https://forgejo.ellis.link/continuwuation/continuwuity?rev=e6c7a4ae603c09ad7beeebd41b3ae5d99f316743";
+      url = "git+https://forgejo.ellis.link/continuwuation/continuwuity?rev=19146166c04c6f7fc8ca80bbe7452cfd1e7eb836";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {
