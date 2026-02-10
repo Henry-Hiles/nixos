@@ -41,8 +41,9 @@
             allow_public_room_directory_over_federation = true;
             trusted_servers = [
               "matrix.org"
-              "tchncs.de"
               "maunium.net"
+              "codestorm.net"
+              "unredacted.org"
             ];
             ignore_messages_from_server_names = [ ];
             url_preview_domain_explicit_allowlist = [ "*" ];
