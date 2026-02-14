@@ -19,6 +19,7 @@
     {
       livekit = {
         enable = true;
+        openFirewall = true;
         keyFile = config.age.secrets."livekitKeys.age".path;
         settings.room.auto_create = false;
       };
