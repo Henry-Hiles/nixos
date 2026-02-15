@@ -47,6 +47,7 @@
             ];
             ignore_messages_from_server_names = [ ];
             url_preview_domain_explicit_allowlist = [ "*" ];
+            url_preview_max_spider_size = 2097152;
 
             allow_local_presence = false;
             allow_incoming_presence = false;
