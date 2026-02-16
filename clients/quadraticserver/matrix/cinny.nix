@@ -10,15 +10,15 @@
         };
         cinny-unwrapped = pkgs.cinny-unwrapped.overrideAttrs (old: rec {
           src = pkgs.fetchFromGitHub {
-            owner = "gingershaped";
+            owner = "cinnyapp";
             repo = "cinny";
-            rev = "13dd8fcc0696d18e2af0f8eed234ff64660f402e";
-            hash = "sha256-AHKiqXmL5J7Yt8hxjdgJJQwOYwKwSyDNfJxvuyMG13s=";
+            tag = "v4.10.3";
+            hash = "sha256-ZztZ/znJUwgYlvv5h9uxNZvQrkUMVbMG6R+HbRtSXHM=";
           };
           npmDeps = pkgs.fetchNpmDeps {
             inherit src;
             name = "${old.pname}-${old.version}-npm-deps";
-            hash = "sha256-lBt42rKqNpdpfQt0YlZoxFa9W+1LbY33Uitknsizrng=";
+            hash = "sha256-Spt2+sQcoPwy1tU8ztqJHZS9ITX9avueYDVKE7BFYy4=";
           };
         });
       }
