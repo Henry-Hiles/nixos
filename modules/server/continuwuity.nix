@@ -49,6 +49,8 @@
             url_preview_domain_explicit_allowlist = [ "*" ];
             url_preview_max_spider_size = 2097152;
 
+            max_request_size = 50000000;
+
             allow_local_presence = false;
             allow_incoming_presence = false;
             allow_outgoing_presence = false;
