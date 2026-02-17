@@ -9,16 +9,16 @@
           allowCustomHomeservers = false;
         };
         cinny-unwrapped = pkgs.cinny-unwrapped.overrideAttrs (old: rec {
-          src = pkgs.fetchFromGitHub {
-            owner = "cinnyapp";
+          src = pkgs.fetchFromCodeberg {
+            owner = "lapingvino";
             repo = "cinny";
-            tag = "v4.10.3";
-            hash = "sha256-ZztZ/znJUwgYlvv5h9uxNZvQrkUMVbMG6R+HbRtSXHM=";
+            rev = "573285dd85e461bc0919815b7d7f7e8073c41891";
+            hash = "sha256-3FDBhPJ7PiAvNzXa0C5HlR5deLKRSL8tFo3P30Il4+g=";
           };
           npmDeps = pkgs.fetchNpmDeps {
             inherit src;
             name = "${old.pname}-${old.version}-npm-deps";
-            hash = "sha256-Spt2+sQcoPwy1tU8ztqJHZS9ITX9avueYDVKE7BFYy4=";
+            hash = "sha256-a4cnxo5smN+a6DWKPPkbGkd8gcQe/jazSEmrqKcN0fA=";
           };
         });
       }
