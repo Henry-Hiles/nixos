@@ -2157,11 +2157,11 @@
     },
     "nixpkgs-custom": {
       "locked": {
-        "lastModified": 1769011074,
-        "narHash": "sha256-vrW6Lz7fbtDlm9idTGnLHX9sa2fIY/IpdnzLAr1cRYQ=",
+        "lastModified": 1771522177,
+        "narHash": "sha256-m62O2bp6ZxPFoZBrd/+fB5Pd4c+pz+7pz4JpqZUZCXw=",
         "owner": "Henry-Hiles",
         "repo": "nixpkgs",
-        "rev": "733fd7ed52ab486c2291df64a8f75d8a8d62e1c7",
+        "rev": "2d68fc5183e52237ef4d5fef93b99f589f9ac201",
         "type": "github"
       },
       "original": {

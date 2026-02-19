@@ -49,13 +49,13 @@
             url_preview_domain_explicit_allowlist = [ "*" ];
             url_preview_max_spider_size = 2097152;
 
-            max_request_size = 50000000;
+            max_request_size = 524288000;
 
             allow_local_presence = false;
             allow_incoming_presence = false;
             allow_outgoing_presence = false;
 
-            db_cache_capacity_mb = 512;
+            db_cache_capacity_mb = 1024;
 
             well_known = {
               client = "https://${subdomain}";

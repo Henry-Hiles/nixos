@@ -12,13 +12,13 @@
           src = pkgs.fetchFromCodeberg {
             owner = "lapingvino";
             repo = "cinny";
-            rev = "e612663520f7f880e4c193a0b4aaca3d99e1bade";
-            hash = "sha256-sShOLXd/L4NDCHOUap09JJ8V7voxKrehx//9sh2xugw=";
+            rev = "719381934efbe3aab098d4f077ec4ee14a30eddb";
+            hash = "";
           };
           npmDeps = pkgs.fetchNpmDeps {
             inherit src;
             name = "${old.pname}-${old.version}-npm-deps";
-            hash = "sha256-a4cnxo5smN+a6DWKPPkbGkd8gcQe/jazSEmrqKcN0fA=";
+            hash = "";
           };
         });
       }
