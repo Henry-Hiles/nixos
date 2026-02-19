@@ -12,8 +12,8 @@
           src = pkgs.fetchFromCodeberg {
             owner = "lapingvino";
             repo = "cinny";
-            rev = "7181f6bee47b764107d61b63611a3af8d3bc8a41";
-            hash = "sha256-wTPUd/wfyKIHnihan2fChYf0hs0S8JzelhGsR3o4JXg=";
+            rev = "e612663520f7f880e4c193a0b4aaca3d99e1bade";
+            hash = "sha256-sShOLXd/L4NDCHOUap09JJ8V7voxKrehx//9sh2xugw=";
           };
           npmDeps = pkgs.fetchNpmDeps {
             inherit src;
