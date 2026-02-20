@@ -49,6 +49,12 @@
             url_preview_domain_explicit_allowlist = [ "*" ];
             url_preview_max_spider_size = 2097152;
 
+            admins_from_room = false;
+            admins_list = [
+              "@quadradical:federated.nexus"
+              "@hexaheximal:federated.nexus"
+            ];
+
             max_request_size = 524288000;
 
             allow_local_presence = false;
