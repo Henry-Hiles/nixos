@@ -51,6 +51,7 @@
 
             admins_from_room = false;
             admins_list = [
+              "@nexusbot:federated.nexus"
               "@quadradical:federated.nexus"
               "@hexaheximal:federated.nexus"
             ];
