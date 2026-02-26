@@ -37,17 +37,16 @@
           settings.global = config.quad.matrix.settings // {
             server_name = config.quad.matrix.domain;
             unix_socket_path = socket;
+
             new_user_displayname_suffix = "";
-            allow_public_room_directory_over_federation = true;
+
+            ignore_messages_from_server_names = [ ];
             trusted_servers = [
               "matrix.org"
               "maunium.net"
               "codestorm.net"
               "unredacted.org"
             ];
-            ignore_messages_from_server_names = [ ];
-            url_preview_domain_explicit_allowlist = [ "*" ];
-            url_preview_max_spider_size = 2097152;
 
             admins_from_room = false;
             admins_list = [
@@ -56,13 +55,16 @@
               "@hexaheximal:federated.nexus"
             ];
 
+            url_preview_domain_explicit_allowlist = [ "*" ];
+            url_preview_max_spider_size = 2097152;
             max_request_size = 524288000;
+            db_cache_capacity_mb = 2056;
+            dns_cache_entries = 0;
 
-            allow_local_presence = false;
+            allow_public_room_directory_over_federation = true;
             allow_incoming_presence = false;
             allow_outgoing_presence = false;
-
-            db_cache_capacity_mb = 2056;
+            allow_local_presence = false;
 
             well_known = {
               client = "https://${subdomain}";
