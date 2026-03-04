@@ -40,6 +40,9 @@
 
             new_user_displayname_suffix = "";
 
+            forbidden_remote_server_names = [
+              "freetard\\.net$" # racism, zip bomb attempts
+            ];
             ignore_messages_from_server_names = [ ];
             trusted_servers = [
               "matrix.org"
@@ -49,11 +52,6 @@
             ];
 
             admins_from_room = false;
-            admins_list = [
-              "@nexusbot:federated.nexus"
-              "@quadradical:federated.nexus"
-              "@hexaheximal:federated.nexus"
-            ];
 
             url_preview_domain_explicit_allowlist = [ "*" ];
             url_preview_max_spider_size = 2097152;
