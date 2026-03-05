@@ -15,6 +15,5 @@
       upgrade = "nh os switch --update";
       rebuild = "nh os switch";
       rebuild-server = build + "quadraticserver --target-host server";
-      rebuild-nova = build + "nova --target-host nova";
     };
 }
