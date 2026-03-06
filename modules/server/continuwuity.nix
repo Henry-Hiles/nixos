@@ -40,15 +40,15 @@
 
             new_user_displayname_suffix = "";
 
+            default_room_version = "12";
             forbidden_remote_server_names = [
               "freetard\\.net$" # racism, zip bomb attempts
             ];
             ignore_messages_from_server_names = [ ];
             trusted_servers = [
-              "matrix.org"
               "maunium.net"
               "codestorm.net"
-              "unredacted.org"
+              "matrix.org"
             ];
 
             admins_from_room = false;
