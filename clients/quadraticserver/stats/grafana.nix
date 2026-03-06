@@ -14,6 +14,116 @@ in
   services =
     let
       domain = "status.federated.nexus";
+      makeDashboard =
+        { pkgs, lib, ... }:
+        pkgs.writers.writeJSON "status.json" {
+          title = "Service Status";
+          refresh = "10s";
+          time = rec {
+            from = "now";
+            to = from;
+          };
+          panels =
+            let
+              status = null;
+              offset = if status == null then 8 else 0;
+            in
+            (lib.optionals (status != null) [
+              {
+                gridPos.w = 100;
+                title = "Status Update";
+                type = "text";
+                options.content = status;
+              }
+            ])
+            ++ [
+              {
+                collapsed = false;
+                title = "Federated Nexus Service Statuses";
+                type = "row";
+                gridPos = {
+                  h = 8;
+                  w = 24;
+                  y = offset;
+                };
+              }
+            ]
+            ++ (lib.imap0
+              (
+                index:
+                { name, service }:
+                {
+                  title = name;
+                  type = "stat";
+                  gridPos = rec {
+                    h = 3;
+                    w = 4;
+                    x = index * w;
+                    y = (index * h) + offset + 8;
+                  };
+                  datasource = {
+                    type = "prometheus";
+                    uid = "prometheus";
+                  };
+                  options.graphMode = "none";
+                  fieldConfig = {
+                    defaults = {
+                      color.mode = "thresholds";
+                      mappings = [
+                        {
+                          options = {
+                            "0".text = "Failed";
+                            "1".text = "Running";
+                          };
+                          type = "value";
+                        }
+                      ];
+                      thresholds = {
+                        mode = "absolute";
+                        steps = [
+                          {
+                            color = "red";
+                            value = 0;
+                          }
+                          {
+                            color = "green";
+                            value = 1;
+                          }
+                        ];
+                      };
+                    };
+                  };
+                  targets = [
+                    {
+                      expr = "node_systemd_unit_state{name=\"${service}\",state=\"active\"}";
+                    }
+                  ];
+                }
+              )
+              [
+                {
+                  name = "Matrix";
+                  service = "continuwuity.service";
+                }
+                {
+                  name = "LaSuite Docs";
+                  service = "lasuite-docs.service";
+                }
+                {
+                  name = "Forgejo (Git)";
+                  service = "forgejo.service";
+                }
+                {
+                  name = "SearXNG (Search)";
+                  service = "searx.service";
+                }
+                {
+                  name = "Redlib";
+                  service = "redlib.service";
+                }
+              ]
+            );
+        };
     in
     {
       grafana = {
@@ -37,7 +147,7 @@ in
           "auth.anonymous".enabled = true;
           analytics.feedback_links_enabled = false;
           users.default_theme = "system";
-          dashboards.default_home_dashboard_path = toString (import ../../../lib/status.nix attrs);
+          dashboards.default_home_dashboard_path = toString (makeDashboard attrs);
         };
 
         provision = {
