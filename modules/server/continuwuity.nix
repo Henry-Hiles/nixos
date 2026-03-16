@@ -34,7 +34,7 @@
           enable = config.quad.matrix.enable;
           package = inputs.continuwuity.packages.${pkgs.stdenv.hostPlatform.system}.default;
           group = "caddy";
-          settings.global = config.quad.matrix.settings // {
+          settings.global = lib.recursiveUpdate {
             server_name = config.quad.matrix.domain;
             unix_socket_path = socket;
 
@@ -68,7 +68,7 @@
               client = "https://${subdomain}";
               server = "${subdomain}:443";
             };
-          };
+          } config.quad.matrix.settings;
         };
 
         caddy.virtualHosts."${subdomain}".extraConfig = "reverse_proxy unix/${socket}";
