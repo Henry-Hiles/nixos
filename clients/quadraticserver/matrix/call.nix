@@ -19,7 +19,7 @@ in
   quad.matrix.settings.matrix_rtc.foci = [
     {
       type = "livekit";
-      livekit_service_url = lkJwtServiceDomain;
+      livekit_service_url = "https://${lkJwtServiceDomain}";
     }
   ];
 
