@@ -4,7 +4,11 @@
     enable = true;
     networks."30-wan" = {
       matchConfig.Name = "enp1s0";
-      networkConfig.DHCP = "no";
+      networkConfig = {
+        DHCP = "no";
+        IPv6PrivacyExtensions = true;
+      };
+
       address = [
         "91.99.155.129/32"
         "2a01:4f8:c012:d202::1/64"
