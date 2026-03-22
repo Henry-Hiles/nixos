@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, ... }:
 {
   services =
     let
@@ -12,6 +12,8 @@
           let
             enginesByCategory = {
               general = {
+                duckduckgo = { };
+                startpage = { };
                 brave.disabled = false;
               };
 
@@ -88,11 +90,6 @@
             plugins = {
               "searx.plugins.oa_doi_rewrite.SXNGPlugin".active = true;
               "searx.plugins.tracker_url_remover.SXNGPlugin".active = true;
-            };
-
-            outgoing = {
-              source_ips = config.systemd.network.networks."30-wan".address;
-              retries = 32;
             };
 
             categories_as_tabs = builtins.listToAttrs (
