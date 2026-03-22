@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, config, ... }:
 {
   services =
     let
@@ -12,8 +12,7 @@
           let
             enginesByCategory = {
               general = {
-                duckduckgo = { };
-                startpage = { };
+                brave.disabled = false;
               };
 
               "social media" = {
@@ -65,7 +64,7 @@
           {
             general = {
               instance_name = "Federated Nexus Search";
-              contact_url = "mailto:henry@henryhiles.com";
+              contact_url = "mailto:info@federated.nexus";
             };
 
             search = {
@@ -89,6 +88,11 @@
             plugins = {
               "searx.plugins.oa_doi_rewrite.SXNGPlugin".active = true;
               "searx.plugins.tracker_url_remover.SXNGPlugin".active = true;
+            };
+
+            outgoing = {
+              source_ips = config.systemd.network.networks."30-wan".address;
+              retries = 32;
             };
 
             categories_as_tabs = builtins.listToAttrs (
