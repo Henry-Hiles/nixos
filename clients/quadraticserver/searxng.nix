@@ -4,32 +4,8 @@
     let
       socket = "/var/run/searx/socket";
       domain = "search.federated.nexus";
-
-      prefix = "2a01:4f8:c012:d202";
-      count = 32;
-      basePort = 10000;
-      loopback = "127.0.0.8";
-
-      ipv6List = builtins.genList (i: "${prefix}::${builtins.toString (i + 1)}") count;
-
-      proxyPorts = builtins.genList (i: basePort + i) count;
-
-      proxyUrls = map (port: "http://${loopback}:${builtins.toString port}") proxyPorts;
     in
     {
-      _3proxy = {
-        enable = true;
-
-        services = builtins.genList (i: {
-          type = "proxy";
-          bindAddress = loopback;
-          bindPort = builtins.elemAt proxyPorts i;
-          auth = [ "none" ];
-
-          extraArguments = "-6 -a -e${builtins.elemAt ipv6List i}";
-        }) count;
-      };
-
       searx = {
         enable = true;
         settings =
@@ -114,8 +90,6 @@
               "searx.plugins.oa_doi_rewrite.SXNGPlugin".active = true;
               "searx.plugins.tracker_url_remover.SXNGPlugin".active = true;
             };
-
-            outgoing.proxies."all://" = proxyUrls;
 
             categories_as_tabs = builtins.listToAttrs (
               map (category: {
