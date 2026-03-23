@@ -40,6 +40,7 @@
     autoConfig = lib.concatStringsSep "\n" (
       lib.mapAttrsToList (pref: value: "lockPref(\"${pref}\", ${builtins.toJSON value});") {
         "webgl.disabled" = false;
+        "font.name-list.emoji" = "";
         "browser.tabs.groups.enabled" = false;
         "media.peerconnection.enabled" = true;
         "privacy.resistFingerprinting" = false;
