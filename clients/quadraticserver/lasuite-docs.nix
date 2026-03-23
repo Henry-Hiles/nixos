@@ -74,7 +74,7 @@ in
           MEDIA_BASE_URL = "https://${domain}";
 
           DJANGO_ALLOWED_HOSTS = domain;
-          DJANGO_LANGUAGES = "en-us,English;fr-fr,Français;nl-nl,Nederlands;es-es,Español;uk-ua,Українська;ru-ru,Русский";
+          DJANGO_LANGUAGES = "en-us,English;fr-fr,Français;el-el,Wrong;nl-nl,Nederlands;es-es,Español;uk-ua,Українська;ru-ru,Русский";
         };
 
         environmentFile = config.age.secrets."lasuiteSecrets.age".path;
