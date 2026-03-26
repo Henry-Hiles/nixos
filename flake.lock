@@ -1666,11 +1666,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1774541360,
-        "narHash": "sha256-ufM6MpkluB4g0FdcfDByQddZRO7fETg7dlk+iFVxEvI=",
+        "lastModified": 1774542127,
+        "narHash": "sha256-NBNrNQfSOmSCsnq91POaXF4C6/otSiMbsqgzJr0tOro=",
         "ref": "refs/heads/main",
-        "rev": "8b7f88cc0b910f978a718e8f12ef27aaef8fc06e",
-        "revCount": 348,
+        "rev": "dd9b9fdc62f436076d3e091e45341df1719e5b4f",
+        "revCount": 349,
         "submodules": true,
         "type": "git",
         "url": "https://git.federated.nexus/Henry-Hiles/nexus"
