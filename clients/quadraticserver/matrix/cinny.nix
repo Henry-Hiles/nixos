@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   services.caddy.virtualHosts =
     let
@@ -35,16 +35,11 @@
       });
 
       "staging.app.federated.nexus" = mkCinny (old: rec {
-        src = pkgs.fetchFromCodeberg {
-          owner = "lapingvino";
-          repo = "cinny";
-          rev = "6ab260be793c38d1725509c4c4168be288735923";
-          hash = "sha256-1IqZxhi3/lYxlQ2EWZ6rhwGWT1qJbE0afMxg/sJpXUU=";
-        };
+        src = inputs.wally;
         npmDeps = pkgs.fetchNpmDeps {
           inherit src;
           name = "${old.pname}-${old.version}-npm-deps";
-          hash = "sha256-RZEQojhMpwimws5eQj/eCMs/rDSfvtlQmLRpd+scv8g=";
+          hash = "sha256-zlO2wTdzzZFB9j1GDIF9JDhLPNFov/tlRz4ICTfw0r0=";
         };
       });
     };

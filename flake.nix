@@ -18,6 +18,10 @@
       url = "github:lordgrimmauld/run0-sudo-shim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    wally = {
+      url = "git+https://codeberg.org/lapingvino/cinny";
+      flake = false;
+    };
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -2656,6 +2656,7 @@
         "run0-sudo-shim": "run0-sudo-shim",
         "sdm845": "sdm845",
         "stylix": "stylix",
+        "wally": "wally",
         "wrapper-manager": "wrapper-manager"
       }
     },
@@ -3091,6 +3092,22 @@
         "owner": "numtide",
         "repo": "treefmt-nix",
         "type": "github"
+      }
+    },
+    "wally": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1774908360,
+        "narHash": "sha256-xvYZmpADqk+rfier0vp/qH74MSIvCJudSYKn1SlyUG4=",
+        "ref": "refs/heads/main",
+        "rev": "0ef1918ef8ad4ed3465519812c421fad542f5dfa",
+        "revCount": 1673,
+        "type": "git",
+        "url": "https://codeberg.org/lapingvino/cinny"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://codeberg.org/lapingvino/cinny"
       }
     },
     "weird-deployer": {
