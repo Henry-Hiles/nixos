@@ -355,11 +355,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1774998809,
-        "narHash": "sha256-kmSNdt/CDlevI8qyGcPrGhl3eR6rCSfzux5v+iX7Ulc=",
+        "lastModified": 1775229181,
+        "narHash": "sha256-TZTrZ2aSY/L5n14Gsf+Nu20wPxWr1Fwa4tRQFyIjalo=",
         "ref": "quad/chore/simplify-nix",
-        "rev": "b0d52d7249a20f6ceedeeb257c5eeb039ba3a0cf",
-        "revCount": 6413,
+        "rev": "7bbe31adeea8090e2b9b05d37dc943f12ebee004",
+        "revCount": 6420,
         "type": "git",
         "url": "https://forgejo.ellis.link/Henry-Hiles/continuwuity"
       },
