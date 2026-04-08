@@ -2,7 +2,11 @@
 {
   services.dnsproxy = {
     enable = true;
-    flags = [ "--cache" ];
+    flags = [
+      "--cache"
+      "--cache-size=64000000"
+      "--cache-optimistic"
+    ];
     settings = rec {
       upstream = [ "https://base.dns.mullvad.net/dns-query" ];
       listen-addrs = [ "127.0.0.1" ];

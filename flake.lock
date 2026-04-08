@@ -355,11 +355,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1775229181,
-        "narHash": "sha256-TZTrZ2aSY/L5n14Gsf+Nu20wPxWr1Fwa4tRQFyIjalo=",
+        "lastModified": 1775587286,
+        "narHash": "sha256-XLEqF6CRWna1V6JIF3lcMJl0+MuUyIydtO/Kw0feV9E=",
         "ref": "quad/chore/simplify-nix",
-        "rev": "7bbe31adeea8090e2b9b05d37dc943f12ebee004",
-        "revCount": 6420,
+        "rev": "18542fe3eaf6338b970050efef722b3c38cb898a",
+        "revCount": 6443,
         "type": "git",
         "url": "https://forgejo.ellis.link/Henry-Hiles/continuwuity"
       },
@@ -1666,11 +1666,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1775410379,
-        "narHash": "sha256-O3Rb6JeHeUPxvPVzX4aEzYn7ysmfbCkAvOQj1LlSsWA=",
+        "lastModified": 1775579286,
+        "narHash": "sha256-gmwocJ1dVQf3Dr3Y6kAHm4bMQmnnS0syauTrpzyb+Xk=",
         "ref": "refs/heads/main",
-        "rev": "aac843d79372dc210ae36fc4a674628440f353a6",
-        "revCount": 431,
+        "rev": "624127f3a837b913ab7a0dcace7ba2aa260f2fb9",
+        "revCount": 448,
         "submodules": true,
         "type": "git",
         "url": "https://git.federated.nexus/Henry-Hiles/nexus"
