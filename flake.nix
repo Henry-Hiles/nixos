@@ -31,7 +31,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nexus = {
-      url = "git+https://git.federated.nexus/Henry-Hiles/nexus";
+      url = "git+https://git.federated.nexus/nexus/Nexus";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     lasuite-docs-proxy = {
