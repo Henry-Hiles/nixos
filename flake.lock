@@ -1665,11 +1665,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1775853233,
-        "narHash": "sha256-UWPNN2R1CF4w6h+aK/ecaYYtL8n7s67/Lr+1YbHB95M=",
+        "lastModified": 1776027210,
+        "narHash": "sha256-rQEwWySmuokverRdMyHCcB4oxU8jc29xIw3YqlAxbaA=",
         "ref": "refs/heads/main",
-        "rev": "07decc10e243c3f13cc6261393b36f4f6bc65b3c",
-        "revCount": 457,
+        "rev": "b701da19dcd29044f6d0a61a6171aded5f5dd043",
+        "revCount": 469,
         "submodules": true,
         "type": "git",
         "url": "https://git.federated.nexus/nexus/Nexus"
@@ -2633,6 +2633,22 @@
         "type": "github"
       }
     },
+    "redlib": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1775740122,
+        "narHash": "sha256-jiLjyp6ze3HEsr7F+eRW3DyKJBJl+EoNjQ0wpEB+xlc=",
+        "owner": "Silvenga",
+        "repo": "redlib",
+        "rev": "72394ed320bd4437bb29e8780af0513b4ff02152",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Silvenga",
+        "repo": "redlib",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -2652,6 +2668,7 @@
         "nix-matrix-appservices": "nix-matrix-appservices",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-custom": "nixpkgs-custom",
+        "redlib": "redlib",
         "run0-sudo-shim": "run0-sudo-shim",
         "sdm845": "sdm845",
         "stylix": "stylix",
