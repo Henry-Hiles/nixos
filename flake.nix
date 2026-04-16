@@ -22,10 +22,6 @@
       url = "git+https://codeberg.org/lapingvino/cinny";
       flake = false;
     };
-    redlib = {
-      url = "github:Silvenga/redlib";
-      flake = false;
-    };
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";

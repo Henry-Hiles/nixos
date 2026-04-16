@@ -45,8 +45,6 @@
               "freetard\\.net$" # racism, zip bomb attempts
             ];
             ignore_messages_from_server_names = [ ];
-            allow_joining_broken_rooms = true;
-
             trusted_servers = [
               "maunium.net"
               "codestorm.net"
