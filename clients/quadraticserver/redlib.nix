@@ -16,15 +16,15 @@
         doCheck = false;
         src = inputs.redlib;
 
-        env = oldAttrs.env // {
-          BORING_BSSL_INCLUDE_PATH = pkgs.boringssl.dev + "/include";
-          BORING_BSSL_PATH = pkgs.boringssl;
-          RUSTFLAGS = "-L ${pkgs.boringssl}/lib";
-        };
-
-        nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [
-          pkgs.rustPlatform.bindgenHook
-        ];
+        nativeBuildInputs =
+          (oldAttrs.nativeBuildInputs or [ ])
+          ++ (with pkgs; [
+            cmake
+            go
+            perl
+            git
+            rustPlatform.bindgenHook
+          ]);
 
         cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
           inherit src;
