@@ -6,7 +6,6 @@
 {
   environment = {
     systemPackages = with pkgs.gnomeExtensions; [
-      valent
       pop-shell
       appindicator
       blur-my-shell
