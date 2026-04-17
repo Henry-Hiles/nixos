@@ -14,7 +14,7 @@
       ];
 
       background = rec {
-        picture-uri = "file://${./background.jpg}";
+        picture-uri = "file://${../../../background.jpg}";
         picture-uri-dark = picture-uri;
       };
 

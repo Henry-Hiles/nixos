@@ -74,6 +74,14 @@
       url = "github:Henry-Hiles/dotfiles-fork";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    fht-compositor = {
+      url = "github:nferhat/fht-compositor";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        rust-overlay.follows = "";
+        flake-parts.follows = "flake-parts";
+      };
+    };
   };
 
   outputs =
