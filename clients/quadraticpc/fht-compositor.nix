@@ -46,17 +46,16 @@
             action = "change-mwfact";
             arg = 0.1;
           };
-
-          keybindings = builtins.listToAttrs (
-            builtins.genList (i: {
-              name = "Super-${toString (i + 1)}";
-              value = {
-                action = "focus-workspace";
-                arg = i;
-              };
-            }) 9
-          );
-        };
+        }
+        // builtins.listToAttrs (
+          builtins.genList (i: {
+            name = "Super-${toString (i + 1)}";
+            value = {
+              action = "focus-workspace";
+              arg = i;
+            };
+          }) 9
+        );
 
         mousebinds = {
           Super-Left = "swap-tile";
