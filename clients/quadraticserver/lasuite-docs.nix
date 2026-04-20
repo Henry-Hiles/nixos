@@ -33,7 +33,7 @@ in
       authDomain = "auth.federated.nexus";
       domain = "docs.federated.nexus";
       s3Url = "${s3Domain}/lasuite-docs";
-      socket = "/run/lasuite-docs/socket";
+      socket = "/var/run/lasuite-docs/socket";
     in
     {
       lasuite-docs-proxy = {

@@ -2241,17 +2241,14 @@
     },
     "nixpkgs-custom": {
       "locked": {
-        "lastModified": 1771522177,
-        "narHash": "sha256-m62O2bp6ZxPFoZBrd/+fB5Pd4c+pz+7pz4JpqZUZCXw=",
-        "owner": "Henry-Hiles",
-        "repo": "nixpkgs",
-        "rev": "2d68fc5183e52237ef4d5fef93b99f589f9ac201",
-        "type": "github"
+        "lastModified": 1776470189,
+        "narHash": "sha256-kwzsHPt7X5w5dbS5Gi5EWlBpq8hJCi/7Zwlb17OXlG4=",
+        "path": "/home/quadradical/Documents/Code/nixpkgs",
+        "type": "path"
       },
       "original": {
-        "owner": "Henry-Hiles",
-        "repo": "nixpkgs",
-        "type": "github"
+        "path": "/home/quadradical/Documents/Code/nixpkgs",
+        "type": "path"
       }
     },
     "nixpkgs-latest": {
