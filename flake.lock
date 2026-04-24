@@ -355,16 +355,16 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1776446368,
-        "narHash": "sha256-DrW31VesYipZlFpCoCv4Sj4BtKeAF9/UpWhZjBIrXH4=",
+        "lastModified": 1777058507,
+        "narHash": "sha256-o7bZMSsdSt6VOrsuSMrS7fU9u/LrdD/579IMvsZH+ss=",
         "ref": "refs/heads/main",
-        "rev": "c927bc7b303164fb2d134f50ab2d9231684c6088",
-        "revCount": 6547,
+        "rev": "b9989f1713dc8042d7ef3ed66bb805e7cb531329",
+        "revCount": 6603,
         "type": "git",
         "url": "https://forgejo.ellis.link/continuwuation/continuwuity"
       },
       "original": {
-        "rev": "c927bc7b303164fb2d134f50ab2d9231684c6088",
+        "rev": "b9989f1713dc8042d7ef3ed66bb805e7cb531329",
         "type": "git",
         "url": "https://forgejo.ellis.link/continuwuation/continuwuity"
       }
@@ -2241,14 +2241,17 @@
     },
     "nixpkgs-custom": {
       "locked": {
-        "lastModified": 1776470189,
-        "narHash": "sha256-kwzsHPt7X5w5dbS5Gi5EWlBpq8hJCi/7Zwlb17OXlG4=",
-        "path": "/home/quadradical/Documents/Code/nixpkgs",
-        "type": "path"
+        "lastModified": 1776470595,
+        "narHash": "sha256-H3cJpjDVJ4n7Ja0trsVKh2GdoaGjK0N3mreJxzFawjQ=",
+        "owner": "Henry-Hiles",
+        "repo": "nixpkgs",
+        "rev": "3c881e4cb8220f4d49cb2a745a26f6a51b13c407",
+        "type": "github"
       },
       "original": {
-        "path": "/home/quadradical/Documents/Code/nixpkgs",
-        "type": "path"
+        "owner": "Henry-Hiles",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "nixpkgs-latest": {
@@ -2384,6 +2387,22 @@
       "original": {
         "owner": "nickcao",
         "ref": "riscv",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-sable": {
+      "locked": {
+        "lastModified": 1776434989,
+        "narHash": "sha256-Ea2VvvdK5RK5tuZ/BC5dWo6F0xr3fQl4giOemrXGbvs=",
+        "owner": "fugidev",
+        "repo": "nixpkgs",
+        "rev": "2fc2b588f26d93ca3e5637ea237f2f00fabd41de",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fugidev",
+        "ref": "sable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -2691,11 +2710,12 @@
         "nix-matrix-appservices": "nix-matrix-appservices",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-custom": "nixpkgs-custom",
+        "nixpkgs-sable": "nixpkgs-sable",
         "redlib": "redlib",
         "run0-sudo-shim": "run0-sudo-shim",
+        "sable": "sable",
         "sdm845": "sdm845",
         "stylix": "stylix",
-        "wally": "wally",
         "wrapper-manager": "wrapper-manager"
       }
     },
@@ -2773,6 +2793,22 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "sable": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1776983101,
+        "narHash": "sha256-W9YHv4EV4yfkHlJdoAKuI7LX2bMB89+LN+6960Eu3Ic=",
+        "owner": "sableclient",
+        "repo": "sable",
+        "rev": "cbb225168b6e262dcc2520ec5e4ca2edbff4ee59",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sableclient",
+        "repo": "sable",
         "type": "github"
       }
     },
@@ -3131,22 +3167,6 @@
         "owner": "numtide",
         "repo": "treefmt-nix",
         "type": "github"
-      }
-    },
-    "wally": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1774908360,
-        "narHash": "sha256-xvYZmpADqk+rfier0vp/qH74MSIvCJudSYKn1SlyUG4=",
-        "ref": "refs/heads/main",
-        "rev": "0ef1918ef8ad4ed3465519812c421fad542f5dfa",
-        "revCount": 1673,
-        "type": "git",
-        "url": "https://codeberg.org/lapingvino/cinny"
-      },
-      "original": {
-        "type": "git",
-        "url": "https://codeberg.org/lapingvino/cinny"
       }
     },
     "weird-deployer": {

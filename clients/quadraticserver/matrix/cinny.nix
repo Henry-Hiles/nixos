@@ -2,7 +2,7 @@
 {
   services.caddy.virtualHosts =
     let
-      mkCinny = override: {
+      mkCinny = package: {
         extraConfig = ''
           root ${
             pkgs.cinny.override {
@@ -11,7 +11,7 @@
                 homeserverList = [ "federated.nexus" ];
                 allowCustomHomeservers = false;
               };
-              cinny-unwrapped = pkgs.cinny-unwrapped.overrideAttrs override;
+              cinny-unwrapped = package;
             }
           }
           try_files {path} {path}/ /index.html
@@ -20,27 +20,24 @@
       };
     in
     {
-      "app.federated.nexus" = mkCinny (old: rec {
-        src = pkgs.fetchFromCodeberg {
-          owner = "lapingvino";
-          repo = "cinny";
-          rev = "d5ba8537a418a0950adad6f7c4f488078dff6a13";
-          hash = "sha256-+WOpBpSzXgBbG5RyMotvJWauPOKjbSI7X6XaRNssd/I=";
-        };
-        npmDeps = pkgs.fetchNpmDeps {
-          inherit src;
-          name = "${old.pname}-${old.version}-npm-deps";
-          hash = "sha256-a4cnxo5smN+a6DWKPPkbGkd8gcQe/jazSEmrqKcN0fA=";
-        };
-      });
+      "app.federated.nexus" = mkCinny (
+        pkgs.cinny-unwrapped.overrideAttrs (old: rec {
+          src = pkgs.fetchFromCodeberg {
+            owner = "lapingvino";
+            repo = "cinny";
+            rev = "d5ba8537a418a0950adad6f7c4f488078dff6a13";
+            hash = "sha256-+WOpBpSzXgBbG5RyMotvJWauPOKjbSI7X6XaRNssd/I=";
+          };
+          npmDeps = pkgs.fetchNpmDeps {
+            inherit src;
+            name = "${old.pname}-${old.version}-npm-deps";
+            hash = "sha256-a4cnxo5smN+a6DWKPPkbGkd8gcQe/jazSEmrqKcN0fA=";
+          };
+        })
+      );
 
-      "staging.app.federated.nexus" = mkCinny (old: rec {
-        src = inputs.wally;
-        npmDeps = pkgs.fetchNpmDeps {
-          inherit src;
-          name = "${old.pname}-${old.version}-npm-deps";
-          hash = "sha256-zlO2wTdzzZFB9j1GDIF9JDhLPNFov/tlRz4ICTfw0r0=";
-        };
-      });
+      "staging.app.federated.nexus" =
+        mkCinny
+          inputs.nixpkgs-sable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.sable-unwrapped;
     };
 }

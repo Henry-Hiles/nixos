@@ -2,12 +2,13 @@
   inputs = {
     gnome-mobile.url = "github:chuangzhu/nixpkgs-gnome-mobile";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-custom.url = "/home/quadradical/Documents/Code/nixpkgs";
+    nixpkgs-custom.url = "github:Henry-Hiles/nixpkgs";
+    nixpkgs-sable.url = "github:fugidev/nixpkgs/sable";
     wrapper-manager.url = "github:viperML/wrapper-manager";
     flake-parts.url = "github:hercules-ci/flake-parts";
     nix-maid.url = "github:viperML/nix-maid";
     continuwuity = {
-      url = "git+https://forgejo.ellis.link/continuwuation/continuwuity?rev=c927bc7b303164fb2d134f50ab2d9231684c6088";
+      url = "git+https://forgejo.ellis.link/continuwuation/continuwuity?rev=b9989f1713dc8042d7ef3ed66bb805e7cb531329";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {
@@ -18,8 +19,8 @@
       url = "github:lordgrimmauld/run0-sudo-shim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    wally = {
-      url = "git+https://codeberg.org/lapingvino/cinny";
+    sable = {
+      url = "github:sableclient/sable";
       flake = false;
     };
     redlib = {
