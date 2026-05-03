@@ -2241,11 +2241,11 @@
     },
     "nixpkgs-custom": {
       "locked": {
-        "lastModified": 1777647850,
-        "narHash": "sha256-TVvJjkScGp2O6zpiOn91cfjXyxSPpaCZDhHMPnE7EVU=",
+        "lastModified": 1777829822,
+        "narHash": "sha256-vUejy54TKE3s7QlqqmEMlwDq5r0X7s8lX2tcdEBT9Js=",
         "owner": "Henry-Hiles",
         "repo": "nixpkgs",
-        "rev": "3093e306dcbef8b05356e3131e9f7044c47752b0",
+        "rev": "5eb2434dc0e1d86be24ea989d594c57363ce9647",
         "type": "github"
       },
       "original": {
