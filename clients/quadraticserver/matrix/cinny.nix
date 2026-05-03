@@ -10,6 +10,13 @@
                 defaultHomeserver = 0;
                 homeserverList = [ "federated.nexus" ];
                 allowCustomHomeservers = false;
+
+                disableAccountSwitcher = true;
+
+                featuredCommunities = {
+                  spaces = { };
+                  rooms = { };
+                };
               };
               cinny-unwrapped = package;
             }
@@ -20,21 +27,9 @@
       };
     in
     {
-      "app.federated.nexus" = mkCinny (
-        pkgs.cinny-unwrapped.overrideAttrs (old: rec {
-          src = pkgs.fetchFromCodeberg {
-            owner = "lapingvino";
-            repo = "cinny";
-            rev = "d5ba8537a418a0950adad6f7c4f488078dff6a13";
-            hash = "sha256-+WOpBpSzXgBbG5RyMotvJWauPOKjbSI7X6XaRNssd/I=";
-          };
-          npmDeps = pkgs.fetchNpmDeps {
-            inherit src;
-            name = "${old.pname}-${old.version}-npm-deps";
-            hash = "sha256-a4cnxo5smN+a6DWKPPkbGkd8gcQe/jazSEmrqKcN0fA=";
-          };
-        })
-      );
+      "app.federated.nexus" =
+        mkCinny
+          inputs.nixpkgs-sable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.sable-unwrapped;
 
       "staging.app.federated.nexus" =
         mkCinny
