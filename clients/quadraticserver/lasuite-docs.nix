@@ -136,4 +136,8 @@ in
       '';
     };
   };
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "minio-2025-10-15T17-29-55Z"
+  ];
 }

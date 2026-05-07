@@ -16,4 +16,5 @@
   };
 
   environment.etc."resolv.conf".text = lib.mkForce "nameserver 127.0.0.1";
+  networking.resolvconf.enable = false;
 }

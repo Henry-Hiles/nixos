@@ -54,7 +54,7 @@
           "github.com/ggicci/caddy-jwt@v1.1.0"
           "pkg.jsn.cam/caddy-defender@v0.9.0"
         ];
-        hash = "sha256-rkT3/EdHuWkN+5fxT8+yc/BDAi05NXMYBLe9l0Am0Vc=";
+        hash = "sha256-yvBkB4Hrja89AVsMY6Bt1fiQDxil/nrL50lW9P5BjZU=";
       };
 
       globalConfig = ''

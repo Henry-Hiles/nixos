@@ -4,6 +4,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-custom.url = "github:Henry-Hiles/nixpkgs";
     nixpkgs-sable.url = "github:fugidev/nixpkgs/sable";
+    nixpkgs-master.url = "github:nixos/nixpkgs";
     wrapper-manager.url = "github:viperML/wrapper-manager";
     flake-parts.url = "github:hercules-ci/flake-parts";
     nix-maid.url = "github:viperML/nix-maid";
@@ -76,7 +77,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     fht-compositor = {
-      url = "github:nferhat/fht-compositor";
+      url = "github:nferhat/fht-compositor?rev=a6a03db175083749889dbcc0ab1e53fbc4e5d191";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         rust-overlay.follows = "";
