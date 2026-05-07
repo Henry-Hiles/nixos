@@ -355,16 +355,16 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1777058507,
-        "narHash": "sha256-o7bZMSsdSt6VOrsuSMrS7fU9u/LrdD/579IMvsZH+ss=",
-        "ref": "refs/heads/main",
-        "rev": "b9989f1713dc8042d7ef3ed66bb805e7cb531329",
-        "revCount": 6603,
+        "lastModified": 1778185180,
+        "narHash": "sha256-4zs26kTqwkJV7x+Sm12LnR02bbyH0f6Itbz7bDKUyts=",
+        "ref": "release/v0.5.9",
+        "rev": "051449118911b03960d5d09f630d7d2959c8330c",
+        "revCount": 6620,
         "type": "git",
         "url": "https://forgejo.ellis.link/continuwuation/continuwuity"
       },
       "original": {
-        "rev": "b9989f1713dc8042d7ef3ed66bb805e7cb531329",
+        "ref": "release/v0.5.9",
         "type": "git",
         "url": "https://forgejo.ellis.link/continuwuation/continuwuity"
       }
@@ -2407,11 +2407,11 @@
     },
     "nixpkgs-sable": {
       "locked": {
-        "lastModified": 1776434989,
-        "narHash": "sha256-Ea2VvvdK5RK5tuZ/BC5dWo6F0xr3fQl4giOemrXGbvs=",
+        "lastModified": 1778181521,
+        "narHash": "sha256-TT3Co88Pg+nCZiQb8JAnENCSZOFupmCn/puJOlqsgt0=",
         "owner": "fugidev",
         "repo": "nixpkgs",
-        "rev": "2fc2b588f26d93ca3e5637ea237f2f00fabd41de",
+        "rev": "b2b8da2110777ba61e6803457020b74dfcc38f9d",
         "type": "github"
       },
       "original": {
