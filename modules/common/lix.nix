@@ -1,7 +1,7 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
   nix = {
-    package = inputs.nixpkgs-master.legacyPackages.${pkgs.stdenv.hostPlatform.system}.lix;
+    package = pkgs.lix;
     settings.experimental-features = [
       "nix-command"
       "flakes"
