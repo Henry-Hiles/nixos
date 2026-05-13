@@ -15,8 +15,7 @@
         };
 
         settingsDefaults = {
-          themeId = "cinny-dark";
-          darkThemeId = "cinny-dark-theme";
+          themeRemoteDarkFullUrl = "https://raw.githubusercontent.com/SableClient/themes/main/themes/cinny-dark.sable.css";
           themeCatalogOnboardingDone = true;
           themeRemoteCatalogEnabled = true;
 
@@ -26,7 +25,6 @@
           renderRoomFonts = false;
 
           hour24Clock = true;
-
         };
       };
       mkCinny = package: extraConf: {
