@@ -13,6 +13,21 @@
           spaces = { };
           rooms = { };
         };
+
+        settingsDefaults = {
+          themeId = "cinny-dark";
+          darkThemeId = "cinny-dark-theme";
+          themeCatalogOnboardingDone = true;
+          themeRemoteCatalogEnabled = true;
+
+          renderGlobalNameColors = false;
+          renderUserCards = "none";
+          renderRoomColors = false;
+          renderRoomFonts = false;
+
+          hour24Clock = true;
+
+        };
       };
       mkCinny = package: extraConf: {
         extraConfig = ''
