@@ -2,22 +2,23 @@
 {
   services.caddy.virtualHosts =
     let
-      mkCinny = package: {
+      commonConf = {
+        defaultHomeserver = 0;
+        homeserverList = [ "federated.nexus" ];
+        allowCustomHomeservers = false;
+
+        disableAccountSwitcher = true;
+
+        featuredCommunities = {
+          spaces = { };
+          rooms = { };
+        };
+      };
+      mkCinny = package: extraConf: {
         extraConfig = ''
           root ${
             pkgs.cinny.override {
-              conf = {
-                defaultHomeserver = 0;
-                homeserverList = [ "federated.nexus" ];
-                allowCustomHomeservers = false;
-
-                disableAccountSwitcher = true;
-
-                featuredCommunities = {
-                  spaces = { };
-                  rooms = { };
-                };
-              };
+              conf = commonConf // extraConf;
               cinny-unwrapped = package;
             }
           }
@@ -28,11 +29,11 @@
     in
     {
       "app.federated.nexus" =
-        mkCinny
-          inputs.nixpkgs-sable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.sable-unwrapped;
+        mkCinny inputs.sable.packages.${pkgs.stdenv.hostPlatform.system}.default
+          { };
 
       "staging.app.federated.nexus" =
-        mkCinny
-          inputs.nixpkgs-sable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.sable-unwrapped;
+        mkCinny inputs.sable.packages.${pkgs.stdenv.hostPlatform.system}.default
+          { };
     };
 }

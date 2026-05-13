@@ -2,7 +2,6 @@
   inputs = {
     gnome-mobile.url = "github:chuangzhu/nixpkgs-gnome-mobile";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-sable.url = "github:fugidev/nixpkgs/sable";
     nixpkgs-master.url = "github:nixos/nixpkgs";
     wrapper-manager.url = "github:viperML/wrapper-manager";
     flake-parts.url = "github:hercules-ci/flake-parts";
@@ -20,8 +19,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sable = {
-      url = "github:sableclient/sable";
-      flake = false;
+      url = "github:sableclient/sable?rev=c2bb68345a3feebd62ebff09993c10cbcd1dd941";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     redlib = {
       url = "github:Silvenga/redlib";
