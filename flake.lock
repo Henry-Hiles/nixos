@@ -2882,17 +2882,17 @@
         "treefmt-nix": "treefmt-nix_3"
       },
       "locked": {
-        "lastModified": 1778691225,
-        "narHash": "sha256-hy5Os+EaZVOl4Ji22SBaPPC7ogKQKeZ28mQGxjl+Fxo=",
+        "lastModified": 1778729243,
+        "narHash": "sha256-/ERdX9+sWx5UnlNk1t+m6iH7N8MQgVMBljmEBrrAcbA=",
         "owner": "sableclient",
         "repo": "sable",
-        "rev": "6ab22b487c89a761800345d0a52e5aa1a24a2547",
+        "rev": "604661ef46574f94e1170ce1adac0381b1dc6693",
         "type": "github"
       },
       "original": {
         "owner": "sableclient",
         "repo": "sable",
-        "rev": "6ab22b487c89a761800345d0a52e5aa1a24a2547",
+        "rev": "604661ef46574f94e1170ce1adac0381b1dc6693",
         "type": "github"
       }
     },
