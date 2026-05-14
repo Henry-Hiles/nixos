@@ -12,6 +12,11 @@
         featuredCommunities = {
           spaces = { };
           rooms = { };
+          servers = [
+            "matrixrooms.info"
+            "mozilla.org"
+            "matrix.org"
+          ];
         };
 
         settingsDefaults = {
