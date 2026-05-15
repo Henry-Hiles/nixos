@@ -19,7 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sable = {
-      url = "github:sableclient/sable?rev=604661ef46574f94e1170ce1adac0381b1dc6693";
+      url = "github:sableclient/sable?rev=1f6b87b795e3180c3702105a7eac182817f6afbe";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     redlib = {
