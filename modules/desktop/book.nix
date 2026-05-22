@@ -10,9 +10,7 @@
       text = ''
         input="$1"
 
-        if [ -f "$input" ] && echo "$input" | grep -qi "\.epub$"; then
-          fullpath="$input"
-        else
+        if echo "$input" | grep -qi "\.acsm$"; then
           if [ ! -d "$HOME/.config/adept" ]; then
             adept_activate --anonymous
           fi
@@ -23,17 +21,12 @@
             | sed "s/^Created //")
 
           adept_remove "$fullpath"
+        else
+          fullpath="$input"
         fi
 
         name=$(basename "$fullpath" | rev | cut -d. -f2- | rev)
-        ext=$(echo "$fullpath" | rev | cut -d. -f1 | rev)
-
-        if [ "$ext" = "epub" ]; then
-          ebook-convert "$fullpath" "/run/media/quadradical/Kindle/documents/$name.mobi"
-          rm "$fullpath"
-        else
-          mv "$fullpath" "/run/media/quadradical/Kindle/documents/$name.pdf"
-        fi
+        ebook-convert "$fullpath" "/run/media/quadradical/Kindle/documents/$name.mobi"
       '';
     })
   ];
