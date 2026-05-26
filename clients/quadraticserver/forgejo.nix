@@ -30,6 +30,8 @@
             DEFAULT_ACTIONS_URL = "github";
           };
 
+          admin.USER_DISABLED_FEATURES = "manage_password,deletion";
+
           server = {
             DOMAIN = domain;
             ROOT_URL = "https://${domain}";
