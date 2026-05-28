@@ -168,11 +168,19 @@ in
 
           dashboards.settings.providers = [
             {
-              name = "Node exporter";
+              name = "Node Exporter";
               options.path = pkgs.fetchurl {
                 name = "dashboard-node-exporter-full.json";
                 url = "https://grafana.com/api/dashboards/1860/revisions/42/download";
                 hash = "sha256-pNgn6xgZBEu6LW0lc0cXX2gRkQ8lg/rer34SPE3yEl4=";
+              };
+            }
+            {
+              name = "Unbound Info";
+              options.path = pkgs.fetchurl {
+                name = "unbound-info.json";
+                url = "https://github.com/rfmoz/grafana-dashboards/raw/refs/heads/master/prometheus/unbound-full.json";
+                hash = "sha256-It6MNTaJyVXf5LvE55Bl20ij+Fxh1NWbsosXoLkpamM=";
               };
             }
             {
