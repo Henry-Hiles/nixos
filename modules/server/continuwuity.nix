@@ -60,7 +60,6 @@
             max_request_size = 524288000;
             db_cache_capacity_mb = 2056;
 
-            query_over_tcp_only = true;
             dns_cache_entries = 0;
 
             allow_public_room_directory_over_federation = true;

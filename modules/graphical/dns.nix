@@ -1,5 +1,4 @@
 {
-  networking.resolvconf.useLocalResolver = true;
   services.dnsproxy = {
     enable = true;
     flags = [
