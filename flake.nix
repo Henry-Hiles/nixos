@@ -15,7 +15,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     run0-sudo-shim = {
-      url = "github:lordgrimmauld/run0-sudo-shim";
+      url = "github:lordgrimmauld/run0-sudo-shim/stdin-agent";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sable = {
@@ -123,21 +123,11 @@
             [
               ./wrappers/default.nix
               { networking.hostName = info.hostname; }
-              inputs.agenix.nixosModules.default
-              inputs.run0-sudo-shim.nixosModules.default
             ]
             ++ dirFiles ".nix" ./modules/common
             ++ dirFiles ".nix" ./modules/${info.type}
             ++ opt (builtins.pathExists clientPath) (dirFiles ".nix" clientPath)
-            ++ opt info.graphical (
-              (dirFiles ".nix" ./modules/graphical)
-              ++ [
-                inputs.home-manager.nixosModules.home-manager
-                inputs.nix-maid.nixosModules.default
-                inputs.stylix.nixosModules.stylix
-                ./stylix.nix
-              ]
-            );
+            ++ opt info.graphical (dirFiles ".nix" ./modules/graphical);
         };
     in
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {

@@ -1,9 +1,11 @@
 {
   dirUtils,
+  inputs,
   lib,
   ...
 }:
 {
+  imports = [ inputs.agenix.nixosModules.default ];
   age = {
     identityPaths = [
       "/home/quadradical/.ssh/id_ed25519"

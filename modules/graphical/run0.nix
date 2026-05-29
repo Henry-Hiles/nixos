@@ -1,4 +1,5 @@
+{ inputs, ... }:
 {
-  # TODO: Server too
-  # security.run0-sudo-shim.enable = true;
+  imports = [ inputs.run0-sudo-shim.nixosModules.default ];
+  security.run0-sudo-shim.enable = true;
 }
