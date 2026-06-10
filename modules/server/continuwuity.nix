@@ -57,12 +57,15 @@
 
             url_preview_domain_explicit_allowlist = [ "*" ];
             url_preview_max_spider_size = 2097152;
+
             max_request_size = 524288000;
             db_cache_capacity_mb = 2056;
 
             dns_cache_entries = 0;
 
             allow_public_room_directory_over_federation = true;
+            lockdown_public_room_directory = true;
+
             allow_incoming_presence = false;
             allow_outgoing_presence = false;
             allow_local_presence = false;
