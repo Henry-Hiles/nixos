@@ -53,6 +53,9 @@
               "matrix.org"
             ];
 
+            startup_netburst = false;
+            pdu_cache_capacity = 500000;
+
             admins_from_room = false;
 
             url_preview_domain_explicit_allowlist = [ "*" ];
