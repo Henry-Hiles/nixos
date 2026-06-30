@@ -51,10 +51,10 @@
       environmentFile = config.age.secrets."base64JwtSecret.age".path;
       package = pkgs.caddy.withPlugins {
         plugins = [
-          "github.com/ggicci/caddy-jwt@v1.1.0"
-          "pkg.jsn.cam/caddy-defender@v0.9.0"
+          "github.com/ggicci/caddy-jwt@v1.3.0"
+          "pkg.jsn.cam/caddy-defender@v0.10.1"
         ];
-        hash = "sha256-1aC2zgkEgvnqxJweIkB7QhnJGu/74u2M74l47mvtSjg=";
+        hash = "sha256-010pAQ3+m3CGIV1shkQCRw0dWxYk8MRfR96PrJMjwig=";
       };
 
       globalConfig = ''
