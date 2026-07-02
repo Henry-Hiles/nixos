@@ -74,6 +74,10 @@
       url = "github:Henry-Hiles/dotfiles-fork";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    degoog = {
+      url = "github:Guusvanmeerveld/degoog.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     fht-compositor = {
       url = "github:nferhat/fht-compositor?rev=a6a03db175083749889dbcc0ab1e53fbc4e5d191";
       inputs = {
