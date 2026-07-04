@@ -66,10 +66,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    firefox-gnome-theme = {
-      url = "github:rafaelmardojai/firefox-gnome-theme";
-      flake = false;
-    };
     sdm845 = {
       url = "github:Henry-Hiles/dotfiles-fork";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -85,6 +81,10 @@
         rust-overlay.follows = "";
         flake-parts.follows = "flake-parts";
       };
+    };
+    firefox-gnome-theme = {
+      url = "github:rafaelmardojai/firefox-gnome-theme";
+      flake = false;
     };
   };
 
