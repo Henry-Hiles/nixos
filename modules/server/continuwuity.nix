@@ -48,6 +48,7 @@
             allow_joining_broken_rooms = true;
 
             trusted_servers = [
+              "starstruck.systems"
               "maunium.net"
               "codestorm.net"
               "matrix.org"
