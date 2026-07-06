@@ -9,12 +9,8 @@ let
   cfg = config.services.lasuite-docs;
 in
 {
-  disabledModules = [
-    "services/web-apps/lasuite-docs.nix"
-  ];
   imports = [
     inputs.lasuite-docs-proxy.nixosModules.default
-    "${inputs.nixpkgs-master}/nixos/modules/services/web-apps/lasuite-docs.nix"
   ];
 
   systemd.services = {
