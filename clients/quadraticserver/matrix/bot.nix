@@ -48,6 +48,8 @@
 Username: @{username}
 Password: @{password}
 
+You can change your password in your favorite Matrix client, or here: https://matrix.federated.nexus/_continuwuity/account/password/change
+
 If you have any questions, check out our documentation: https://federated.nexus/services/matrix/.
 
 If you have any issues, reply to this email."
@@ -56,6 +58,8 @@ If you have any issues, reply to this email."
 ## Your credentials are:
 - ### Username: @{username}
 - ### Password: @{password}
+
+You can change your password in your favorite Matrix client, or [here](https://matrix.federated.nexus/_continuwuity/account/password/change). 
 
 If you have any questions, check out [our documentation](https://federated.nexus/services/matrix/).
 
