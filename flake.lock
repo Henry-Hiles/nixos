@@ -379,11 +379,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1783349391,
-        "narHash": "sha256-FfEVFk4HnBJAg8iCnocTwOCl6apZI6sr/RFPOHMfxmI=",
+        "lastModified": 1783487106,
+        "narHash": "sha256-0+/YDhsGid5ibRFdj2GjRWOILJFwyApWm1U6i44lEUk=",
         "ref": "refs/heads/main",
-        "rev": "992b7303fa7a533383050c85ba61f77bcceb5220",
-        "revCount": 7252,
+        "rev": "71e5c3b49c9e473b6017db8c9ec2675a473a5ab5",
+        "revCount": 7264,
         "type": "git",
         "url": "https://forgejo.ellis.link/continuwuation/continuwuity"
       },
@@ -524,11 +524,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1782924299,
-        "narHash": "sha256-1/bJX5MFXcRVEnuskXxjvxbaNTvSwYL0dqUUP1Y2dkc=",
+        "lastModified": 1783598966,
+        "narHash": "sha256-Yd1N1E+vGZPagyz0EJFqvRbBRymrfO4exT2HGBxpmvE=",
         "owner": "Guusvanmeerveld",
         "repo": "degoog.nix",
-        "rev": "013d1882a62e1a8baa31ea3b212ba4dc602c3b8f",
+        "rev": "26536fba537ab7561374ef4c6f9a44b7d5aad9d0",
         "type": "github"
       },
       "original": {
@@ -540,16 +540,16 @@
     "degoog_2": {
       "flake": false,
       "locked": {
-        "lastModified": 1782121222,
-        "narHash": "sha256-clbWd/8auxswIqkkz+1X7B2DYg8aMiCBEQvXfETQG3I=",
+        "lastModified": 1783195973,
+        "narHash": "sha256-+ReSP9pMgt92E9Li9G36eQYoLuwd94ZZ9c4j/3eb068=",
         "owner": "degoog-org",
         "repo": "degoog",
-        "rev": "614a12e29e4bbf970ee7015d35f8225211ef9bc7",
+        "rev": "53e9efdad13bef3b42ec6942a3567406313fe028",
         "type": "github"
       },
       "original": {
         "owner": "degoog-org",
-        "ref": "0.22.0",
+        "ref": "0.23.0",
         "repo": "degoog",
         "type": "github"
       }
@@ -757,11 +757,11 @@
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
-        "lastModified": 1782007937,
-        "narHash": "sha256-PbnJr+eB+9Czol3ReI83dUgEhcn0sDK6TSy6ODTQm88=",
+        "lastModified": 1783570805,
+        "narHash": "sha256-ptl5aRlCv9/uRSv2u8Hq8UFVFeZ6Q/bT049bpqNgc3w=",
         "owner": "rafaelmardojai",
         "repo": "firefox-gnome-theme",
-        "rev": "981bd332015397fb1ca033fa982bd61635160c78",
+        "rev": "5602ed62d638142c1ab31dccd01dfbfb28841225",
         "type": "github"
       },
       "original": {
@@ -1440,11 +1440,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783222121,
-        "narHash": "sha256-E/ElL373TO8lQ2aMvYyzN+k4xkVaUGoRqoa8AtM71tI=",
+        "lastModified": 1783550008,
+        "narHash": "sha256-qbbZUk9IG9dLNwCPwdPBs6I5clxwugRpP+1YU+GPK20=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "a1645f40777620c4bd2b6d854b290c2fc354a266",
+        "rev": "f4d01c1d87c7c2ec909549165d5a8338f1bd3315",
         "type": "github"
       },
       "original": {
@@ -1889,11 +1889,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783101847,
-        "narHash": "sha256-vqpflNoxrZGCkK3HW1WSlVbpVVQTpH4grar3HAy/YSQ=",
+        "lastModified": 1783469118,
+        "narHash": "sha256-NWgj8xnpzD6/xfdX+6MZOzalea1/8SKPpwe9OG6EXj8=",
         "ref": "refs/heads/main",
-        "rev": "a1e217ac7815ee053c3c451065cc686b29c85e69",
-        "revCount": 628,
+        "rev": "7b734a89acb425ab436b2134fe1302256de9ddf2",
+        "revCount": 634,
         "submodules": true,
         "type": "git",
         "url": "https://git.federated.nexus/nexus/Nexus"
@@ -3012,16 +3012,16 @@
         "treefmt-nix": "treefmt-nix_4"
       },
       "locked": {
-        "lastModified": 1781735617,
-        "narHash": "sha256-yi70WBH0lDw1h4Oy6NNfi71kp32be3rtZDt3/C2e524=",
+        "lastModified": 1783575415,
+        "narHash": "sha256-9AFM1nnB7SHJFri+vEDwZtKl+aEZFkM1ggTTolpQ8tk=",
         "owner": "sableclient",
         "repo": "sable",
-        "rev": "3d719bdbf2cbcd6c9d90d7f99af8d8029e29801e",
+        "rev": "42e4b35ff595c74765290b32c20fdad6869b289e",
         "type": "github"
       },
       "original": {
         "owner": "sableclient",
-        "ref": "v1.18.3",
+        "ref": "v1.19.1",
         "repo": "sable",
         "type": "github"
       }
@@ -3150,11 +3150,11 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1783307741,
-        "narHash": "sha256-c/FqXr+r16WM3ad/o+fzDcDSnqmItPkMbbJ/9FhO81Q=",
+        "lastModified": 1783358511,
+        "narHash": "sha256-/F85cBWvU8b2hpawuCog464065ZTJtdMgVPWwJ9yHjE=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "9837fb7867cc0356d86e02c3398ea876d43826c1",
+        "rev": "14814ef555d8148ab82eba5054e654cd9eae3a1f",
         "type": "github"
       },
       "original": {
@@ -3470,11 +3470,11 @@
     },
     "wrapper-manager": {
       "locked": {
-        "lastModified": 1772780728,
-        "narHash": "sha256-fCm4sOeTDf3kBtYMmU4OHsviI/oF8rMbPkUMcQf6lw4=",
+        "lastModified": 1783493101,
+        "narHash": "sha256-LqqlRrZVLdCr/fmfXj/j7bUpvv02Ct3TVInWRxs20a8=",
         "owner": "viperML",
         "repo": "wrapper-manager",
-        "rev": "51ad0422b925d830bf4af36979fed51209f79c0a",
+        "rev": "531d7752716f5097f05c709d6727299d70c69b62",
         "type": "github"
       },
       "original": {
