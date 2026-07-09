@@ -14,11 +14,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     run0-sudo-shim = {
-      url = "github:lordgrimmauld/run0-sudo-shim/stdin-agent";
+      url = "github:lordgrimmauld/run0-sudo-shim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sable = {
-      url = "github:sableclient/sable/v1.19.1";
+      url = "github:sableclient/sable/v1.19.2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     redlib = {
