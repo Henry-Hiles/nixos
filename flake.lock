@@ -379,11 +379,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1783616339,
-        "narHash": "sha256-pMUeTX6tAEEVOGazOArDxY8/Ajrm1OiVAiFXylN8EGM=",
+        "lastModified": 1783691099,
+        "narHash": "sha256-/CFKiGrviGuPGucEMPoK9tzpWSwuCii6yNsXghW3ZzQ=",
         "ref": "refs/heads/main",
-        "rev": "f9b532162f1b8907ae12cf6fba703d509880a48c",
-        "revCount": 7268,
+        "rev": "bed80964fd4f7687f176d01c5a12440e406c2e78",
+        "revCount": 7301,
         "type": "git",
         "url": "https://forgejo.ellis.link/continuwuation/continuwuity"
       },
@@ -1422,11 +1422,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783550008,
-        "narHash": "sha256-qbbZUk9IG9dLNwCPwdPBs6I5clxwugRpP+1YU+GPK20=",
+        "lastModified": 1783689750,
+        "narHash": "sha256-iMO/Ypany7DPXD6D7sQgH7METtEUihnOvdb+A9ehn8k=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "f4d01c1d87c7c2ec909549165d5a8338f1bd3315",
+        "rev": "79e6082586b3680ff32c8e75127545058f074fa4",
         "type": "github"
       },
       "original": {
@@ -2606,11 +2606,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1783224372,
-        "narHash": "sha256-8i/87eeoqiGE4yOTjwSA3Eh/ziJRQEmd/unYU+K27sk=",
+        "lastModified": 1783522502,
+        "narHash": "sha256-iffAls3iaNTyJC2faYcUXSI+Gp02cDjYl+MygxKl2GI=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "d407951447dcd00442e97087bf374aad70c04cea",
+        "rev": "0bb7ec54c8483066ec9d7720e780a5caa71f8612",
         "type": "github"
       },
       "original": {
@@ -2970,16 +2970,16 @@
         "treefmt-nix": "treefmt-nix_4"
       },
       "locked": {
-        "lastModified": 1783612318,
-        "narHash": "sha256-aiM8QSGn3rE5SWASpvnGEJbQJmgAIIJDZV9wosQi8NI=",
+        "lastModified": 1783627043,
+        "narHash": "sha256-5DAbrH3X5uFU8BN1ZnmSJ5gANCDuxTVmpkOF+FYrojY=",
         "owner": "sableclient",
         "repo": "sable",
-        "rev": "04892f5136b2cfa96c153a1d979b85c182734849",
+        "rev": "e84fbd53dc24819e0a3ae54c5f0cebb17c8d2c91",
         "type": "github"
       },
       "original": {
         "owner": "sableclient",
-        "ref": "v1.19.2",
+        "ref": "v1.19.3",
         "repo": "sable",
         "type": "github"
       }
@@ -3341,11 +3341,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1775636079,
-        "narHash": "sha256-pc20NRoMdiar8oPQceQT47UUZMBTiMdUuWrYu2obUP0=",
+        "lastModified": 1780220602,
+        "narHash": "sha256-eynAfOmbmxJnkp7YewvCEbShNnnYJ9gLLqkzsYtBPeM=",
         "owner": "numtide",
         "repo": "treefmt-nix",
-        "rev": "790751ff7fd3801feeaf96d7dc416a8d581265ba",
+        "rev": "db947814a175b7ca6ded66e21383d938df01c227",
         "type": "github"
       },
       "original": {
