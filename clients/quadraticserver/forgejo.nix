@@ -64,12 +64,18 @@
       '';
     };
 
-  systemd.sockets.forgejo = {
-    requiredBy = [ "forgejo.service" ];
-    wantedBy = [ "sockets.target" ];
+  systemd = {
+    services.forgejo.serviceConfig = {
+      MemoryHigh = "500M";
+      MemoryMax = "600M";
+    };
+    sockets.forgejo = {
+      requiredBy = [ "forgejo.service" ];
+      wantedBy = [ "sockets.target" ];
 
-    listenStreams = [
-      (toString config.services.forgejo.settings.server.SSH_PORT)
-    ];
+      listenStreams = [
+        (toString config.services.forgejo.settings.server.SSH_PORT)
+      ];
+    };
   };
 }
