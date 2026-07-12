@@ -379,15 +379,16 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1783702908,
-        "narHash": "sha256-FZjUQAPhaChkWHC3ocyXcW4uKKdR2KdzpAsIVVHx7Qw=",
-        "rev": "a76c5c95aa2c99f840a4b02f5b6bcfd83b498b07",
-        "revCount": 7305,
+        "lastModified": 1783873872,
+        "narHash": "sha256-vGryMf9WY7vndf1+Tk/GNSsg2HWOHG5Skve7wN6pfbQ=",
+        "ref": "refs/heads/main",
+        "rev": "9a94b93dddf70fe76736fa5fda70b0c2c9c06057",
+        "revCount": 7362,
         "type": "git",
         "url": "https://forgejo.ellis.link/continuwuation/continuwuity"
       },
       "original": {
-        "rev": "a76c5c95aa2c99f840a4b02f5b6bcfd83b498b07",
+        "rev": "9a94b93dddf70fe76736fa5fda70b0c2c9c06057",
         "type": "git",
         "url": "https://forgejo.ellis.link/continuwuation/continuwuity"
       }
