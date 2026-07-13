@@ -11,7 +11,6 @@
         with vscode-extensions;
         [
           mkhl.direnv
-          eamodio.gitlens
           dart-code.flutter
           dart-code.dart-code
           jnoortheen.nix-ide
@@ -56,8 +55,6 @@
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
       "prettier.tabWidth" = 4;
       "workbench.startupEditor" = "none";
-      "gitlens.hovers.currentLine.over" = "line";
-      "gitlens.statusBar.enabled" = false;
       "explorer.confirmDelete" = false;
       "workbench.sideBar.location" = "right";
       "git.enableSmartCommit" = true;
@@ -73,9 +70,6 @@
       "errorLens.enabledDiagnosticLevels" = [ "error" ];
       "git.mergeEditor" = true;
       "terminal.integrated.shellIntegration.enabled" = false;
-      "gitlens.currentLine.enabled" = false;
-      "gitlens.codeLens.enabled" = false;
-      "workbench.colorTheme" = "Nord";
       "workbench.iconTheme" = "material-icon-theme";
       "typescript.updateImportsOnFileMove.enabled" = "always";
       "editor.wordWrap" = "on";
