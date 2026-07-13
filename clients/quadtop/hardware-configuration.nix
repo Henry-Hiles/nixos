@@ -6,7 +6,6 @@
         "ahci"
         "nvme"
         "usb_storage"
-        "usbhid"
         "sd_mod"
       ];
       kernelModules = [ ];
@@ -17,15 +16,15 @@
 
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-uuid/f4b1301b-c329-4c3c-9f3a-5584bc22d0c1";
+      device = "/dev/disk/by-uuid/15598217-e3e1-4922-b336-8e9f62fad939";
       fsType = "ext4";
     };
     "/boot" = {
-      device = "/dev/disk/by-uuid/3B50-5881";
+      device = "/dev/disk/by-uuid/C6EC-B430";
       fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
     };
   };
 
-  powerManagement.cpuFreqGovernor = "powersave";
   hardware.cpu.intel.updateMicrocode = true;
 }
