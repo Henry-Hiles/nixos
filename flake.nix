@@ -6,7 +6,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     nix-maid.url = "github:viperML/nix-maid";
     continuwuity = {
-      url = "git+https://forgejo.ellis.link/continuwuation/continuwuity?rev=6ad3e679bc51d5382f2d6f2dc44b3fd9616c8bee";
+      url = "git+https://forgejo.ellis.link/eleboucher/continuwuity?ref=fix-sync&rev=48a6b5fc77143fdc2e9e232959f0ce1401c1ed41";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {
@@ -20,10 +20,6 @@
     sable = {
       url = "github:sableclient/sable/v1.19.4";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    redlib = {
-      url = "github:Silvenga/redlib";
-      flake = false;
     };
     stylix = {
       url = "github:danth/stylix";
@@ -83,6 +79,10 @@
     };
     firefox-gnome-theme = {
       url = "github:rafaelmardojai/firefox-gnome-theme";
+      flake = false;
+    };
+    redlib = {
+      url = "github:Silvenga/redlib";
       flake = false;
     };
   };
