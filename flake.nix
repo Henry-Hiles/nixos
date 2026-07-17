@@ -18,7 +18,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sable = {
-      url = "github:sableclient/sable/v1.19.4";
+      url = "github:sableclient/sable/v1.20.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {

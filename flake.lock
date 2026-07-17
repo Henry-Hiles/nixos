@@ -2970,16 +2970,16 @@
         "treefmt-nix": "treefmt-nix_4"
       },
       "locked": {
-        "lastModified": 1783873730,
-        "narHash": "sha256-GI4ZXmqPTWt3WlTQDkjVfRWhiJnd3mdq5paA3/TGMEA=",
+        "lastModified": 1784320199,
+        "narHash": "sha256-ams6Uwblo5mUzah9hlCPCUMXtrLtiUtRWwwKH4uabmk=",
         "owner": "sableclient",
         "repo": "sable",
-        "rev": "d8938a625d41cd0a88ead7c8a19a4980c71d38db",
+        "rev": "12e55475dc659f86842e7910d0e1c18ca3e905e2",
         "type": "github"
       },
       "original": {
         "owner": "sableclient",
-        "ref": "v1.19.4",
+        "ref": "v1.20.0",
         "repo": "sable",
         "type": "github"
       }
