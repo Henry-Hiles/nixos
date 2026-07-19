@@ -1,4 +1,4 @@
 {
   services.caddy.virtualHosts."nexus.federated.nexus".extraConfig =
-    "redir https://git.federated.nexus/Nexus/nexus permanent";
+    "redir https://git.federated.nexus/Nexus/nexus{uri} permanent";
 }
