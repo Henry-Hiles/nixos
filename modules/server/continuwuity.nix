@@ -57,15 +57,13 @@
             ];
 
             startup_netburst = false;
-            pdu_cache_capacity = 500000;
-
             admins_from_room = false;
 
             url_preview_domain_explicit_allowlist = [ "*" ];
             url_preview_max_spider_size = 2097152;
 
-            max_request_size = 524288000;
-            db_cache_capacity_mb = 2056;
+            max_request_size = 256000000;
+            cache_capacity_modifier = 2;
 
             dns_cache_entries = 0;
 
