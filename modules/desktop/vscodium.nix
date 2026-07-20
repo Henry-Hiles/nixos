@@ -60,10 +60,10 @@
       "git.enableSmartCommit" = true;
       "git.openRepositoryInParentFolders" = "never";
       "explorer.confirmDragAndDrop" = false;
-      "javascript.updateImportsOnFileMove.enabled" = "always";
+      "js/ts.updateImportsOnFileMove.enabled" = "always";
       "editor.insertSpaces" = false;
       "prettier.semi" = false;
-      "javascript.format.semicolons" = "remove";
+      "js/ts.format.semicolons" = "remove";
       "window.menuBarVisibility" = "compact";
       "git.confirmSync" = false;
       "editor.detectIndentation" = false;
@@ -71,13 +71,9 @@
       "git.mergeEditor" = true;
       "terminal.integrated.shellIntegration.enabled" = false;
       "workbench.iconTheme" = "material-icon-theme";
-      "typescript.updateImportsOnFileMove.enabled" = "always";
       "editor.wordWrap" = "on";
       "[astro]" = {
         "editor.defaultFormatter" = "astro-build.astro-vscode";
-      };
-      "[yaml]" = {
-        "editor.defaultFormatter" = "redhat.vscode-yaml";
       };
       "editor.minimap.enabled" = false;
       "diffEditor.ignoreTrimWhitespace" = false;
@@ -105,6 +101,7 @@
       };
       "indentRainbow.ignoreErrorLanguages" = [ "*" ];
       "dart.runPubGetOnPubspecChanges" = "never";
+      "workbench.colorTheme" = "Nord";
     };
 
     "/home/quadradical/.config/VSCodium/User/keybindings.json".source = builtins.toJSON [
