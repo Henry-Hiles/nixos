@@ -6,7 +6,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     nix-maid.url = "github:viperML/nix-maid";
     continuwuity = {
-      url = "git+https://forgejo.ellis.link/eleboucher/continuwuity";
+      url = "git+https://forgejo.ellis.link/continuwuation/continuwuity";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {
@@ -30,7 +30,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nexus = {
-      url = "git+https://git.federated.nexus/nexus/Nexus";
+      url = "git+https://git.federated.nexus/nexus/Nexus?ref=quad/feat/oauth-login";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     lasuite-docs-proxy = {
