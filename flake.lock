@@ -1025,11 +1025,11 @@
         "nixpkgs-lib": "nixpkgs-lib_6"
       },
       "locked": {
-        "lastModified": 1778716662,
-        "narHash": "sha256-m1Yf0wZ8j1OHjTc2UwHwyQRSnNeSgLJOd7q5Y45hzi4=",
+        "lastModified": 1782949081,
+        "narHash": "sha256-vp6Y/Grm98ESt6ceOkWiHWyZRDV3J1RID4w+6NWK9yA=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "f7c1a2d347e4c52d5fb8d10cb4d94b5884e546fb",
+        "rev": "17c9d6cdfc60c64f4ee8d306f9bc0b4ccb51481e",
         "type": "github"
       },
       "original": {
@@ -1871,17 +1871,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1784567221,
-        "narHash": "sha256-q38OmJp3LcogfiRBI8sOSdDUYBBAxzMdosI5zfDfCAE=",
-        "ref": "quad/feat/oauth-login",
-        "rev": "90b8319bd9a1af4c7c2c29d2aecf542a7bccba5a",
-        "revCount": 654,
+        "lastModified": 1784665685,
+        "narHash": "sha256-UTrn696ppaVfZ5u1NgnbbMjLTZC/xzy87WZeb85bLC8=",
+        "ref": "refs/heads/main",
+        "rev": "06c5411dfc3bbbe4ea38d20a4fd374a34fbed6be",
+        "revCount": 659,
         "submodules": true,
         "type": "git",
         "url": "https://git.federated.nexus/nexus/Nexus"
       },
       "original": {
-        "ref": "quad/feat/oauth-login",
         "type": "git",
         "url": "https://git.federated.nexus/nexus/Nexus"
       }
@@ -2514,11 +2513,11 @@
     },
     "nixpkgs-lib_6": {
       "locked": {
-        "lastModified": 1777168982,
-        "narHash": "sha256-GOkGPcboWE9BmGCRMLX3worL4EMnsnG8MyKmXNeYuhQ=",
+        "lastModified": 1782614948,
+        "narHash": "sha256-ePjCwr1sNm9NYUqywL7QfK3JnlS015msC+eBu2zKlp8=",
         "owner": "nix-community",
         "repo": "nixpkgs.lib",
-        "rev": "f5901329dade4a6ea039af1433fb087bd9c1fe14",
+        "rev": "db3f255737b94216eb71cce308e2912cf6bc2d7c",
         "type": "github"
       },
       "original": {

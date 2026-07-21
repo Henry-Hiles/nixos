@@ -30,7 +30,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nexus = {
-      url = "git+https://git.federated.nexus/nexus/Nexus?ref=quad/feat/oauth-login";
+      url = "git+https://git.federated.nexus/nexus/Nexus";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     lasuite-docs-proxy = {
