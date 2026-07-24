@@ -22,6 +22,7 @@
     systemd.services.continuwuity.serviceConfig = {
       MemoryHigh = "5G";
       MemoryMax = "6G";
+      MemorySwapMax = "4.5G";
       TimeoutStartSec = "10m";
       Restart = lib.mkForce "always";
       ExecStartPost = "/bin/sh -c 'until ${lib.getExe pkgs.curl} -s -f https://matrix.federated.nexus/.well-known/matrix/client; do sleep 1; done'";
@@ -63,7 +64,7 @@
             url_preview_max_spider_size = 2097152;
 
             max_request_size = 256000000;
-            cache_capacity_modifier = 1.8; # TODO
+            cache_capacity_modifier = 1.5;
 
             dns_cache_entries = 0;
 
