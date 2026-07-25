@@ -21,7 +21,7 @@
   config = {
     systemd.services.continuwuity.serviceConfig = {
       MemoryHigh = "5G";
-      MemoryMax = "6G";
+      MemoryMax = "5.5G";
       MemorySwapMax = "4.5G";
       TimeoutStartSec = "10m";
       Restart = lib.mkForce "always";
@@ -60,11 +60,12 @@
             startup_netburst = false;
             admins_from_room = false;
 
+            cache_capacity_modifier = 0.8;
+
             url_preview_domain_explicit_allowlist = [ "*" ];
             url_preview_max_spider_size = 2097152;
 
             max_request_size = 256000000;
-            cache_capacity_modifier = 1.5;
 
             dns_cache_entries = 0;
 
