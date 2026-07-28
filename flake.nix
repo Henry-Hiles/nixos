@@ -6,7 +6,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     nix-maid.url = "github:viperML/nix-maid";
     continuwuity = {
-      url = "git+https://forgejo.ellis.link/continuwuation/continuwuity?ref=ginger/fix-user-list-counting-puppets";
+      url = "git+https://forgejo.ellis.link/continuwuation/continuwuity";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {
