@@ -8,4 +8,6 @@
     description = "Nex";
     extraGroups = [ "wheel" ];
   };
+
+  services.openssh.settings.AllowUsers = [ "timedout" ];
 }
