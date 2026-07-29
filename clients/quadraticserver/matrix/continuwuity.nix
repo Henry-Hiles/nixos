@@ -11,7 +11,7 @@
     enable = true;
     domain = "federated.nexus";
     settings = {
-      cache_capacity_modifier = 0.8;
+      cache_capacity_modifier = 2;
       admins_list = [
         "@nexusbot:federated.nexus"
         "@quadradical:federated.nexus"
