@@ -55,6 +55,7 @@
           url_preview_max_spider_size = 2097152;
 
           max_request_size = 256000000;
+          sender_workers = 4;
 
           dns_cache_entries = 0;
 
