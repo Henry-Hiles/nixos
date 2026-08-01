@@ -12,9 +12,7 @@
     domain = "federated.nexus";
     settings = {
       cache_capacity_modifier = 1.5;
-
-      db_cache_capacity_mb = 2048;
-      db_write_buffer_capacity_mb = 256;
+      db_cache_capacity_mb = 4096;
 
       admins_list = [
         "@nexusbot:federated.nexus"
