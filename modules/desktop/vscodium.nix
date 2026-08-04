@@ -25,6 +25,7 @@
           astro-build.astro-vscode
           tamasfe.even-better-toml
           pkief.material-icon-theme
+          vscode-extensions.golang.go
           streetsidesoftware.code-spell-checker
           arcticicestudio.nord-visual-studio-code
         ]
