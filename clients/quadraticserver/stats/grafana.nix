@@ -141,8 +141,8 @@ in
                       service = "forgejo.service";
                     }
                     {
-                      name = "SearXNG (Search)";
-                      service = "searx.service";
+                      name = "Degoog (Search)";
+                      service = "degoog.service";
                     }
                     {
                       name = "Redlib";
