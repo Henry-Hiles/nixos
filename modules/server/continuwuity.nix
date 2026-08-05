@@ -44,7 +44,7 @@
           trusted_servers = [
             "starstruck.systems"
             "maunium.net"
-            "codestorm.net"
+            "unredacted.org"
             "matrix.org"
           ];
 
