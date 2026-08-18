@@ -53,7 +53,7 @@
         plugins = [
           "github.com/ggicci/caddy-jwt@v1.3.0"
         ];
-        hash = "";
+        hash = "sha256-R9jnlVU2njTAkHEdb5tCOORO8hPyvu+I/tvC6BOAl5w=";
       };
 
       globalConfig = ''
