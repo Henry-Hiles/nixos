@@ -12,6 +12,5 @@
 
       reverse_proxy unix//var/run/cozybot/socket
     '';
-
   };
 }

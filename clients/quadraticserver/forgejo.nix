@@ -54,12 +54,12 @@
           Disallow: /*/*/*/commit
           EOF 200
 
-          @commitAnonymous {
-            path /*/*/src/commit*
-            not header_regexp Cookie "(^|;\s*)session=[^;]*"
-          }
+        @commitAnonymous {
+          path /*/*/src/commit*
+          not header_regexp Cookie "(^|;\s*)session=[^;]+(?:;|$)"
+        }
 
-          redir @commitAnonymous /user/login?redirect_to={uri} 302
+        redir @commitAnonymous /user/login?redirect_to={uri} 302
 
         reverse_proxy unix/${socket}
       '';
