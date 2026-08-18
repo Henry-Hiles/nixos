@@ -51,14 +51,15 @@
       caddy.virtualHosts."${domain}".extraConfig = ''
         respond /robots.txt <<EOF
           User-agent: *
-          Disallow: /*/*/archive/
-          Disallow: /*/*/src/commit
+          Disallow: /*/*/*/commit
           EOF 200
 
-        defender redirect {
-          ranges aliyun aws deepseek githubcopilot gcloud oci azurepubliccloud openai mistral vultr cloudflare digitalocean linode
-          url https://ipv4.games/claim?name=federated.nexus
-        }
+          @commitAnonymous {
+            path /*/*/src/commit*
+            not header_regexp Cookie "(^|;\s*)session=[^;]*"
+          }
+
+          redir @commitAnonymous /user/login?redirect_to={uri} 302
 
         reverse_proxy unix/${socket}
       '';

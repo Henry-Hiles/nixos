@@ -52,9 +52,8 @@
       package = pkgs.caddy.withPlugins {
         plugins = [
           "github.com/ggicci/caddy-jwt@v1.3.0"
-          "pkg.jsn.cam/caddy-defender@v0.10.1"
         ];
-        hash = "sha256-wV0hiQ/plS+b2CvbxHK+C4BRNgIVlDEyPBEaxsYd+FI=";
+        hash = "";
       };
 
       globalConfig = ''
