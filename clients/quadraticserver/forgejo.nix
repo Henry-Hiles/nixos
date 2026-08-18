@@ -48,15 +48,16 @@
         };
       };
 
+      # We may want to include regular commits, e.g. https://git.federated.nexus/Henry-Hiles/nixos/commit/21373eed250ba70ff195258d3b5a4fe039f72779, but currently this doesn't seem needed
       caddy.virtualHosts."${domain}".extraConfig = ''
         respond /robots.txt <<EOF
           User-agent: *
-          Disallow: /*/*/*/commit
+          Disallow: /*/*/*/commit*
           EOF 200
 
         @commitAnonymous {
-          path /*/*/src/commit*
-          not header_regexp Cookie "(^|;\s*)session=[^;]+(?:;|$)"
+          path_regexp commit ^/[^/]+/[^/]+/[^/]+/commit(?:/.*)?$
+          not header_regexp Cookie "(^|;[[:space:]]*)session=[^;]+(;|$)"
         }
 
         redir @commitAnonymous /user/login?redirect_to={uri} 302
