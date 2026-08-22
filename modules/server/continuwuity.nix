@@ -34,12 +34,8 @@
 
           new_user_displayname_suffix = "";
 
-          default_room_version = "12";
-          forbidden_remote_server_names = [
-            "freetard\\.net$" # racism, zip bomb attempts
-          ];
+          forbidden_remote_server_names = [ ];
           ignore_messages_from_server_names = [ ];
-          allow_joining_broken_rooms = true;
 
           trusted_servers = [
             "starstruck.systems"
@@ -55,7 +51,6 @@
           url_preview_max_spider_size = 2097152;
 
           max_request_size = 256000000;
-          sender_workers = 4;
 
           dns_cache_entries = 0;
 
