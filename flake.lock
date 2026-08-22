@@ -695,32 +695,10 @@
     "fenix_2": {
       "inputs": {
         "nixpkgs": [
-          "sable",
-          "nixpkgs"
-        ],
-        "rust-analyzer-src": "rust-analyzer-src_2"
-      },
-      "locked": {
-        "lastModified": 1786606848,
-        "narHash": "sha256-RS78j/7iFHjIMzTr9bS3PypjvPozHBfdR5xBJ+ABXXA=",
-        "owner": "nix-community",
-        "repo": "fenix",
-        "rev": "3df888be63045c349a6d322f0214f1346bb18be9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "fenix",
-        "type": "github"
-      }
-    },
-    "fenix_3": {
-      "inputs": {
-        "nixpkgs": [
           "sdm845",
           "nixpkgs"
         ],
-        "rust-analyzer-src": "rust-analyzer-src_3"
+        "rust-analyzer-src": "rust-analyzer-src_2"
       },
       "locked": {
         "lastModified": 1752302273,
@@ -2856,23 +2834,6 @@
     "rust-analyzer-src_2": {
       "flake": false,
       "locked": {
-        "lastModified": 1786530578,
-        "narHash": "sha256-fCOcC64H7e0EIlIHTCsl5FQ9CW4S6VK3OLn1ugWR9zI=",
-        "owner": "rust-lang",
-        "repo": "rust-analyzer",
-        "rev": "068bb508581477a5e3f753e1e206d34288dfa9c9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "rust-lang",
-        "ref": "nightly",
-        "repo": "rust-analyzer",
-        "type": "github"
-      }
-    },
-    "rust-analyzer-src_3": {
-      "flake": false,
-      "locked": {
         "lastModified": 1752262373,
         "narHash": "sha256-eRDeo/hVnf958ESWy8qV/jZj4ZRbFXsmMdw1cnI57dE=",
         "owner": "rust-lang",
@@ -2910,7 +2871,6 @@
     },
     "sable": {
       "inputs": {
-        "fenix": "fenix_2",
         "flake-parts": "flake-parts_9",
         "git-hooks": "git-hooks",
         "nixpkgs": [
@@ -2919,15 +2879,16 @@
         "treefmt-nix": "treefmt-nix_4"
       },
       "locked": {
-        "lastModified": 1787422874,
-        "narHash": "sha256-OlOoa5m7GILcu5VDFIu0jeSXt4y43r4eFoi2MT0mw88=",
+        "lastModified": 1784320199,
+        "narHash": "sha256-ams6Uwblo5mUzah9hlCPCUMXtrLtiUtRWwwKH4uabmk=",
         "owner": "sableclient",
         "repo": "sable",
-        "rev": "2aaeb82d891e3ea89d7b7e3de04e37eb8ff15934",
+        "rev": "12e55475dc659f86842e7910d0e1c18ca3e905e2",
         "type": "github"
       },
       "original": {
         "owner": "sableclient",
+        "ref": "v1.20.0",
         "repo": "sable",
         "type": "github"
       }
@@ -2946,7 +2907,7 @@
         "devshell": "devshell",
         "disko": "disko_2",
         "emacs-overlay": "emacs-overlay",
-        "fenix": "fenix_3",
+        "fenix": "fenix_2",
         "flake-compat": "flake-compat_4",
         "flake-parts": "flake-parts_10",
         "flake-schemas": "flake-schemas",
