@@ -99,7 +99,7 @@ in
   };
 
   programs.fht-compositor = {
-    enable = true;
+    # enable = true;
     package =
       inputs.fht-compositor.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs
         (old: {
