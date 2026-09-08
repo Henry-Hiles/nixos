@@ -2920,11 +2920,11 @@
         "treefmt-nix": "treefmt-nix_4"
       },
       "locked": {
-        "lastModified": 1788861874,
-        "narHash": "sha256-GEd7RCUrNd1jF3IguYwYqJYXso6xnCtr2iEgdgG+xiM=",
+        "lastModified": 1788890536,
+        "narHash": "sha256-tR94UOaRVFoK0IXtmGwux0nA7N53K4oLQGjLIrza4PU=",
         "owner": "sableclient",
         "repo": "sable",
-        "rev": "337b70114c8d2a42ace069dfe95da47cd3ae6671",
+        "rev": "46cd79451e4955e39b20fa68c21170832d34ffc4",
         "type": "github"
       },
       "original": {
