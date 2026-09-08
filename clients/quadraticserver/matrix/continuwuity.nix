@@ -13,6 +13,7 @@
     settings = {
       cache_capacity_modifier = 1.5;
       db_cache_capacity_mb = 4096;
+      allow_sticky_events = true;
 
       admins_list = [
         "@nexusbot:federated.nexus"
