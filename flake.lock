@@ -379,18 +379,18 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1788856810,
-        "narHash": "sha256-sdd6uqeScloX+x8cPe+ctb9hawUqDUG4Y768S5w63Ak=",
-        "ref": "feat/msc4174-webpush",
-        "rev": "64f5a236e1e909c85527a323f098e36e4eb4a2d6",
-        "revCount": 7683,
+        "lastModified": 1788888833,
+        "narHash": "sha256-dgqhSMBRu7m9Kf/3ApeSNOrSZ/XjuCR1TpEXxQMAw1k=",
+        "ref": "quad/fednex",
+        "rev": "01f67d47e6824225144fafb9d4808b1b3ef7a0b2",
+        "revCount": 7688,
         "type": "git",
-        "url": "https://forgejo.ellis.link/eleboucher/continuwuity"
+        "url": "https://forgejo.ellis.link/Henry-Hiles/continuwuity"
       },
       "original": {
-        "ref": "feat/msc4174-webpush",
+        "ref": "quad/fednex",
         "type": "git",
-        "url": "https://forgejo.ellis.link/eleboucher/continuwuity"
+        "url": "https://forgejo.ellis.link/Henry-Hiles/continuwuity"
       }
     },
     "cozybot": {
