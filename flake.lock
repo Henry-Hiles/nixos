@@ -379,10 +379,10 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1788800774,
-        "narHash": "sha256-g1b7T08a+5Elq55iQASnuQoYWrlhb7MhIIJ3dz+IAeA=",
+        "lastModified": 1788856810,
+        "narHash": "sha256-sdd6uqeScloX+x8cPe+ctb9hawUqDUG4Y768S5w63Ak=",
         "ref": "feat/msc4174-webpush",
-        "rev": "e5ac66defc263614484c369b9be5d6ce658d13fe",
+        "rev": "64f5a236e1e909c85527a323f098e36e4eb4a2d6",
         "revCount": 7683,
         "type": "git",
         "url": "https://forgejo.ellis.link/eleboucher/continuwuity"
@@ -2539,11 +2539,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1788614874,
-        "narHash": "sha256-7QYjT2vHLuX9Z1pdxHXDKCbh1CR3D/2rywB9Tx0MPRg=",
+        "lastModified": 1788752844,
+        "narHash": "sha256-VaWGJ6+cIYN2erfSecbRV+4ljI185Ty2wUrXyvQbgOw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "c043004d1c6985732bcc1cbc5a9c9aecbbb4e0f0",
+        "rev": "dc5d91f840324650bac8c379428c7037a416959a",
         "type": "github"
       },
       "original": {
@@ -2920,11 +2920,11 @@
         "treefmt-nix": "treefmt-nix_4"
       },
       "locked": {
-        "lastModified": 1788774600,
-        "narHash": "sha256-92Raj6eMOUYeYw2NN/ClR5aEIhS1aTbdQaVbnBTNBa8=",
+        "lastModified": 1788861874,
+        "narHash": "sha256-GEd7RCUrNd1jF3IguYwYqJYXso6xnCtr2iEgdgG+xiM=",
         "owner": "sableclient",
         "repo": "sable",
-        "rev": "633c3b38555ffc62160f039a5969de7321c2cd20",
+        "rev": "337b70114c8d2a42ace069dfe95da47cd3ae6671",
         "type": "github"
       },
       "original": {
@@ -3363,17 +3363,17 @@
     },
     "wrapper-manager": {
       "locked": {
-        "lastModified": 1788338967,
-        "narHash": "sha256-ERCTzitF650HHNvTOPMAB3rTi6ptcwatmrx9QFkreKs=",
-        "owner": "viperML",
-        "repo": "wrapper-manager",
-        "rev": "05d5c2a8f0a6091cc17573d9a0c0de59269b8534",
-        "type": "github"
+        "lastModified": 1788355120,
+        "narHash": "sha256-JEuM7FjlX48cpDhDrkeIch5nNYANux5o0wcw8vnwUuE=",
+        "ref": "refs/heads/master",
+        "rev": "5dbc685119c53a10c3f9a74b2716107413889796",
+        "revCount": 95,
+        "type": "git",
+        "url": "https://codeberg.org/viperML/wrapper-manager"
       },
       "original": {
-        "owner": "viperML",
-        "repo": "wrapper-manager",
-        "type": "github"
+        "type": "git",
+        "url": "https://codeberg.org/viperML/wrapper-manager"
       }
     },
     "xwayland-satellite-stable": {

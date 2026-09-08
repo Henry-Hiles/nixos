@@ -2,7 +2,7 @@
   inputs = {
     gnome-mobile.url = "github:chuangzhu/nixpkgs-gnome-mobile";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    wrapper-manager.url = "github:viperML/wrapper-manager";
+    wrapper-manager.url = "git+https://codeberg.org/viperML/wrapper-manager";
     flake-parts.url = "github:hercules-ci/flake-parts";
     nix-maid.url = "github:viperML/nix-maid";
     continuwuity = {
