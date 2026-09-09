@@ -24,6 +24,7 @@
           themeCatalogOnboardingDone = true;
           themeRemoteCatalogEnabled = true;
 
+          renderPersonaColors = false;
           renderGlobalNameColors = false;
           renderUserCards = "none";
           renderRoomColors = false;

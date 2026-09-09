@@ -30,7 +30,7 @@
           "--failureUri"
           "https://federated.nexus/failure"
           "--inviteTo"
-          "#community:federated.nexus"
+          "#space:federated.nexus"
           "--adminName"
           "conduit"
           "--email"
