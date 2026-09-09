@@ -524,11 +524,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1788976499,
-        "narHash": "sha256-QlBQDQMjNxtgpBZf2iCRysb93mnAWXHp4aOzczfxEvw=",
+        "lastModified": 1788977398,
+        "narHash": "sha256-8zeJ/IqC8LbP5MlllqjAIv9UK8hH1QkxZBOhwRDsq8I=",
         "owner": "Henry-Hiles",
         "repo": "degoog",
-        "rev": "52308edd3a679ca1b08ac5f9c91a3a41cdd69e61",
+        "rev": "d54e94d656728ee4a6a9f4820f0c9c80c53e41f6",
         "type": "github"
       },
       "original": {
