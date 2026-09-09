@@ -62,7 +62,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     degoog = {
-      url = "github:Guusvanmeerveld/degoog.nix";
+      url = "github:Henry-Hiles/degoog/quad/feat/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     fht-compositor = {

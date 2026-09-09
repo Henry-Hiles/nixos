@@ -3,12 +3,14 @@
   services = {
     degoog = {
       enable = true;
-      port = 8081;
+      configurePostgres = true;
 
-      publicInstance = true;
+      environment.DEGOOG_UNIX_SOCKET = "/var/run/degoog/degoog.sock";
     };
 
     caddy.authedHosts."search.federated.nexus" =
-      "reverse_proxy 127.0.0.1:${toString config.services.degoog.port}";
+      "reverse_proxy unix/${config.services.degoog.environment.DEGOOG_UNIX_SOCKET}";
   };
+
+  systemd.services.caddy.serviceConfig.SupplementaryGroups = [ "degoog" ];
 }
