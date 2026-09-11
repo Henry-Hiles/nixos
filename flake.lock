@@ -524,11 +524,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1788977398,
+        "lastModified": 1789011024,
         "narHash": "sha256-8zeJ/IqC8LbP5MlllqjAIv9UK8hH1QkxZBOhwRDsq8I=",
         "owner": "Henry-Hiles",
         "repo": "degoog",
-        "rev": "d54e94d656728ee4a6a9f4820f0c9c80c53e41f6",
+        "rev": "8bcdb3c0667b712400a6d888c019f20aaa3046ec",
         "type": "github"
       },
       "original": {
@@ -1376,11 +1376,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1788651960,
-        "narHash": "sha256-v9wJd32eZ2bvhBzVOd7TIjLQd011P7nwOhjKtWlci5I=",
+        "lastModified": 1789136855,
+        "narHash": "sha256-82D7ADWE8erhfALj3dqxAOeQaoa+Bwlsdcp9v2m/ExM=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "2c0350c759688177331b8f5242311fae8877bdb3",
+        "rev": "d0fd95e15e0c3baf565a9fd4bc352321e2564ea3",
         "type": "github"
       },
       "original": {
@@ -1825,11 +1825,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787508145,
-        "narHash": "sha256-vmTJygYtKzFcFinj2kJsaR0OdkfDvPv09BRVOz3qf4I=",
+        "lastModified": 1789074881,
+        "narHash": "sha256-Gi/VLd4vph45v3fihRB52SMOF+WRpZvLy8HzOx6gYzQ=",
         "ref": "refs/heads/main",
-        "rev": "88cdcf9863cba7d7c4a86262f43b90332b6eed60",
-        "revCount": 766,
+        "rev": "e925f9657cdf9922e5fd05a8a56df968add44c38",
+        "revCount": 778,
         "submodules": true,
         "type": "git",
         "url": "https://git.federated.nexus/nexus/Nexus"
@@ -2537,11 +2537,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1788752844,
-        "narHash": "sha256-VaWGJ6+cIYN2erfSecbRV+4ljI185Ty2wUrXyvQbgOw=",
+        "lastModified": 1789006805,
+        "narHash": "sha256-xB8mKMOx1IA9vTDNLmJZ6n4wCMq/cuWBBOzGCRnqxrU=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "dc5d91f840324650bac8c379428c7037a416959a",
+        "rev": "8ce4ef6cb6f871616146b9fe26d2a5ae594e94fe",
         "type": "github"
       },
       "original": {
@@ -2918,11 +2918,11 @@
         "treefmt-nix": "treefmt-nix_4"
       },
       "locked": {
-        "lastModified": 1788890536,
-        "narHash": "sha256-tR94UOaRVFoK0IXtmGwux0nA7N53K4oLQGjLIrza4PU=",
+        "lastModified": 1789131229,
+        "narHash": "sha256-7uzdjelYH/+7IJyBoeJROO3BUK7j1pdcbnVrwOArLU4=",
         "owner": "sableclient",
         "repo": "sable",
-        "rev": "46cd79451e4955e39b20fa68c21170832d34ffc4",
+        "rev": "26a74caf117902708dabb3ab0450201de0d538f3",
         "type": "github"
       },
       "original": {
