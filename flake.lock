@@ -524,16 +524,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1789011024,
+        "lastModified": 1789039430,
         "narHash": "sha256-8zeJ/IqC8LbP5MlllqjAIv9UK8hH1QkxZBOhwRDsq8I=",
-        "owner": "Henry-Hiles",
+        "owner": "degoog-org",
         "repo": "degoog",
-        "rev": "8bcdb3c0667b712400a6d888c019f20aaa3046ec",
+        "rev": "8859551b46882ff4d11f6121a6ffbe8b23451a32",
         "type": "github"
       },
       "original": {
-        "owner": "Henry-Hiles",
-        "ref": "quad/feat/nix",
+        "owner": "degoog-org",
         "repo": "degoog",
         "type": "github"
       }
