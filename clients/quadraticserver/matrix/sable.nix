@@ -51,8 +51,8 @@
         mkCinny inputs.sable.packages.${pkgs.stdenv.hostPlatform.system}.default
           { };
 
-      #   "cinny.henryhiles.com" =
-      #     mkCinny inputs.sable.packages.${pkgs.stdenv.hostPlatform.system}.default
-      #       { };
+      "sports.sly.pictures" =
+        mkCinny inputs.sable.packages.${pkgs.stdenv.hostPlatform.system}.default
+          { };
     };
 }
