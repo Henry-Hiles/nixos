@@ -6,7 +6,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     nix-maid.url = "github:viperML/nix-maid";
     continuwuity = {
-      url = "git+https://forgejo.ellis.link/Henry-Hiles/continuwuity?ref=quad/fednex";
+      url = "git+https://forgejo.ellis.link/eleboucher/continuwuity?ref=feat/msc4174-webpush";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {
@@ -66,11 +66,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     fht-compositor = {
-      url = "github:nferhat/fht-compositor?rev=a6a03db175083749889dbcc0ab1e53fbc4e5d191";
+      url = "github:nferhat/fht-compositor";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         rust-overlay.follows = "";
-        flake-parts.follows = "flake-parts";
       };
     };
     firefox-gnome-theme = {
