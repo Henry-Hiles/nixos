@@ -11,8 +11,6 @@ in
     ];
 
     etc.${filename}.source = (pkgs.formats.toml { }).generate "config.toml" {
-      autostart = [ "dms run" ];
-
       general = {
         focus-follows-mouse = true;
         inner-gaps = 10;
