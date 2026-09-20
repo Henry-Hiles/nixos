@@ -4,7 +4,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     wrapper-manager.url = "git+https://codeberg.org/viperML/wrapper-manager";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    nix-maid.url = "github:viperML/nix-maid";
+    nix-maid.url = "git+https://codeberg.org/viperML/nix-maid";
     continuwuity = {
       url = "git+https://forgejo.ellis.link/Henry-Hiles/continuwuity?ref=quad/fednex";
       inputs.nixpkgs.follows = "nixpkgs";
