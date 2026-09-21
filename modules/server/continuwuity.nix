@@ -26,7 +26,7 @@
     {
       matrix-continuwuity = {
         enable = config.quad.matrix.enable;
-        package = inputs.continuwuity.packages.${pkgs.stdenv.hostPlatform.system}.max-perf-haswell;
+        package = inputs.continuwuity.packages.${pkgs.stdenv.hostPlatform.system}.default;
         group = "caddy";
         settings.global = lib.recursiveUpdate {
           server_name = config.quad.matrix.domain;
