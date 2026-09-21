@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   services.xserver.excludePackages = [ pkgs.xterm ];
   environment.systemPackages = with pkgs; [
@@ -11,6 +11,5 @@
     wl-clipboard
     google-cursor
     papirus-icon-theme
-    inputs.nexus.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }

@@ -30,7 +30,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nexus = {
-      url = "git+https://git.federated.nexus/nexus/Nexus";
+      url = "git+file:///home/quadradical/Documents/Code/nexus";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     lasuite-docs-proxy = {

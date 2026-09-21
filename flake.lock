@@ -1820,18 +1820,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1789877267,
-        "narHash": "sha256-RFgI1mUNjFLEJhdeTxpY2JARmhByFA/bW2UoQ9rndk8=",
-        "ref": "refs/heads/main",
-        "rev": "3fee789c90b68a7daa1ab632c5ce1413e07cf2c2",
-        "revCount": 814,
+        "dirtyRev": "c0d14ac30ee4eee44298771d00469b9df1edb5d9-dirty",
+        "dirtyShortRev": "c0d14ac-dirty",
+        "lastModified": 1789939665,
+        "narHash": "sha256-XDW8kSPZm6+LoBV2j5Rm+/4Y5wmPfgExQeB8KB2C2OA=",
         "submodules": true,
         "type": "git",
-        "url": "https://git.federated.nexus/nexus/Nexus"
+        "url": "file:///home/quadradical/Documents/Code/nexus"
       },
       "original": {
         "type": "git",
-        "url": "https://git.federated.nexus/nexus/Nexus"
+        "url": "file:///home/quadradical/Documents/Code/nexus"
       }
     },
     "nexusbot": {
