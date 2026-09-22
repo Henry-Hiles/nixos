@@ -379,18 +379,17 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1789587545,
-        "narHash": "sha256-XfWeXglAA+O/RmEfzI1vKJXpkquiS7DcQO0r9YmGJgE=",
-        "ref": "quad/fednex",
-        "rev": "948bddbcec917de113a3a845f2670986bcd78c46",
-        "revCount": 7736,
+        "lastModified": 1790053415,
+        "narHash": "sha256-GgyV1hxCqIsgwLEdhUSSvbnikPwj4Yrxpod6QLgDnUQ=",
+        "ref": "refs/heads/main",
+        "rev": "457b88449112f86acfa90d64cff6f4b30c5b0a56",
+        "revCount": 7748,
         "type": "git",
-        "url": "https://forgejo.ellis.link/Henry-Hiles/continuwuity"
+        "url": "https://forgejo.ellis.link/continuwuation/continuwuity"
       },
       "original": {
-        "ref": "quad/fednex",
         "type": "git",
-        "url": "https://forgejo.ellis.link/Henry-Hiles/continuwuity"
+        "url": "https://forgejo.ellis.link/continuwuation/continuwuity"
       }
     },
     "cozybot": {
@@ -1820,11 +1819,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790024172,
-        "narHash": "sha256-yb64Kk79Wbrg5huxg7UmBp0vOQ7JaifmQVJqnm+l+AU=",
+        "lastModified": 1790087869,
+        "narHash": "sha256-d4KQJ0WtkCXV29w6MM7Fitiz7a398MrqMHD+tJMEH1k=",
         "ref": "refs/heads/main",
-        "rev": "700b4e720f7f6f6f95054e321f4dbbc53be0a99a",
-        "revCount": 827,
+        "rev": "386b3ad1cfe8b64ac0df22ce210f3397a449cdc7",
+        "revCount": 840,
         "submodules": true,
         "type": "git",
         "url": "https://git.federated.nexus/Nexus/nexus"
@@ -2113,16 +2112,16 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1789876218,
-        "narHash": "sha256-/sUFGNLvcwf9MxGw+QS24o1bg217fQRY9NpinlmSjH4=",
+        "lastModified": 1790043059,
+        "narHash": "sha256-7ID4HL4IrrlalCsxMASkcAr+v0VHTNFp6+sZ+dpvOV8=",
         "owner": "Henry-Hiles",
         "repo": "nix2flatpak",
-        "rev": "8264b886c1e64bffc172c49e9dfcb551cbd863f4",
+        "rev": "290dd282e555cab988c021c2be5f2361e58c4d51",
         "type": "github"
       },
       "original": {
         "owner": "Henry-Hiles",
-        "ref": "quad/fix/names",
+        "ref": "quad/nexus",
         "repo": "nix2flatpak",
         "type": "github"
       }
