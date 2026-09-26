@@ -42,6 +42,7 @@
       type = "fuse.sshfs";
       options = builtins.concatStringsSep "," [
         "_netdev"
+        "reconnect"
         "ServerAliveInterval=15"
         "ServerAliveCountMax=3"
         "IdentityFile=/home/quadradical/.ssh/id_ed25519"
