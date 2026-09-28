@@ -376,11 +376,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1790557494,
-        "narHash": "sha256-z9iOdSjTvv+kDJaoAyKTzrY0ge2KM90H4tM8ir52RMQ=",
+        "lastModified": 1790571788,
+        "narHash": "sha256-lPhcuiGNTh9aAR2khVrLbTcLybknb3VpBckKkeIUVfE=",
         "ref": "refs/heads/main",
-        "rev": "046074bbc2c8d1af6dd86f93e1c512fbd8b78da8",
-        "revCount": 7777,
+        "rev": "76e87c93d8f562ec5024859fb1cfd20db3cbe449",
+        "revCount": 7779,
         "type": "git",
         "url": "https://forgejo.ellis.link/continuwuation/continuwuity"
       },
@@ -1773,11 +1773,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790471471,
-        "narHash": "sha256-6+qtNq0ef55u91Su7TJ5LV1YNn3uDjJoj9nJ7aF+FWM=",
+        "lastModified": 1790628498,
+        "narHash": "sha256-AQeuThdPpjQqs6Ty4tnyFTTdZqJJxZFCsuvaiRSgYEI=",
         "ref": "refs/heads/main",
-        "rev": "e300f4efc973c2ff286b5d4479479cc32add8cc4",
-        "revCount": 888,
+        "rev": "01566894a6a3adda98a9a559a4948980d71ecd56",
+        "revCount": 896,
         "submodules": true,
         "type": "git",
         "url": "https://git.federated.nexus/Nexus/nexus"
@@ -2486,11 +2486,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1790463110,
-        "narHash": "sha256-hKlVl12B1dF0Q5vd9dY3lIJM5mFGWYSlXwSLAqHZ1+s=",
+        "lastModified": 1790578696,
+        "narHash": "sha256-ZoxIApko70jCdbH3l20HWXOBaT2HZd87orzd2yJ9dVE=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "e158d9ed9b51c98974c5e66e1ba1c9e0255fecaa",
+        "rev": "7a0f122f5090cf4c2ade2a13a0e229d4e19ba71f",
         "type": "github"
       },
       "original": {
