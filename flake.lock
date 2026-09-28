@@ -1773,11 +1773,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790628498,
-        "narHash": "sha256-AQeuThdPpjQqs6Ty4tnyFTTdZqJJxZFCsuvaiRSgYEI=",
+        "lastModified": 1790634586,
+        "narHash": "sha256-GnEs1DMEGX24bAGPPNhtsdfdi55WN4nHvr2IkQ2/N60=",
         "ref": "refs/heads/main",
-        "rev": "01566894a6a3adda98a9a559a4948980d71ecd56",
-        "revCount": 896,
+        "rev": "195d212d681269c9d976c8992dc0f0d82922423b",
+        "revCount": 901,
         "submodules": true,
         "type": "git",
         "url": "https://git.federated.nexus/Nexus/nexus"
