@@ -63,18 +63,16 @@
     },
     "agenix": {
       "inputs": {
-        "darwin": "darwin",
-        "home-manager": "home-manager",
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1790445006,
-        "narHash": "sha256-dLq4qfJvm2ZfkwGGdgWl/nsA2aavpQMrPQbNqbkLXKE=",
+        "lastModified": 1790555459,
+        "narHash": "sha256-ftyJcr21FzMLq4hnzg3COo7gITOkJ4j+ey0miWCTU3U=",
         "owner": "ryantm",
         "repo": "agenix",
-        "rev": "07a33319a408a0c770f0fe5d0d98f5e7b4e5a5e7",
+        "rev": "b485690a7c97b3793a41dd57edfb05ac84343813",
         "type": "github"
       },
       "original": {
@@ -378,11 +376,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1790312576,
-        "narHash": "sha256-JKkxcCzmcmxc8iQgSa6gAGGlF3JKAnJFbEH9/JbrSGk=",
+        "lastModified": 1790557494,
+        "narHash": "sha256-z9iOdSjTvv+kDJaoAyKTzrY0ge2KM90H4tM8ir52RMQ=",
         "ref": "refs/heads/main",
-        "rev": "a4d2d4a720a429ebac608e6c7ca47147b9e8f4d1",
-        "revCount": 7755,
+        "rev": "046074bbc2c8d1af6dd86f93e1c512fbd8b78da8",
+        "revCount": 7777,
         "type": "git",
         "url": "https://forgejo.ellis.link/continuwuation/continuwuity"
       },
@@ -488,28 +486,6 @@
       "original": {
         "owner": "nix-community",
         "repo": "crate2nix",
-        "type": "github"
-      }
-    },
-    "darwin": {
-      "inputs": {
-        "nixpkgs": [
-          "agenix",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1783744694,
-        "narHash": "sha256-2cp6N3rrwnGYLTx9l6N+NI+kwrCWxvJUbj5WJhvB29A=",
-        "owner": "nix-darwin",
-        "repo": "nix-darwin",
-        "rev": "c3e90c89649b07d1a96e4b9dd6cd0d6e44b91a74",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-darwin",
-        "ref": "nix-darwin-26.05",
-        "repo": "nix-darwin",
         "type": "github"
       }
     },
@@ -1344,28 +1320,6 @@
     "home-manager": {
       "inputs": {
         "nixpkgs": [
-          "agenix",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1790215976,
-        "narHash": "sha256-VkR1rMGyjU9jtw8ISFx5uqR9e+LEaOlhHwrseFkiIVk=",
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "rev": "a6631107a83ceab5872f298a2ea710859c80c4cb",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "ref": "release-26.05",
-        "repo": "home-manager",
-        "type": "github"
-      }
-    },
-    "home-manager_2": {
-      "inputs": {
-        "nixpkgs": [
           "nixpkgs"
         ]
       },
@@ -1383,7 +1337,7 @@
         "type": "github"
       }
     },
-    "home-manager_3": {
+    "home-manager_2": {
       "inputs": {
         "nixpkgs": [
           "sdm845",
@@ -1819,11 +1773,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790448744,
-        "narHash": "sha256-dP+4o2C6Wy6N1jv6nz/bU6OH4PaOYaLXbafj7rXgGas=",
+        "lastModified": 1790471471,
+        "narHash": "sha256-6+qtNq0ef55u91Su7TJ5LV1YNn3uDjJoj9nJ7aF+FWM=",
         "ref": "refs/heads/main",
-        "rev": "d712bb3193f47bfb77bc8e7e765b517559891ce0",
-        "revCount": 883,
+        "rev": "e300f4efc973c2ff286b5d4479479cc32add8cc4",
+        "revCount": 888,
         "submodules": true,
         "type": "git",
         "url": "https://git.federated.nexus/Nexus/nexus"
@@ -2532,11 +2486,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1790323409,
-        "narHash": "sha256-VVTPf+Hyd5ebpjBMHmrLMSBIeW6ls48Bqtosj7CNKLA=",
+        "lastModified": 1790463110,
+        "narHash": "sha256-hKlVl12B1dF0Q5vd9dY3lIJM5mFGWYSlXwSLAqHZ1+s=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "e94cb152ed51bd6e24eb4a41f1460252beb52cd2",
+        "rev": "e158d9ed9b51c98974c5e66e1ba1c9e0255fecaa",
         "type": "github"
       },
       "original": {
@@ -2793,7 +2747,7 @@
         "firefox-gnome-theme": "firefox-gnome-theme",
         "flake-parts": "flake-parts_5",
         "gnome-mobile": "gnome-mobile",
-        "home-manager": "home-manager_2",
+        "home-manager": "home-manager",
         "lasuite-docs-proxy": "lasuite-docs-proxy",
         "matrixoidc": "matrixoidc",
         "nexus": "nexus",
@@ -2950,7 +2904,7 @@
         "git-hooks-nix": "git-hooks-nix",
         "gitignore-nix": "gitignore-nix",
         "haumea": "haumea",
-        "home-manager": "home-manager_3",
+        "home-manager": "home-manager_2",
         "kukui-nixos": "kukui-nixos",
         "lantian": "lantian",
         "lanzaboote": "lanzaboote",
