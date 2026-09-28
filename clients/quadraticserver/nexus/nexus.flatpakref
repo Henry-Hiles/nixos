@@ -1,0 +1,8 @@
+[Flatpak Ref]
+Title=Nexus
+Name=nexus.federated.nexus
+Branch=stable
+Url=https://nexus.federated.nexus/flatpak/
+SuggestRemoteName=nexus
+IsRuntime=false
+RuntimeRepo=https://dl.flathub.org/repo/flathub.flatpakrepo
