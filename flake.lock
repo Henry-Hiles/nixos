@@ -68,11 +68,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790555459,
-        "narHash": "sha256-ftyJcr21FzMLq4hnzg3COo7gITOkJ4j+ey0miWCTU3U=",
+        "lastModified": 1790731580,
+        "narHash": "sha256-t0/a6GmvrgwpkWw64R/Lkqb0iPJFJhrZXWMyxyc9dWA=",
         "owner": "ryantm",
         "repo": "agenix",
-        "rev": "b485690a7c97b3793a41dd57edfb05ac84343813",
+        "rev": "4a99c135afc914f19dcda6c458d740cf81f531d1",
         "type": "github"
       },
       "original": {
@@ -376,11 +376,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1790571788,
-        "narHash": "sha256-lPhcuiGNTh9aAR2khVrLbTcLybknb3VpBckKkeIUVfE=",
+        "lastModified": 1790716008,
+        "narHash": "sha256-tgAtygMmTLUtjecRkQhnEqKkjfa8x7n1QDJ55WgPrD4=",
         "ref": "refs/heads/main",
-        "rev": "76e87c93d8f562ec5024859fb1cfd20db3cbe449",
-        "revCount": 7779,
+        "rev": "58d135bc578fcbb12dcb8cb3c119bc939f84ff0b",
+        "revCount": 7812,
         "type": "git",
         "url": "https://forgejo.ellis.link/continuwuation/continuwuity"
       },
@@ -1324,11 +1324,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790365885,
-        "narHash": "sha256-iQ0ebhiVo64NktTnwft9hNxlFu4j5cvljVxyJaEVIP4=",
+        "lastModified": 1790726651,
+        "narHash": "sha256-zvULbL+SmLPPB1PwORjYU61W5SulQLjzUxFp4Vjl6B0=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "7b4c5ec4bedaf1e062bbc1bcaeddbc6bd242aa1b",
+        "rev": "b0d0106ef6a7c7c36ebff9a74f803d23d9b383d3",
         "type": "github"
       },
       "original": {
@@ -1773,11 +1773,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790634586,
-        "narHash": "sha256-GnEs1DMEGX24bAGPPNhtsdfdi55WN4nHvr2IkQ2/N60=",
+        "lastModified": 1790732408,
+        "narHash": "sha256-hgS9vfIuYkTRNkq7iOIcC2syztZzTiRGSl2Qq2YLyks=",
         "ref": "refs/heads/main",
-        "rev": "195d212d681269c9d976c8992dc0f0d82922423b",
-        "revCount": 901,
+        "rev": "93b832839bd1c136ef5432af2ab517733d46428a",
+        "revCount": 919,
         "submodules": true,
         "type": "git",
         "url": "https://git.federated.nexus/Nexus/nexus"
@@ -2867,11 +2867,11 @@
         "treefmt-nix": "treefmt-nix_4"
       },
       "locked": {
-        "lastModified": 1790413203,
-        "narHash": "sha256-TZycPD+lor6pCTcJaZLUvb84CyFn5jBROltdz9hSdLg=",
+        "lastModified": 1790719442,
+        "narHash": "sha256-9616SnFD3LLu+Rqv9QXJudXFmXh5Hxgs4BoWb2gpBxs=",
         "owner": "sableclient",
         "repo": "sable",
-        "rev": "69a5f212ba9cc26b683dd4cab5626e518c5ada16",
+        "rev": "6a3803b232a11a81ffa880d80172f1bc75a366a1",
         "type": "github"
       },
       "original": {
