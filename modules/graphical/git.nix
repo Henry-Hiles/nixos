@@ -17,6 +17,7 @@
         "git@codeberg.org:".insteadOf = [ "https://codeberg.org" ];
         "git@git.federated.nexus:".insteadOf = [ "https://git.federated.nexus" ];
         "git@forgejo.ellis.link:".insteadOf = [ "https://forgejo.ellis.link" ];
+        "ssh://git@git.sable.moe:2222".insteadOf = [ "https://git.sable.moe" ];
       };
       init.defaultBranch = "main";
       commit.gpgsign = true;
