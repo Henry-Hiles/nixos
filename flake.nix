@@ -8,6 +8,10 @@
       url = "git+https://forgejo.ellis.link/continuwuation/continuwuity";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sable-next = {
+      url = "git+https://git.sable.moe/Henry-Hiles/sable-next?ref=quad/feat/nix-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
