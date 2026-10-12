@@ -1,5 +1,9 @@
 { config, ... }:
 {
+  systemd.services.prometheus.serviceConfig.SupplementaryGroups = [
+    config.services.matrix-continuwuity.group
+  ];
+
   services.prometheus = {
     enable = true;
     listenAddress = "127.0.0.7";
@@ -30,6 +34,19 @@
         job_name = "caddy";
         static_configs = [
           { targets = [ "localhost:2019" ]; }
+        ];
+      }
+      {
+        job_name = "continuwuity";
+        metrics_path = "/_continuwuity/metrics";
+        static_configs = [
+          { targets = [ "localhost" ]; }
+        ];
+        relabel_configs = [
+          {
+            target_label = "__unix_socket__";
+            replacement = config.services.matrix-continuwuity.settings.global.unix_socket_path;
+          }
         ];
       }
     ];

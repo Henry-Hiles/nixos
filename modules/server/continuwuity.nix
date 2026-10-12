@@ -18,56 +18,75 @@
     };
   };
 
-  config.services =
-    let
-      subdomain = "matrix.${config.quad.matrix.domain}";
-      socket = "/var/run/continuwuity/continuwuity.sock";
-    in
-    {
-      matrix-continuwuity = {
-        enable = config.quad.matrix.enable;
-        package = inputs.continuwuity.packages.${pkgs.stdenv.hostPlatform.system}.default;
-        group = "caddy";
-        settings.global = lib.recursiveUpdate {
-          server_name = config.quad.matrix.domain;
-          unix_socket_path = socket;
+  config = {
+    systemd.services.caddy.serviceConfig.SupplementaryGroups = [
+      config.services.matrix-continuwuity.group
+    ];
 
-          new_user_displayname_suffix = "";
+    services =
+      let
+        subdomain = "matrix.${config.quad.matrix.domain}";
+        socket = "/var/run/continuwuity/continuwuity.sock";
+      in
+      {
+        matrix-continuwuity = {
+          enable = config.quad.matrix.enable;
+          package = inputs.continuwuity.packages.${pkgs.stdenv.hostPlatform.system}.default;
+          settings.global = lib.recursiveUpdate {
+            server_name = config.quad.matrix.domain;
+            unix_socket_path = socket;
 
-          forbidden_remote_server_names = [ ];
-          ignore_messages_from_server_names = [ ];
+            new_user_displayname_suffix = "";
 
-          trusted_servers = [
-            "starstruck.systems"
-            "maunium.net"
-            "unredacted.org"
-            "matrix.org"
-          ];
+            forbidden_remote_server_names = [ ];
+            ignore_messages_from_server_names = [ ];
 
-          startup_netburst = false;
-          admins_from_room = false;
+            trusted_servers = [
+              "starstruck.systems"
+              "maunium.net"
+              "unredacted.org"
+              "matrix.org"
+            ];
 
-          url_preview_domain_explicit_allowlist = [ "*" ];
-          url_preview_max_spider_size = 2097152;
+            startup_netburst = false;
+            admins_from_room = false;
 
-          max_request_size = 256000000;
+            url_preview_domain_explicit_allowlist = [ "*" ];
+            url_preview_max_spider_size = 2097152;
 
-          dns_cache_entries = 0;
+            cache_capacity_modifier = 1.5;
+            db_cache_capacity_mb = 4096;
+            allow_sticky_events = true;
 
-          allow_public_room_directory_over_federation = true;
-          lockdown_public_room_directory = true;
+            allow_prometheus_metrics = true;
 
-          allow_incoming_presence = false;
-          allow_outgoing_presence = false;
-          allow_local_presence = false;
+            max_request_size = 256000000;
 
-          well_known = {
-            client = "https://${subdomain}";
-            server = "${subdomain}:443";
-          };
-        } config.quad.matrix.settings;
+            dns_cache_entries = 0;
+
+            allow_public_room_directory_over_federation = true;
+            lockdown_public_room_directory = true;
+
+            allow_incoming_presence = false;
+            allow_outgoing_presence = false;
+            allow_local_presence = false;
+
+            well_known = {
+              client = "https://${subdomain}";
+              server = "${subdomain}:443";
+            };
+          } config.quad.matrix.settings;
+        };
+
+        caddy.virtualHosts."${subdomain}".extraConfig = ''
+          handle /_continuwuity/metrics {
+            respond 404
+          }
+
+          handle {
+            reverse_proxy unix/${socket}
+          }
+        '';
       };
-
-      caddy.virtualHosts."${subdomain}".extraConfig = "reverse_proxy unix/${socket}";
-    };
+  };
 }
