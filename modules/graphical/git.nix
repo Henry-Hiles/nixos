@@ -25,12 +25,12 @@
       gpg.format = "ssh";
     };
   };
+
   environment.shellAliases =
     let
       gitExe = lib.meta.getExe pkgs.git;
     in
     {
-
       push = "${gitExe} push";
       commit = "${gitExe} commit -am";
     };
