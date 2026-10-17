@@ -9,7 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sable-next = {
-      url = "git+https://git.sable.moe/Henry-Hiles/sable-next?ref=quad/feat/nix-flake";
+      url = "git+https://git.sable.moe/SableClient/sable-next";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {

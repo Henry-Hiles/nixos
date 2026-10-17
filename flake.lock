@@ -1179,18 +1179,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1792266932,
-        "narHash": "sha256-n9W5h4RlgCsHBVeh16CJvlLy9zcKbDPtDxIGMPgIAtU=",
-        "ref": "quad/feat/nix-flake",
-        "rev": "ac98c5cfce1ad45442e73850aaf3ef8e89abc805",
-        "revCount": 6269,
+        "lastModified": 1792267464,
+        "narHash": "sha256-iA1CGSE/m9mveLfT7cd8uYj2e1Xa06Uq98QQduFIJs8=",
+        "ref": "refs/heads/main",
+        "rev": "d828f8ea32290d7ec93671a63b771e87c1d660ae",
+        "revCount": 6367,
         "type": "git",
-        "url": "https://git.sable.moe/Henry-Hiles/sable-next"
+        "url": "https://git.sable.moe/SableClient/sable-next"
       },
       "original": {
-        "ref": "quad/feat/nix-flake",
         "type": "git",
-        "url": "https://git.sable.moe/Henry-Hiles/sable-next"
+        "url": "https://git.sable.moe/SableClient/sable-next"
       }
     },
     "stylix": {
