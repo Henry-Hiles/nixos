@@ -768,11 +768,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792252403,
-        "narHash": "sha256-R4xNFbuhovlMQTDkC/q0ztlPUYlz3SkeNahZhTP2mMs=",
+        "lastModified": 1792268367,
+        "narHash": "sha256-CsB/G1ut2CossRJ2dWg1G/RI1DA6F2F/qUcYT3ovk6k=",
         "ref": "refs/heads/main",
-        "rev": "eca2b0b5587e66c5fbc909aacf6a8c2c67bef1bc",
-        "revCount": 1050,
+        "rev": "a6fe80fea294588fee8bfeb319bed70d2160bb8b",
+        "revCount": 1052,
         "submodules": true,
         "type": "git",
         "url": "https://git.federated.nexus/Nexus/nexus"
@@ -1179,11 +1179,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792267464,
-        "narHash": "sha256-iA1CGSE/m9mveLfT7cd8uYj2e1Xa06Uq98QQduFIJs8=",
+        "lastModified": 1792276809,
+        "narHash": "sha256-ocLR3Nn5LaZflG1wZeslUwDt7Roh5kg9ZEQ9FTV13e4=",
         "ref": "refs/heads/main",
-        "rev": "d828f8ea32290d7ec93671a63b771e87c1d660ae",
-        "revCount": 6367,
+        "rev": "0cb286a792f23f2506d5c973c074386f79d9a9f7",
+        "revCount": 6380,
         "type": "git",
         "url": "https://git.sable.moe/SableClient/sable-next"
       },
