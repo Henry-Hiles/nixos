@@ -79,6 +79,11 @@
       url = "github:Silvenga/redlib";
       flake = false;
     };
+    # TODO: remove once https://github.com/NixOS/nixpkgs/pull/548367 is merged
+    lk-jwt-service-module = {
+      url = "file+https://raw.githubusercontent.com/j0hax/nixpkgs/lk-jwt-service-restructure/nixos/modules/services/matrix/lk-jwt-service.nix";
+      flake = false;
+    };
   };
 
   outputs =
