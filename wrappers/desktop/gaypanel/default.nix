@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  lib,
   ...
 }:
 let
@@ -42,6 +43,15 @@ let
               "pill",
               "flat",
             ]
+          }
+          $CommandButton {
+            styles [
+              "pill",
+              "flat",
+            ]
+
+            icon-name: "notification-symbolic";
+            command: "${lib.getExe' pkgs.swaynotificationcenter "swaync-client"} --toggle-panel --skip-wait";
           }
 
           $SystemControlsWidget {

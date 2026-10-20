@@ -8,6 +8,84 @@
 let
   filename = "fht-compositor.toml";
 
+  swaync = pkgs.swaynotificationcenter;
+  swaync-config = (pkgs.formats.json { }).generate "swaync.json" (
+    let
+      default = lib.importJSON "${swaync}/etc/xdg/swaync/config.json";
+    in
+    default
+    // lib.genAttrs (map (side: "control-center-margin-${side}") [
+      "top"
+      "bottom"
+      "right"
+    ]) (_: 8)
+    // {
+      notification-window-width = 420;
+      ignore-gtk-theme = false;
+      fit-to-screen = false;
+      control-center-height = -1;
+      widget-config = default.widget-config // {
+        notifications = default.widget-config.notifications or { } // {
+          vexpand = false;
+        };
+      };
+    }
+  );
+  swaync-style = pkgs.writeText "swaync.css" ''
+    @import url("file://${swaync}/etc/xdg/swaync/style.css");
+
+    :root {
+      --noti-bg-focus: transparent;
+      --noti-border-color: transparent;
+      --notification-shadow: none;
+      --border-radius: 16px;
+      --notification-icon-size: 48px;
+      --font-size-summary: 14px;
+      --font-size-body: 14px;
+    }
+
+    .control-center {
+      background: @theme_bg_color;
+    }
+
+    .notification-row .notification-background .notification,
+    .notification-group.collapsed .notification-row .notification {
+      background: shade(@theme_bg_color, 1.25);
+    }
+
+    .notification-row .notification-background .notification .notification-default-action:hover,
+    .control-center .control-center-list .notification .notification-default-action:hover,
+    .notification-group.collapsed:hover .notification-row:not(:only-child) .notification {
+      background: shade(@theme_bg_color, 1.4);
+    }
+
+    .control-center .control-center-list-placeholder {
+      margin-bottom: 24px;
+    }
+
+    .notification-row .notification-background .notification .notification-default-action .notification-content {
+      padding: 6px;
+    }
+
+    .notification-row .notification-background .notification .notification-default-action .notification-content .text-box .time {
+      font-size: 12px;
+      font-weight: normal;
+      opacity: 0.6;
+    }
+
+    .notification-row .notification-background .notification .notification-default-action .notification-content .text-box .body {
+      opacity: 0.8;
+    }
+  '';
+
+  osd-style = pkgs.writeText "swayosd.css" ''
+    @import url("file://${pkgs.swayosd}/etc/xdg/swayosd/style.css");
+
+    window#osd {
+      background: shade(@theme_bg_color, 1.15);
+    }
+  '';
+
   session-programs = lib.getExe (
     pkgs.writeShellApplication {
       name = "session-programs";
@@ -31,6 +109,8 @@ let
         restart 'walker.* --gapplication-service' walker --gapplication-service
         restart 'gaypanel-wrapped_' systemd-cat -t gaypanel gaypanel
         restart 'bin/swaybg ' ${lib.getExe pkgs.swaybg} -i ${../../../background.jpg} -m fill
+        restart 'bin/swayosd-server ' ${lib.getExe' pkgs.swayosd "swayosd-server"} --style ${osd-style}
+        restart 'bin/swaync ' ${lib.getExe' swaync "swaync"} --style ${swaync-style} --config ${swaync-config}
       '';
     }
   );
@@ -193,7 +273,22 @@ in
           arg = i;
         };
       }) 9
-    );
+    )
+    # Media keys, with a SwayOSD popup
+    //
+      lib.mapAttrs
+        (_: args: {
+          action = "run-command";
+          arg = "${lib.getExe' pkgs.swayosd "swayosd-client"} ${args}";
+          # Holding raise/lower keeps changing the volume, but holding mute shouldn't keep toggling
+          repeat = !lib.hasSuffix "mute-toggle" args;
+        })
+        {
+          XF86AudioRaiseVolume = "--output-volume raise";
+          XF86AudioLowerVolume = "--output-volume lower";
+          XF86AudioMute = "--output-volume mute-toggle";
+          XF86AudioMicMute = "--input-volume mute-toggle";
+        };
 
     mousebinds = {
       Super-Left = "swap-tile";
