@@ -298,6 +298,19 @@ in
       Super-wheelup = "focus-next-workspace";
     };
 
+    gesturebinds = {
+      focus-next-workspace = {
+        fingers = 3;
+        direction = "left";
+        min-swipe-distance = 1;
+      };
+      focus-previous-workspace = {
+        fingers = 3;
+        direction = "right";
+        min-swipe-distance = 1;
+      };
+    };
+
     rules = [
       {
         match-app-id = [ ".*" ];
