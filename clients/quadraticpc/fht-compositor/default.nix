@@ -45,9 +45,10 @@ in
 
   # The default theme, minus its hardcoded @define-color palette, so the GTK theme's colors show through
   environment.etc."xdg/walker/themes/system/style.css".source =
-    pkgs.runCommand "walker-system-style.css" { } ''
-      sed '/^@define-color/d' ${pkgs.walker.src}/resources/themes/default/style.css > $out
-    '';
+    pkgs.runCommand "walker-system-style.css" { }
+      ''
+        sed '/^@define-color/d' ${pkgs.walker.src}/resources/themes/default/style.css > $out
+      '';
 
   environment.etc.${filename}.source = (pkgs.formats.toml { }).generate "config.toml" {
     autostart = [ session-programs ];
@@ -136,6 +137,14 @@ in
         floating = false;
       }
     ];
+
+    # # Blur behind gaypanel's semi-transparent background
+    # layer-rules = [
+    #   {
+    #     match-namespace = [ "^panel$" ];
+    #     blur.disable = false;
+    #   }
+    # ];
 
     outputs = {
       HDMI-A-1.position.x = 0;

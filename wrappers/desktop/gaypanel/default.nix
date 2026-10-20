@@ -55,8 +55,11 @@ let
     }
   '';
 
-  # GNOME-style workspace dots, with the active one stretched into a pill
   style = pkgs.writeText "style.css" ''
+    window.panel {
+      background: alpha(var(--window-bg-color), 0.5);
+    }
+
     .workspaces button {
       min-width: 8px;
       min-height: 8px;
