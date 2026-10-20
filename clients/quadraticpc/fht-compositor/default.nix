@@ -1,5 +1,6 @@
 {
   inputs,
+  config,
   pkgs,
   lib,
   ...
@@ -41,6 +42,54 @@ in
   environment.etc."xdg/walker/config.toml".source = (pkgs.formats.toml { }).generate "walker.toml" {
     force_keyboard_focus = true;
     theme = "system";
+  };
+
+  environment.etc = {
+    # Only load the providers Walker uses
+    "xdg/elephant/elephant.toml".source = (pkgs.formats.toml { }).generate "elephant.toml" {
+      terminal_cmd = "ptyxis -x";
+      ignored_providers = [
+        "1password"
+        "aptpackages"
+        "archlinuxpkgs"
+        "bitwarden"
+        "bluetooth"
+        "bookmarks"
+        "clipboard"
+        "dnfpackages"
+        "files"
+        "menus"
+        "niriactions"
+        "nirisessions"
+        "playerctl"
+        "protonpass"
+        "providerlist"
+        "runner"
+        "snippets"
+        "symbols"
+        "todo"
+        "unicode"
+        "windows"
+        "wireplumber"
+      ];
+    };
+
+    # Use the same search engines as LibreWolf, with its aliases as prefixes (e.g. "no nix")
+    "xdg/elephant/websearch.toml".source =
+      let
+        inherit (config.programs.firefox.policies) SearchEngines;
+      in
+      (pkgs.formats.toml { }).generate "websearch.toml" {
+        entries = map (
+          engine:
+          {
+            name = engine.Name;
+            url = lib.replaceStrings [ "{searchTerms}" ] [ "%TERM%" ] engine.URLTemplate;
+            default = engine.Name == SearchEngines.Default;
+          }
+          // lib.optionalAttrs (engine ? Alias) { prefix = "${engine.Alias} "; }
+        ) SearchEngines.Add;
+      };
   };
 
   # The default theme, minus its hardcoded @define-color palette, so the GTK theme's colors show through
