@@ -38,6 +38,21 @@ in
 {
   imports = [ inputs.fht-compositor.nixosModules.default ];
 
+  # Prefer the GNOME portal (e.g. Nautilus as the file picker), falling back to GTK. This replaces
+  # the portal config fht-compositor ships.
+  xdg.portal.config.fht-compositor = {
+    default = [
+      "gnome"
+      "gtk"
+    ];
+
+    # GNOME's sends them to GNOME Shell, GTK's to any notification daemon
+    "org.freedesktop.impl.portal.Notification" = [ "gtk" ];
+
+    # GNOME's needs GNOME Shell, and GTK doesn't have one
+    "org.freedesktop.impl.portal.ScreenCast" = [ "fht-compositor" ];
+  };
+
   # Take keyboard focus when opened, so you can type into the search straight away
   environment.etc."xdg/walker/config.toml".source = (pkgs.formats.toml { }).generate "walker.toml" {
     force_keyboard_focus = true;
@@ -143,6 +158,10 @@ in
       Super-e = {
         action = "run-command";
         arg = "nautilus";
+      };
+      Super-c = {
+        action = "run-command";
+        arg = "codium";
       };
 
       Super-Down = {
