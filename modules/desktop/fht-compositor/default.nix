@@ -305,14 +305,6 @@ in
       }
     ];
 
-    # # Blur behind gaypanel's semi-transparent background
-    # layer-rules = [
-    #   {
-    #     match-namespace = [ "^panel$" ];
-    #     blur.disable = false;
-    #   }
-    # ];
-
     outputs = {
       HDMI-A-1.position.x = 0;
       DP-3.position.x = 1920;
