@@ -34,11 +34,23 @@ let
         }
 
         [end]
-        $SystemControlsWidget {
-          styles [
-            "pill",
-            "flat",
-          ]
+        Box {
+          spacing: 4;
+
+          // Hides itself when nothing is playing
+          $MprisWidget {
+            styles [
+              "pill",
+              "flat",
+            ]
+          }
+
+          $SystemControlsWidget {
+            styles [
+              "pill",
+              "flat",
+            ]
+          }
         }
       }
     }
