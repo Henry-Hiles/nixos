@@ -5,7 +5,7 @@
   ...
 }:
 let
-  s3Domain = "http://127.0.0.1${config.services.minio.listenAddress}";
+  s3Domain = "http://127.0.0.1${config.services.minio-vendored.listenAddress}";
   cfg = config.services.lasuite-docs;
 in
 {
@@ -76,7 +76,7 @@ in
         environmentFile = config.age.secrets."lasuiteSecrets.age".path;
       };
 
-      minio = {
+      minio-vendored = {
         enable = true;
         rootCredentialsFile = config.age.secrets."minioCredentials.age".path;
       };
@@ -135,5 +135,6 @@ in
 
   nixpkgs.config.permittedInsecurePackages = [
     "minio-2025-10-15T17-29-55Z"
+    "minio-client-2025-08-13T08-35-41Z"
   ];
 }
