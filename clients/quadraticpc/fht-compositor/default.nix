@@ -40,7 +40,14 @@ in
   # Take keyboard focus when opened, so you can type into the search straight away
   environment.etc."xdg/walker/config.toml".source = (pkgs.formats.toml { }).generate "walker.toml" {
     force_keyboard_focus = true;
+    theme = "system";
   };
+
+  # The default theme, minus its hardcoded @define-color palette, so the GTK theme's colors show through
+  environment.etc."xdg/walker/themes/system/style.css".source =
+    pkgs.runCommand "walker-system-style.css" { } ''
+      sed '/^@define-color/d' ${pkgs.walker.src}/resources/themes/default/style.css > $out
+    '';
 
   environment.etc.${filename}.source = (pkgs.formats.toml { }).generate "config.toml" {
     autostart = [ session-programs ];
@@ -149,7 +156,6 @@ in
           patches = (old.patches or [ ]) ++ [
             ./resize-tiled-windows.patch
             ./lone-modifier.patch
-            ./scroll-accumulation.patch
           ];
 
           nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ pkgs.makeWrapper ];
