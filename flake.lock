@@ -1473,7 +1473,7 @@
     "v4l2loopback-package": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-Jel7EbTuktyhriWtL3u9P5+4ADP0FqGjgkcE2uVgPbo=",
+        "narHash": "sha256-iQ5x0KK9zqJOTh8E5IkHL75OVVHnn2e8gRXx8cbncF0=",
         "type": "file",
         "url": "https://raw.githubusercontent.com/moni-dz/nixpkgs/v4l2loopback-depmod/pkgs/os-specific/linux/v4l2loopback/default.nix"
       },
