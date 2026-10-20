@@ -1123,6 +1123,7 @@
         "sable": "sable",
         "sable-next": "sable-next",
         "stylix": "stylix",
+        "v4l2loopback-package": "v4l2loopback-package",
         "wrapper-manager": "wrapper-manager"
       }
     },
@@ -1467,6 +1468,18 @@
         "owner": "numtide",
         "repo": "treefmt-nix",
         "type": "github"
+      }
+    },
+    "v4l2loopback-package": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-Jel7EbTuktyhriWtL3u9P5+4ADP0FqGjgkcE2uVgPbo=",
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/moni-dz/nixpkgs/v4l2loopback-depmod/pkgs/os-specific/linux/v4l2loopback/default.nix"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/moni-dz/nixpkgs/v4l2loopback-depmod/pkgs/os-specific/linux/v4l2loopback/default.nix"
       }
     },
     "wrapper-manager": {
