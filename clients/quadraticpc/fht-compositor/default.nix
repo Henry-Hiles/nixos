@@ -68,7 +68,7 @@ in
         arg = "fht-compositor ipc action reload-config; ${session-programs}";
       };
 
-      # Runs when Super is tapped on its own (patched in, see lone-modifier-and-scroll.patch)
+      # Runs when Super is tapped on its own (patched in, see lone-modifier.patch)
       Super_L = {
         action = "run-command";
         arg = "walker";
@@ -148,9 +148,8 @@ in
         (old: {
           patches = (old.patches or [ ]) ++ [
             ./resize-tiled-windows.patch
-            ./lone-modifier-and-scroll.patch
-            # Fixes screencasting (e.g. OBS window capture) being rejected by xdg-desktop-portal
-            ./portal-version.patch
+            ./lone-modifier.patch
+            ./scroll-accumulation.patch
           ];
 
           nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ pkgs.makeWrapper ];

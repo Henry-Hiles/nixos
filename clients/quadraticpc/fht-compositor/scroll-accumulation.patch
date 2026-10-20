@@ -1,0 +1,132 @@
+--- a/src/state.rs
++++ b/src/state.rs
+@@ -719,6 +719,9 @@
+     pub seat: Seat<State>,
+     pub keyboard: KeyboardHandle<State>,
+     pub pointer: PointerHandle<State>,
++    // Accumulated high-resolution scroll (in 1/120ths of a wheel notch), horizontal then vertical,
++    // for scroll bindings, so that they trigger once per notch rather than once per event.
++    pub scroll_binding_accumulator: (f64, f64),
+     pub clock: Clock<Monotonic>,
+     pub suppressed_keys: HashMap<u32, (KeyPattern, KeyAction)>,
+     // We store both the timer and the keysym used to trigger the key action.
+@@ -967,6 +970,7 @@
+             seat_state,
+             keyboard,
+             pointer,
++            scroll_binding_accumulator: (0.0, 0.0),
+             mapped_layer_surfaces: HashMap::new(),
+             lock_state: LockState::Unlocked,
+             focused_on_demand_layer_shell: None,
+--- a/src/input/mod.rs
++++ b/src/input/mod.rs
+@@ -569,56 +569,41 @@
+         let mut handled = false;
+ 
+         // Check vertical axis bindings using discrete amounts
+-        if let Some(discrete) = vertical_amount_discrete {
+-            if discrete > 0.0 {
+-                let mouse_pattern = fht_compositor_config::MousePattern(
+-                    modifiers,
+-                    fht_compositor_config::MouseInput::Axis(
+-                        fht_compositor_config::MouseAxis::WheelUp,
+-                    ),
+-                );
+-                if let Some(action) = self.fht.config.mousebinds.get(&mouse_pattern).cloned() {
+-                    self.process_mouse_action(0, action, SERIAL_COUNTER.next_serial());
+-                    handled = true;
+-                }
+-            } else if discrete < 0.0 {
+-                let mouse_pattern = fht_compositor_config::MousePattern(
+-                    modifiers,
+-                    fht_compositor_config::MouseInput::Axis(
+-                        fht_compositor_config::MouseAxis::WheelDown,
+-                    ),
+-                );
+-                if let Some(action) = self.fht.config.mousebinds.get(&mouse_pattern).cloned() {
++        if let Some(discrete) = vertical_amount_discrete.filter(|discrete| *discrete != 0.0) {
++            let mouse_axis = if discrete > 0.0 {
++                fht_compositor_config::MouseAxis::WheelUp
++            } else {
++                fht_compositor_config::MouseAxis::WheelDown
++            };
++            let mouse_pattern = fht_compositor_config::MousePattern(
++                modifiers,
++                fht_compositor_config::MouseInput::Axis(mouse_axis),
++            );
++            if let Some(action) = self.fht.config.mousebinds.get(&mouse_pattern).cloned() {
++                handled = true;
++                if accumulate_scroll(&mut self.fht.scroll_binding_accumulator.1, discrete) {
+                     self.process_mouse_action(0, action, SERIAL_COUNTER.next_serial());
+-                    handled = true;
+                 }
+             }
+         }
+ 
+         // Check horizontal axis bindings using discrete amounts
+         if !handled {
+-            if let Some(discrete) = horizontal_amount_discrete {
+-                if discrete > 0.0 {
+-                    let mouse_pattern = fht_compositor_config::MousePattern(
+-                        modifiers,
+-                        fht_compositor_config::MouseInput::Axis(
+-                            fht_compositor_config::MouseAxis::WheelRight,
+-                        ),
+-                    );
+-                    if let Some(action) = self.fht.config.mousebinds.get(&mouse_pattern).cloned() {
+-                        self.process_mouse_action(0, action, SERIAL_COUNTER.next_serial());
+-                        handled = true;
+-                    }
+-                } else if discrete < 0.0 {
+-                    let mouse_pattern = fht_compositor_config::MousePattern(
+-                        modifiers,
+-                        fht_compositor_config::MouseInput::Axis(
+-                            fht_compositor_config::MouseAxis::WheelLeft,
+-                        ),
+-                    );
+-                    if let Some(action) = self.fht.config.mousebinds.get(&mouse_pattern).cloned() {
++            if let Some(discrete) = horizontal_amount_discrete.filter(|discrete| *discrete != 0.0)
++            {
++                let mouse_axis = if discrete > 0.0 {
++                    fht_compositor_config::MouseAxis::WheelRight
++                } else {
++                    fht_compositor_config::MouseAxis::WheelLeft
++                };
++                let mouse_pattern = fht_compositor_config::MousePattern(
++                    modifiers,
++                    fht_compositor_config::MouseInput::Axis(mouse_axis),
++                );
++                if let Some(action) = self.fht.config.mousebinds.get(&mouse_pattern).cloned() {
++                    handled = true;
++                    if accumulate_scroll(&mut self.fht.scroll_binding_accumulator.0, discrete) {
+                         self.process_mouse_action(0, action, SERIAL_COUNTER.next_serial());
+-                        handled = true;
+                     }
+                 }
+             }
+@@ -1080,6 +1065,25 @@
+ }
+ 
+ /// Returns `true` if a VT switch key has been handled.
++/// Accumulate high-resolution scroll for a scroll binding.
++///
++/// High-resolution wheels send several events per notch, each with part of the 120 units of a
++/// notch, so we accumulate them and only trigger the binding once per full notch. Returns whether
++/// the binding should trigger.
++fn accumulate_scroll(accumulated: &mut f64, v120: f64) -> bool {
++    if accumulated.signum() != v120.signum() {
++        // Changed direction, start over
++        *accumulated = 0.0;
++    }
++    *accumulated += v120;
++    if accumulated.abs() >= 120.0 {
++        *accumulated -= 120.0 * accumulated.signum();
++        true
++    } else {
++        false
++    }
++}
++
+ fn handle_vt_switch(backend: &mut Backend, key_state: KeyState, modified: Keysym) -> bool {
+     if key_state == KeyState::Released {
+         // We only do VT switch on presses.
