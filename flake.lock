@@ -306,11 +306,11 @@
         "rust-overlay": []
       },
       "locked": {
-        "lastModified": 1791704129,
-        "narHash": "sha256-rSK4/dNK6AOEsQ4EozZgv07fTyi4q4RF9KoXIAlwcz0=",
+        "lastModified": 1792487869,
+        "narHash": "sha256-4e5XvmR5lvSr/tSbSM1byipvKpblM5SJjSJWNgGAiSo=",
         "owner": "nferhat",
         "repo": "fht-compositor",
-        "rev": "fc0243b7468d6ee16171c2f0ba19e1b6ddddd1a0",
+        "rev": "a39a9a6e4f13307d034c5976ca5514beda7b21ac",
         "type": "github"
       },
       "original": {
@@ -654,6 +654,26 @@
         "owner": "SenchoPens",
         "repo": "fromYaml",
         "type": "github"
+      }
+    },
+    "gaypanel": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791581716,
+        "narHash": "sha256-XlLNC+8X7arvQHc0n3cJQfm11THhV8zCH8QofcQDxEE=",
+        "ref": "refs/heads/main",
+        "rev": "acea989ace01a2408d51a27e030ac15df148d08c",
+        "revCount": 298,
+        "type": "git",
+        "url": "https://codeberg.org/pastthepixels/gaypanel"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://codeberg.org/pastthepixels/gaypanel"
       }
     },
     "git-hooks": {
@@ -1089,6 +1109,7 @@
         "fht-compositor": "fht-compositor",
         "firefox-gnome-theme": "firefox-gnome-theme",
         "flake-parts": "flake-parts_5",
+        "gaypanel": "gaypanel",
         "home-manager": "home-manager",
         "lasuite-docs-proxy": "lasuite-docs-proxy",
         "lk-jwt-service-module": "lk-jwt-service-module",

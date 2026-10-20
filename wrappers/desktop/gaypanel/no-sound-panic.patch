@@ -1,0 +1,104 @@
+--- a/src/system/sound.rs
++++ b/src/system/sound.rs
+@@ -6,25 +6,21 @@
+ 
+ use crate::{senders, system::SystemModule};
+ 
+-/// Gets the default mixer. Throws an error if it doesn't exist (this means you probably don't have ALSA installed)
++/// Gets the default mixer. Returns None if it doesn't exist (yet), e.g. if the sound server hasn't started
+ macro_rules! mixer {
+     () => {
+-        Mixer::new("default", false).expect("[fatal] alsa: Could not find a mixer named \"default\". gaypanel assumes this is the name of the default mixer. \n[fatal] alsa: **If you have ALSA installed and running and you're *sure* of it, open an issue at codeberg.org/pastthepixels/gaypanel!**")
++        Mixer::new("default", false).ok()
+     };
+ }
+ 
+ /// Finds the first selem with a playback volume in a mixer. Assumes this is the "default"
+ /// e.g. this reflects the actual output volume. I don't know how alsa works.
+-/// You must have a speaker of some kind or else this'll crap out
++/// Returns None if there's no speaker of some kind (yet)
+ macro_rules! sink {
+     ($m: expr) => {
+         $m.iter()
+             .flat_map(|e| Selem::new(e))
+             .find(|s| s.has_playback_volume())
+-            .expect(&format!(
+-                "[fatal] alsa: Could not find default sink for mixer {:?}",
+-                $m
+-            ))
+     };
+ }
+ 
+@@ -54,9 +50,9 @@
+     senders!(VolumeModule);
+ 
+     fn get() -> Option<Self::ReturnType> {
+-        let mixer = mixer!();
++        let mixer = mixer!()?;
+         // Sink stats
+-        let sink = sink!(mixer);
++        let sink = sink!(mixer)?;
+         let vol = {
+             let max = sink.get_playback_volume_range().1 as f64;
+             let raw_vol = sink
+@@ -101,8 +97,12 @@
+ 
+     fn set(val: Self::ReturnType) {
+         // Sets sink volume
+-        let mixer = mixer!();
+-        let sink = sink!(mixer);
++        let Some(mixer) = mixer!() else {
++            return;
++        };
++        let Some(sink) = sink!(mixer) else {
++            return;
++        };
+         let max = sink.get_playback_volume_range().1 as f64;
+         sink.set_playback_volume_all((val.0.volume * max) as i64)
+             .unwrap();
+@@ -118,8 +118,17 @@
+ 
+     fn listen() {
+         std::thread::spawn(|| {
+-            let mixer = mixer!();
+-            let sink = sink!(mixer);
++            // Wait for the sound server to provide a mixer with a sink
++            let mixer = loop {
++                if let Some(mixer) = mixer!() {
++                    let has_sink = sink!(mixer).is_some();
++                    if has_sink {
++                        break mixer;
++                    }
++                }
++                std::thread::sleep(std::time::Duration::from_secs(1));
++            };
++            let sink = sink!(mixer).unwrap();
+             let source = source!(mixer);
+             let mut pollfds = mixer.get().unwrap();
+ 
+--- a/src/widgets/controls.rs
++++ b/src/widgets/controls.rs
+@@ -400,7 +400,10 @@
+                 gtk::EventControllerScroll::new(gtk::EventControllerScrollFlags::VERTICAL);
+             controller.connect_scroll(|_, _, b| {
+                 glib::spawn_future_local(async move {
+-                    let sound = (system::sound::VolumeModule::get().unwrap().0.volume
++                    let Some(stats) = system::sound::VolumeModule::get() else {
++                        return;
++                    };
++                    let sound = (stats.0.volume
+                         - b.signum() * VOLUME_SCROLL_STEP)
+                         .clamp(0., 1.);
+                     system::sound::VolumeModule::set((
+@@ -420,7 +423,10 @@
+             // Setup volume
+             let this = glib::clone::Downgrade::downgrade(&self);
+             let rx = system::sound::VolumeModule::rx();
+-            self.update_sound(system::sound::VolumeModule::get().unwrap());
++            // The listener sends an update once sound is available, so it's fine to skip this
++            if let Some(stats) = system::sound::VolumeModule::get() {
++                self.update_sound(stats);
++            }
+             glib::spawn_future_local(async move {
+                 while let Ok(stats) = rx.recv().await {
+                     if let Some(this) = this.upgrade() {

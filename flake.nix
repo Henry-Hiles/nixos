@@ -71,6 +71,10 @@
         rust-overlay.follows = "";
       };
     };
+    gaypanel = {
+      url = "git+https://codeberg.org/pastthepixels/gaypanel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     firefox-gnome-theme = {
       url = "github:rafaelmardojai/firefox-gnome-theme";
       flake = false;

@@ -1,0 +1,191 @@
+--- a/src/space/workspace.rs
++++ b/src/space/workspace.rs
+@@ -59,6 +59,11 @@
+     window: Window,
+     initial_window_geometry: Rectangle<i32, Logical>,
+     edges: ResizeEdge,
++    /// The layout values when the resize started, used when resizing a tiled window.
++    initial_mwfact: f64,
++    initial_proportion: f64,
++    /// The sum of the proportions of the other tiles in the window's stack.
++    initial_peers_proportion: f64,
+ }
+ 
+ #[derive(Debug)]
+@@ -2009,23 +2014,70 @@
+             return false;
+         };
+ 
+-        match (window.tiled(), self.current_layout()) {
+-            (_, WorkspaceLayout::Floating) | (false, _) => (),
+-            // We only do interactive resizes on floating windows
+-            (true, _) => return false,
+-        }
+-
++        // Tiled windows are resized by changing the layout (see handle_interactive_resize_motion)
+         let loc = tile.visual_location();
+         let size = window.size();
++        let initial_proportion = tile.proportion();
++        let initial_peers_proportion = self
++            .stack_peers(window)
++            .into_iter()
++            .map(|idx| self.tiles[idx].proportion())
++            .sum();
+         self.interactive_resize = Some(InteractiveResize {
+             window: window.clone(),
+             initial_window_geometry: Rectangle::new(loc, size),
+             edges,
++            initial_mwfact: self.mwfact,
++            initial_proportion,
++            initial_peers_proportion,
+         });
+ 
+         true
+     }
+ 
++    /// Get the indices of the other tiles that share a stack with this window in the current layout,
++    /// IE. that split the stack's length with it according to their proportions.
++    fn stack_peers(&self, window: &Window) -> Vec<usize> {
++        // Matches how arrange_tiles orders and splits tiles.
++        let tiled: Vec<usize> = (0..self.tiles.len())
++            .filter(|&idx| {
++                let window = self.tiles[idx].window();
++                window.tiled() && !window.maximized()
++            })
++            .collect();
++        let Some(position) = tiled
++            .iter()
++            .position(|&idx| self.tiles[idx].window() == window)
++        else {
++            return vec![];
++        };
++
++        let nmaster = self.nmaster.min(tiled.len());
++        let layout = self.current_layout();
++        let same_stack = |other: usize| match layout {
++            WorkspaceLayout::Tile | WorkspaceLayout::BottomStack => {
++                (position < nmaster) == (other < nmaster)
++            }
++            // The non-master tiles alternate between the left and right stacks
++            WorkspaceLayout::CenteredMaster => {
++                if position < nmaster {
++                    other < nmaster
++                } else {
++                    other >= nmaster && (other - nmaster) % 2 == (position - nmaster) % 2
++                }
++            }
++            // The other layouts don't use proportions
++            _ => false,
++        };
++
++        tiled
++            .into_iter()
++            .enumerate()
++            .filter(|&(other, _)| other != position && same_stack(other))
++            .map(|(_, idx)| idx)
++            .collect()
++    }
++
+     /// Handle an interactive resize grab motion.
+     ///
+     /// `delta` is how much the cursor moved from its initial window location.
+@@ -2052,11 +2104,53 @@
+             return None;
+         }
+ 
+-        match (window.tiled(), self.current_layout()) {
+-            (_, WorkspaceLayout::Floating) | (false, _) => (),
+-            // We switched from floating to tiled between the motion events
+-            // Can happen if the user uses a key action bound to toggle-window-floating
+-            (true, _) => return None,
++        let layout = self.current_layout();
++        if window.tiled() && layout != WorkspaceLayout::Floating {
++            // For tiled windows, dragging along the master/stack split moves the split (mwfact)
++            // so it follows the cursor, and dragging across it grows/shrinks the window in its
++            // stack (proportion). Which axis is which depends on the layout.
++            let initial_size = interactive_resize.initial_window_geometry.size;
++            let work_area_size = self.work_area.size;
++            let (split_delta, split_length, stack_delta, stack_length, grow_edge) = match layout {
++                WorkspaceLayout::BottomStack => {
++                    (delta.y, work_area_size.h, delta.x, initial_size.w, ResizeEdge::LEFT)
++                }
++                _ => (delta.x, work_area_size.w, delta.y, initial_size.h, ResizeEdge::TOP),
++            };
++            // Grabbing the top (or left) part of the window grows it in that direction instead
++            let stack_delta = if interactive_resize.edges.intersects(grow_edge) {
++                -stack_delta
++            } else {
++                stack_delta
++            };
++
++            let mwfact =
++                interactive_resize.initial_mwfact + f64::from(split_delta) / f64::from(split_length.max(1));
++
++            // Solve for the proportion that gives the window exactly the length it was dragged to.
++            // The other tiles in the stack keep their proportions (`peers`) during the drag, and
++            // the window's length is `total * p / (p + peers)`, so `p = len * peers / (total - len)`
++            let initial_proportion = interactive_resize.initial_proportion;
++            let peers = interactive_resize.initial_peers_proportion;
++            // Nothing to resize against if the window is alone in its stack
++            if peers > 0.0 && initial_proportion > 0.0 && stack_length > 0 {
++                let initial_length = f64::from(stack_length);
++                let total_length = initial_length * (initial_proportion + peers) / initial_proportion;
++                // Always leave some room for the window and the other tiles in the stack
++                let min_length = (total_length * 0.05).max(1.0);
++                let peer_count = self.stack_peers(window).len() as f64;
++                let max_length = (total_length - min_length * peer_count.max(1.0)).max(min_length);
++                let length = (initial_length + f64::from(stack_delta)).clamp(min_length, max_length);
++                let proportion = length * peers / (total_length - length);
++
++                if let Some(tile) = self.tiles.iter_mut().find(|tile| tile.window() == window) {
++                    tile.set_proportion(proportion);
++                }
++            }
++            // This also re-arranges the tiles
++            self.set_mwfact(mwfact, false);
++
++            return Some(true);
+         }
+ 
+         let mut new_size = interactive_resize.initial_window_geometry.size;
+@@ -2140,6 +2234,24 @@
+             return false;
+         }
+ 
++        // Rescale the proportions in the window's stack so they average out to 1. This keeps the
++        // same layout, but stops the values from drifting to extremes over repeated resizes,
++        // where fixed steps (like change-window-proportion) would barely do anything anymore.
++        if window.tiled() && self.current_layout() != WorkspaceLayout::Floating {
++            let mut stack = self.stack_peers(window);
++            if let Some(idx) = self.tiles.iter().position(|tile| tile.window() == window) {
++                stack.push(idx);
++            }
++            let total: f64 = stack.iter().map(|&idx| self.tiles[idx].proportion()).sum();
++            if stack.len() > 1 && total > 0.0 {
++                let factor = stack.len() as f64 / total;
++                for idx in stack {
++                    let proportion = self.tiles[idx].proportion();
++                    self.tiles[idx].set_proportion(proportion * factor);
++                }
++            }
++        }
++
+         true
+     }
+ 
+--- a/src/input/actions.rs
++++ b/src/input/actions.rs
+@@ -605,12 +605,8 @@
+             }
+             MouseAction::ResizeTile => {
+                 if let Some(window) = focus.and_then(|focus| focus.window) {
++                    // Tiled windows are resized too, by changing the workspace layout
+                     let workspace = self.fht.space.workspace_for_window(&window).unwrap();
+-                    match (window.tiled(), workspace.current_layout()) {
+-                        (_, WorkspaceLayout::Floating) | (false, _) => (),
+-                        // We only do interactive resizes on floating windows
+-                        (true, _) => return,
+-                    }
+ 
+                     let pointer_loc = self.fht.pointer.current_location();
+                     let loc = self.fht.space.window_location(&window).unwrap().to_f64();
