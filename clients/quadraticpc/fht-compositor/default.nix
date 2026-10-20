@@ -86,37 +86,37 @@ let
     }
   '';
 
-  session-programs = lib.getExe (
-    pkgs.writeShellApplication {
-      name = "session-programs";
-      runtimeInputs = with pkgs; [
-        procps
-        util-linux
-      ];
-      text = ''
-        restart() {
-          pattern=$1
-          shift
-          pkill -f "$pattern" || true
-          for _ in $(seq 50); do
-            pgrep -f "$pattern" >/dev/null || break
-            sleep 0.1
-          done
-          setsid "$@" >/dev/null 2>&1 </dev/null &
-        }
+  session-programs = pkgs.writeShellApplication {
+    name = "session-programs";
+    runtimeInputs = with pkgs; [
+      procps
+      util-linux
+    ];
+    text = ''
+      restart() {
+        pattern=$1
+        shift
+        pkill -f "$pattern" || true
+        for _ in $(seq 50); do
+          pgrep -f "$pattern" >/dev/null || break
+          sleep 0.1
+        done
+        setsid "$@" >/dev/null 2>&1 </dev/null &
+      }
 
-        restart '/bin/elephant$' systemd-cat -t elephant ${lib.getExe pkgs.elephant}
-        restart 'walker.* --gapplication-service' walker --gapplication-service
-        restart 'gaypanel-wrapped_' systemd-cat -t gaypanel gaypanel
-        restart 'bin/swaybg ' ${lib.getExe pkgs.swaybg} -i ${../../../background.jpg} -m fill
-        restart 'bin/swayosd-server ' ${lib.getExe' pkgs.swayosd "swayosd-server"} --style ${osd-style}
-        restart 'bin/swaync ' ${lib.getExe' swaync "swaync"} --style ${swaync-style} --config ${swaync-config}
-      '';
-    }
-  );
+      restart '/bin/elephant$' systemd-cat -t elephant ${lib.getExe pkgs.elephant}
+      restart 'walker.* --gapplication-service' walker --gapplication-service
+      restart 'gaypanel-wrapped_' systemd-cat -t gaypanel gaypanel
+      restart 'bin/swaybg ' ${lib.getExe pkgs.swaybg} -i ${../../../background.jpg} -m fill
+      restart 'bin/swayosd-server ' ${lib.getExe' pkgs.swayosd "swayosd-server"} --style ${osd-style}
+      restart 'bin/swaync ' ${lib.getExe' swaync "swaync"} --style ${swaync-style} --config ${swaync-config}
+    '';
+  };
 in
 {
   imports = [ inputs.fht-compositor.nixosModules.default ];
+
+  environment.systemPackages = [ session-programs ];
 
   # Prefer the GNOME portal (e.g. Nautilus as the file picker), falling back to GTK. This replaces
   # the portal config fht-compositor ships.
@@ -195,7 +195,7 @@ in
       '';
 
   environment.etc.${filename}.source = (pkgs.formats.toml { }).generate "config.toml" {
-    autostart = [ session-programs ];
+    autostart = [ "session-programs" ];
 
     general = {
       focus-follows-mouse = true;
@@ -217,7 +217,7 @@ in
       Super-Ctrl-q = "quit";
       Super-Ctrl-r = {
         action = "run-command";
-        arg = "fht-compositor ipc action reload-config; ${session-programs}";
+        arg = "fht-compositor ipc action reload-config; session-programs";
       };
 
       # Runs when Super is tapped on its own (patched in, see lone-modifier.patch)
