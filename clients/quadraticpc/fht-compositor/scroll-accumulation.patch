@@ -104,10 +104,10 @@
                      }
                  }
              }
-@@ -1080,6 +1065,25 @@
+@@ -1079,6 +1064,25 @@
+     }
  }
  
- /// Returns `true` if a VT switch key has been handled.
 +/// Accumulate high-resolution scroll for a scroll binding.
 +///
 +/// High-resolution wheels send several events per notch, each with part of the 120 units of a
@@ -127,6 +127,6 @@
 +    }
 +}
 +
+ /// Returns `true` if a VT switch key has been handled.
  fn handle_vt_switch(backend: &mut Backend, key_state: KeyState, modified: Keysym) -> bool {
      if key_state == KeyState::Released {
-         // We only do VT switch on presses.
