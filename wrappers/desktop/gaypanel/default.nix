@@ -6,7 +6,6 @@
 let
   bar = pkgs.writeText "top.blp" ''
     using Gtk 4.0;
-    using Adw 1;
 
     $GayPanel panel {
       anchor-direction: top;
@@ -69,7 +68,6 @@ let
 
     .workspaces button.selected {
       min-width: 32px;
-      padding: 0;
       background: var(--window-fg-color);
     }
 
@@ -80,13 +78,9 @@ let
 in
 {
   wrappers.gaypanel = {
-    basePackage =
-      inputs.gaypanel.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs
-        (old: {
-          patches = (old.patches or [ ]) ++ [
-            ./no-sound-panic.patch
-          ];
-        });
+    basePackage = inputs.gaypanel.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs {
+      patches = [ ./no-sound-panic.patch ];
+    };
 
     prependFlags = [
       "--config"
