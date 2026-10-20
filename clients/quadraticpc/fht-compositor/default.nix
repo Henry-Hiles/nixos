@@ -163,6 +163,10 @@ in
         action = "run-command";
         arg = "codium";
       };
+      Super-b = {
+        action = "run-command";
+        arg = "librewolf";
+      };
 
       Super-Down = {
         action = "change-window-proportion";
