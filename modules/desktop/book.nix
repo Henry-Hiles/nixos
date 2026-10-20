@@ -5,7 +5,7 @@
       name = "book";
       runtimeInputs = with pkgs; [
         libgourou
-        calibre
+        (calibre.override { speechSupport = false; })
       ];
       text = ''
         input="$1"
