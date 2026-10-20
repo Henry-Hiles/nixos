@@ -45,7 +45,7 @@ let
     }
 
     .control-center {
-      background: @theme_bg_color;
+      background: shade(@theme_bg_color, 1.1);
     }
 
     .notification-row .notification-background .notification,
