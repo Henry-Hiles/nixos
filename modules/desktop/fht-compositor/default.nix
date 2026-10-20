@@ -298,7 +298,10 @@ in
       Super-wheelup = "focus-next-workspace";
     };
 
-    input.touchpad.natural-scrolling = true;
+    input.touchpad = {
+      natural-scrolling = true;
+      click-method = "clickfinger";
+    };
 
     gesturebinds = {
       focus-next-workspace = {
