@@ -106,11 +106,53 @@ let
           }
         )
       }
+      # Only locks before suspending, with hyprlock
+      restart 'bin/hypridle ' ${lib.getExe pkgs.hypridle} --config ${pkgs.writeText "hypridle.conf" ''
+        general {
+          lock_cmd = pidof hyprlock || ${lib.getExe pkgs.hyprlock} --config ${
+            let
+              inherit (config.lib.stylix) colors;
+            in
+            pkgs.writeText "hyprlock.conf" ''
+
+              background {
+                path = screenshot
+                blur_passes = 3
+              }
+
+              label {
+                text = $TIME
+                font_size = 96
+                position = 0, 200
+              }
+
+              label {
+                text = cmd[update:60000] date +"%A, %B %-d"
+                font_size = 20
+                position = 0, 110
+              }
+
+              input-field {
+                size = 300, 50
+                outline_thickness = 0
+                inner_color = rgb(${colors.base01})
+                font_color = rgb(${colors.base05})
+                check_color = rgb(${colors.base0D})
+                fade_on_empty = false
+              }
+            ''
+          }
+          before_sleep_cmd = loginctl lock-session
+        }
+      ''}
     '';
   };
 in
 {
   imports = [ inputs.fht-compositor.nixosModules.default ];
+
+  # Tapping the power button suspends (which locks the screen, see hypridle above)
+  services.logind.settings.Login.HandlePowerKey = "suspend";
 
   # Prefer the GNOME portal (e.g. Nautilus as the file picker), falling back to GTK. This replaces
   # the portal config fht-compositor ships.
@@ -331,22 +373,26 @@ in
     };
   };
 
-  programs.fht-compositor = {
-    enable = true;
-    package =
-      inputs.fht-compositor.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs
-        (old: {
-          patches = (old.patches or [ ]) ++ [
-            ./resize-tiled-windows.patch
-            ./lone-modifier.patch
-          ];
+  programs = {
+    hyprlock.enable = true;
 
-          nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ pkgs.makeWrapper ];
+    fht-compositor = {
+      enable = true;
+      package =
+        inputs.fht-compositor.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs
+          (old: {
+            patches = (old.patches or [ ]) ++ [
+              ./resize-tiled-windows.patch
+              ./lone-modifier.patch
+            ];
 
-          postInstall = (old.postInstall or "") + ''
-            wrapProgram $out/bin/fht-compositor \
-              --add-flags "-c /etc/${filename}"
-          '';
-        });
+            nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ pkgs.makeWrapper ];
+
+            postInstall = (old.postInstall or "") + ''
+              wrapProgram $out/bin/fht-compositor \
+                --add-flags "-c /etc/${filename}"
+            '';
+          });
+    };
   };
 }
