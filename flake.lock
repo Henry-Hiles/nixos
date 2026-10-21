@@ -241,11 +241,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792505528,
-        "narHash": "sha256-BsLGrgqKJg2o9IsjU4Xvzo8RZV9Fn1GajEasifBwqsI=",
+        "lastModified": 1792526520,
+        "narHash": "sha256-3hSJlv8mUVnZPMWK2+CM7a9O+nR6Z4mCh27NfLCmTPc=",
         "owner": "nix-community",
         "repo": "disko",
-        "rev": "7fdf779611daf0e250889cb27e4f1f602147a8f2",
+        "rev": "cedd626e11b635470fa6f9fdb8ad79b0075dd7f9",
         "type": "github"
       },
       "original": {
@@ -800,11 +800,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792459113,
-        "narHash": "sha256-boQ5vhKJyoQJsozBrFVTJGiKXxcApJnc0tPdwT5iBRo=",
+        "lastModified": 1792535021,
+        "narHash": "sha256-0jM/p2Oky+wWI82jc7Wj/pX9/c9Txp90/8hilB2KQ4o=",
         "ref": "refs/heads/main",
-        "rev": "a2906746b9273f04833a1bdea36d8ffc87b2c2ec",
-        "revCount": 1066,
+        "rev": "a1a15af30d9b1a5a00a5d702b5f92befee873213",
+        "revCount": 1070,
         "submodules": true,
         "type": "git",
         "url": "https://git.federated.nexus/Nexus/nexus"
@@ -1043,11 +1043,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1792210252,
-        "narHash": "sha256-Mh0PUaIv4nFY+8wAGonaEh8iBzwsmdNlwjVHmFg1Biw=",
+        "lastModified": 1792502884,
+        "narHash": "sha256-IoNisKcGbUjdd45qCqywGMCYmZ5EnkxezvLII0FWwNA=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "09063bd1f2b36fd9fd793c36dfade7bd40a93dfc",
+        "rev": "02c087f3fe673c9e317f206a627cb6b910336dbe",
         "type": "github"
       },
       "original": {
@@ -1214,11 +1214,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792505713,
-        "narHash": "sha256-gYLowB8hLLje3rKZhLhB0VZhUqgOOgDG3HYYaWa+fUU=",
+        "lastModified": 1792536926,
+        "narHash": "sha256-RI7OapUhmimrfYeZ3qxo1iINRjYr1ytLgL6SVAKIG5I=",
         "ref": "refs/heads/main",
-        "rev": "ef92a87d1ead6859518b532c5e4cd02e91046d99",
-        "revCount": 6528,
+        "rev": "b0e5a9157a693fbac30b6717689af8b64e9f7124",
+        "revCount": 6550,
         "type": "git",
         "url": "https://git.sable.moe/SableClient/sable-next"
       },
