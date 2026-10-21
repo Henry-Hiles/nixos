@@ -8,84 +8,6 @@
 let
   filename = "fht-compositor.toml";
 
-  swaync = pkgs.swaynotificationcenter;
-  swaync-config = (pkgs.formats.json { }).generate "swaync.json" (
-    let
-      default = lib.importJSON "${swaync}/etc/xdg/swaync/config.json";
-    in
-    default
-    // lib.genAttrs (map (side: "control-center-margin-${side}") [
-      "top"
-      "bottom"
-      "right"
-    ]) (_: 8)
-    // {
-      notification-window-width = 420;
-      ignore-gtk-theme = false;
-      fit-to-screen = false;
-      control-center-height = -1;
-      widget-config = default.widget-config // {
-        notifications = default.widget-config.notifications or { } // {
-          vexpand = false;
-        };
-      };
-    }
-  );
-  swaync-style = pkgs.writeText "swaync.css" ''
-    @import url("file://${swaync}/etc/xdg/swaync/style.css");
-
-    :root {
-      --noti-bg-focus: transparent;
-      --noti-border-color: transparent;
-      --notification-shadow: none;
-      --border-radius: 16px;
-      --notification-icon-size: 48px;
-      --font-size-summary: 14px;
-      --font-size-body: 14px;
-    }
-
-    .control-center {
-      background: shade(@theme_bg_color, 1.1);
-    }
-
-    .notification-row .notification-background .notification,
-    .notification-group.collapsed .notification-row .notification {
-      background: shade(@theme_bg_color, 1.25);
-    }
-
-    .notification-row .notification-background .notification .notification-default-action:hover,
-    .control-center .control-center-list .notification .notification-default-action:hover,
-    .notification-group.collapsed:hover .notification-row:not(:only-child) .notification {
-      background: shade(@theme_bg_color, 1.4);
-    }
-
-    .control-center .control-center-list-placeholder {
-      margin-bottom: 24px;
-    }
-
-    .notification-row .notification-background .notification .notification-default-action .notification-content {
-      padding: 6px;
-    }
-
-    .notification-row .notification-background .notification .notification-default-action .notification-content .text-box .time {
-      font-size: 12px;
-      font-weight: normal;
-      opacity: 0.6;
-    }
-
-    .notification-row .notification-background .notification .notification-default-action .notification-content .text-box .body {
-      opacity: 0.8;
-    }
-  '';
-
-  osd-style = pkgs.writeText "swayosd.css" ''
-    @import url("file://${pkgs.swayosd}/etc/xdg/swayosd/style.css");
-
-    window#osd {
-      background: shade(@theme_bg_color, 1.15);
-    }
-  '';
-
   session-programs = pkgs.writeShellApplication {
     name = "session-programs";
     runtimeInputs = with pkgs; [
@@ -108,15 +30,87 @@ let
       restart 'walker.* --gapplication-service' walker --gapplication-service
       restart 'gaypanel-wrapped_' systemd-cat -t gaypanel gaypanel
       restart 'bin/swaybg ' ${lib.getExe pkgs.swaybg} -i ${../../../background.jpg} -m fill
-      restart 'bin/swayosd-server ' ${lib.getExe' pkgs.swayosd "swayosd-server"} --style ${osd-style}
-      restart 'bin/swaync ' ${lib.getExe' swaync "swaync"} --style ${swaync-style} --config ${swaync-config}
+      restart 'bin/swayosd-server ' ${lib.getExe' pkgs.swayosd "swayosd-server"} --style ${pkgs.writeText "swayosd.css" ''
+        @import url("file://${pkgs.swayosd}/etc/xdg/swayosd/style.css");
+
+        window#osd {
+          background: shade(@theme_bg_color, 1.15);
+        }
+      ''}
+      restart 'bin/swaync ' ${lib.getExe' pkgs.swaynotificationcenter "swaync"} --style ${pkgs.writeText "swaync.css" ''
+        @import url("file://${pkgs.swaynotificationcenter}/etc/xdg/swaync/style.css");
+
+        :root {
+          --noti-bg-focus: transparent;
+          --noti-border-color: transparent;
+          --notification-shadow: none;
+          --border-radius: 16px;
+          --notification-icon-size: 48px;
+          --font-size-summary: 14px;
+          --font-size-body: 14px;
+        }
+
+        .control-center {
+          background: shade(@theme_bg_color, 1.1);
+        }
+
+        .notification-row .notification-background .notification,
+        .notification-group.collapsed .notification-row .notification {
+          background: shade(@theme_bg_color, 1.25);
+        }
+
+        .notification-row .notification-background .notification .notification-default-action:hover,
+        .control-center .control-center-list .notification .notification-default-action:hover,
+        .notification-group.collapsed:hover .notification-row:not(:only-child) .notification {
+          background: shade(@theme_bg_color, 1.4);
+        }
+
+        .control-center .control-center-list-placeholder {
+          margin-bottom: 24px;
+        }
+
+        .notification-row .notification-background .notification .notification-default-action .notification-content {
+          padding: 6px;
+        }
+
+        .notification-row .notification-background .notification .notification-default-action .notification-content .text-box .time {
+          font-size: 12px;
+          font-weight: normal;
+          opacity: 0.6;
+        }
+
+        .notification-row .notification-background .notification .notification-default-action .notification-content .text-box .body {
+          opacity: 0.8;
+        }
+      ''} --config ${
+        (pkgs.formats.json { }).generate "swaync.json" (
+          let
+            default = lib.importJSON "${pkgs.swaynotificationcenter}/etc/xdg/swaync/config.json";
+          in
+          default
+          // lib.genAttrs (map (side: "control-center-margin-${side}") [
+            "top"
+            "bottom"
+            "right"
+          ]) (_: 8)
+          // {
+            notification-window-width = 420;
+            ignore-gtk-theme = false;
+            fit-to-screen = false;
+            control-center-height = -1;
+            widget-config = default.widget-config // {
+              notifications = default.widget-config.notifications or { } // {
+                vexpand = false;
+              };
+            };
+          }
+        )
+      }
     '';
   };
 in
 {
   imports = [ inputs.fht-compositor.nixosModules.default ];
-
-  environment.systemPackages = [ session-programs ];
 
   # Prefer the GNOME portal (e.g. Nautilus as the file picker), falling back to GTK. This replaces
   # the portal config fht-compositor ships.
@@ -133,204 +127,207 @@ in
     "org.freedesktop.impl.portal.ScreenCast" = [ "fht-compositor" ];
   };
 
-  # Take keyboard focus when opened, so you can type into the search straight away
-  environment.etc."xdg/walker/config.toml".source = (pkgs.formats.toml { }).generate "walker.toml" {
-    force_keyboard_focus = true;
-    theme = "system";
-  };
-
-  environment.etc = {
-    # Only load the providers Walker uses
-    "xdg/elephant/elephant.toml".source = (pkgs.formats.toml { }).generate "elephant.toml" {
-      terminal_cmd = "ptyxis -x";
-      ignored_providers = [
-        "1password"
-        "aptpackages"
-        "archlinuxpkgs"
-        "bitwarden"
-        "bluetooth"
-        "bookmarks"
-        "clipboard"
-        "dnfpackages"
-        "files"
-        "menus"
-        "niriactions"
-        "nirisessions"
-        "playerctl"
-        "protonpass"
-        "providerlist"
-        "runner"
-        "snippets"
-        "symbols"
-        "todo"
-        "unicode"
-        "windows"
-        "wireplumber"
-      ];
-    };
-
-    # Use the same search engines as LibreWolf, with its aliases as prefixes (e.g. "no nix")
-    "xdg/elephant/websearch.toml".source =
-      let
-        inherit (config.programs.firefox.policies) SearchEngines;
-      in
-      (pkgs.formats.toml { }).generate "websearch.toml" {
-        entries = map (
-          engine:
-          {
-            name = engine.Name;
-            url = lib.replaceStrings [ "{searchTerms}" ] [ "%TERM%" ] engine.URLTemplate;
-            default = engine.Name == SearchEngines.Default;
-          }
-          // lib.optionalAttrs (engine ? Alias) { prefix = "${engine.Alias} "; }
-        ) SearchEngines.Add;
+  environment = {
+    systemPackages = [ session-programs ];
+    etc = {
+      "xdg/walker/config.toml".source = (pkgs.formats.toml { }).generate "walker.toml" {
+        # Take keyboard focus when opened, so you can type into the search straight away
+        force_keyboard_focus = true;
+        theme = "system";
       };
-  };
 
-  # The default theme, minus its hardcoded @define-color palette, so the GTK theme's colors show through
-  environment.etc."xdg/walker/themes/system/style.css".source =
-    pkgs.runCommand "walker-system-style.css" { }
-      ''
+      # The default theme, minus its hardcoded @define-color palette, so the GTK theme's colors show through
+      "xdg/walker/themes/system/style.css".source = pkgs.runCommand "walker-system-style.css" { } ''
         sed '/^@define-color/d' ${pkgs.walker.src}/resources/themes/default/style.css > $out
       '';
 
-  environment.etc.${filename}.source = (pkgs.formats.toml { }).generate "config.toml" {
-    autostart = [ "session-programs" ];
-
-    general = {
-      focus-follows-mouse = true;
-      inner-gaps = 10;
-    };
-
-    decorations = {
-      border = {
-        thickness = 4;
-        radius = 12;
-      };
-      blur.disable = true;
-    };
-
-    keybinds = {
-      Alt-Tab = "focus-next-window";
-      Super-q = "close-focused-window";
-      Super-f = "fullscreen-focused-window";
-      Super-Ctrl-q = "quit";
-      Super-Ctrl-r = {
-        action = "run-command";
-        arg = "fht-compositor ipc action reload-config; session-programs";
-      };
-
-      # Runs when Super is tapped on its own (patched in, see lone-modifier.patch)
-      Super_L = {
-        action = "run-command";
-        arg = "walker";
+      # Only load the providers Walker uses
+      "xdg/elephant/elephant.toml".source = (pkgs.formats.toml { }).generate "elephant.toml" {
+        terminal_cmd = "ptyxis -x";
+        ignored_providers = [
+          "1password"
+          "aptpackages"
+          "archlinuxpkgs"
+          "bitwarden"
+          "bluetooth"
+          "bookmarks"
+          "clipboard"
+          "dnfpackages"
+          "files"
+          "menus"
+          "niriactions"
+          "nirisessions"
+          "playerctl"
+          "protonpass"
+          "providerlist"
+          "runner"
+          "snippets"
+          "symbols"
+          "todo"
+          "unicode"
+          "windows"
+          "wireplumber"
+        ];
       };
 
-      Print = {
-        action = "run-command";
-        arg = "${lib.getExe pkgs.grim} -g \"$(${lib.getExe pkgs.slurp})\" - | gradia";
-      };
-
-      Super-t = {
-        action = "run-command";
-        arg = "ptyxis --new-window";
-      };
-      Super-e = {
-        action = "run-command";
-        arg = "nautilus";
-      };
-      Super-c = {
-        action = "run-command";
-        arg = "codium";
-      };
-      Super-b = {
-        action = "run-command";
-        arg = "librewolf";
-      };
-
-      Super-Down = {
-        action = "change-window-proportion";
-        arg = 0.5;
-      };
-      Super-Up = {
-        action = "change-window-proportion";
-        arg = -0.5;
-      };
-      Super-Left = {
-        action = "change-mwfact";
-        arg = -0.1;
-      };
-      Super-Right = {
-        action = "change-mwfact";
-        arg = 0.1;
-      };
-    }
-    // builtins.listToAttrs (
-      builtins.genList (i: {
-        name = "Super-${toString (i + 1)}";
-        value = {
-          action = "focus-workspace";
-          arg = i;
-        };
-      }) 9
-    )
-    # Media keys, with a SwayOSD popup
-    //
-      lib.mapAttrs
-        (_: args: {
-          action = "run-command";
-          arg = "${lib.getExe' pkgs.swayosd "swayosd-client"} ${args}";
-          # Holding raise/lower keeps changing the volume, but holding mute shouldn't keep toggling
-          repeat = !lib.hasSuffix "mute-toggle" args;
-        })
-        {
-          XF86AudioRaiseVolume = "--output-volume raise";
-          XF86AudioLowerVolume = "--output-volume lower";
-          XF86AudioMute = "--output-volume mute-toggle";
-          XF86AudioMicMute = "--input-volume mute-toggle";
+      # Use the same search engines as LibreWolf, with its aliases as prefixes (e.g. "@no nix")
+      "xdg/elephant/websearch.toml".source =
+        let
+          inherit (config.programs.firefox.policies) SearchEngines;
+        in
+        (pkgs.formats.toml { }).generate "websearch.toml" {
+          entries = map (
+            engine:
+            {
+              name = engine.Name;
+              url = lib.replaceStrings [ "{searchTerms}" ] [ "%TERM%" ] engine.URLTemplate;
+              default = engine.Name == SearchEngines.Default;
+            }
+            // lib.optionalAttrs (engine ? Alias) { prefix = "${engine.Alias} "; }
+          ) SearchEngines.Add;
         };
 
-    mousebinds = {
-      Super-Left = "swap-tile";
-      # Works on tiled windows too (patched in, see resize-tiled-windows.patch)
-      Super-Right = "resize-tile";
-      Super-wheeldown = "focus-previous-workspace";
-      Super-wheelup = "focus-next-workspace";
-    };
+      # FHT config
+      ${filename}.source = (pkgs.formats.toml { }).generate "config.toml" {
+        autostart = [ "session-programs" ];
 
-    input.touchpad = {
-      natural-scrolling = true;
-      click-method = "clickfinger";
-    };
+        general = {
+          focus-follows-mouse = true;
+          inner-gaps = 10;
+        };
 
-    gesturebinds = {
-      focus-next-workspace = {
-        fingers = 3;
-        direction = "left";
-        min-swipe-distance = 1;
+        decorations = {
+          border = {
+            thickness = 4;
+            radius = 12;
+          };
+          blur.disable = true;
+        };
+
+        keybinds = {
+          Alt-Tab = "focus-next-window";
+          Super-q = "close-focused-window";
+          Super-f = "fullscreen-focused-window";
+          Super-Ctrl-q = "quit";
+          Super-Ctrl-r = {
+            action = "run-command";
+            arg = "fht-compositor ipc action reload-config; session-programs";
+          };
+
+          # Runs when Super is tapped on its own (patched in, see lone-modifier.patch)
+          Super_L = {
+            action = "run-command";
+            arg = "walker";
+          };
+
+          Print = {
+            action = "run-command";
+            arg = "${lib.getExe pkgs.grim} -g \"$(${lib.getExe pkgs.slurp})\" - | gradia";
+          };
+
+          Super-t = {
+            action = "run-command";
+            arg = "ptyxis --new-window";
+          };
+          Super-e = {
+            action = "run-command";
+            arg = "nautilus";
+          };
+          Super-c = {
+            action = "run-command";
+            arg = "codium";
+          };
+          Super-b = {
+            action = "run-command";
+            arg = "librewolf";
+          };
+
+          Super-Down = {
+            action = "change-window-proportion";
+            arg = 0.5;
+          };
+          Super-Up = {
+            action = "change-window-proportion";
+            arg = -0.5;
+          };
+          Super-Left = {
+            action = "change-mwfact";
+            arg = -0.1;
+          };
+          Super-Right = {
+            action = "change-mwfact";
+            arg = 0.1;
+          };
+        }
+        // builtins.listToAttrs (
+          builtins.genList (i: {
+            name = "Super-${toString (i + 1)}";
+            value = {
+              action = "focus-workspace";
+              arg = i;
+            };
+          }) 9
+        )
+        # Media keys, with a SwayOSD popup
+        //
+          lib.mapAttrs
+            (_: args: {
+              action = "run-command";
+              arg = "${lib.getExe' pkgs.swayosd "swayosd-client"} ${args}";
+              # Holding raise/lower keeps changing the volume, but holding mute shouldn't keep toggling
+              repeat = !lib.hasSuffix "mute-toggle" args;
+            })
+            {
+              XF86AudioRaiseVolume = "--output-volume raise";
+              XF86AudioLowerVolume = "--output-volume lower";
+              XF86AudioMute = "--output-volume mute-toggle";
+              XF86AudioMicMute = "--input-volume mute-toggle";
+            };
+
+        mousebinds = {
+          Super-Left = "swap-tile";
+          # Works on tiled windows too (patched in, see resize-tiled-windows.patch)
+          Super-Right = "resize-tile";
+          Super-wheeldown = "focus-previous-workspace";
+          Super-wheelup = "focus-next-workspace";
+        };
+
+        input.touchpad = {
+          natural-scrolling = true;
+          click-method = "clickfinger";
+        };
+
+        gesturebinds = {
+          focus-next-workspace = {
+            fingers = 3;
+            direction = "left";
+            min-swipe-distance = 1;
+          };
+
+          focus-previous-workspace = {
+            fingers = 3;
+            direction = "right";
+            min-swipe-distance = 1;
+          };
+        };
+
+        rules = [
+          {
+            match-app-id = [ ".*" ];
+            floating = false;
+          }
+        ];
+
+        outputs = {
+          HDMI-A-1.position.x = 0;
+          DP-3.position.x = 1920;
+        };
+
+        cursor = {
+          name = "GoogleDot-Blue";
+          size = 24;
+        };
       };
-      focus-previous-workspace = {
-        fingers = 3;
-        direction = "right";
-        min-swipe-distance = 1;
-      };
-    };
-
-    rules = [
-      {
-        match-app-id = [ ".*" ];
-        floating = false;
-      }
-    ];
-
-    outputs = {
-      HDMI-A-1.position.x = 0;
-      DP-3.position.x = 1920;
-    };
-
-    cursor = {
-      name = "GoogleDot-Blue";
-      size = 24;
     };
   };
 
