@@ -1,7 +1,16 @@
 { pkgs, ... }:
 {
   environment.systemPackages = [
-    pkgs.ptyxis
+    # Ptyxis is single-instance, so plain `ptyxis` just focuses the existing window
+    (pkgs.symlinkJoin {
+      name = "ptyxis";
+      paths = [ pkgs.ptyxis ];
+      postBuild = ''
+        desktop=$out/share/applications/org.gnome.Ptyxis.desktop
+        cp --remove-destination "$(readlink "$desktop")" "$desktop"
+        sed -i -e 's/^Exec=ptyxis$/Exec=ptyxis --new-window/' -e '/^DBusActivatable=/d' "$desktop"
+      '';
+    })
   ];
 
   programs.nautilus-open-any-terminal = {
