@@ -800,11 +800,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792721433,
+        "lastModified": 1792730191,
         "narHash": "sha256-33ZGiojKUCDZI+B1bZBaT0qJsb5bOSg3Uge+z+VvFEM=",
         "ref": "refs/heads/main",
-        "rev": "2937c241e09367120644dc2639b3aa36b1ab71b5",
-        "revCount": 1097,
+        "rev": "ee36a9b1c8c522e3277acd4afb6dc8bf4f39a17d",
+        "revCount": 1099,
         "submodules": true,
         "type": "git",
         "url": "https://git.federated.nexus/Nexus/nexus"
