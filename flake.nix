@@ -5,7 +5,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     nix-maid.url = "git+https://codeberg.org/viperML/nix-maid";
     continuwuity = {
-      url = "git+https://forgejo.ellis.link/continuwuation/continuwuity";
+      url = "git+https://forgejo.ellis.link/continuwuation/continuwuity?ref=nex/fix/gapfill-pdu-format";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sable-next = {
