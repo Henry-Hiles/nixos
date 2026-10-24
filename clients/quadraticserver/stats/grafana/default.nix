@@ -74,7 +74,7 @@ in
               options.path = pkgs.fetchurl {
                 name = "unbound-info.json";
                 url = "https://github.com/rfmoz/grafana-dashboards/raw/refs/heads/master/prometheus/unbound-full.json";
-                hash = "sha256-6bM0mqm1nF7xadc0ojNWIxJXCHio5db97NjENHIpwdI=";
+                hash = "sha256-1kV92oMHB3IgH6WnCJeVhmA20Hi61iBiYN+HZqA29b0=";
               };
             }
             {
