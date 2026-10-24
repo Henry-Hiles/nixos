@@ -30,14 +30,13 @@ let
             "flat",
           ]
 
-          format: "%b %d   %H:%M";
+          format: "%b %d  %H:%M";
         }
 
         [end]
         Box {
           spacing: 4;
 
-          // Hides itself when nothing is playing
           $MprisWidget {
             styles [
               "pill",
