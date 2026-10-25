@@ -60,8 +60,8 @@
             key = "├";
           }
           {
-            type = "de";
-            key = "├";
+            type = "wm";
+            key = "├";
           }
           {
             type = "terminal";
