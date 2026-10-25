@@ -90,7 +90,7 @@
     };
     # TODO: remove once https://github.com/NixOS/nixpkgs/pull/575861 is merged
     v4l2loopback-package = {
-      url = "file+https://raw.githubusercontent.com/moni-dz/nixpkgs/v4l2loopback-depmod/pkgs/os-specific/linux/v4l2loopback/default.nix";
+      url = "file+https://raw.githubusercontent.com/nixos/nixpkgs/master/pkgs/os-specific/linux/v4l2loopback/default.nix";
       flake = false;
     };
   };
