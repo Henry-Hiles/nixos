@@ -88,11 +88,6 @@
       url = "file+https://raw.githubusercontent.com/j0hax/nixpkgs/lk-jwt-service-restructure/nixos/modules/services/matrix/lk-jwt-service.nix";
       flake = false;
     };
-    # TODO: remove once https://github.com/NixOS/nixpkgs/pull/575861 is merged
-    v4l2loopback-package = {
-      url = "file+https://raw.githubusercontent.com/nixos/nixpkgs/master/pkgs/os-specific/linux/v4l2loopback/default.nix";
-      flake = false;
-    };
   };
 
   outputs =

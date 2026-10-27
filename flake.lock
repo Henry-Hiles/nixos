@@ -222,11 +222,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792696096,
-        "narHash": "sha256-QKME95eR2n1ofC1YWdsfuPpUI6Jp1UDRsYieDLGWuaI=",
+        "lastModified": 1792937141,
+        "narHash": "sha256-CaT3UWZ29/Fmzu9tSPay6JhcCIfW0qW2hwUZJFx5wiU=",
         "owner": "degoog-org",
         "repo": "degoog",
-        "rev": "f17091c07fe15fa6c1188ed7dfec1d71f1309095",
+        "rev": "d8b7f7c3ae5f3fc1efc2553d2c12ab272e42409a",
         "type": "github"
       },
       "original": {
@@ -664,11 +664,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792822059,
-        "narHash": "sha256-5AqTy++caAQWvKkxNRyZD/J2dsFRLScwfU9eXVNBj/o=",
+        "lastModified": 1792961505,
+        "narHash": "sha256-QA+kCFRY+x0WZRNnOt9m50DupcEISD8See+DGNvXXH4=",
         "ref": "refs/heads/main",
-        "rev": "8617727e09a29cfeb99a56fa434214f86eca6a6c",
-        "revCount": 302,
+        "rev": "2cfb0c71ac286bdb8d11dc33588e847e0cd8f733",
+        "revCount": 303,
         "type": "git",
         "url": "https://codeberg.org/pastthepixels/gaypanel"
       },
@@ -725,11 +725,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792818371,
-        "narHash": "sha256-yhEZAzZRNvzYpoAlyFY3wM75V9BmkIXJIueof8S5gOg=",
+        "lastModified": 1793033486,
+        "narHash": "sha256-fXVURa0+CSCgaxLt8tmPNJq2U+fGYOwbk5j2YUe7kSc=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "2cd3234928f60bbff695a7ee56115ef7799c47cd",
+        "rev": "7db163b2aee7e410e396b48aed02f646d742b9b8",
         "type": "github"
       },
       "original": {
@@ -801,11 +801,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792857743,
-        "narHash": "sha256-VDh/pRfw+b9elUN5inQ9IjEYURiZXwaFLoFeKj9+gBE=",
+        "lastModified": 1793073268,
+        "narHash": "sha256-ZTXHhJb1+xW5GM6lGaNDO6112Yy2OYc/XFDUajY+o30=",
         "ref": "refs/heads/main",
-        "rev": "0a09a4ee0a557dfd52cdd8f0a2d2b4027431bcba",
-        "revCount": 1115,
+        "rev": "285e6ad76a8719f74c280989603f8c24779d10e8",
+        "revCount": 1123,
         "submodules": true,
         "type": "git",
         "url": "https://git.federated.nexus/Nexus/nexus"
@@ -859,11 +859,11 @@
     },
     "nix-maid": {
       "locked": {
-        "lastModified": 1790770868,
-        "narHash": "sha256-9OEVMURNKXNBqXxlCXmJ0jv0QHR8CR7A0n7pJKRbOik=",
+        "lastModified": 1793005444,
+        "narHash": "sha256-h0XoWnvPIeU0u8deg/Fg7mYTD6+hXJrupU0d7D+qvYU=",
         "ref": "refs/heads/master",
-        "rev": "13d29cdde641216c0bb7ee8ec3229f865c7dc51a",
-        "revCount": 134,
+        "rev": "35a7aa1d167c55c95849c500252ecb6bdc2daf1c",
+        "revCount": 135,
         "type": "git",
         "url": "https://codeberg.org/viperML/nix-maid"
       },
@@ -1044,11 +1044,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1792502884,
-        "narHash": "sha256-IoNisKcGbUjdd45qCqywGMCYmZ5EnkxezvLII0FWwNA=",
+        "lastModified": 1792773339,
+        "narHash": "sha256-rZLrzrC6i+jnTAlvPZHogKDulY7WWDEv9hJeHieO7Zw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "02c087f3fe673c9e317f206a627cb6b910336dbe",
+        "rev": "3ec636362e1816bc2f0888fa0fa2c69f1bc9e504",
         "type": "github"
       },
       "original": {
@@ -1124,7 +1124,6 @@
         "sable": "sable",
         "sable-next": "sable-next",
         "stylix": "stylix",
-        "v4l2loopback-package": "v4l2loopback-package",
         "wrapper-manager": "wrapper-manager"
       }
     },
@@ -1215,11 +1214,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792852423,
-        "narHash": "sha256-2bod3K3Y5Pj9OiWzaOaXFFWI0pdCqb2AbqSMCyyAcLo=",
+        "lastModified": 1793110965,
+        "narHash": "sha256-kJBDVOH4ZHTyWei9E5H9dNHOA/je0VEVq+uv4PnoWWU=",
         "ref": "refs/heads/main",
-        "rev": "a3ab2f0d7c06b81384e622502d577f44d8370222",
-        "revCount": 6722,
+        "rev": "12267ce584cf491a371b8526494f169b83b24f31",
+        "revCount": 6881,
         "type": "git",
         "url": "https://git.sable.moe/SableClient/sable-next"
       },
@@ -1248,11 +1247,11 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1791574276,
-        "narHash": "sha256-UMnLnZ3JlA7UTBNNNx1rNsXYoPP/cirXLCKGiQ/yDx8=",
+        "lastModified": 1792920263,
+        "narHash": "sha256-2pkE97wOXAYIn2/Nhs9y+iR0qVT+g/3UtukXdkywxXc=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "2856c4c6a845b9bec98828ef197abe176e4806bb",
+        "rev": "3e27b6c499e507df6e3bb8eca3614f5c95e28140",
         "type": "github"
       },
       "original": {
@@ -1469,18 +1468,6 @@
         "owner": "numtide",
         "repo": "treefmt-nix",
         "type": "github"
-      }
-    },
-    "v4l2loopback-package": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-6s/FCqnAC0o9ELeFonapgNzokliMie67YU93BuJGZ+4=",
-        "type": "file",
-        "url": "https://raw.githubusercontent.com/nixos/nixpkgs/master/pkgs/os-specific/linux/v4l2loopback/default.nix"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://raw.githubusercontent.com/nixos/nixpkgs/master/pkgs/os-specific/linux/v4l2loopback/default.nix"
       }
     },
     "wrapper-manager": {
