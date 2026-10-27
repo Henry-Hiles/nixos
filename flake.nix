@@ -4,6 +4,10 @@
     wrapper-manager.url = "git+https://codeberg.org/viperML/wrapper-manager";
     flake-parts.url = "github:hercules-ci/flake-parts";
     nix-maid.url = "git+https://codeberg.org/viperML/nix-maid";
+    nixphone = {
+      url = "git+https://codeberg.org/nixphone/nixphone";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     continuwuity = {
       url = "git+https://forgejo.ellis.link/continuwuation/continuwuity?ref=nex/fix/gapfill-pdu-format";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -105,6 +109,20 @@
           specialArgs = {
             inherit inputs dirUtils;
             inherit (info) type;
+
+            crossPkgs = import inputs.nixpkgs {
+              hostPlatform = info.system;
+              localSystem = info.system;
+              buildPlatform = "x86_64-linux";
+
+              overlays =
+                let
+                  path = ./cross-overlays/${info.hostname};
+                in
+                dirUtils.opt (builtins.pathExists path) (
+                  map (file: import file inputs) (lib.filesystem.listFilesRecursive path)
+                );
+            };
           };
 
           modules =
@@ -155,9 +173,14 @@
             )
           )
           {
-            "quadraticpc".type = "desktop";
-            "quadtop".type = "desktop";
-            "quadraticserver" = {
+
+            quadraticpc.type = "desktop";
+            quadtop.type = "desktop";
+            quadphone = {
+              type = "mobile";
+              system = "aarch64-linux";
+            };
+            quadraticserver = {
               type = "server";
               graphical = false;
             };

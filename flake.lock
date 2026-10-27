@@ -891,6 +891,26 @@
         "type": "github"
       }
     },
+    "nixphone": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792196447,
+        "narHash": "sha256-cDxL/uTDeD2xD7AGP6s/YdsGSlWOK9okdAptxjWcFgk=",
+        "ref": "refs/heads/master",
+        "rev": "5bc9b52b9486bcfc4f709d0582dfa7345ef9c1b4",
+        "revCount": 28,
+        "type": "git",
+        "url": "https://codeberg.org/nixphone/nixphone"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://codeberg.org/nixphone/nixphone"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1773389992,
@@ -1118,6 +1138,7 @@
         "nexus": "nexus",
         "nexusbot": "nexusbot",
         "nix-maid": "nix-maid",
+        "nixphone": "nixphone",
         "nixpkgs": "nixpkgs_2",
         "redlib": "redlib",
         "run0-sudo-shim": "run0-sudo-shim",
