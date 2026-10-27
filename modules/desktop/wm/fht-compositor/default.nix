@@ -24,9 +24,7 @@ let
       ${lib.concatLines (
         lib.mapAttrsToList (name: command: ''
           systemctl --user stop session-${name} 2>/dev/null || true
-          systemd-run --user --unit=session-${name} --collect --quiet -- sh -c ${
-            lib.escapeShellArg "exec ${command}"
-          }
+          systemd-run --user --unit=session-${name} --collect --quiet -- sh -c ${lib.escapeShellArg "exec ${command}"}
         '') cfg.sessionPrograms
       )}
     '';
