@@ -1235,11 +1235,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793133889,
-        "narHash": "sha256-7ACrHOQaiEX9vYQyvxTg5pSja4Qxtq99DofxeVKkV/k=",
+        "lastModified": 1793136218,
+        "narHash": "sha256-tjB7wUs2WXDRyeO3eh72FmUpIXC/gWd/Rc9pl/5Me7g=",
         "ref": "refs/heads/main",
-        "rev": "dd192e175b1dfb94bc1195878411ea17a4727d0d",
-        "revCount": 6904,
+        "rev": "0998581289923621b1aa3b0059ba38fdadee9dfb",
+        "revCount": 6906,
         "type": "git",
         "url": "https://git.sable.moe/SableClient/sable-next"
       },
