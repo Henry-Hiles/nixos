@@ -9,7 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     continuwuity = {
-      url = "git+https://forgejo.ellis.link/continuwuation/continuwuity?ref=nex/fix/gapfill-pdu-format";
+      url = "git+https://forgejo.ellis.link/continuwuation/continuwuity";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sable-next = {

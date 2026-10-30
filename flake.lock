@@ -163,16 +163,15 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1793242697,
-        "narHash": "sha256-VSqJkZxT5hDO3c6Enx6TFoHFAPCbXgMYQFVD92u78dI=",
-        "ref": "nex/fix/gapfill-pdu-format",
-        "rev": "59ce4f8a77e706e2f5b7b499cb74cdaa19182765",
-        "revCount": 8021,
+        "lastModified": 1793321035,
+        "narHash": "sha256-Vy+tk0pniE8Elt7HaG9rL96AP+YVZ5u4rcgPI1ICcsM=",
+        "ref": "refs/heads/main",
+        "rev": "3b0fc25cd3371a0d270ec6268b16dc95fa1f5398",
+        "revCount": 8024,
         "type": "git",
         "url": "https://forgejo.ellis.link/continuwuation/continuwuity"
       },
       "original": {
-        "ref": "nex/fix/gapfill-pdu-format",
         "type": "git",
         "url": "https://forgejo.ellis.link/continuwuation/continuwuity"
       }
@@ -1235,11 +1234,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793284387,
-        "narHash": "sha256-jy4COyFCcxQol06UNQSyQzhxa6mmbcG4CflVvveS8W4=",
+        "lastModified": 1793311045,
+        "narHash": "sha256-KnLPLB1s6FLykxYtmZblRNCWoCmsxY1cr9fNP9wTeuw=",
         "ref": "refs/heads/main",
-        "rev": "a24c0be4b5f8d4a8f18bcd066acd07c485de840c",
-        "revCount": 6939,
+        "rev": "4c99d7b656fc219cf5fb16016e89096fcc72238b",
+        "revCount": 6966,
         "type": "git",
         "url": "https://git.sable.moe/SableClient/sable-next"
       },
