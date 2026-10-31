@@ -18,6 +18,7 @@
         "@nexusbot:federated.nexus"
         "@quadradical:federated.nexus"
         "@hexaheximal:federated.nexus"
+        "@nex:nexy7574.co.uk"
       ];
 
       well_known = {
