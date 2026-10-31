@@ -50,9 +50,5 @@
       "app.federated.nexus" =
         mkCinny inputs.sable.packages.${pkgs.stdenv.hostPlatform.system}.default
           { };
-
-      "next.app.federated.nexus" =
-        mkCinny inputs.sable-next.packages.${pkgs.stdenv.hostPlatform.system}.default
-          { };
     };
 }
