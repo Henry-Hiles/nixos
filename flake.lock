@@ -800,11 +800,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793475210,
-        "narHash": "sha256-WV5sqKMVcSBKWPGn+g8CiDnibAxEbvVFAK7si/mA/kw=",
+        "lastModified": 1793551933,
+        "narHash": "sha256-E1pkdEbefeo7QJ09EIFC88mLl92mXoI210pWNQwWR8o=",
         "ref": "refs/heads/main",
-        "rev": "9e1d2f692168ee3f22047190490a016c9e439c91",
-        "revCount": 1126,
+        "rev": "51e3fe10072b8a785b29ba04fdd7873435812ba2",
+        "revCount": 1127,
         "submodules": true,
         "type": "git",
         "url": "https://git.federated.nexus/Nexus/nexus"
@@ -1142,7 +1142,6 @@
         "redlib": "redlib",
         "run0-sudo-shim": "run0-sudo-shim",
         "sable": "sable",
-        "sable-next": "sable-next",
         "stylix": "stylix",
         "wrapper-manager": "wrapper-manager"
       }
@@ -1225,26 +1224,6 @@
         "owner": "sableclient",
         "repo": "sable",
         "type": "github"
-      }
-    },
-    "sable-next": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1793482901,
-        "narHash": "sha256-Mm8N+EjlL1XmKSxwIQBD1UxD7Hxiu60Jbcw12WWQuU0=",
-        "ref": "refs/heads/main",
-        "rev": "936d39109e32d40920dc278c18724051f30deed0",
-        "revCount": 7145,
-        "type": "git",
-        "url": "https://git.sable.moe/SableClient/sable-next"
-      },
-      "original": {
-        "type": "git",
-        "url": "https://git.sable.moe/SableClient/sable-next"
       }
     },
     "stylix": {
