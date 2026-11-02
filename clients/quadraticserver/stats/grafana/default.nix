@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   pkgs,
   ...
 }:
@@ -79,11 +80,7 @@ in
             }
             {
               name = "Continuwuity Stats";
-              options.path = pkgs.fetchurl {
-                name = "continuwuity-stats.json";
-                url = "https://continuwuity.org/guides/grafana-dashboard.json";
-                hash = "sha256-1s7vFEaZMiqH9h//BdrBwtWuYiqlxzUmYwdpMPYyuMo=";
-              };
+              options.path = "${inputs.continuwuity}/docs/public/guides/grafana-dashboard.json";
             }
             {
               name = "Caddy Hosts";
