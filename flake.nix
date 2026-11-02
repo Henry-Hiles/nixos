@@ -12,10 +12,6 @@
       url = "git+https://forgejo.ellis.link/continuwuation/continuwuity";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    sable-next = {
-      url = "git+https://git.sable.moe/SableClient/sable-next";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,6 +22,10 @@
     };
     sable = {
       url = "github:sableclient/sable";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    sable-next = {
+      url = "git+https://git.sable.moe/SableClient/sable-next";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
