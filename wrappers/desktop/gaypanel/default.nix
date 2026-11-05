@@ -90,25 +90,11 @@ let
 in
 {
   wrappers.gaypanel = {
-    basePackage = inputs.gaypanel.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (
-      old:
-      let
-        oldSpikeadw = "spikeadw#8687c1c90d0d4384e190384d267139d9a9e50e6e";
-        newSpikeadw = "spikeadw#e263ae128b02d8fb491b6492f1354ae7dbdb3059";
-      in
-      {
-        patches = [ ./no-sound-panic.patch ];
-        postPatch = (old.postPatch or "") + ''
-          substituteInPlace Cargo.lock --replace-fail ${oldSpikeadw} ${newSpikeadw}
-        '';
-        cargoDeps = pkgs.rustPlatform.importCargoLock {
-          lockFileContents = builtins.replaceStrings [ oldSpikeadw ] [ newSpikeadw ] (
-            builtins.readFile "${old.src}/Cargo.lock"
-          );
-          allowBuiltinFetchGit = true;
-        };
-      }
-    );
+    basePackage =
+      inputs.gaypanel.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs
+        (old: {
+          patches = [ ./no-sound-panic.patch ];
+        });
 
     prependFlags = [
       "--config"

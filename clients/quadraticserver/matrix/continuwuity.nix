@@ -19,7 +19,10 @@
         "@quadradical:federated.nexus"
         "@hexaheximal:federated.nexus"
         "@nex:nexy7574.co.uk"
+        "@nex:starstruck.systems"
       ];
+
+      log = ''info,[transaction{origin="matrix.org"}]=debug,[transaction{origin="zirco.dev"}]=debug,[transaction{origin="starstruck.systems"}]=debug'';
 
       well_known = {
         support_email = "henry@henryhiles.com";

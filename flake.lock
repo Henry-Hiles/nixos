@@ -663,11 +663,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793750020,
-        "narHash": "sha256-NTB0KpVpqopcf4QFZC/Gw/Qck082H3HHIuQimnx8ChM=",
+        "lastModified": 1793911490,
+        "narHash": "sha256-WQ4tlsVWorT6Gyqr6gvLK3xajdHPm8yJKf0AiwoaGHM=",
         "ref": "refs/heads/main",
-        "rev": "578353b45b5a2cbfc70b72fae0c9ba491b7b1d83",
-        "revCount": 338,
+        "rev": "296667bcebfe01e8350b1ef2c34ac343477556b9",
+        "revCount": 339,
         "type": "git",
         "url": "https://codeberg.org/pastthepixels/gaypanel"
       },
@@ -1234,11 +1234,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793845430,
-        "narHash": "sha256-ths8WvYblpPjjSVzUi2CCVl8s1jCRlaaXuK61fRSn00=",
+        "lastModified": 1793910756,
+        "narHash": "sha256-DfpbVWBraRqUfJz5SK87hY0sJbU4UFs7Sx/ZmordFc0=",
         "ref": "refs/heads/main",
-        "rev": "4bfde17ab615f8cb69048e7f8dbbf65e629ed0da",
-        "revCount": 7475,
+        "rev": "78b25b5e813f4c151dcf1495afe3ff6a5ba44fb8",
+        "revCount": 7533,
         "type": "git",
         "url": "https://git.sable.moe/SableClient/sable-next"
       },
