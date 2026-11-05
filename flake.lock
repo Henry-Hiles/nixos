@@ -163,18 +163,17 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1793827839,
-        "narHash": "sha256-ISLKNWRZxxe0tqKiTeZoxqpPtsXXKdBE2iKI18kRUic=",
-        "ref": "quad/fix/latest-event-in-thread-aggregation",
-        "rev": "0a4153b06df7bc7da169096bcc57ec882848a09c",
+        "lastModified": 1793851098,
+        "narHash": "sha256-TnHsxUQdN1PB23zRVo/TNwlMBQfLyN0c1aMiSUpEni8=",
+        "ref": "refs/heads/quad/fix/latest-event-in-thread-aggregation",
+        "rev": "af0f1779b47df9f89a7a6a4da71154e09791a0cb",
         "revCount": 8056,
         "type": "git",
-        "url": "https://forgejo.ellis.link/Henry-Hiles/continuwuity"
+        "url": "file:///home/quadradical/Documents/Code/continuwuity"
       },
       "original": {
-        "ref": "quad/fix/latest-event-in-thread-aggregation",
         "type": "git",
-        "url": "https://forgejo.ellis.link/Henry-Hiles/continuwuity"
+        "url": "file:///home/quadradical/Documents/Code/continuwuity"
       }
     },
     "cozybot": {
@@ -1235,11 +1234,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793814810,
-        "narHash": "sha256-T8kocl5gg2Dj8WswfFOdho/lhSBt7BoXepmkf7UL9xE=",
+        "lastModified": 1793845430,
+        "narHash": "sha256-ths8WvYblpPjjSVzUi2CCVl8s1jCRlaaXuK61fRSn00=",
         "ref": "refs/heads/main",
-        "rev": "fc9fc6cc17e0c952c958fa76d2d513ea60d665d1",
-        "revCount": 7468,
+        "rev": "4bfde17ab615f8cb69048e7f8dbbf65e629ed0da",
+        "revCount": 7475,
         "type": "git",
         "url": "https://git.sable.moe/SableClient/sable-next"
       },

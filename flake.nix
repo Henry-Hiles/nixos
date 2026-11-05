@@ -9,7 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     continuwuity = {
-      url = "git+https://forgejo.ellis.link/Henry-Hiles/continuwuity?ref=quad/fix/latest-event-in-thread-aggregation";
+      url = "git+file:///home/quadradical/Documents/Code/continuwuity";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {
