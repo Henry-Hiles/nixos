@@ -17,7 +17,7 @@ in
   environment.systemPackages = [
     (pkgs.writeShellScriptBin "server" ''
       ${lib.concatMapAttrsStringSep "\n" (
-        name: cmd: ''${name}() { ${cmd} -H quadraticserver --target-host server "$@"; }''
+        name: cmd: ''${name}() { ${cmd} -H quadraticserver --target-host server --diff never "$@"; }''
       ) aliases}
 
       "$@"
