@@ -163,11 +163,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1793920106,
-        "narHash": "sha256-4je/Dyki3/D9XUoXe7FiNCavfe8x6HSt5WGxiGtd5ZA=",
+        "lastModified": 1794004794,
+        "narHash": "sha256-fNmKraRLE963JuV3K4giays4KcOVCGpjvFuEG2E0hmE=",
         "ref": "refs/heads/quad/fix/latest-event-in-thread-aggregation",
-        "rev": "85aab7203897f57a9cc28fb63b8c95acb959144b",
-        "revCount": 8065,
+        "rev": "35813f52748c31b0b10cc72e69dabef6a838c46a",
+        "revCount": 8067,
         "type": "git",
         "url": "file:///home/quadradical/Documents/Code/continuwuity"
       },
@@ -221,11 +221,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792937141,
-        "narHash": "sha256-CaT3UWZ29/Fmzu9tSPay6JhcCIfW0qW2hwUZJFx5wiU=",
+        "lastModified": 1793997955,
+        "narHash": "sha256-Smi0gGdpBHiowEIU1oNBkeUx+27VcYJpz2Z7X7hFC1I=",
         "owner": "degoog-org",
         "repo": "degoog",
-        "rev": "d8b7f7c3ae5f3fc1efc2553d2c12ab272e42409a",
+        "rev": "cf012d9b639b9d5d874560ab69b31e02d29a6bb4",
         "type": "github"
       },
       "original": {
@@ -306,11 +306,11 @@
         "rust-overlay": []
       },
       "locked": {
-        "lastModified": 1793708838,
-        "narHash": "sha256-8p2xN/vRybXB+fk1lvQrvaYbXNV3ykznd7ZCPqe2pV0=",
+        "lastModified": 1793970799,
+        "narHash": "sha256-xm5sZ+FhaBTHL9NBVjr1qLi+QlalqZ0o505jiWtlQx4=",
         "owner": "nferhat",
         "repo": "fht-compositor",
-        "rev": "adc8c61ed77b8e2efcdf99bc76f5a10f6e966e3f",
+        "rev": "ab44d1e7f3fac432051c6dd12b12709676a94036",
         "type": "github"
       },
       "original": {
@@ -663,11 +663,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793911490,
-        "narHash": "sha256-WQ4tlsVWorT6Gyqr6gvLK3xajdHPm8yJKf0AiwoaGHM=",
+        "lastModified": 1793988113,
+        "narHash": "sha256-b6ZrGuTvPnmJaMI+IuuiAT4JJTPIqxjotgPK+leZYrI=",
         "ref": "refs/heads/main",
-        "rev": "296667bcebfe01e8350b1ef2c34ac343477556b9",
-        "revCount": 339,
+        "rev": "45a8843025f6706950cdb4bf7592a2e4d84f2f98",
+        "revCount": 344,
         "type": "git",
         "url": "https://codeberg.org/pastthepixels/gaypanel"
       },
@@ -724,11 +724,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793757180,
-        "narHash": "sha256-gyV7AtCwLnOImcrfSETP4J3Ie96bz19DY47B7m7Y3HM=",
+        "lastModified": 1793979366,
+        "narHash": "sha256-7OoWDsYO9teiPxl0QdlS5lYE20Pue8/5mpscSL32FUA=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "b787c48e2ec57a9d098f5c2721882a3bc1e16f97",
+        "rev": "2c0c1f01521469cf0271180c453c79782d53c2f6",
         "type": "github"
       },
       "original": {
@@ -800,11 +800,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793814509,
-        "narHash": "sha256-hz5hvFzlpElIPsC+I2q7JX11yvNf3NBl2jxVL57MuyE=",
+        "lastModified": 1793986587,
+        "narHash": "sha256-vkjL44ygJK5vNNgQfLNRPcwMft4NGU64kxeth8m3+5Y=",
         "ref": "refs/heads/main",
-        "rev": "47645ea3278cfa2978728042a4c678248799cc54",
-        "revCount": 1162,
+        "rev": "bf8490896cf7d4a07190f1657d68984d567236d7",
+        "revCount": 1178,
         "submodules": true,
         "type": "git",
         "url": "https://git.federated.nexus/Nexus/nexus"
@@ -1234,11 +1234,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793910756,
-        "narHash": "sha256-DfpbVWBraRqUfJz5SK87hY0sJbU4UFs7Sx/ZmordFc0=",
+        "lastModified": 1794006662,
+        "narHash": "sha256-1T7w9oH1SOIZFg31iSgMlj7GBEmAiHV0vXvRw5wSoTE=",
         "ref": "refs/heads/main",
-        "rev": "78b25b5e813f4c151dcf1495afe3ff6a5ba44fb8",
-        "revCount": 7533,
+        "rev": "afb299dde101e340b35f45d88d88ac8cb1d6c247",
+        "revCount": 7618,
         "type": "git",
         "url": "https://git.sable.moe/SableClient/sable-next"
       },
