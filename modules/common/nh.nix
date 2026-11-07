@@ -4,6 +4,7 @@ let
     upgrade = "nh os switch --update";
     rebuild = "nh os switch";
     boot = "nh os boot";
+    test = "nh os test";
   };
 in
 {
