@@ -35,8 +35,29 @@
     pkgs.sshfs
   ];
 
+  systemd.services.storagebox-online = {
+    wants = [ "network-online.target" ];
+    after = [ "network-online.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      TimeoutStartSec = "5min";
+    };
+    script = ''
+      until ${pkgs.openssh}/bin/sftp -b /dev/null \
+        -o BatchMode=yes -o ConnectTimeout=5 \
+        -i /home/quadradical/.ssh/id_ed25519 \
+        u675579@u675579.your-storagebox.de; do
+        echo "storage box not reachable yet, retrying in 5s"
+        sleep 5
+      done
+    '';
+  };
+
   systemd.mounts = [
     {
+      requires = [ "storagebox-online.service" ];
+      after = [ "storagebox-online.service" ];
       what = "u675579@u675579.your-storagebox.de:/media";
       where = "/var/lib/private/continuwuity/media";
       type = "fuse.sshfs";
