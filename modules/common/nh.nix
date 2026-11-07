@@ -1,3 +1,11 @@
+{ pkgs, lib, ... }:
+let
+  aliases = {
+    upgrade = "nh os switch --update";
+    switch = "nh os switch";
+    boot = "nh os boot";
+  };
+in
 {
   programs.nh = {
     enable = true;
@@ -5,15 +13,17 @@
     flake = "/home/quadradical/.config/nixos";
   };
 
-  environment.shellAliases =
-    let
-      build = "nixos-rebuild switch --sudo --ask-sudo-password --flake ~/.config/nixos#";
-    in
-    {
-      clean = "nh clean all";
-      update = "env -C ~/.config/nixos nix flake update";
-      upgrade = "nh os switch --update";
-      rebuild = "nh os switch";
-      rebuild-server = build + "quadraticserver --target-host server";
-    };
+  environment.systemPackages = [
+    (pkgs.writeShellScriptBin "server" ''
+      ${lib.concatMapAttrsStringSep "\n" (
+        name: cmd: ''${name}() { ${cmd} -H quadraticserver --target-host server "$@"; }''
+      ) aliases}
+
+      "$@"
+    '')
+  ];
+
+  environment.shellAliases = aliases // {
+    clean = "nh clean all";
+  };
 }
