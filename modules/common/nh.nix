@@ -2,7 +2,7 @@
 let
   aliases = {
     upgrade = "nh os switch --update";
-    switch = "nh os switch";
+    rebuild = "nh os switch";
     boot = "nh os boot";
   };
 in
