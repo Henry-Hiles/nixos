@@ -1,8 +1,10 @@
+diff --git a/src/system/sound.rs b/src/system/sound.rs
+index 3877f83..d7099fa 100644
 --- a/src/system/sound.rs
 +++ b/src/system/sound.rs
-@@ -6,25 +6,21 @@
+@@ -6,25 +6,21 @@ use alsa::{
  
- use crate::{senders, system::SystemModule};
+ use crate::{bus, system::SystemModule};
  
 -/// Gets the default mixer. Throws an error if it doesn't exist (this means you probably don't have ALSA installed)
 +/// Gets the default mixer. Returns None if it doesn't exist (yet), e.g. if the sound server hasn't started
@@ -29,8 +31,8 @@
      };
  }
  
-@@ -54,9 +50,9 @@
-     senders!(VolumeModule);
+@@ -54,9 +50,9 @@ impl SystemModule for VolumeModule {
+     bus!(VolumeModule);
  
      fn get() -> Option<Self::ReturnType> {
 -        let mixer = mixer!();
@@ -41,7 +43,7 @@
          let vol = {
              let max = sink.get_playback_volume_range().1 as f64;
              let raw_vol = sink
-@@ -101,8 +97,12 @@
+@@ -101,8 +97,12 @@ impl SystemModule for VolumeModule {
  
      fn set(val: Self::ReturnType) {
          // Sets sink volume
@@ -56,9 +58,9 @@
          let max = sink.get_playback_volume_range().1 as f64;
          sink.set_playback_volume_all((val.0.volume * max) as i64)
              .unwrap();
-@@ -118,8 +118,17 @@
+@@ -118,8 +118,17 @@ impl SystemModule for VolumeModule {
  
-     fn listen() {
+     fn init() {
          std::thread::spawn(|| {
 -            let mixer = mixer!();
 -            let sink = sink!(mixer);
@@ -76,29 +78,31 @@
              let source = source!(mixer);
              let mut pollfds = mixer.get().unwrap();
  
---- a/src/widgets/controls.rs
-+++ b/src/widgets/controls.rs
-@@ -400,7 +400,10 @@
-                 gtk::EventControllerScroll::new(gtk::EventControllerScrollFlags::VERTICAL);
-             controller.connect_scroll(|_, _, b| {
-                 glib::spawn_future_local(async move {
--                    let sound = (system::sound::VolumeModule::get().unwrap().0.volume
-+                    let Some(stats) = system::sound::VolumeModule::get() else {
-+                        return;
-+                    };
-+                    let sound = (stats.0.volume
-                         - b.signum() * VOLUME_SCROLL_STEP)
-                         .clamp(0., 1.);
-                     system::sound::VolumeModule::set((
-@@ -420,7 +423,10 @@
-             // Setup volume
-             let this = glib::clone::Downgrade::downgrade(&self);
-             let rx = system::sound::VolumeModule::rx();
--            self.update_sound(system::sound::VolumeModule::get().unwrap());
-+            // The listener sends an update once sound is available, so it's fine to skip this
-+            if let Some(stats) = system::sound::VolumeModule::get() {
-+                self.update_sound(stats);
-+            }
+diff --git a/src/ui/system/imp.rs b/src/ui/system/imp.rs
+index cf4f57f..c843d2b 100644
+--- a/src/ui/system/imp.rs
++++ b/src/ui/system/imp.rs
+@@ -232,7 +232,10 @@ impl ControlCenter {
+         let controller = gtk::EventControllerScroll::new(gtk::EventControllerScrollFlags::VERTICAL);
+         controller.connect_scroll(|_, _, b| {
              glib::spawn_future_local(async move {
-                 while let Ok(stats) = rx.recv().await {
-                     if let Some(this) = this.upgrade() {
+-                let sound = (system::sound::VolumeModule::get().unwrap().0.volume
++                let Some(stats) = system::sound::VolumeModule::get() else {
++                    return;
++                };
++                let sound = (stats.0.volume
+                     - b.signum() * VOLUME_SCROLL_STEP)
+                     .clamp(0., 1.);
+                 system::sound::VolumeModule::set((
+@@ -277,7 +280,10 @@ impl ControlCenter {
+         }
+ 
+         // Sound
+-        self.update_sound(system::sound::VolumeModule::get().unwrap());
++        // The listener sends an update once sound is available, so it's fine to skip this
++        if let Some(stats) = system::sound::VolumeModule::get() {
++            self.update_sound(stats);
++        }
+         listen!(sound::VolumeModule, update_sound);
+ 
+         // Battery
