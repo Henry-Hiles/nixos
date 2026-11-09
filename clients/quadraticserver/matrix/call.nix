@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   config,
   inputs,
   ...
@@ -36,6 +37,11 @@ in
 
     lk-jwt-service = {
       enable = true;
+      # TODO: remove once nixpkgs adds aws-lc to lk-jwt-service (cargo-setup-hook now forces AWS_LC_SYS_USE_SYSTEM=1)
+      package = pkgs.lk-jwt-service.overrideAttrs (old: {
+        nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ pkgs.pkg-config ];
+        buildInputs = (old.buildInputs or [ ]) ++ [ pkgs.aws-lc ];
+      });
       environment = {
         LIVEKIT_URL = "wss://${livekitDomain}";
         LIVEKIT_KEY_FILE = config.services.livekit.keyFile;
