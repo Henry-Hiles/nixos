@@ -84,7 +84,7 @@
       flake = false;
     };
     redlib = {
-      url = "github:Silvenga/redlib";
+      url = "github:Nachtalb/redlib";
       flake = false;
     };
     # TODO: remove once https://github.com/NixOS/nixpkgs/pull/548367 is merged
@@ -109,20 +109,6 @@
           specialArgs = {
             inherit inputs dirUtils;
             inherit (info) type;
-
-            crossPkgs = import inputs.nixpkgs {
-              hostPlatform = info.system;
-              localSystem = info.system;
-              buildPlatform = "x86_64-linux";
-
-              overlays =
-                let
-                  path = ./cross-overlays/${info.hostname};
-                in
-                dirUtils.opt (builtins.pathExists path) (
-                  map (file: import file inputs) (lib.filesystem.listFilesRecursive path)
-                );
-            };
           };
 
           modules =

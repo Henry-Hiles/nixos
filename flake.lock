@@ -1105,15 +1105,15 @@
     "redlib": {
       "flake": false,
       "locked": {
-        "lastModified": 1792855697,
-        "narHash": "sha256-j6rT1oIGdxZtuAHXTpe1LiwGPUy8gKp5ifEdprHLIkE=",
-        "owner": "Silvenga",
+        "lastModified": 1794091249,
+        "narHash": "sha256-IXm3PcN1h5qlFq1j3xTEbU5yrDNL7LCXCVv2t8Sz4O8=",
+        "owner": "Nachtalb",
         "repo": "redlib",
-        "rev": "c0156ee2bbd1a7860ca82e4c3e9b8508b3f049d6",
+        "rev": "e498e6a7f4a6dc1e6c5993a5f33da1258860db35",
         "type": "github"
       },
       "original": {
-        "owner": "Silvenga",
+        "owner": "Nachtalb",
         "repo": "redlib",
         "type": "github"
       }

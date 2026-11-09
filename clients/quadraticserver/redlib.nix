@@ -23,12 +23,15 @@
             go
             perl
             git
+            pkg-config
             rustPlatform.bindgenHook
           ]);
 
+        buildInputs = (oldAttrs.buildInputs or [ ]) ++ [ pkgs.zstd ];
+
         cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
           inherit src;
-          hash = "sha256-XgHXqH4EF8TEOI+cKJ0Z2j6QYRCwGgv8bmY8gZpPN9c=";
+          hash = "sha256-xUFN5Be+LR9Ogm26Zv7G9bd9oXyHzCyGjHy3vxlH8SM=";
         };
       });
     };
