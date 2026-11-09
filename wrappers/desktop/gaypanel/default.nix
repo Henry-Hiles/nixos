@@ -43,14 +43,16 @@ let
               "flat",
             ]
           }
-          $CommandButton {
+          Button {
             styles [
+              "widget",
               "pill",
               "flat",
             ]
 
             icon-name: "notification-symbolic";
-            command: "${lib.getExe' pkgs.swaynotificationcenter "swaync-client"} --toggle-panel --skip-wait";
+            action-name: "app.command.run";
+            action-target: "'${lib.getExe' pkgs.swaynotificationcenter "swaync-client"} --toggle-panel --skip-wait'";
           }
 
           $SystemControlsWidget {
@@ -65,6 +67,11 @@ let
   '';
 
   style = pkgs.writeText "style.css" ''
+    .widget:not(menubutton), .widget button {
+      min-height: 24px;
+      padding: 2px 12px;
+    }
+
     window.panel {
       background: alpha(var(--window-bg-color), 0.5);
     }
