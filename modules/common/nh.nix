@@ -16,15 +16,20 @@ in
 
   system.tools.nixos-rebuild.enable = false;
 
-  environment.systemPackages = [
-    (pkgs.writeShellScriptBin "server" ''
+  # e.g. `server rebuild` or `phone boot`: the aliases, for another host over SSH
+  environment.systemPackages = lib.mapAttrsToList (
+    command: host:
+    pkgs.writeShellScriptBin command ''
       ${lib.concatMapAttrsStringSep "\n" (
-        name: cmd: ''${name}() { ${cmd} -H quadraticserver --target-host server --diff never "$@"; }''
+        name: cmd: ''${name}() { ${cmd} -H ${host} --target-host ${command} --diff never "$@"; }''
       ) aliases}
 
       "$@"
-    '')
-  ];
+    ''
+  ) {
+    server = "quadraticserver";
+    phone = "quadphone";
+  };
 
   environment.shellAliases = aliases // {
     clean = "nh clean all";
