@@ -930,11 +930,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794267681,
-        "narHash": "sha256-l8l2GcotQbf3wPShdGKqhSJWncMyjIK+6SHAfad1Wfo=",
+        "lastModified": 1794327622,
+        "narHash": "sha256-mJlrDqLL7Xqz1avdukOJyaA52EauQMoJ6/DBO7rptQg=",
         "ref": "refs/heads/master",
-        "rev": "a6a259f2591c28e2013407f2c84afb3dd8ee17e9",
-        "revCount": 52,
+        "rev": "5dc82c9de380dba9df746ad516363d08b1fe4c93",
+        "revCount": 53,
         "type": "git",
         "url": "https://codeberg.org/nixphone/nixphone"
       },
