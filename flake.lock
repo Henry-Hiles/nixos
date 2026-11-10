@@ -656,6 +656,22 @@
         "type": "github"
       }
     },
+    "gadgetfs": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1744406659,
+        "narHash": "sha256-AH0sOO7CmtQ1w5ug7a58/HgCz8qMclXiRwG+H4K2El4=",
+        "owner": "sorki",
+        "repo": "nixos-gadgetfs-proto",
+        "rev": "ca150fb79c3bc637d6539ae9b8286b856eb97581",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sorki",
+        "repo": "nixos-gadgetfs-proto",
+        "type": "github"
+      }
+    },
     "gaypanel": {
       "inputs": {
         "nixpkgs": [
@@ -663,11 +679,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794191656,
-        "narHash": "sha256-BZmDqA0wmeevgnsxXpYXd/yH/jN1lTwhv8IPacvcfYU=",
+        "lastModified": 1794272044,
+        "narHash": "sha256-WpipW+nHzneo04e12244DfjPKsE6TP2+cJupT01nNYI=",
         "ref": "refs/heads/main",
-        "rev": "9e5f1a69f9480d6936fd9cb6168f126f614ef9c4",
-        "revCount": 358,
+        "rev": "a7ec380c64da049a53c08ee5fe7c4ff824075ca9",
+        "revCount": 363,
         "type": "git",
         "url": "https://codeberg.org/pastthepixels/gaypanel"
       },
@@ -698,6 +714,23 @@
         "type": "github"
       }
     },
+    "gnome-mobile": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 0,
+        "narHash": "sha256-SkR1Brw/vcZnlekZGrhTs26/qMF1EzZ1oVjijZgjVhY=",
+        "type": "git",
+        "url": "file:///home/quadradical/Documents/Code/nixos-gnome-mobile"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:///home/quadradical/Documents/Code/nixos-gnome-mobile"
+      }
+    },
     "gnome-shell": {
       "flake": false,
       "locked": {
@@ -724,11 +757,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794252721,
-        "narHash": "sha256-sD1rhEjMghSyWSUG2xEOw+FOVd2wnoWwi/809w8fRkI=",
+        "lastModified": 1794260194,
+        "narHash": "sha256-jmaqtyhtPFNgK52WZo33PRvNPPs8AjOWBeCc07nTAM8=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "f1db7c474bb49babfe9d8def532939e0c7404327",
+        "rev": "a9752a621164e9f84eb2a15858f1d54fd3cedab8",
         "type": "github"
       },
       "original": {
@@ -800,11 +833,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794256817,
-        "narHash": "sha256-3g8voqPE32QoFeDR1hP5P99VX4rWWOyjCqMxN+4+M7k=",
+        "lastModified": 1794265105,
+        "narHash": "sha256-kCz1dBfcAPjrIDDXeAZi/1LWUDKnVgIgslOkwrafdgU=",
         "ref": "refs/heads/main",
-        "rev": "8aada9a8958745c695724ad7442996716e836af1",
-        "revCount": 1191,
+        "rev": "ab3b9cc83fb1aa688bf01b0a498ca25cbce41453",
+        "revCount": 1196,
         "submodules": true,
         "type": "git",
         "url": "https://git.federated.nexus/Nexus/nexus"
@@ -858,11 +891,11 @@
     },
     "nix-maid": {
       "locked": {
-        "lastModified": 1793005444,
-        "narHash": "sha256-h0XoWnvPIeU0u8deg/Fg7mYTD6+hXJrupU0d7D+qvYU=",
+        "lastModified": 1794213517,
+        "narHash": "sha256-bryY6i495uT5OEz0eSeTPeJ35E6JLpI0PjPGNa5EdRk=",
         "ref": "refs/heads/master",
-        "rev": "35a7aa1d167c55c95849c500252ecb6bdc2daf1c",
-        "revCount": 135,
+        "rev": "d4f00026e380858e683a022abe313a0ae52ad2c0",
+        "revCount": 136,
         "type": "git",
         "url": "https://codeberg.org/viperML/nix-maid"
       },
@@ -897,11 +930,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792196447,
-        "narHash": "sha256-cDxL/uTDeD2xD7AGP6s/YdsGSlWOK9okdAptxjWcFgk=",
+        "lastModified": 1794267681,
+        "narHash": "sha256-l8l2GcotQbf3wPShdGKqhSJWncMyjIK+6SHAfad1Wfo=",
         "ref": "refs/heads/master",
-        "rev": "5bc9b52b9486bcfc4f709d0582dfa7345ef9c1b4",
-        "revCount": 28,
+        "rev": "a6a259f2591c28e2013407f2c84afb3dd8ee17e9",
+        "revCount": 52,
         "type": "git",
         "url": "https://codeberg.org/nixphone/nixphone"
       },
@@ -1145,7 +1178,9 @@
         "fht-compositor": "fht-compositor",
         "firefox-gnome-theme": "firefox-gnome-theme",
         "flake-parts": "flake-parts_5",
+        "gadgetfs": "gadgetfs",
         "gaypanel": "gaypanel",
+        "gnome-mobile": "gnome-mobile",
         "home-manager": "home-manager",
         "lasuite-docs-proxy": "lasuite-docs-proxy",
         "lk-jwt-service-module": "lk-jwt-service-module",
@@ -1251,11 +1286,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794257173,
-        "narHash": "sha256-eQdMmTujqSWaze4pv78oYvxTqyf15ra3vWBzyJ0bsO0=",
+        "lastModified": 1794259911,
+        "narHash": "sha256-6Zm2gmTB6WtWogzUKw1YqAU2rWaOA05LMp07TgpRNdk=",
         "ref": "refs/heads/main",
-        "rev": "dbc42e4e64175d4cecbf2d8d0a9fc75ef71d85bf",
-        "revCount": 7805,
+        "rev": "5cb5432aa859dec1e80027e58ffd7493dd2f8e99",
+        "revCount": 7817,
         "type": "git",
         "url": "https://git.sable.moe/SableClient/sable-next"
       },

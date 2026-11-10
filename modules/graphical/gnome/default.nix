@@ -1,23 +1,47 @@
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   services = {
-    desktopManager.gnome.enable = true;
     displayManager.gdm.enable = true;
+
+    gnome = {
+      core-os-services.enable = true;
+      core-apps.enable = true;
+    };
+
+    gvfs.enable = true;
   };
+
+  environment.sessionVariables.NAUTILUS_4_EXTENSION_DIR = lib.mkForce "${config.system.path}/lib/nautilus/extensions-4";
+
+  environment.gnome.excludePackages = with pkgs; [
+    yelp
+    orca
+    totem
+    xterm
+    evince
+    decibels
+    epiphany
+    gnome-logs
+    gnome-tour
+    gnome-music
+    simple-scan
+    gnome-console
+    gnome-software
+    gnome-user-docs
+    gnome-characters
+    gnome-font-viewer
+    gnome-connections
+    gnome-text-editor
+    gnome-system-monitor
+  ];
 
   users.users.quadradical.maid.gsettings.settings.org.gnome = {
     desktop = {
-      wm.preferences.focus-mode = "mouse";
-      search-providers.sort-order = [
-        "org.gnome.Contacts.desktop"
-        "org.gnome.Documents.desktop"
-        "org.gnome.Nautilus.desktop"
-      ];
-
-      background = rec {
-        picture-uri = "file://${../../../background.jpg}";
-        picture-uri-dark = picture-uri;
-      };
-
       interface = rec {
         color-scheme = "prefer-dark";
 
@@ -30,30 +54,12 @@
         font-name = "sans 11";
         document-font-name = font-name;
         monospace-font-name = "monospace";
-
-        show-battery-percentage = true;
       };
 
       lockdown = {
         disable-printing = true;
         disable-print-setup = true;
-        user-administration-disabled = true;
       };
-
-      peripherals.touchpad.disable-while-typing = false;
     };
-
-    shell = {
-      remember-mount-password = true;
-      favorite-apps = [
-        "librewolf.desktop"
-        "org.gnome.Geary.desktop"
-        "org.gnome.Nautilus.desktop"
-      ];
-    };
-
-    mutter.edge-tiling = false;
-    system.location.enabled = true;
-    settings-daemon.plugins.media-keys.calculator-static = [ ];
   };
 }

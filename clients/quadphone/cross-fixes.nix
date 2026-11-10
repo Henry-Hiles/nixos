@@ -1,0 +1,41 @@
+# Fixes for things that don't cross-compile (they run host binaries at build time).
+{
+  inputs,
+  ...
+}:
+{
+  nixpkgs.overlays = [
+    (final: prev: {
+      gnome = prev.gnome // {
+        nixos-gsettings-overrides = prev.gnome.nixos-gsettings-overrides.override {
+          glib = final.buildPackages.glib;
+        };
+      };
+    })
+  ];
+
+  # The cache builder doesn't find gtk-query-immodules-3.0 when cross compiling,
+  # and GNOME Shell connects apps to IBus itself, so the GTK module isn't used anyway.
+  i18n.inputMethod.enableGtk3 = false;
+
+  # nix-maid runs the host mustache-go at build time, swap in a copy of its core
+  # module that uses the build platform's one for that step.
+  # TODO: upstream (use pkgs.buildPackages.mustache-go in core.nix)
+  maid.sharedModules =
+    let
+      core = "${inputs.nix-maid}/src/maid/modules/core.nix";
+    in
+    [
+      {
+        disabledModules = [ core ];
+        imports = [
+          (builtins.toFile "nix-maid-core.nix" (
+            builtins.replaceStrings
+              [ "import ../vars.nix" "lib.getExe pkgs.mustache-go" ]
+              [ "import ${inputs.nix-maid}/src/maid/vars.nix" "lib.getExe pkgs.buildPackages.mustache-go" ]
+              (builtins.readFile core)
+          ))
+        ];
+      }
+    ];
+}

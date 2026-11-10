@@ -6,6 +6,14 @@
     wrapper-manager.url = "git+https://codeberg.org/viperML/wrapper-manager";
     flake-parts.url = "github:hercules-ci/flake-parts";
     nix-maid.url = "git+https://codeberg.org/viperML/nix-maid";
+    gadgetfs = {
+      url = "github:sorki/nixos-gadgetfs-proto";
+      flake = false;
+    };
+    gnome-mobile = {
+      url = "git+file:///home/quadradical/Documents/Code/nixos-gnome-mobile";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixphone = {
       url = "git+https://codeberg.org/nixphone/nixphone";
       inputs.nixpkgs.follows = "nixpkgs";

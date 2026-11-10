@@ -14,6 +14,8 @@ in
     flake = "/home/quadradical/.config/nixos";
   };
 
+  system.tools.nixos-rebuild.enable = false;
+
   environment.systemPackages = [
     (pkgs.writeShellScriptBin "server" ''
       ${lib.concatMapAttrsStringSep "\n" (
