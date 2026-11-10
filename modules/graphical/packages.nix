@@ -3,8 +3,8 @@
   services.xserver.excludePackages = [ pkgs.xterm ];
   environment.systemPackages = with pkgs; [
     tuba
-    geary
     gradia
+    convey
     gapless
     showtime
     resources
