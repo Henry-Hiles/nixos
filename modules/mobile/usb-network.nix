@@ -18,17 +18,15 @@
     };
   };
 
-  networking.networkmanager.ensureProfiles.profiles.usb-network = {
-    connection = {
-      id = "USB network";
-      type = "ethernet";
-      interface-name = "usb0";
-    };
-    ipv4 = {
-      method = "manual";
-      address1 = "172.16.42.1/24";
-      never-default = true;
-    };
-    ipv6.method = "disabled";
+  systemd.network.links."10-usb-gadget" = {
+    matchConfig.Type = "gadget";
+    linkConfig.Name = "usb0";
   };
+
+  networking.interfaces.usb0.ipv4.addresses = [
+    {
+      address = "172.16.42.1";
+      prefixLength = 24;
+    }
+  ];
 }
