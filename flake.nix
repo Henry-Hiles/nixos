@@ -19,7 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     continuwuity = {
-      url = "git+file:///home/quadradical/Documents/Code/continuwuity";
+      url = "git+https://forgejo.ellis.link/Continuwuation/Continuwuity";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {
