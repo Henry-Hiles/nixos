@@ -14,6 +14,7 @@
           height = 18;
           type = "chafa";
           source = ../../logo.png;
+          position = "auto";
         };
         display = {
           separator = "  ";
