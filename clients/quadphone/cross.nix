@@ -124,13 +124,7 @@ in
           );
         }
       )
-      (
-        _: prev:
-        builtins.mapAttrs (
-          name: v:
-          if isPhoneCross prev then pick [ name ] v else v
-        ) prev
-      )
+      (_: prev: builtins.mapAttrs (name: v: if isPhoneCross prev then pick [ name ] v else v) prev)
     ];
   };
 }

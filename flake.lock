@@ -722,7 +722,7 @@
       },
       "locked": {
         "lastModified": 0,
-        "narHash": "sha256-SkR1Brw/vcZnlekZGrhTs26/qMF1EzZ1oVjijZgjVhY=",
+        "narHash": "sha256-2UHvyoarUiV+3vfKxLnrIa2Fj6uokJ6YpxW/j34x0HM=",
         "type": "git",
         "url": "file:///home/quadradical/Documents/Code/nixos-gnome-mobile"
       },
