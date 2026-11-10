@@ -241,11 +241,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792526520,
-        "narHash": "sha256-3hSJlv8mUVnZPMWK2+CM7a9O+nR6Z4mCh27NfLCmTPc=",
+        "lastModified": 1794328522,
+        "narHash": "sha256-h2BYMW4nTFpIqnMd8gwAPFmJAp/1wWLQ6vT0NfL5qt4=",
         "owner": "nix-community",
         "repo": "disko",
-        "rev": "cedd626e11b635470fa6f9fdb8ad79b0075dd7f9",
+        "rev": "1dd30c29c88d99ce295f15e27f93c49bc5fbae07",
         "type": "github"
       },
       "original": {
@@ -679,11 +679,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794272044,
-        "narHash": "sha256-WpipW+nHzneo04e12244DfjPKsE6TP2+cJupT01nNYI=",
+        "lastModified": 1794341828,
+        "narHash": "sha256-IHRYX9jfqQKZq3l6KN8WGs0k6vadF6TQ+3epn3LhK4s=",
         "ref": "refs/heads/main",
-        "rev": "a7ec380c64da049a53c08ee5fe7c4ff824075ca9",
-        "revCount": 363,
+        "rev": "533d49a58f6aac063a40093ab3f981ff68c1a77e",
+        "revCount": 367,
         "type": "git",
         "url": "https://codeberg.org/pastthepixels/gaypanel"
       },
@@ -774,11 +774,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794260194,
-        "narHash": "sha256-jmaqtyhtPFNgK52WZo33PRvNPPs8AjOWBeCc07nTAM8=",
+        "lastModified": 1794278858,
+        "narHash": "sha256-rkrJwLgLSHBnXfgoSKIDa+2LLGdTqynsV3GAxOTGhUU=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "a9752a621164e9f84eb2a15858f1d54fd3cedab8",
+        "rev": "82ce401aa350502897c3f2e85f384d61cd3b0b6d",
         "type": "github"
       },
       "original": {
@@ -865,11 +865,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794265105,
-        "narHash": "sha256-kCz1dBfcAPjrIDDXeAZi/1LWUDKnVgIgslOkwrafdgU=",
+        "lastModified": 1794285846,
+        "narHash": "sha256-Ey3K8n9K21hrEWAjmdk0W/Vt+CH3muHn7w4TCgAWwhw=",
         "ref": "refs/heads/main",
-        "rev": "ab3b9cc83fb1aa688bf01b0a498ca25cbce41453",
-        "revCount": 1196,
+        "rev": "f1f0fea11411c2a152859d373d98a318ce8a25a6",
+        "revCount": 1198,
         "submodules": true,
         "type": "git",
         "url": "https://git.federated.nexus/Nexus/nexus"
@@ -1318,11 +1318,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794259911,
-        "narHash": "sha256-6Zm2gmTB6WtWogzUKw1YqAU2rWaOA05LMp07TgpRNdk=",
+        "lastModified": 1794328689,
+        "narHash": "sha256-NevczkJJEghFLU72Gu/NT/viE1bgHrSq0H/OOcF+Pqc=",
         "ref": "refs/heads/main",
-        "rev": "5cb5432aa859dec1e80027e58ffd7493dd2f8e99",
-        "revCount": 7817,
+        "rev": "d68fcea627fb26a7f134d3c8137a9bd633afc97c",
+        "revCount": 7875,
         "type": "git",
         "url": "https://git.sable.moe/SableClient/sable-next"
       },
