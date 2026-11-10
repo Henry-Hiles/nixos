@@ -11,12 +11,24 @@
           glib = final.buildPackages.glib;
         };
       };
+
+      # Meson looks for gio and gdbus-codegen for the build machine
+      gnome-session = prev.gnome-session.overrideAttrs (old: {
+        depsBuildBuild = (old.depsBuildBuild or [ ]) ++ [
+          final.pkgsBuildBuild.pkg-config
+          final.pkgsBuildBuild.glib
+        ];
+      });
     })
   ];
 
   # The cache builder doesn't find gtk-query-immodules-3.0 when cross compiling,
   # and GNOME Shell connects apps to IBus itself, so the GTK module isn't used anyway.
   i18n.inputMethod.enableGtk3 = false;
+
+  # Needs python gi on the build machine, and only connects desktop browsers to
+  # extensions.gnome.org anyway.
+  services.gnome.gnome-browser-connector.enable = false;
 
   # nix-maid runs the host mustache-go at build time, swap in a copy of its core
   # module that uses the build platform's one for that step.
