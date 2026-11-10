@@ -27,6 +27,12 @@ let
   # Interpreters too: their package sets splice the interpreter from this set.
   toolchainRegex = "(python[0-9]*(Minimal|Full)?|.*[sS]tdenv.*|glibc|libc|libcCross|gcc|libgcc|binutils.*|bintools.*|musl|linuxHeaders)";
 
+  # Only the package set for the phone, built on another platform. Not buildPackages,
+  # nor other cross sets inside it (e.g. the wasm32 one firefox uses for its sandbox).
+  isPhoneCross =
+    pkgs:
+    pkgs.stdenv.hostPlatform.config == host.config && pkgs.stdenv.buildPlatform.config != host.config;
+
   drvPathOf = v: (builtins.tryEval v.drvPath).value or null;
   tryGet = path: set: (builtins.tryEval (lib.attrByPath path null set)).value or null;
 
@@ -106,7 +112,7 @@ in
     nixpkgs.overlays = lib.mkOrder 10000 [
       (
         _: prev:
-        lib.optionalAttrs (prev.stdenv.hostPlatform.config != prev.stdenv.buildPlatform.config) {
+        lib.optionalAttrs (isPhoneCross prev) {
           stdenv = prev.overrideCC prev.stdenv (
             prev.stdenv.cc.override {
               bintools = prev.stdenv.cc.bintools.override {
@@ -122,7 +128,7 @@ in
         _: prev:
         builtins.mapAttrs (
           name: v:
-          if prev.stdenv.hostPlatform.config == prev.stdenv.buildPlatform.config then v else pick [ name ] v
+          if isPhoneCross prev then pick [ name ] v else v
         ) prev
       )
     ];
