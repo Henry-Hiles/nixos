@@ -8,7 +8,10 @@
         isNormalUser = true;
         hashedPasswordFile = config.age.secrets."password.age".path;
         description = "QuadRadical";
-        extraGroups = [ "wheel" ];
+        extraGroups = [
+          "wheel"
+          "networkmanager"
+        ];
       };
     };
   };
