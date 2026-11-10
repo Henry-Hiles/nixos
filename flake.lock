@@ -716,13 +716,15 @@
     },
     "gnome-mobile": {
       "inputs": {
+        "gnome-shell-mobile": "gnome-shell-mobile",
+        "mutter-mobile": "mutter-mobile",
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
         "lastModified": 0,
-        "narHash": "sha256-2UHvyoarUiV+3vfKxLnrIa2Fj6uokJ6YpxW/j34x0HM=",
+        "narHash": "sha256-nO7cqicSHCjn96qMIV1JKwDei3n56Ra4G6rtaePbu3k=",
         "type": "git",
         "url": "file:///home/quadradical/Documents/Code/nixos-gnome-mobile"
       },
@@ -748,6 +750,21 @@
         "ref": "50.1",
         "repo": "gnome-shell",
         "type": "gitlab"
+      }
+    },
+    "gnome-shell-mobile": {
+      "flake": false,
+      "locked": {
+        "dirtyRev": "c602286053f9e06b3493decb4a9dabe8ba20ad9c-dirty",
+        "dirtyShortRev": "c60228605-dirty",
+        "lastModified": 1793323139,
+        "narHash": "sha256-DTqRtdXSwmb8ovlEmzVf7CcwtjRgpXinuWCb+1CgTc0=",
+        "type": "git",
+        "url": "file:///home/quadradical/Documents/Code/gnome-shell-mobile"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:///home/quadradical/Documents/Code/gnome-shell-mobile"
       }
     },
     "home-manager": {
@@ -822,6 +839,21 @@
       "original": {
         "type": "git",
         "url": "https://git.federated.nexus/Henry-Hiles/matrixoidc"
+      }
+    },
+    "mutter-mobile": {
+      "flake": false,
+      "locked": {
+        "dirtyRev": "7e7b25f68c7719ebf3b651808824e0c8bd33020d-dirty",
+        "dirtyShortRev": "7e7b25f68-dirty",
+        "lastModified": 1793323139,
+        "narHash": "sha256-mvdRwZfbnlzBrwr0bT4ZItYcM15smb7gkpppwIEp64k=",
+        "type": "git",
+        "url": "file:///home/quadradical/Documents/Code/mutter-mobile"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:///home/quadradical/Documents/Code/mutter-mobile"
       }
     },
     "nexus": {
