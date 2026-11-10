@@ -7,10 +7,24 @@
 let
   s3Domain = "http://127.0.0.1${config.services.minio-vendored.listenAddress}";
   cfg = config.services.lasuite-docs;
+  # FIXME: pinned to 5.7.0 until migrated to 6.x
+  lasuitePkgs = import inputs.nixpkgs-lasuite { inherit (pkgs.stdenv.hostPlatform) system; };
 in
 {
+  disabledModules = [ "services/web-apps/lasuite-docs.nix" ];
   imports = [
+    "${inputs.nixpkgs-lasuite}/nixos/modules/services/web-apps/lasuite-docs.nix"
     inputs.lasuite-docs-proxy.nixosModules.default
+  ];
+
+  nixpkgs.overlays = [
+    (_: _: {
+      inherit (lasuitePkgs)
+        lasuite-docs
+        lasuite-docs-frontend
+        lasuite-docs-collaboration-server
+        ;
+    })
   ];
 
   systemd.services = {

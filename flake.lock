@@ -926,6 +926,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-lasuite": {
+      "locked": {
+        "lastModified": 1793726008,
+        "narHash": "sha256-jQp1wKvbwWdLBASTXkSi/VYmDJ5AbBi1WvcMt9HWJC8=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "1d060086d60cb76a40cf37109f979d88a5bd6396",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "1d060086d60cb76a40cf37109f979d88a5bd6396",
+        "type": "github"
+      }
+    },
     "nixpkgs-lib": {
       "locked": {
         "lastModified": 1793504054,
@@ -1139,6 +1155,7 @@
         "nix-maid": "nix-maid",
         "nixphone": "nixphone",
         "nixpkgs": "nixpkgs_2",
+        "nixpkgs-lasuite": "nixpkgs-lasuite",
         "redlib": "redlib",
         "run0-sudo-shim": "run0-sudo-shim",
         "sable": "sable",
