@@ -24,12 +24,8 @@
             GO_GET_CLONE_URL_PROTOCOL = "ssh";
             DISABLE_DOWNLOAD_SOURCE_ARCHIVES = true;
           };
-          actions = {
-            # Disable for now
-            ENABLED = false;
-            DEFAULT_ACTIONS_URL = "github";
-          };
 
+          actions.DEFAULT_ACTIONS_URL = "github";
           admin.USER_DISABLED_FEATURES = "manage_password,deletion";
 
           server = {
