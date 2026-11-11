@@ -1,6 +1,6 @@
-# Fixes for things that don't cross-compile (they run host binaries at build time).
 {
   inputs,
+  lib,
   ...
 }:
 {
@@ -21,6 +21,9 @@
       });
     })
   ];
+
+  # TODO: flutter apps don't cross compile, and the flake's package isn't cached
+  programs.nexus.enable = lib.mkForce false;
 
   # The cache builder doesn't find gtk-query-immodules-3.0 when cross compiling,
   # and GNOME Shell connects apps to IBus itself, so the GTK module isn't used anyway.
