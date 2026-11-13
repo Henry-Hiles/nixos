@@ -179,11 +179,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1794433912,
-        "narHash": "sha256-C6LKUSMf99/mqfLrpwt0/FgxMw4fE05VG03Z5UOsaWk=",
+        "lastModified": 1794493577,
+        "narHash": "sha256-tEEFJ12gU3fYDT6f27KW8y/oLLT6a42RXFuAIyzNMq4=",
         "ref": "refs/heads/main",
-        "rev": "2c605151eb3f196ee6b3096b9eb7cb588e9f8a8e",
-        "revCount": 8142,
+        "rev": "5d0dc8b13708ba78ba84714f1e92323ce7a8a1ed",
+        "revCount": 8154,
         "type": "git",
         "url": "https://forgejo.ellis.link/Continuwuation/Continuwuity"
       },
@@ -206,16 +206,16 @@
         "treefmt-nix": "treefmt-nix_3"
       },
       "locked": {
-        "lastModified": 1794353021,
-        "narHash": "sha256-9eu1PH9znI34Sn5c0YCUMFUyU+D4BL+6+VqwgaU4YAI=",
-        "ref": "v26.11.0-alpha.1",
-        "rev": "38fb7897bb53805414f09e5262e297d1e800f01c",
-        "revCount": 8131,
+        "lastModified": 1794436491,
+        "narHash": "sha256-1Gbe5ys68lljaWtwn8Z4RhkUnWDfw8AaHQJDKVzzmVA=",
+        "ref": "ea3beb628a3cab6fbc4142b725c9edb043846eb6",
+        "rev": "ea3beb628a3cab6fbc4142b725c9edb043846eb6",
+        "revCount": 8146,
         "type": "git",
         "url": "https://forgejo.ellis.link/Continuwuation/Continuwuity"
       },
       "original": {
-        "ref": "v26.11.0-alpha.1",
+        "ref": "ea3beb628a3cab6fbc4142b725c9edb043846eb6",
         "type": "git",
         "url": "https://forgejo.ellis.link/Continuwuation/Continuwuity"
       }
@@ -796,11 +796,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794344746,
-        "narHash": "sha256-37rYMM0q6z+l/kVffKSDBHM0NvewGjkUA+knRhckO/E=",
+        "lastModified": 1794456314,
+        "narHash": "sha256-7A6HlpocVMZ3jgKYaNgKEh7WsMcK6qoidxKZQCvSCD0=",
         "ref": "refs/heads/main",
-        "rev": "60eba10d4981bede26b4043eafc0d694ec354ca4",
-        "revCount": 368,
+        "rev": "5be0434a937e0983ecc0207e47a1f2594f0836c0",
+        "revCount": 373,
         "type": "git",
         "url": "https://codeberg.org/pastthepixels/gaypanel"
       },
@@ -983,11 +983,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794433038,
-        "narHash": "sha256-Kjsen20Nt8luRhL/5s+YEr+dzlpJO25FumaD4WYi2W8=",
+        "lastModified": 1794540073,
+        "narHash": "sha256-mPqb9SOuh9jw/bLJmAKUuA8UGoRGf1PiQ7/MIeFqI1s=",
         "ref": "refs/heads/main",
-        "rev": "161d39322cfe18f89c209dbeca18a785599c6d81",
-        "revCount": 1219,
+        "rev": "504b06dd029b334f64c891b90a7b7739dfb35217",
+        "revCount": 1245,
         "submodules": true,
         "type": "git",
         "url": "https://git.federated.nexus/Nexus/nexus"
@@ -1098,11 +1098,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1794042290,
-        "narHash": "sha256-ziZn2PvCJE5JEEpqTdxXwJpPB+L3YqoCpTAMCzyaP3U=",
+        "lastModified": 1794386569,
+        "narHash": "sha256-x9sADJvoVG0L6RejZB+/BB4YiGZFBZrfTlhF4uBq1tQ=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "f4a03c008967841f2a0b3cb7c436fc6fc31671f6",
+        "rev": "d4f25a3e562008648d45bcf2d70bcc7422cad84e",
         "type": "github"
       },
       "original": {
@@ -1306,11 +1306,11 @@
     "redlib": {
       "flake": false,
       "locked": {
-        "lastModified": 1794091249,
-        "narHash": "sha256-IXm3PcN1h5qlFq1j3xTEbU5yrDNL7LCXCVv2t8Sz4O8=",
+        "lastModified": 1794520564,
+        "narHash": "sha256-6uZFXqzocrUgVRmQYacoWZms4A6D3L4Jodrm7KVJWgU=",
         "owner": "Nachtalb",
         "repo": "redlib",
-        "rev": "e498e6a7f4a6dc1e6c5993a5f33da1258860db35",
+        "rev": "1fecafa46c1f5582d9f58050cc950bfc1f5bbfcf",
         "type": "github"
       },
       "original": {
@@ -1455,11 +1455,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794430759,
-        "narHash": "sha256-u6cxoI0usqRsiL3qpAQSD7niYWK8kbWp5YnBEDcXJ6Q=",
+        "lastModified": 1794518888,
+        "narHash": "sha256-aWSTbaszyRbRHvGCVjp8sKJGYCAXqAvilDXuNG7nnM4=",
         "ref": "refs/heads/main",
-        "rev": "f1bc27fac5154fd6ee6afaac2d4412864bd0f158",
-        "revCount": 7993,
+        "rev": "365e6bed0fc25e8a531b93fa5f7c57d423460dee",
+        "revCount": 8071,
         "type": "git",
         "url": "https://git.sable.moe/SableClient/sable-next"
       },
