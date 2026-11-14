@@ -19,7 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     continuwuity = {
-      url = "git+https://forgejo.ellis.link/Continuwuation/Continuwuity";
+      url = "git+https://forgejo.ellis.link/Henry-Hiles/continuwuity?ref=quad/feat/better-relations";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {
