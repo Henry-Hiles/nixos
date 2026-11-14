@@ -179,11 +179,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1794616173,
-        "narHash": "sha256-xGT+iMqzhz1BoqcaPlpPoaQcuKDy0cM9mqp6SG09Uxw=",
+        "lastModified": 1794629404,
+        "narHash": "sha256-WdCCBlIT9z+eyGJ5F8bcw4Z0o1OClSV92ckEhcfvACs=",
         "ref": "quad/feat/better-relations",
-        "rev": "a43066d71fec112c3bc674453ece43441956d211",
-        "revCount": 8161,
+        "rev": "fdaf6eb23c13c2ec52025841639a9c3150c12a85",
+        "revCount": 8164,
         "type": "git",
         "url": "https://forgejo.ellis.link/Henry-Hiles/continuwuity"
       },
@@ -1304,22 +1304,6 @@
         "type": "github"
       }
     },
-    "redlib": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1794520564,
-        "narHash": "sha256-6uZFXqzocrUgVRmQYacoWZms4A6D3L4Jodrm7KVJWgU=",
-        "owner": "Nachtalb",
-        "repo": "redlib",
-        "rev": "1fecafa46c1f5582d9f58050cc950bfc1f5bbfcf",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Nachtalb",
-        "repo": "redlib",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -1344,7 +1328,6 @@
         "nixphone": "nixphone",
         "nixpkgs": "nixpkgs",
         "nixpkgs-lasuite": "nixpkgs-lasuite",
-        "redlib": "redlib",
         "run0-sudo-shim": "run0-sudo-shim",
         "sable": "sable",
         "sable-next": "sable-next",
