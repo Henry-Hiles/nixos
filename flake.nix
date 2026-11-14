@@ -1,8 +1,6 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # FIXME: pinned for lasuite-docs 5.7.0 until migrated to 6.x
-    nixpkgs-lasuite.url = "github:nixos/nixpkgs/1d060086d60cb76a40cf37109f979d88a5bd6396";
     wrapper-manager.url = "git+https://codeberg.org/viperML/wrapper-manager";
     flake-parts.url = "github:hercules-ci/flake-parts";
     nix-maid.url = "git+https://codeberg.org/viperML/nix-maid";
@@ -48,10 +46,6 @@
     };
     nexus = {
       url = "git+https://git.federated.nexus/Nexus/nexus";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    lasuite-docs-proxy = {
-      url = "git+https://git.federated.nexus/Henry-Hiles/lasuite_docs_proxy";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     cozybot = {
