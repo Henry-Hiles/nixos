@@ -1,0 +1,11 @@
+--- a/server/core/templates/user_settings_partial_base.html
++++ b/server/core/templates/user_settings_partial_base.html
+@@ -24,8 +24,6 @@
+                 ProfileMenuItems::Credentials, "shield-lock") %)(% endcall %)
+             (% call side_menu_item("Enrol Device", (Urls::EnrolDevice),
+                 ProfileMenuItems::EnrolDevice, "phone-flip") %)(% endcall %)
+-            (% call side_menu_item("RADIUS", (Urls::Radius),
+-                ProfileMenuItems::Radius, "wifi") %)(% endcall %)
+         </ul>
+         <div id="settings-window" class="flex-grow-1 ps-sm-4 ps-md-5 pt-sm-0 pt-4">
+             <div>

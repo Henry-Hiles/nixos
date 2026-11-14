@@ -79,8 +79,12 @@ in
   services = {
     kanidm = {
       package = pkgs.kanidmWithSecretProvisioning_1_12.overrideAttrs (old: {
-        # Adds the "Migrate your legacy Federated Nexus account" link to the login page
-        patches = (old.patches or [ ]) ++ [ ./migrate-link.patch ];
+        patches = (old.patches or [ ]) ++ [
+          # Adds the "Migrate your legacy Federated Nexus account" link to the login page
+          ./migrate-link.patch
+          # Hides the RADIUS menu item in user settings, as there are no RADIUS servers
+          ./hide-radius.patch
+        ];
       });
 
       server = {
