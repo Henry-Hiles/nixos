@@ -226,7 +226,7 @@ in
     kanidm-bootstrap = {
       description = "Apply Kanidm settings that can't be declared";
       wantedBy = [ "kanidm.service" ];
-      partOf = [ "kanidm.service" ];
+      requires = [ "kanidm.service" ];
       # Connects through Caddy, using the URL in /etc/kanidm/config
       after = [
         "kanidm.service"
