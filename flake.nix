@@ -41,7 +41,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     matrixoidc = {
-      url = "git+https://git.federated.nexus/Henry-Hiles/matrixoidc";
+      url = "git+https://git.federated.nexus/Henry-Hiles/matrixoidc?ref=kanidm";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nexus = {

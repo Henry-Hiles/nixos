@@ -32,9 +32,10 @@ let
     subjectAltName = DNS:localhost,IP:${ip}
   '';
 
-  # Written by kanidm-bootstrap, read by kanidm-mail-sender
+  # Written by kanidm-bootstrap, read by kanidm-mail-sender and matrixoidc
   bootstrapDir = "/var/lib/kanidm-bootstrap";
   mailSenderToken = "${bootstrapDir}/mail-sender-token";
+  migrateToken = "${bootstrapDir}/migrate-token";
 
   mailSenderConfig = (pkgs.formats.toml { }).generate "kanidm-mail-sender.toml" {
     instance_display_name = "Federated Nexus";
@@ -115,6 +116,24 @@ in
             ];
           };
 
+          "01-migrate" = {
+            id = "f134ef35-07d4-4eba-8b3b-fffaca231ac6";
+            assertions = [
+              {
+                # Used by matrixoidc's /migrate to create people and send them credential reset links
+                state = "present";
+                id = "2f1297c6-0f64-4f03-805c-eef194394d85";
+                class = [
+                  "account"
+                  "service_account"
+                ];
+                name = "migrate";
+                displayname = "Legacy account migration";
+                entry_managed_by = "idm_admins";
+              }
+            ];
+          };
+
           # Existing built-in entries: class is omitted, as asserting it would
           # replace the entry's classes
           "10-builtin" = {
@@ -137,6 +156,15 @@ in
       };
     };
 
+    # Its /migrate creates Kanidm accounts for legacy Matrix users
+    matrixoidc = {
+      kanidmTokenFile = migrateToken;
+      args = [
+        "--kanidmUrl"
+        "https://${domain}"
+      ];
+    };
+
     caddy.virtualHosts.${domain}.extraConfig = ''
       reverse_proxy https://${address} {
         transport http {
@@ -148,6 +176,12 @@ in
   };
 
   systemd.services = {
+    # Its token is created by kanidm-bootstrap
+    matrixoidc = {
+      wants = [ "kanidm-bootstrap.service" ];
+      after = [ "kanidm-bootstrap.service" ];
+    };
+
     kanidm-tls = {
       description = "Generate Kanidm's loopback TLS certificate";
       requiredBy = [ "kanidm.service" ];
@@ -228,16 +262,24 @@ in
         kanidm system domain set-allow-account-recovery true -D admin
 
         login idm_admin
-        # Asserting this membership in a migration didn't persist, so it's
+        # Asserting these memberships in a migration didn't persist, so they're
         # re-applied here on every start. Adding an existing member is a no-op.
         kanidm group add-members idm_message_senders mail-sender -D idm_admin >/dev/null
+        kanidm group add-members idm_people_admins migrate -D idm_admin >/dev/null
 
-        if [ ! -s ${mailSenderToken} ]; then
-          umask 077
-          kanidm service-account api-token generate mail-sender mail-sender --readwrite \
-            -D idm_admin -o json | jq -er .result > ${mailSenderToken}.tmp
-          mv ${mailSenderToken}.tmp ${mailSenderToken}
-        fi
+        # Generates an API token for a service account, unless one exists
+        token() {
+          [ -s "$2" ] && return
+          (
+            umask 077
+            kanidm service-account api-token generate "$1" "$1" --readwrite \
+              -D idm_admin -o json | jq -er .result > "$2.tmp"
+          )
+          mv "$2.tmp" "$2"
+        }
+
+        token mail-sender ${mailSenderToken}
+        token migrate ${migrateToken}
       '';
     };
 
