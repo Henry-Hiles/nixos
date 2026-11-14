@@ -253,9 +253,9 @@ in
         export HOME="$RUNTIME_DIRECTORY"
 
         login() {
-          local password
-          password=$(kanidmd scripting recover-account "$1" -c /etc/kanidm/server.toml | jq -er .output)
-          KANIDM_PASSWORD="$password" kanidm login -D "$1" >/dev/null
+        	local password
+        	password=$(kanidmd scripting recover-account "$1" -c /etc/kanidm/server.toml | jq -er .output)
+        	KANIDM_PASSWORD="$password" kanidm login -D "$1" >/dev/null
         }
 
         login admin
@@ -267,15 +267,19 @@ in
         kanidm group add-members idm_message_senders mail-sender -D idm_admin >/dev/null
         kanidm group add-members idm_people_admins migrate -D idm_admin >/dev/null
 
+        # Usernames must match Matrix localparts, so people can't rename themeselves.
+        # This also locks display and legal names, as Kanidm has no separate permission for those
+        kanidm group remove-members idm_people_self_name_write idm_all_persons -D idm_admin >/dev/null
+
         # Generates an API token for a service account, unless one exists
         token() {
-          [ -s "$2" ] && return
-          (
-            umask 077
-            kanidm service-account api-token generate "$1" "$1" --readwrite \
-              -D idm_admin -o json | jq -er .result > "$2.tmp"
-          )
-          mv "$2.tmp" "$2"
+        	[ -s "$2" ] && return
+        	(
+        	umask 077
+        	kanidm service-account api-token generate "$1" "$1" --readwrite \
+        		-D idm_admin -o json | jq -er .result > "$2.tmp"
+        	)
+        	mv "$2.tmp" "$2"
         }
 
         token mail-sender ${mailSenderToken}
