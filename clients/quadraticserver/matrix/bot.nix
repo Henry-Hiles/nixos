@@ -40,7 +40,7 @@
           "--mailName"
           "Federated Nexus"
           "--mailUsername"
-          "AKIAREHCBHZLJADIVNOA"
+          "AKIAREHCBHZLJ3FNCCSM"
           "--subject"
           "Your registration for Federated Nexus has been accepted!"
           "--plainText"
