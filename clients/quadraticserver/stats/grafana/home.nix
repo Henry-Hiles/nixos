@@ -102,10 +102,6 @@
               name = "Degoog (Search)";
               service = "degoog.service";
             }
-            {
-              name = "Redlib";
-              service = "redlib.service";
-            }
           ]
         );
     }
