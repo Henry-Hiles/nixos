@@ -1,0 +1,37 @@
+diff -ru a/server/core/static/style.js b/server/core/static/style.js
+--- a/server/core/static/style.js	2026-11-15 10:57:22.716201301 -0500
++++ b/server/core/static/style.js	2026-11-15 10:57:22.736924681 -0500
+@@ -16,4 +16,6 @@
+ updateColourScheme();
+ window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", updateColourScheme);
+ window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", updateColourScheme);
+-document.body.addEventListener("htmx:afterOnLoad", updateColourScheme);
++document.addEventListener("DOMContentLoaded", () =>
++    document.body.addEventListener("htmx:afterOnLoad", updateColourScheme)
++);
+diff -ru a/server/core/templates/base.html b/server/core/templates/base.html
+--- a/server/core/templates/base.html	2026-11-15 10:57:22.723760230 -0500
++++ b/server/core/templates/base.html	2026-11-15 10:57:22.735346964 -0500
+@@ -16,8 +16,7 @@
+ 			src="/pkg/external/bootstrap.bundle.min.js?v=((crate::https::cache_buster::get_cache_buster_key()))"
+ 			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"></script>
+ 		<script
+-			src="/pkg/style.js?v=((crate::https::cache_buster::get_cache_buster_key()))"
+-			defer></script>
++			src="/pkg/style.js?v=((crate::https::cache_buster::get_cache_buster_key()))"></script>
+ 		<link rel="stylesheet"
+ 			href="/pkg/style.css?v=((crate::https::cache_buster::get_cache_buster_key()))" />
+ 		<link rel="stylesheet"
+diff -ru a/server/core/templates/base_htmx.html b/server/core/templates/base_htmx.html
+--- a/server/core/templates/base_htmx.html	2026-11-15 10:57:22.731330637 -0500
++++ b/server/core/templates/base_htmx.html	2026-11-15 10:57:22.735476467 -0500
+@@ -27,8 +27,7 @@
+ 			src="/pkg/external/htmx.min.1.9.12.js?v=((crate::https::cache_buster::get_cache_buster_key()))"
+ 			integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2"></script>
+ 		<script
+-			src="/pkg/style.js?v=((crate::https::cache_buster::get_cache_buster_key()))"
+-			defer></script>
++			src="/pkg/style.js?v=((crate::https::cache_buster::get_cache_buster_key()))"></script>
+ 		<link rel="stylesheet"
+ 			href="/pkg/style.css?v=((crate::https::cache_buster::get_cache_buster_key()))" />
+ 		<link rel="stylesheet"

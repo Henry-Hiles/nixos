@@ -88,6 +88,8 @@ in
           ./migrate-link.patch
           # Hides the RADIUS menu item in user settings, as there are no RADIUS servers
           ./hide-radius.patch
+          # Applies dark mode before the page is drawn, rather than flashing light mode first
+          ./theme-flash.patch
         ];
       });
 
