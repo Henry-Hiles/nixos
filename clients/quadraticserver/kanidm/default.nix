@@ -337,6 +337,8 @@ in
         # This also locks display and legal names, as Kanidm has no separate permission for those
         kanidm group remove-members idm_people_self_name_write idm_all_persons -D idm_admin >/dev/null
 
+        kanidm group add-members idm_people_self_mail_write idm_all_persons -D idm_admin >/dev/null
+
         # Kanidm requires MFA by default, which blocks saving a password on its
         # own. Allow password-only; people can still add a passkey or TOTP.
         kanidm group account-policy credential-type-minimum idm_all_persons any -D idm_admin >/dev/null
