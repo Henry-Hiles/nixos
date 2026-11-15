@@ -1,8 +1,14 @@
 {
   pkgs,
   config,
+  lib,
   ...
 }:
+let
+  client = "forgejo";
+  sourceName = "Federated Nexus";
+  cfg = config.services.forgejo;
+in
 {
   networking.firewall.allowedTCPPorts = [ 22 ];
   services =
@@ -11,6 +17,19 @@
       socket = "/run/forgejo/socket";
     in
     {
+      kanidm.provision.systems.oauth2.${client} = {
+        displayName = "Forgejo";
+        originUrl = "https://${domain}/user/oauth2/${lib.escapeURL sourceName}/callback";
+        originLanding = "https://${domain}";
+        basicSecretFile = "/var/lib/kanidm-oauth2-secrets/${client}";
+        preferShortUsername = true;
+        scopeMaps.idm_all_persons = [
+          "openid"
+          "email"
+          "profile"
+        ];
+      };
+
       forgejo = {
         enable = true;
         package = pkgs.forgejo; # Not LTS
@@ -63,9 +82,41 @@
     };
 
   systemd = {
-    services.forgejo.serviceConfig = {
-      MemoryHigh = "500M";
-      MemoryMax = "600M";
+    services = {
+      forgejo = {
+        requires = [ "kanidm-oauth2-secrets.service" ];
+        after = [ "kanidm-oauth2-secrets.service" ];
+        serviceConfig = {
+          MemoryHigh = "500M";
+          MemoryMax = "600M";
+          LoadCredential = "secret:${
+            config.services.kanidm.provision.systems.oauth2.${client}.basicSecretFile
+          }";
+        };
+
+        preStart = lib.mkAfter ''
+          # So a failed list stops here, rather than adding a duplicate source
+          set -o pipefail
+          forgejo() { ${lib.getExe cfg.package} --config ${cfg.customDir}/conf/app.ini "$@"; }
+
+          args=(
+          	--name ${lib.escapeShellArg sourceName}
+          	--provider openidConnect
+          	--key ${client}
+          	--secret "$(< "$CREDENTIALS_DIRECTORY/secret")"
+          	--auto-discover-url ${config.services.kanidm.server.settings.origin}/oauth2/openid/${client}/.well-known/openid-configuration
+          	--scopes openid --scopes email --scopes profile
+          )
+
+          # Columns are separated by tabs
+          id=$(forgejo admin auth list | ${lib.getExe pkgs.gawk} -F '\t+' -v name=${lib.escapeShellArg sourceName} '$2 == name { print $1 }')
+          if [ -n "$id" ]; then
+          	forgejo admin auth update-oauth --id "$id" "''${args[@]}"
+          else
+          	forgejo admin auth add-oauth "''${args[@]}"
+          fi
+        '';
+      };
     };
     sockets.forgejo = {
       requiredBy = [ "forgejo.service" ];

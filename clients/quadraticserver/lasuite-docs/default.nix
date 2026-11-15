@@ -9,7 +9,9 @@ let
   secrets = config.age.secrets;
 
   domain = "docs.federated.nexus";
-  authDomain = "auth.federated.nexus";
+  kanidm = config.services.kanidm.server.settings.origin;
+  oidcClient = "docs";
+  oidcEnv = "/run/lasuite-docs-oidc/env";
   socket = "/run/lasuite-docs-gunicorn/socket";
 
   # Attachments are stored in VersityGW, on the storage box like the continuwuity media
@@ -23,6 +25,7 @@ let
     secrets."lasuiteSecrets.age".path
     secrets."lasuiteYProviderKey.age".path
     secrets."versityCredentials.age".path
+    oidcEnv
   ];
 in
 {
@@ -45,6 +48,33 @@ in
   ];
 
   systemd.services = {
+    lasuite-docs-oidc = {
+      description = "Write lasuite-docs' Kanidm client secret to an environment file";
+      requires = [ "kanidm-oauth2-secrets.service" ];
+      after = [ "kanidm-oauth2-secrets.service" ];
+      before = [
+        "lasuite-docs.service"
+        "lasuite-docs-celery.service"
+      ];
+      requiredBy = [
+        "lasuite-docs.service"
+        "lasuite-docs-celery.service"
+      ];
+      serviceConfig = {
+        Type = "oneshot";
+        RemainAfterExit = true;
+        RuntimeDirectory = "lasuite-docs-oidc";
+        RuntimeDirectoryMode = "0700";
+        RuntimeDirectoryPreserve = true;
+      };
+      script = ''
+        umask 077
+        printf 'OIDC_RP_CLIENT_SECRET=%s\n' "$(< ${
+          config.services.kanidm.provision.systems.oauth2.${oidcClient}.basicSecretFile
+        })" > ${oidcEnv}
+      '';
+    };
+
     lasuite-docs.serviceConfig = {
       EnvironmentFile = lib.mkForce backendEnvironmentFiles;
       Restart = "always";
@@ -159,6 +189,19 @@ in
   };
 
   services = {
+    kanidm.provision.systems.oauth2.${oidcClient} = {
+      displayName = "Docs";
+      originUrl = "https://${domain}/api/v1.0/callback/";
+      originLanding = "https://${domain}";
+      basicSecretFile = "/var/lib/kanidm-oauth2-secrets/${oidcClient}";
+      preferShortUsername = true;
+      scopeMaps.idm_all_persons = [
+        "openid"
+        "email"
+        "profile"
+      ];
+    };
+
     lasuite-docs = {
       enable = true;
       enableNginx = false;
@@ -176,10 +219,16 @@ in
       yhub.settings.SOFT_MIGRATION = false;
 
       settings = {
-        OIDC_OP_AUTHORIZATION_ENDPOINT = "https://federated.nexus/login";
-        OIDC_OP_TOKEN_ENDPOINT = "https://${authDomain}/token";
-        OIDC_OP_USER_ENDPOINT = "https://${authDomain}/userinfo";
-        OIDC_RP_SIGN_ALGO = "HS256";
+        OIDC_RP_CLIENT_ID = oidcClient;
+        OIDC_OP_AUTHORIZATION_ENDPOINT = "${kanidm}/ui/oauth2";
+        OIDC_OP_TOKEN_ENDPOINT = "${kanidm}/oauth2/token";
+        OIDC_OP_USER_ENDPOINT = "${kanidm}/oauth2/openid/${oidcClient}/userinfo";
+        OIDC_OP_JWKS_ENDPOINT = "${kanidm}/oauth2/openid/${oidcClient}/public_key.jwk";
+        OIDC_RP_SIGN_ALGO = "ES256";
+        OIDC_RP_SCOPES = "openid email profile";
+        OIDC_USE_PKCE = true;
+        OIDC_USERINFO_FULLNAME_FIELDS = "name";
+        OIDC_USERINFO_SHORTNAME_FIELD = "name";
 
         LOGIN_REDIRECT_URL = "https://${domain}";
 

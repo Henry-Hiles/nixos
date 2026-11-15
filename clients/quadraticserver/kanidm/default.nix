@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }:
 let
@@ -36,6 +37,9 @@ let
   bootstrapDir = "/var/lib/kanidm-bootstrap";
   mailSenderToken = "${bootstrapDir}/mail-sender-token";
   migrateToken = "${bootstrapDir}/migrate-token";
+
+  secretsDir = "/var/lib/kanidm-oauth2-secrets";
+  oauth2Clients = builtins.attrNames config.services.kanidm.provision.systems.oauth2;
 
   mailSenderConfig = (pkgs.formats.toml { }).generate "kanidm-mail-sender.toml" {
     instance_display_name = "Federated Nexus";
@@ -138,6 +142,26 @@ in
             ];
           };
 
+          "02-large-searches" = {
+            id = "5d0c3b1e-6f4a-4c8e-9b2d-7a1e8f3c6d40";
+            assertions = [
+              {
+                state = "present";
+                id = "8e2f4a6c-1b3d-4e5f-a7c9-0d2e4f6a8b1c";
+                class = [
+                  "group"
+                  "account_policy"
+                ];
+                name = "large-searches";
+                description = "Members may search for more entries at once";
+                member = [ "idm_admin" ];
+                limit_search_max_results = 100000;
+                limit_search_max_filter_test = 100000;
+                entry_managed_by = "idm_admins";
+              }
+            ];
+          };
+
           # Existing built-in entries: class is omitted, as asserting it would
           # replace the entry's classes
           "10-builtin" = {
@@ -152,6 +176,12 @@ in
             ];
           };
         };
+      };
+
+      provision = {
+        enable = true;
+        instanceUrl = "https://${address}";
+        acceptInvalidCerts = true;
       };
 
       client = {
@@ -221,6 +251,36 @@ in
         # kanidm is ordered after this unit
         systemctl --no-block try-restart kanidm.service
         systemctl --no-block try-reload-or-restart caddy.service
+      '';
+    };
+
+    kanidm-oauth2-secrets = {
+      description = "Generate Kanidm's OAuth2 client secrets";
+      requiredBy = [ "kanidm.service" ];
+      before = [ "kanidm.service" ];
+      path = [ pkgs.openssl ];
+      serviceConfig = {
+        Type = "oneshot";
+        RemainAfterExit = true;
+        User = "kanidm";
+        Group = "kanidm";
+        StateDirectory = "kanidm-oauth2-secrets";
+        StateDirectoryMode = "0700";
+      };
+      script = ''
+        umask 077
+        for client in ${lib.escapeShellArgs oauth2Clients}; do
+        	file=${secretsDir}/$client
+        	if [ -s "$file" ]; then
+        		# Strip newline if there is one, like the older version of the script made
+        		secret=$(< "$file")
+        	else
+        		secret=$(openssl rand -hex 32)
+        	fi
+        	printf %s "$secret" > "$file.tmp"
+        	chmod 0400 "$file.tmp"
+        	mv "$file.tmp" "$file"
+        done
       '';
     };
 
