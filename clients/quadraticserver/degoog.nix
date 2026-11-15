@@ -20,6 +20,7 @@
         displayName = "Search";
         originUrl = "https://${domain}/oauth2/callback";
         originLanding = "https://${domain}";
+      imageFile = "${config.services.degoog.package}/share/degoog/src/public/images/degoog-logo.svg";
         basicSecretFile = "/var/lib/kanidm-oauth2-secrets/${client}";
         preferShortUsername = true;
         scopeMaps.idm_all_persons = [

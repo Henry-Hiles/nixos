@@ -21,6 +21,7 @@ in
         displayName = "Forgejo";
         originUrl = "https://${domain}/user/oauth2/${lib.escapeURL sourceName}/callback";
         originLanding = "https://${domain}";
+        imageFile = "${cfg.package.data}/public/assets/img/favicon.svg";
         basicSecretFile = "/var/lib/kanidm-oauth2-secrets/${client}";
         preferShortUsername = true;
         scopeMaps.idm_all_persons = [

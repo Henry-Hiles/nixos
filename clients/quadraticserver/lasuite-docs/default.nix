@@ -193,6 +193,7 @@ in
       displayName = "Docs";
       originUrl = "https://${domain}/api/v1.0/callback/";
       originLanding = "https://${domain}";
+      imageFile = "${cfg.frontendPackage}/assets/icon-docs.svg";
       basicSecretFile = "/var/lib/kanidm-oauth2-secrets/${oidcClient}";
       preferShortUsername = true;
       scopeMaps.idm_all_persons = [
