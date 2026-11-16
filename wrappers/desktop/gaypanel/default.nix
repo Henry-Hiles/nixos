@@ -8,7 +8,7 @@ let
   bar = pkgs.writeText "top.blp" ''
     using Gtk 4.0;
 
-    $GayPanel panel {
+    $ShellPanel panel {
       anchor-direction: top;
       monitor: "all";
 
