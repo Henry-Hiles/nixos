@@ -779,11 +779,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794456314,
-        "narHash": "sha256-7A6HlpocVMZ3jgKYaNgKEh7WsMcK6qoidxKZQCvSCD0=",
+        "lastModified": 1794806514,
+        "narHash": "sha256-hRJv/aBOgTE5HnUFWi7yD1vTckeZ+WNIrrJ/hLhLQiM=",
         "ref": "refs/heads/main",
-        "rev": "5be0434a937e0983ecc0207e47a1f2594f0836c0",
-        "revCount": 373,
+        "rev": "c3d58126ff1351d85bc03a1139139324898559cb",
+        "revCount": 383,
         "type": "git",
         "url": "https://codeberg.org/pastthepixels/gaypanel"
       },
@@ -874,11 +874,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794278858,
-        "narHash": "sha256-rkrJwLgLSHBnXfgoSKIDa+2LLGdTqynsV3GAxOTGhUU=",
+        "lastModified": 1794715309,
+        "narHash": "sha256-awkBBs5ctFKgEYjpNGpi3t/VqF589n5EWfdinRb2gNI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "82ce401aa350502897c3f2e85f384d61cd3b0b6d",
+        "rev": "a1293da7dd8e497e08d26173f97e2976b36a31ea",
         "type": "github"
       },
       "original": {
@@ -946,11 +946,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794675724,
-        "narHash": "sha256-rNfBYyWW+vC96BMfU9yisOBpPjGdk5qvgmcxoeuc2eE=",
+        "lastModified": 1794839305,
+        "narHash": "sha256-LoJibO1DD1is9P2DtjjqHKBFxmupVlbFb3QavT2wnR0=",
         "ref": "refs/heads/main",
-        "rev": "267309e84b7522a267ba8a826a381f404d753cba",
-        "revCount": 1254,
+        "rev": "3112871ceb0f1e94513ebb70c01e84c7f3443100",
+        "revCount": 1255,
         "submodules": true,
         "type": "git",
         "url": "https://git.federated.nexus/Nexus/nexus"
@@ -1061,11 +1061,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1794386569,
-        "narHash": "sha256-x9sADJvoVG0L6RejZB+/BB4YiGZFBZrfTlhF4uBq1tQ=",
+        "lastModified": 1794537146,
+        "narHash": "sha256-Wpz/7x/YWnDIBu7yj6ixe8j6fIMsidd9Y+o1PqPF3iM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "d4f25a3e562008648d45bcf2d70bcc7422cad84e",
+        "rev": "d5cc6833999746cffdfe0598f7bc801a57b887a9",
         "type": "github"
       },
       "original": {
@@ -1368,11 +1368,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794694105,
-        "narHash": "sha256-2k/r4da8tsGcjSairdLYVfp/FcUyk4INahtAdxswQ/g=",
+        "lastModified": 1794833435,
+        "narHash": "sha256-KrUwt40VEm7MaUULGXRRflSlmyRQEam+0CED+ewOLHE=",
         "ref": "refs/heads/main",
-        "rev": "78d96a7a07b00dbffad742d6ca293a0fa0473402",
-        "revCount": 8202,
+        "rev": "ba9340cee718a8aae962a2171f44d3a25c793589",
+        "revCount": 8292,
         "type": "git",
         "url": "https://git.sable.moe/SableClient/sable-next"
       },
