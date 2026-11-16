@@ -27,6 +27,8 @@
           "https://federated.nexus/success"
           "--failureUri"
           "https://federated.nexus/failure"
+          "--registerUri"
+          "https://federated.nexus/register/"
         ];
         group = "caddy";
       };
