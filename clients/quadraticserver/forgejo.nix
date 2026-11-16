@@ -86,7 +86,15 @@ in
     services = {
       forgejo = {
         requires = [ "kanidm-oauth2-secrets.service" ];
-        after = [ "kanidm-oauth2-secrets.service" ];
+        wants = [
+          "kanidm.service"
+          "caddy.service"
+        ];
+        after = [
+          "kanidm-oauth2-secrets.service"
+          "kanidm.service"
+          "caddy.service"
+        ];
         serviceConfig = {
           MemoryHigh = "500M";
           MemoryMax = "600M";
