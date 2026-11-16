@@ -907,11 +907,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794694767,
-        "narHash": "sha256-OkyR28RS3gjy5eMME332vZa1atniqi1YGiLQBHVcZ5g=",
+        "lastModified": 1794790630,
+        "narHash": "sha256-Bdm9crlxdbOlzUbLudsoUlASaSMJuvZCrm6qc5jJvm0=",
         "ref": "kanidm",
-        "rev": "be6b7bdf99b78bb4b1ce998dfe99e1444c254b18",
-        "revCount": 52,
+        "rev": "08e34fd98a55f1b69a080fa1dbebe281c0473115",
+        "revCount": 55,
         "type": "git",
         "url": "https://git.federated.nexus/Henry-Hiles/matrixoidc"
       },
@@ -968,11 +968,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794682139,
-        "narHash": "sha256-+3L78fPwX2C/USrLi38B3Xd1Kmv9h8cdRfCR2TnQNpA=",
+        "lastModified": 1794791313,
+        "narHash": "sha256-+wFjQq+UVWzDS7+FWdoYURewOj7bUINj1LD/QRSnPBY=",
         "ref": "refs/heads/main",
-        "rev": "cc3320ec54a9dabf75e8ad981169b6cb569b099c",
-        "revCount": 45,
+        "rev": "3c69fa54d010c3534c9df855b2a2e469b00860bb",
+        "revCount": 47,
         "type": "git",
         "url": "https://git.federated.nexus/federated-nexus/nexusbot"
       },

@@ -1,0 +1,65 @@
+diff -ru a/proto/src/v1/message.rs b/proto/src/v1/message.rs
+--- a/proto/src/v1/message.rs	2026-11-15 20:02:57.593682769 -0500
++++ b/proto/src/v1/message.rs	2026-11-15 20:03:05.231705521 -0500
+@@ -12,6 +12,9 @@
+         intent_id: String,
+         #[serde(with = "time::serde::timestamp")]
+         expiry_time: OffsetDateTime,
++        // The account has no credentials yet, so this sets them up for the first time
++        #[serde(default)]
++        first_setup: bool,
+     },
+     AccountSignupRequestV1 {
+         username: String,
+diff -ru a/server/lib/src/idm/credupdatesession.rs b/server/lib/src/idm/credupdatesession.rs
+--- a/server/lib/src/idm/credupdatesession.rs	2026-11-15 20:02:57.602151429 -0500
++++ b/server/lib/src/idm/credupdatesession.rs	2026-11-15 20:03:05.233821288 -0500
+@@ -1107,6 +1107,9 @@
+             display_name,
+             intent_id,
+             expiry_time,
++            first_setup: account.primary.is_none()
++                && account.passkeys.is_empty()
++                && account.attested_passkeys.is_empty(),
+         };
+ 
+         let ident = Identity::message_queue();
+diff -ru a/tools/mail_sender/src/main.rs b/tools/mail_sender/src/main.rs
+--- a/tools/mail_sender/src/main.rs	2026-11-15 20:02:57.611181240 -0500
++++ b/tools/mail_sender/src/main.rs	2026-11-15 20:03:05.236297186 -0500
+@@ -94,6 +94,7 @@
+             display_name,
+             intent_id,
+             expiry_time,
++            first_setup,
+         } => {
+             let mut reset_url = ctx.instance_url.clone();
+             reset_url.set_path("/ui/reset");
+@@ -108,6 +109,27 @@
+                 .format(&Rfc2822)
+                 .unwrap_or("ERROR - invalid expiration time".into());
+ 
++            if *first_setup {
++                return (
++                    format!("Welcome to {0}", ctx.instance_display_name),
++                    format!(
++                        r#"Welcome to {instance}, {display_name}
++
++You can set up your authentication here:
++
++{reset_url}
++
++This link will expire at {pretty_expiry_time}
++
++
++msg_id: {message_id}
++            "#,
++                        instance = ctx.instance_display_name,
++                        message_id = ctx.message_id,
++                    ),
++                );
++            }
++
+             (
+                 format!("{0}: Credential Reset Link", ctx.instance_display_name),
+                 format!(

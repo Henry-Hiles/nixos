@@ -37,6 +37,7 @@ let
   bootstrapDir = "/var/lib/kanidm-bootstrap";
   mailSenderToken = "${bootstrapDir}/mail-sender-token";
   migrateToken = "${bootstrapDir}/migrate-token";
+  registrationToken = "${bootstrapDir}/registration-token";
 
   secretsDir = "/var/lib/kanidm-oauth2-secrets";
   oauth2Clients = builtins.attrNames config.services.kanidm.provision.systems.oauth2;
@@ -90,6 +91,8 @@ in
           ./hide-radius.patch
           # Applies dark mode before the page is drawn, rather than flashing light mode first
           ./theme-flash.patch
+          # Emails new accounts a welcome message instead of "This is your credential reset link"
+          ./welcome-email.patch
         ];
       });
 
@@ -164,6 +167,24 @@ in
             ];
           };
 
+          "03-registration" = {
+            id = "5837871f-1810-47a5-ad43-60ecbf313462";
+            assertions = [
+              {
+                # Used by nexusbot to create approved registrations
+                state = "present";
+                id = "662082c2-9ec4-443d-98b5-537c4d128914";
+                class = [
+                  "account"
+                  "service_account"
+                ];
+                name = "registration";
+                displayname = "Registration approval";
+                entry_managed_by = "idm_admins";
+              }
+            ];
+          };
+
           # Existing built-in entries: class is omitted, as asserting it would
           # replace the entry's classes
           "10-builtin" = {
@@ -192,9 +213,18 @@ in
       };
     };
 
-    # Its /migrate creates Kanidm accounts for legacy Matrix users
+    # Creates Kanidm accounts for legacy Matrix users
     matrixoidc = {
       kanidmTokenFile = migrateToken;
+      args = [
+        "--kanidmUrl"
+        "https://${domain}"
+      ];
+    };
+
+    # Creates Kanidm accounts for approved registrations
+    nexusbot = {
+      kanidmTokenFile = registrationToken;
       args = [
         "--kanidmUrl"
         "https://${domain}"
@@ -212,8 +242,12 @@ in
   };
 
   systemd.services = {
-    # Its token is created by kanidm-bootstrap
+    # Their tokens are created by kanidm-bootstrap
     matrixoidc = {
+      wants = [ "kanidm-bootstrap.service" ];
+      after = [ "kanidm-bootstrap.service" ];
+    };
+    nexusbot = {
       wants = [ "kanidm-bootstrap.service" ];
       after = [ "kanidm-bootstrap.service" ];
     };
@@ -331,7 +365,7 @@ in
         # Asserting these memberships in a migration didn't persist, so they're
         # re-applied here on every start. Adding an existing member is a no-op.
         kanidm group add-members idm_message_senders mail-sender -D idm_admin >/dev/null
-        kanidm group add-members idm_people_admins migrate -D idm_admin >/dev/null
+        kanidm group add-members idm_people_admins migrate registration -D idm_admin >/dev/null
 
         # Usernames must match Matrix localparts, so people can't rename themeselves.
         # This also locks display and legal names, as Kanidm has no separate permission for those
@@ -356,6 +390,7 @@ in
 
         token mail-sender ${mailSenderToken}
         token migrate ${migrateToken}
+        token registration ${registrationToken}
       '';
     };
 

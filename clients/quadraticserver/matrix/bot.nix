@@ -14,56 +14,19 @@
     {
       nexusbot = {
         enable = true;
-        botPasswordFile = config.age.secrets."botPassword.age".path;
-        smtpPasswordFile = config.age.secrets."smtpPassword.age".path;
+        # An access token from a password login, made before continuwuity switched to Kanidm logins
+        botTokenFile = config.age.secrets."botToken.age".path;
         args = [
           "--socket"
           socket
           "--homeserver"
           config.services.matrix-continuwuity.settings.global.well_known.client
-          "--username"
-          "nexusbot"
           "--adminRoom"
           "#admins:federated.nexus"
           "--successUri"
           "https://federated.nexus/success"
           "--failureUri"
           "https://federated.nexus/failure"
-          "--inviteTo"
-          "#space:federated.nexus"
-          "--adminName"
-          "conduit"
-          "--email"
-          ("inf" + "o@f" + "edera" + "ted.n" + "exus")
-          "--mailDomain"
-          "email-smtp.us-east-1.amazonaws.com"
-          "--mailName"
-          "Federated Nexus"
-          "--mailUsername"
-          "AKIAREHCBHZLJ3FNCCSM"
-          "--subject"
-          "Your registration for Federated Nexus has been accepted!"
-          "--plainText"
-          "Your registration for Federated Nexus has been accepted! Your credentials are:
-Username: @{username}
-Password: @{password}
-
-You can change your password in your favorite Matrix client, or here: https://matrix.federated.nexus/_continuwuity/account/password/change
-
-If you have any questions, check out our documentation: https://federated.nexus/services/matrix/.
-
-If you have any issues, reply to this email."
-          "--markdown"
-          "# Your registration for Federated Nexus has been accepted!
-## Your credentials are:
-- ### Username: @{username}
-- ### Password: @{password}
-
-You can change your password in your favorite Matrix client, or [here](https://matrix.federated.nexus/_continuwuity/account/password/change). 
-
-If you have any questions, check out [our documentation](https://federated.nexus/services/matrix/).
-
-If you have any issues, reply to this email."
         ];
         group = "caddy";
       };

@@ -5,7 +5,7 @@
  	(% endif -%)
  
 +	<div class="input-group mb-3 justify-content-md-center text-center">
-+		<a href="https://federated.nexus/login?redirect_uri=https://auth.federated.nexus/migrate">Don't have a Kanidm account yet? Migrate your legacy Federated Nexus account</a>
++		<a href="https://federated.nexus/migrate/">Don't have a Kanidm account yet? Migrate your legacy Federated Nexus account</a>
 +	</div>
 +
  </form>

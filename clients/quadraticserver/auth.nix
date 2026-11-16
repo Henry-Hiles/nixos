@@ -14,18 +14,17 @@
     {
       matrixoidc = {
         enable = true;
-        jwtSecretFile = config.age.secrets."oidcJwtSecret.age".path;
+        # A snapshot from before the cutover, made by ~/Documents/fednex-password-hashes.sh
+        passwordHashesFile = "/var/lib/matrix-password-hashes/hashes";
         args = [
           "--socket"
           socket
           "--homeserver"
           config.services.matrix-continuwuity.settings.global.well_known.client
-          "--issuer"
-          "https://${domain}"
-          "--authorizeEndpoint"
-          "https://federated.nexus/login"
+          "--migrateUri"
+          "https://federated.nexus/migrate/"
           "--serviceDomain"
-          "federated.nexus"
+          config.quad.matrix.domain
         ];
         group = "caddy";
       };
