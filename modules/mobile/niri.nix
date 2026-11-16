@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   lib,
   pkgs,
@@ -54,6 +55,15 @@ let
   '';
 
   swayosd-client = lib.getExe' pkgs.swayosd "swayosd-client";
+
+  # Stevia normally needs a phoc-only protocol to start.
+  stevia = pkgs.stevia.overrideAttrs (old: {
+    patches = (old.patches or [ ]) ++ [ ./stevia-optional-device-state.patch ];
+  });
+
+  lock = pkgs.writeShellScript "lock" ''
+    ${lib.getExe' pkgs.procps "pidof"} gtklock || exec ${lib.getExe config.programs.gtklock.package}
+  '';
 in
 {
   programs.niri = {
@@ -101,14 +111,19 @@ in
 
     spawn-at-startup "${lib.getExe pkgs.swaybg}" "-i" "${../../background.jpg}" "-m" "fill"
     spawn-at-startup "${lib.getExe grid}"
-    spawn-at-startup "${lib.getExe pkgs.stevia}"
+    spawn-at-startup "${lib.getExe stevia}"
     spawn-at-startup "${lib.getExe' pkgs.swayosd "swayosd-server"}" "--style" "${swayosdStyle}"
+    // We log in automatically, so lock straight away.
+    spawn-at-startup "${lock}"
 
     binds {
+        XF86PowerOff { spawn "${lock}"; }
         XF86AudioRaiseVolume allow-when-locked=true { spawn "${swayosd-client}" "--output-volume" "raise"; }
         XF86AudioLowerVolume allow-when-locked=true { spawn "${swayosd-client}" "--output-volume" "lower"; }
     }
   '';
+
+  quad.session = lib.getExe' niri "niri-session";
 
   services.logind.settings.Login = {
     HandlePowerKey = "ignore";

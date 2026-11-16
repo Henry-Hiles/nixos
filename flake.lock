@@ -935,10 +935,10 @@
     "niri-mobile": {
       "flake": false,
       "locked": {
-        "lastModified": 1794856587,
-        "narHash": "sha256-3QcIjmE7szOtZKpWXg36lcPZ/v8vFW3SkYrg59M9GT4=",
+        "lastModified": 1794866348,
+        "narHash": "sha256-xOlwRx2pt3b/XGu7C1HBF8OljMrRV1whr+PL5o+czlM=",
         "ref": "quad/mobile-testing",
-        "rev": "9256350fa5b80e7420661e369a2bca91522a1690",
+        "rev": "fb33c8f8fa9ed74ea5477d6f6caf258f5733aae4",
         "shallow": true,
         "type": "git",
         "url": "file:///home/quadradical/Documents/Code/niri"

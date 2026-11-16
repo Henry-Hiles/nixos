@@ -63,6 +63,8 @@ in
       "org.freedesktop.impl.portal.ScreenCast" = [ "fht-compositor" ];
     };
 
+    quad.session = lib.getExe' cfg.package "fht-compositor-session";
+
     environment = {
       # Called by name (rather than by store path), so Super+Ctrl+R after a rebuild runs the new version
       systemPackages = [ session-programs ];

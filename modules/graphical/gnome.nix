@@ -6,8 +6,6 @@
 }:
 {
   services = {
-    displayManager.gdm.enable = true;
-
     gnome = {
       core-os-services.enable = true;
       core-apps.enable = true;
@@ -15,6 +13,23 @@
 
     gvfs.enable = true;
   };
+
+  systemd.user.tmpfiles.users.quadradical.rules =
+    let
+      keyring = pkgs.writeText "login.keyring" ''
+        [keyring]
+        display-name=Login
+        ctime=0
+        mtime=0
+        lock-on-idle=false
+        lock-after=false
+      '';
+    in
+    [
+      "d %h/.local/share/keyrings 0700 - - -"
+      "C %h/.local/share/keyrings/login.keyring 0600 - - - ${keyring}"
+      "f %h/.local/share/keyrings/default 0600 - - - login"
+    ];
 
   environment.sessionVariables.NAUTILUS_4_EXTENSION_DIR = lib.mkForce "${config.system.path}/lib/nautilus/extensions-4";
 
