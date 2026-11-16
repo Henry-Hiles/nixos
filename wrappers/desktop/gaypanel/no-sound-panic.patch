@@ -19,9 +19,9 @@ diff -ru a/src/system/sound.rs b/src/system/sound.rs
              let sink = sink!(mixer).unwrap();
              let source = source!(mixer);
              let mut pollfds = mixer.get().unwrap();
-diff -ru a/src/ui/system/imp.rs b/src/ui/system/imp.rs
---- a/src/ui/system/imp.rs
-+++ b/src/ui/system/imp.rs
+diff -ru a/src/ui/widgets/system/imp.rs b/src/ui/widgets/system/imp.rs
+--- a/src/ui/widgets/system/imp.rs
++++ b/src/ui/widgets/system/imp.rs
 @@ -232,7 +232,10 @@
          let controller = gtk::EventControllerScroll::new(gtk::EventControllerScrollFlags::VERTICAL);
          controller.connect_scroll(|_, _, b| {
