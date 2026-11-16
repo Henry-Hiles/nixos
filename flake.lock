@@ -814,25 +814,6 @@
         "type": "github"
       }
     },
-    "gnome-mobile": {
-      "inputs": {
-        "gnome-shell-mobile": "gnome-shell-mobile",
-        "mutter-mobile": "mutter-mobile",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 0,
-        "narHash": "sha256-nO7cqicSHCjn96qMIV1JKwDei3n56Ra4G6rtaePbu3k=",
-        "type": "git",
-        "url": "file:///home/quadradical/Documents/Code/nixos-gnome-mobile"
-      },
-      "original": {
-        "type": "git",
-        "url": "file:///home/quadradical/Documents/Code/nixos-gnome-mobile"
-      }
-    },
     "gnome-shell": {
       "flake": false,
       "locked": {
@@ -850,21 +831,6 @@
         "ref": "50.1",
         "repo": "gnome-shell",
         "type": "gitlab"
-      }
-    },
-    "gnome-shell-mobile": {
-      "flake": false,
-      "locked": {
-        "dirtyRev": "c602286053f9e06b3493decb4a9dabe8ba20ad9c-dirty",
-        "dirtyShortRev": "c60228605-dirty",
-        "lastModified": 1793323139,
-        "narHash": "sha256-DTqRtdXSwmb8ovlEmzVf7CcwtjRgpXinuWCb+1CgTc0=",
-        "type": "git",
-        "url": "file:///home/quadradical/Documents/Code/gnome-shell-mobile"
-      },
-      "original": {
-        "type": "git",
-        "url": "file:///home/quadradical/Documents/Code/gnome-shell-mobile"
       }
     },
     "home-manager": {
@@ -921,21 +887,6 @@
         "url": "https://git.federated.nexus/Henry-Hiles/matrixoidc"
       }
     },
-    "mutter-mobile": {
-      "flake": false,
-      "locked": {
-        "dirtyRev": "7e7b25f68c7719ebf3b651808824e0c8bd33020d-dirty",
-        "dirtyShortRev": "7e7b25f68-dirty",
-        "lastModified": 1793323139,
-        "narHash": "sha256-mvdRwZfbnlzBrwr0bT4ZItYcM15smb7gkpppwIEp64k=",
-        "type": "git",
-        "url": "file:///home/quadradical/Documents/Code/mutter-mobile"
-      },
-      "original": {
-        "type": "git",
-        "url": "file:///home/quadradical/Documents/Code/mutter-mobile"
-      }
-    },
     "nexus": {
       "inputs": {
         "continuwuity": "continuwuity_2",
@@ -979,6 +930,24 @@
       "original": {
         "type": "git",
         "url": "https://git.federated.nexus/federated-nexus/nexusbot"
+      }
+    },
+    "niri-mobile": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1794856587,
+        "narHash": "sha256-3QcIjmE7szOtZKpWXg36lcPZ/v8vFW3SkYrg59M9GT4=",
+        "ref": "quad/mobile-testing",
+        "rev": "9256350fa5b80e7420661e369a2bca91522a1690",
+        "shallow": true,
+        "type": "git",
+        "url": "file:///home/quadradical/Documents/Code/niri"
+      },
+      "original": {
+        "ref": "quad/mobile-testing",
+        "shallow": true,
+        "type": "git",
+        "url": "file:///home/quadradical/Documents/Code/niri"
       }
     },
     "nix-github-actions": {
@@ -1248,12 +1217,12 @@
         "flake-parts": "flake-parts_5",
         "gadgetfs": "gadgetfs",
         "gaypanel": "gaypanel",
-        "gnome-mobile": "gnome-mobile",
         "home-manager": "home-manager",
         "lk-jwt-service-module": "lk-jwt-service-module",
         "matrixoidc": "matrixoidc",
         "nexus": "nexus",
         "nexusbot": "nexusbot",
+        "niri-mobile": "niri-mobile",
         "nix-maid": "nix-maid",
         "nixphone": "nixphone",
         "nixpkgs": "nixpkgs",

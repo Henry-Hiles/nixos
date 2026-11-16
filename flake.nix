@@ -8,9 +8,9 @@
       url = "github:sorki/nixos-gadgetfs-proto";
       flake = false;
     };
-    gnome-mobile = {
-      url = "git+file:///home/quadradical/Documents/Code/nixos-gnome-mobile";
-      inputs.nixpkgs.follows = "nixpkgs";
+    niri-mobile = {
+      url = "git+file:///home/quadradical/Documents/Code/niri?ref=quad/mobile-testing&shallow=1";
+      flake = false;
     };
     nixphone = {
       url = "git+https://codeberg.org/nixphone/nixphone";
