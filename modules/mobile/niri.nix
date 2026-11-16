@@ -34,6 +34,7 @@ let
       gjs
       gtk4
       gtk4-layer-shell
+      libadwaita
     ];
 
     installPhase = ''
@@ -72,6 +73,10 @@ in
   };
 
   environment.etc."niri/config.kdl".text = ''
+    output "DSI-1" {
+        scale 3
+    }
+
     input {
         touch { edge-swipe-size 24; }
     }
@@ -82,10 +87,10 @@ in
             left -16
             right -16
             top -16
-            bottom -16
         }
         center-focused-column "always"
         default-column-width { proportion 1.0; }
+        background-color "transparent"
     }
 
     // zoom and workspace-anchor have to match the constants in test-shell/grid.js.
@@ -94,7 +99,13 @@ in
         workspace-anchor 0.15
         hide-inactive-workspaces
         swipe-to-close
-        swipe-down-to-focus
+        swipe-down-to-exit
+        open-when-empty
+        workspace-shadow { off; }
+    }
+
+    gestures {
+        workspace-switch { off; }
     }
 
     layer-rule {
@@ -108,6 +119,10 @@ in
     }
 
     prefer-no-csd
+
+    hotkey-overlay {
+        skip-at-startup
+    }
 
     spawn-at-startup "${lib.getExe pkgs.swaybg}" "-i" "${../../background.jpg}" "-m" "fill"
     spawn-at-startup "${lib.getExe grid}"
