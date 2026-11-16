@@ -72,7 +72,7 @@ let
       padding: 2px 12px;
     }
 
-    window.panel {
+    panel {
       background: alpha(var(--window-bg-color), 0.5);
     }
 
