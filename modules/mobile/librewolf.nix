@@ -16,12 +16,11 @@ let
     cp -r ${src}/src/themes $out/
   '';
 
-  # It logs into <profile>/chrome, which is a read-only theme from the store here, and failing to
-  # open the log stops it from loading at all. Log into the profile itself instead.
   autoconfig = pkgs.runCommand "mobile-config-autoconfig.js" { } ''
-    substitute ${src}/src/mobile-config-autoconfig.js $out \
+    substitute ${src}/src/mobile-config-autoconfig.js autoconfig.js \
       --replace-fail "/usr/lib/mobile-config-firefox" "${configDir}" \
       --replace-fail 'var logFile = g_chromeDir.clone();' 'var logFile = Services.dirsvc.get("ProfD", Ci.nsIFile);'
+    { echo '(function () {'; cat autoconfig.js; echo '})();'; } > $out
   '';
 
   # The wrapper sets up autoconfig itself
