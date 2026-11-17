@@ -1,0 +1,35 @@
+--- a/src/pos-input-method.c
++++ b/src/pos-input-method.c
+@@ -62,6 +62,8 @@
+   PosImState *submitted;
+ 
+   guint       serial;
++  /* Activated again while already active, e.g. after tapping a focused text field. */
++  gboolean    reactivated;
+ };
+ G_DEFINE_TYPE (PosInputMethod, pos_input_method, G_TYPE_OBJECT)
+ 
+@@ -93,8 +95,11 @@
+ 
+   g_debug ("%s", __func__);
+ 
+-  if (self->pending->active == TRUE)
++  /* Let the keyboard show itself again if it was hidden by the user. */
++  if (self->pending->active == TRUE) {
++    self->reactivated = TRUE;
+     return;
++  }
+ 
+   self->pending->active = TRUE;
+   g_clear_pointer (&self->pending->surrounding_text, g_free);
+@@ -194,8 +199,9 @@
+ 
+   self->submitted = pos_im_state_dup (self->pending);
+ 
+-  if (current->active != self->submitted->active)
++  if (current->active != self->submitted->active || self->reactivated)
+     g_object_notify_by_pspec (G_OBJECT (self), props[PROP_ACTIVE]);
++  self->reactivated = FALSE;
+ 
+   if (g_strcmp0 (current->surrounding_text, self->submitted->surrounding_text) ||
+       current->cursor != self->submitted->cursor ||

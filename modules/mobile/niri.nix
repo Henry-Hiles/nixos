@@ -31,9 +31,13 @@ let
 
   swayosd-client = lib.getExe' pkgs.swayosd "swayosd-client";
 
-  # Stevia normally needs a phoc-only protocol to start.
   stevia = pkgs.stevia.overrideAttrs (old: {
-    patches = (old.patches or [ ]) ++ [ ./stevia-optional-device-state.patch ];
+    patches = (old.patches or [ ]) ++ [
+      # Stevia normally needs a phoc-only protocol to start.
+      ./stevia-optional-device-state.patch
+      # Bring back stevia on textfield re-focus
+      ./stevia-reshow-on-tap.patch
+    ];
   });
 
   lock = pkgs.writeShellScript "lock" ''
