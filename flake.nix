@@ -13,7 +13,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     niri-mobile = {
-      url = "git+file:///home/quadradical/Documents/Code/niri?ref=quad/mobile-testing&shallow=1";
+      url = "git+file:///home/quadradical/Documents/Code/niri?shallow=1";
       flake = false;
     };
     nixphone = {

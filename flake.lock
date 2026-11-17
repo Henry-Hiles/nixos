@@ -955,16 +955,15 @@
     "niri-mobile": {
       "flake": false,
       "locked": {
-        "lastModified": 1794875336,
-        "narHash": "sha256-7Ot6o5bgixBruntwsQcoNX2ASukgxLzQS9fzCSCuSOw=",
-        "ref": "quad/mobile-testing",
-        "rev": "27655fe6b05909051effae07b5440a320b56da0e",
+        "lastModified": 1794883083,
+        "narHash": "sha256-SDiMSM/iL1m18WpPQCdKLS1dukFky7yLm00HMQMxBtc=",
+        "ref": "refs/heads/quad/mobile",
+        "rev": "3040ae4886514f49ff1bced0ba887b102990fdc5",
         "shallow": true,
         "type": "git",
         "url": "file:///home/quadradical/Documents/Code/niri"
       },
       "original": {
-        "ref": "quad/mobile-testing",
         "shallow": true,
         "type": "git",
         "url": "file:///home/quadradical/Documents/Code/niri"
