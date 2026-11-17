@@ -32,13 +32,9 @@ let
     ];
   });
 
-  lock = pkgs.writeShellScript "lock" ''
-    ${lib.getExe' pkgs.procps "pidof"} gtklock || exec ${lib.getExe config.programs.gtklock.package}
-  '';
-
   hypridleConfig = pkgs.writeText "hypridle.conf" ''
     general {
-      lock_cmd = ${lock}
+      lock_cmd = ${config.quad.lock}
       before_sleep_cmd = loginctl lock-session
     }
   '';
@@ -115,7 +111,7 @@ in
     spawn-at-startup "${lib.getExe stevia}"
     spawn-at-startup "${lib.getExe' pkgs.swayosd "swayosd-server"}" "--style" "${swayosdStyle}"
     // We log in automatically, so lock straight away.
-    spawn-at-startup "${lock}"
+    spawn-at-startup "${config.quad.lock}"
     spawn-at-startup "${lib.getExe pkgs.hypridle}" "--config" "${hypridleConfig}"
 
     binds {

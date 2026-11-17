@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }:
@@ -129,7 +130,17 @@ let
   '';
 in
 {
-  programs.gtklock = {
+  options.quad.lock = lib.mkOption {
+    type = lib.types.package;
+    readOnly = true;
+    description = "Locks the session with gtklock, unless it's already running.";
+    default = pkgs.writeShellScript "lock" ''
+      exec ${lib.getExe' pkgs.util-linux "flock"} --nonblock "$XDG_RUNTIME_DIR/gtklock.lock" \
+        ${lib.getExe config.programs.gtklock.package}
+    '';
+  };
+
+  config.programs.gtklock = {
     enable = true;
 
     config.main = {
