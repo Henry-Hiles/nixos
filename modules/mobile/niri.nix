@@ -38,6 +38,11 @@ let
       before_sleep_cmd = loginctl lock-session
     }
   '';
+
+  suspend = pkgs.writeShellScript "suspend" ''
+    ${lib.getExe pkgs.niri} msg action power-off-monitors
+    exec ${config.systemd.package}/bin/systemctl suspend
+  '';
 in
 {
   nixpkgs.overlays = [
@@ -54,6 +59,8 @@ in
 
     input {
         touch { edge-swipe-size 24; }
+        // The power key is bound below instead.
+        disable-power-key-handling
     }
 
     layout {
@@ -115,6 +122,7 @@ in
     spawn-at-startup "${lib.getExe pkgs.hypridle}" "--config" "${hypridleConfig}"
 
     binds {
+        XF86PowerOff allow-when-locked=true { spawn "${suspend}"; }
         XF86AudioRaiseVolume allow-when-locked=true { spawn "${swayosd-client}" "--output-volume" "raise"; }
         XF86AudioLowerVolume allow-when-locked=true { spawn "${swayosd-client}" "--output-volume" "lower"; }
     }
