@@ -16,6 +16,10 @@
       url = "github:Henry-Hiles/niri/quad/mobile";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stevia-mobile = {
+      url = "git+https://gitlab.gnome.org/Henry-Hiles/stevia?ref=quad/mobile";
+      flake = false;
+    };
     nixphone = {
       url = "git+https://codeberg.org/nixphone/nixphone";
       inputs.nixpkgs.follows = "nixpkgs";

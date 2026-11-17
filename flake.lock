@@ -1253,6 +1253,7 @@
         "run0-sudo-shim": "run0-sudo-shim",
         "sable": "sable",
         "sable-next": "sable-next",
+        "stevia-mobile": "stevia-mobile",
         "stylix": "stylix",
         "wrapper-manager": "wrapper-manager"
       }
@@ -1372,6 +1373,23 @@
       "original": {
         "type": "git",
         "url": "https://git.sable.moe/SableClient/sable-next"
+      }
+    },
+    "stevia-mobile": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1794890246,
+        "narHash": "sha256-l/7hLzzMnjCiy2M5pPrCbHS1qOIYv9Q+D7rS+y8K4xQ=",
+        "ref": "quad/mobile",
+        "rev": "6008f299dd78270e132dbb26f64adfa3c53885e3",
+        "revCount": 1348,
+        "type": "git",
+        "url": "https://gitlab.gnome.org/Henry-Hiles/stevia"
+      },
+      "original": {
+        "ref": "quad/mobile",
+        "type": "git",
+        "url": "https://gitlab.gnome.org/Henry-Hiles/stevia"
       }
     },
     "stylix": {

@@ -17,11 +17,18 @@ let
   swayosd-client = lib.getExe' pkgs.swayosd "swayosd-client";
 
   stevia = pkgs.stevia.overrideAttrs (old: {
-    patches = (old.patches or [ ]) ++ [
-      # Stevia normally needs a phoc-only protocol to start.
-      ./stevia-optional-device-state.patch
-      # Bring back stevia on textfield re-focus
-      ./stevia-reshow-on-tap.patch
+    version = "quad-mobile-${inputs.stevia-mobile.shortRev}";
+    src = inputs.stevia-mobile;
+    # Needed by newer Stevia than nixpkgs has
+    buildInputs = old.buildInputs ++ [
+      pkgs.gsettings-desktop-schemas
+      pkgs.gst_all_1.gstreamer
+      pkgs.gst_all_1.gst-plugins-base
+      pkgs.libsoup_3
+    ];
+    mesonFlags = old.mesonFlags ++ [
+      "-Duim=disabled"
+      "-Dgovarnam=disabled"
     ];
   });
 
