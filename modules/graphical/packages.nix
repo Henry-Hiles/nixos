@@ -9,6 +9,7 @@
     showtime
     resources
     nmgui
+    overskride
     wl-clipboard
     google-cursor
     papirus-icon-theme
