@@ -132,7 +132,8 @@ in
     unset GTK_IM_MODULE QT_IM_MODULE XMODIFIERS
   '';
 
-  # The on-screen keyboard only shows itself with this on.
-  users.users.quadradical.maid.gsettings.settings.org.gnome.desktop.a11y.applications.screen-keyboard-enabled =
-    true;
+  users.users.quadradical.maid.gsettings.settings.org.gnome.desktop = {
+    a11y.applications.screen-keyboard-enabled = true;
+    wm.preferences.button-layout = "appmenu:";
+  };
 }
