@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   aliases = {
     upgrade = "nh os switch --update";
@@ -23,8 +28,15 @@ in
         (
           command: host:
           pkgs.writeShellScriptBin command ''
+            # Stop other systems from getting GC'd
+            keep() {
+              path=$(nix build --no-link --print-out-paths \
+                "${config.programs.nh.flake}#nixosConfigurations.${host}.config.system.build.toplevel")
+              sudo nix-env --profile /nix/var/nix/profiles/${host} --set "$path"
+            }
+
             ${lib.concatMapAttrsStringSep "\n" (
-              name: cmd: ''${name}() { ${cmd} -H ${host} --target-host ${command} --diff never "$@"; }''
+              name: cmd: ''${name}() { ${cmd} -H ${host} --target-host ${command} --diff never "$@" && keep; }''
             ) aliases}
 
             "$@"
