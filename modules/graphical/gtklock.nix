@@ -136,6 +136,7 @@ in
     description = "Locks the session with gtklock, unless it's already running.";
     default = pkgs.writeShellScript "lock" ''
       exec ${lib.getExe' pkgs.util-linux "flock"} --nonblock "$XDG_RUNTIME_DIR/gtklock.lock" \
+        ${lib.getExe' config.systemd.package "systemd-cat"} --identifier=gtklock \
         ${lib.getExe config.programs.gtklock.package}
     '';
   };
