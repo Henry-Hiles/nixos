@@ -12,6 +12,10 @@
       url = "git+https://git.federated.nexus/Henry-Hiles/app-grid";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    quadshell = {
+      url = "git+https://git.federated.nexus/Henry-Hiles/quadshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     niri-mobile = {
       url = "github:Henry-Hiles/niri/quad/mobile";
       inputs.nixpkgs.follows = "nixpkgs";

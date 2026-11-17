@@ -1227,6 +1227,26 @@
         "type": "github"
       }
     },
+    "quadshell": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1794952294,
+        "narHash": "sha256-vRU0fxynA0W6KnH4eN4wp0FP1YWtU9jDhamrfNX7T3I=",
+        "ref": "refs/heads/main",
+        "rev": "7f2794a630be74129ea6a4e9717d97378d1224ee",
+        "revCount": 1,
+        "type": "git",
+        "url": "https://git.federated.nexus/Henry-Hiles/quadshell"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://git.federated.nexus/Henry-Hiles/quadshell"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -1250,6 +1270,7 @@
         "nix-maid": "nix-maid",
         "nixphone": "nixphone",
         "nixpkgs": "nixpkgs",
+        "quadshell": "quadshell",
         "run0-sudo-shim": "run0-sudo-shim",
         "sable": "sable",
         "sable-next": "sable-next",
