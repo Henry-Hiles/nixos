@@ -95,6 +95,10 @@ in
         workspace-switch { off; }
     }
 
+    window-rule {
+        open-floating false
+    }
+
     layer-rule {
         match namespace="^app-grid$"
         place-within-backdrop true
