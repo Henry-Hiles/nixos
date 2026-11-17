@@ -51,8 +51,25 @@
         "widget.use-xdg-desktop-portal.file-picker" = 1;
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         "privacy.fingerprintingProtection.overrides" = "+AllTargets,-CSSPrefersColorScheme,-JSDateTimeUTC";
-        "browser.uiCustomization.state" =
-          "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"downloads-button\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\"],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"save-to-pocket-button\",\"developer-button\"],\"dirtyAreaCache\":[\"nav-bar\",\"PersonalToolbar\",\"toolbar-menubar\",\"TabsToolbar\"],\"currentVersion\":19}";
+        "browser.download.autohideButton" = true;
+        "browser.uiCustomization.state" = builtins.toJSON {
+          currentVersion = 28;
+          placements = {
+            nav-bar = [
+              "back-button"
+              "forward-button"
+              "stop-reload-button"
+              "urlbar-container"
+              "downloads-button"
+              "unified-extensions-button"
+            ];
+            TabsToolbar = [
+              "tabbrowser-tabs"
+              "new-tab-button"
+              "alltabs-button"
+            ];
+          };
+        };
       }
     );
 
