@@ -8,6 +8,7 @@
     gapless
     showtime
     resources
+    nmgui
     wl-clipboard
     google-cursor
     papirus-icon-theme
