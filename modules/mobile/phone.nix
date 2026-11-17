@@ -7,7 +7,6 @@
 
   environment.systemPackages = with pkgs; [
     chatty
-    kooha
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
