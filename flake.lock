@@ -955,18 +955,18 @@
     "niri-mobile": {
       "flake": false,
       "locked": {
-        "lastModified": 1794883083,
-        "narHash": "sha256-SDiMSM/iL1m18WpPQCdKLS1dukFky7yLm00HMQMxBtc=",
-        "ref": "refs/heads/quad/mobile",
-        "rev": "3040ae4886514f49ff1bced0ba887b102990fdc5",
-        "shallow": true,
-        "type": "git",
-        "url": "file:///home/quadradical/Documents/Code/niri"
+        "lastModified": 1794889107,
+        "narHash": "sha256-tvHafWVnTFoIvD47mawvUkloNuweG92yf94ysgDPvok=",
+        "owner": "Henry-Hiles",
+        "repo": "niri",
+        "rev": "09cbacc42dc28062c0fc539a674f356d52eb662b",
+        "type": "github"
       },
       "original": {
-        "shallow": true,
-        "type": "git",
-        "url": "file:///home/quadradical/Documents/Code/niri"
+        "owner": "Henry-Hiles",
+        "ref": "quad/mobile",
+        "repo": "niri",
+        "type": "github"
       }
     },
     "nix-github-actions": {

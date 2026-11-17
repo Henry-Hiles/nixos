@@ -13,7 +13,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     niri-mobile = {
-      url = "git+file:///home/quadradical/Documents/Code/niri?shallow=1";
+      url = "github:Henry-Hiles/niri/quad/mobile";
       flake = false;
     };
     nixphone = {
