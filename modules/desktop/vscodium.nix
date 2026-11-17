@@ -106,7 +106,7 @@
       "workbench.colorTheme" = "Nord";
     };
 
-    "/home/quadradical/.config/VSCodium/User/keybindings.json".source = builtins.toJSON [
+    "VSCodium/User/keybindings.json".text = builtins.toJSON [
       {
         key = "ctrl+s";
         command = "workbench.action.files.saveAll";
