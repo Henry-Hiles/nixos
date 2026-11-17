@@ -134,3 +134,11 @@
         --gnome-private-text-primary-color: #fbfbfe;
     }
 }
+
+/* Phone only: quad.mobile is set in modules/mobile/librewolf.nix. The mobile layout turns the URL
+ * bar results into a sheet over the page, but the theme makes its background transparent. */
+@media -moz-pref("quad.mobile") {
+    .urlbarView {
+        background: var(--gnome-menu-background) !important;
+    }
+}

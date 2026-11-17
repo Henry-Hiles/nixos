@@ -133,6 +133,8 @@
               value = {
                 install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/${id}/latest.xpi";
                 installation_mode = "force_installed";
+                # In the extensions menu, not as separate toolbar buttons
+                default_area = "menupanel";
               };
             })
             [
@@ -141,15 +143,9 @@
               "sponsorBlocker@ajay.app"
               "firefox@tampermonkey.net"
               "firefox-addon@pronoundb.org"
-              "jid1-MnnxcxisBPnSXQ@jetpack" # Privacy Badger
               "frankerfacez@frankerfacez.com"
-              "7esoorv3@alefvanoon.anonaddy.me" # LibRedirect
               "{de621c74-2aa6-4c91-a2da-28d445b66bab}" # YouTube Livestreams Theater Mode
-              "{cf3dba12-a848-4f68-8e2d-f9fadc0721de}" # Google Lighthouse
               "{446900e4-71c2-419f-a6a7-df9c091e268b}" # Bitwarden
-              "{4ce83447-8255-43c2-b8f7-e02eb8c2cc39}" # Draw on Page
-              "{ac34afe8-3a2e-4201-b745-346c0cf6ec7d}" # Better Youtube Shorts
-              "{a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7}" # User-Agent Switcher and Manager
               "enhancerforyoutube@maximerf.addons.mozilla.org"
             ]
         )
