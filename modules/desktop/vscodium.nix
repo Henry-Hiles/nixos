@@ -116,6 +116,8 @@
       "indentRainbow.ignoreErrorLanguages" = [ "*" ];
       "dart.runPubGetOnPubspecChanges" = "never";
       "workbench.colorTheme" = "Nord";
+      "qt-qml.qmlls.customExePath" = "${pkgs.qt6.qtdeclarative}/bin/qmlls";
+      "qt-qml.doNotAskForQmllsDownload" = true;
     };
 
     "VSCodium/User/keybindings.json".text = builtins.toJSON [
