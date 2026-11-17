@@ -81,11 +81,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794881144,
-        "narHash": "sha256-itsx2UuU5p4bjA5ikoN7u1kUe7EGOKWPE4vVhV2RbHs=",
+        "lastModified": 1794892328,
+        "narHash": "sha256-9QMpzIs+e2zhK62ErBzi6sHOwKtUM2cAiMOuRVPxbE8=",
         "ref": "refs/heads/main",
-        "rev": "d6ebb048f8d1bc10662f017d3ec42dbb23dffe1a",
-        "revCount": 2,
+        "rev": "42d273798b72ab517413738c323164382d74b3d3",
+        "revCount": 3,
         "type": "git",
         "url": "https://git.federated.nexus/Henry-Hiles/app-grid"
       },
