@@ -8,6 +8,10 @@
       url = "github:sorki/nixos-gadgetfs-proto";
       flake = false;
     };
+    app-grid = {
+      url = "git+file:///home/quadradical/Documents/Code/app-grid";
+      flake = false;
+    };
     niri-mobile = {
       url = "git+file:///home/quadradical/Documents/Code/niri?ref=quad/mobile-testing&shallow=1";
       flake = false;

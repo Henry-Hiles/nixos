@@ -74,6 +74,22 @@
         "type": "github"
       }
     },
+    "app-grid": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1794872137,
+        "narHash": "sha256-JRO9X4pEQWTAzcaZJCPsr/V9KofZPxCSqoDwd1JvVwk=",
+        "ref": "refs/heads/main",
+        "rev": "7a4867aafd4925731fb64eb04b2aad6f8a48d75a",
+        "revCount": 1,
+        "type": "git",
+        "url": "file:///home/quadradical/Documents/Code/app-grid"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:///home/quadradical/Documents/Code/app-grid"
+      }
+    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -935,10 +951,10 @@
     "niri-mobile": {
       "flake": false,
       "locked": {
-        "lastModified": 1794870539,
-        "narHash": "sha256-vLHkvy05FsJ4TtQmIKRAHJ3zOhZ438xciJP9W87gcSo=",
+        "lastModified": 1794874359,
+        "narHash": "sha256-4WkEfXu32FSa7OCoOY41h5lsz5ZDq5xofmqeveTXNv0=",
         "ref": "quad/mobile-testing",
-        "rev": "4d18f5be39c918d02f0e87d3deda9a4be7833cbd",
+        "rev": "bec4ace7571bda589c0f589097b143e5c7171ae3",
         "shallow": true,
         "type": "git",
         "url": "file:///home/quadradical/Documents/Code/niri"
@@ -1208,6 +1224,7 @@
       "inputs": {
         "agenix": "agenix",
         "agenix-cli": "agenix-cli",
+        "app-grid": "app-grid",
         "continuwuity": "continuwuity",
         "cozybot": "cozybot",
         "degoog": "degoog",

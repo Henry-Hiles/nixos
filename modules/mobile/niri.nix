@@ -19,33 +19,7 @@ let
     };
   });
 
-  # Placeholder app grid, from test-shell/ in the clone.
-  grid = pkgs.stdenvNoCC.mkDerivation {
-    name = "niri-test-grid";
-    src = "${src}/test-shell/grid.js";
-    dontUnpack = true;
-
-    nativeBuildInputs = with pkgs; [
-      gobject-introspection
-      makeWrapper
-      wrapGAppsHook4
-    ];
-    buildInputs = with pkgs; [
-      gjs
-      gtk4
-      gtk4-layer-shell
-      libadwaita
-    ];
-
-    installPhase = ''
-      install -Dm644 $src $out/share/niri-test-grid/grid.js
-      # gtk4-layer-shell has to be loaded before libwayland-client.
-      makeWrapper ${lib.getExe' pkgs.gjs "gjs"} $out/bin/niri-test-grid \
-        --add-flags "-m $out/share/niri-test-grid/grid.js" \
-        --set LD_PRELOAD ${pkgs.gtk4-layer-shell}/lib/libgtk4-layer-shell.so \
-        --set NIRI_BIN ${lib.getExe niri}
-    '';
-  };
+  grid = pkgs.callPackage "${inputs.app-grid}/package.nix" { };
 
   swayosdStyle = pkgs.writeText "swayosd.css" ''
     @import url("file://${pkgs.swayosd}/etc/xdg/swayosd/style.css");
@@ -64,6 +38,13 @@ let
 
   lock = pkgs.writeShellScript "lock" ''
     ${lib.getExe' pkgs.procps "pidof"} gtklock || exec ${lib.getExe config.programs.gtklock.package}
+  '';
+
+  hypridleConfig = pkgs.writeText "hypridle.conf" ''
+    general {
+      lock_cmd = ${lock}
+      before_sleep_cmd = loginctl lock-session
+    }
   '';
 in
 {
@@ -87,13 +68,15 @@ in
             left -16
             right -16
             top -16
+            bottom -16
         }
         center-focused-column "always"
         default-column-width { proportion 1.0; }
         background-color "transparent"
+        focus-ring { off; }
     }
 
-    // zoom and workspace-anchor have to match the constants in test-shell/grid.js.
+    // zoom and workspace-anchor have to match the constants in the app grid.
     overview {
         zoom 0.25
         workspace-anchor 0.15
@@ -109,8 +92,9 @@ in
     }
 
     layer-rule {
-        match namespace="^niri-test-grid$"
-        follow-overview true
+        match namespace="^app-grid$"
+        place-within-backdrop true
+        backdrop-input true
     }
 
     layer-rule {
@@ -130,9 +114,9 @@ in
     spawn-at-startup "${lib.getExe' pkgs.swayosd "swayosd-server"}" "--style" "${swayosdStyle}"
     // We log in automatically, so lock straight away.
     spawn-at-startup "${lock}"
+    spawn-at-startup "${lib.getExe pkgs.hypridle}" "--config" "${hypridleConfig}"
 
     binds {
-        XF86PowerOff { spawn "${lock}"; }
         XF86AudioRaiseVolume allow-when-locked=true { spawn "${swayosd-client}" "--output-volume" "raise"; }
         XF86AudioLowerVolume allow-when-locked=true { spawn "${swayosd-client}" "--output-volume" "lower"; }
     }
