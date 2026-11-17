@@ -55,6 +55,7 @@
         "browser.uiCustomization.state" = builtins.toJSON {
           currentVersion = 28;
           placements = {
+            widget-overflow-fixed-list = [ ];
             nav-bar = [
               "back-button"
               "forward-button"
