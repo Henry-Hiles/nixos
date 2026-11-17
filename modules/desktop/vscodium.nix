@@ -37,6 +37,18 @@
             version = "0.2.1";
             sha256 = "sha256-uHdQeW9ZXYg6+VnD6cb5CU10/xV5hCtxt5K+j0qb7as=";
           }
+          {
+            publisher = "theqtcompany";
+            name = "qt-core";
+            version = "1.16.0";
+            hash = "sha256-6NBWsK7ljx7Ie3xvOrjBClyvwQP1UltCna1jQHJST5U=";
+          }
+          {
+            publisher = "theqtcompany";
+            name = "qt-qml";
+            version = "1.16.0";
+            hash = "sha256-QWjUSbBtHIdxYZyRBDn64HXhvSwhgzm7DjDaed6lNds=";
+          }
         ];
     })
   ];
