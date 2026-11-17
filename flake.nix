@@ -9,7 +9,7 @@
       flake = false;
     };
     app-grid = {
-      url = "git+file:///home/quadradical/Documents/Code/app-grid";
+      url = "git+https://git.federated.nexus/Henry-Hiles/app-grid";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     niri-mobile = {
