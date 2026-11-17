@@ -9,8 +9,8 @@
   environment.etc."librewolf/policies/policies.json".source =
     config.environment.etc."firefox/policies/policies.json".source;
 
-  users.users.quadradical.maid.file.home = {
-    ".librewolf/profiles.ini".source = (pkgs.formats.ini { }).generate "profiles.ini" {
+  users.users.quadradical.maid.file.xdg_config = {
+    "librewolf/librewolf/profiles.ini".source = (pkgs.formats.ini { }).generate "profiles.ini" {
       General = {
         StartWithLastProfile = 1;
       };
@@ -22,7 +22,7 @@
       };
     };
 
-    ".librewolf/quadradical/chrome".source = toString (
+    "librewolf/librewolf/quadradical/chrome".source = toString (
       pkgs.symlinkJoin {
         name = "firefox-gnome-theme";
         paths = [
