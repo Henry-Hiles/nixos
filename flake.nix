@@ -14,7 +14,7 @@
     };
     niri-mobile = {
       url = "github:Henry-Hiles/niri/quad/mobile";
-      flake = false;
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixphone = {
       url = "git+https://codeberg.org/nixphone/nixphone";

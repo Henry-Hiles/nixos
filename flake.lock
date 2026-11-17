@@ -953,13 +953,17 @@
       }
     },
     "niri-mobile": {
-      "flake": false,
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1794889107,
-        "narHash": "sha256-tvHafWVnTFoIvD47mawvUkloNuweG92yf94ysgDPvok=",
+        "lastModified": 1794889881,
+        "narHash": "sha256-ZI7YfIbZbC7e2hQHQSWzOma6npDAvwTgNIFUC6lS8+8=",
         "owner": "Henry-Hiles",
         "repo": "niri",
-        "rev": "09cbacc42dc28062c0fc539a674f356d52eb662b",
+        "rev": "82e7e8e1d40e21f250dc0e9cf24a441476c32718",
         "type": "github"
       },
       "original": {

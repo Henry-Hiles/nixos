@@ -6,19 +6,6 @@
   ...
 }:
 let
-  src = inputs.niri-mobile;
-
-  niri = pkgs.niri.overrideAttrs (old: {
-    inherit src;
-    cargoDeps = pkgs.rustPlatform.importCargoLock {
-      lockFile = "${src}/Cargo.lock";
-      allowBuiltinFetchGit = true;
-    };
-    env = old.env // {
-      NIRI_BUILD_COMMIT = "quad-mobile-${src.shortRev}";
-    };
-  });
-
   swayosdStyle = pkgs.writeText "swayosd.css" ''
     @import url("file://${pkgs.swayosd}/etc/xdg/swayosd/style.css");
 
@@ -50,12 +37,12 @@ let
   '';
 in
 {
-  nixpkgs.overlays = [ inputs.app-grid.overlays.default ];
+  nixpkgs.overlays = [
+    inputs.niri-mobile.overlays.default
+    inputs.app-grid.overlays.default
+  ];
 
-  programs.niri = {
-    enable = true;
-    package = niri;
-  };
+  programs.niri.enable = true;
 
   environment.etc."niri/config.kdl".text = ''
     output "DSI-1" {
@@ -130,7 +117,7 @@ in
     }
   '';
 
-  quad.session = lib.getExe' niri "niri-session";
+  quad.session = lib.getExe' pkgs.niri "niri-session";
 
   services.logind.settings.Login = {
     HandlePowerKey = "ignore";
