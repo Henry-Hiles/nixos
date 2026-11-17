@@ -19,8 +19,6 @@ let
     };
   });
 
-  grid = pkgs.callPackage "${inputs.app-grid}/package.nix" { };
-
   swayosdStyle = pkgs.writeText "swayosd.css" ''
     @import url("file://${pkgs.swayosd}/etc/xdg/swayosd/style.css");
 
@@ -52,6 +50,8 @@ let
   '';
 in
 {
+  nixpkgs.overlays = [ inputs.app-grid.overlays.default ];
+
   programs.niri = {
     enable = true;
     package = niri;
@@ -117,7 +117,7 @@ in
     }
 
     spawn-at-startup "${lib.getExe pkgs.swaybg}" "-i" "${../../background.jpg}" "-m" "fill"
-    spawn-at-startup "${lib.getExe grid}"
+    spawn-at-startup "${lib.getExe pkgs.app-grid}"
     spawn-at-startup "${lib.getExe stevia}"
     spawn-at-startup "${lib.getExe' pkgs.swayosd "swayosd-server"}" "--style" "${swayosdStyle}"
     // We log in automatically, so lock straight away.

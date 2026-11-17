@@ -10,7 +10,7 @@
     };
     app-grid = {
       url = "git+file:///home/quadradical/Documents/Code/app-grid";
-      flake = false;
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     niri-mobile = {
       url = "git+file:///home/quadradical/Documents/Code/niri?ref=quad/mobile-testing&shallow=1";

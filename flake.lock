@@ -75,13 +75,17 @@
       }
     },
     "app-grid": {
-      "flake": false,
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1794877575,
-        "narHash": "sha256-X6NYOOVCLq2R01SsEhrwbBuxfpVGWN1dwK0pNShe8iY=",
+        "lastModified": 1794880757,
+        "narHash": "sha256-9UNy7aMPH1q9D3B6hQuRenh7Gf+dWsMp/+vpS56ZCbk=",
         "ref": "refs/heads/main",
-        "rev": "f7bd700f1d1a6f21138b6e3ad4aff7feda37dfd8",
-        "revCount": 2,
+        "rev": "9f9acae35bd9908c5f1e836521ee8e556464f301",
+        "revCount": 3,
         "type": "git",
         "url": "file:///home/quadradical/Documents/Code/app-grid"
       },
