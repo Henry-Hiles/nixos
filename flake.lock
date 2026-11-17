@@ -1378,10 +1378,10 @@
     "stevia-mobile": {
       "flake": false,
       "locked": {
-        "lastModified": 1794890246,
-        "narHash": "sha256-l/7hLzzMnjCiy2M5pPrCbHS1qOIYv9Q+D7rS+y8K4xQ=",
+        "lastModified": 1794931711,
+        "narHash": "sha256-o77hyGwV3ipquHABWk0zAP3QniiORpi3WmdQ26Dp1pg=",
         "ref": "quad/mobile",
-        "rev": "6008f299dd78270e132dbb26f64adfa3c53885e3",
+        "rev": "40ed1ab05b5b81cdabb76a959c4fc681fd216d3b",
         "revCount": 1348,
         "type": "git",
         "url": "https://gitlab.gnome.org/Henry-Hiles/stevia"
