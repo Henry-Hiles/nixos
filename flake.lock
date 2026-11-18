@@ -959,11 +959,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794889881,
-        "narHash": "sha256-ZI7YfIbZbC7e2hQHQSWzOma6npDAvwTgNIFUC6lS8+8=",
+        "lastModified": 1794981290,
+        "narHash": "sha256-+7bZ0MF9mZVplVvXR8IJVn11rEZsFqMH/N3X/hM6eD8=",
         "owner": "Henry-Hiles",
         "repo": "niri",
-        "rev": "82e7e8e1d40e21f250dc0e9cf24a441476c32718",
+        "rev": "9d93d7491ed53ca632f9a3717bd12b23b1af80aa",
         "type": "github"
       },
       "original": {
