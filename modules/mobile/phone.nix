@@ -9,6 +9,7 @@
     chatty
   ];
 
+  # chatty always links libcmatrix, which needs olm, even if Matrix isn't used
   nixpkgs.config.permittedInsecurePackages = [
     "olm-3.2.16"
   ];
