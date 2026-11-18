@@ -7,8 +7,11 @@
 {
   nixpkgs.overlays = [ inputs.quadshell.overlays.default ];
 
-  # The flashlight LED's brightness is writable by this group
-  users.users.quadradical.extraGroups = [ "feedbackd" ];
+  # quadshell is GeoClue's agent, for its location toggle
+  services.geoclue2 = {
+    enableDemoAgent = false;
+    whitelistedAgents = [ "quadshell" ];
+  };
 
   environment.etc."niri/config.kdl".text = ''
     spawn-at-startup "${lib.getExe pkgs.quadshell}"

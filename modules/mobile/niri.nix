@@ -34,7 +34,6 @@ let
 
   hypridleConfig = pkgs.writeText "hypridle.conf" ''
     general {
-      lock_cmd = ${config.quad.lock}
       before_sleep_cmd = loginctl lock-session
     }
   '';
@@ -44,43 +43,6 @@ let
     exec ${config.systemd.package}/bin/systemctl suspend
   '';
 
-  swaync = pkgs.swaynotificationcenter;
-
-  swayncStyle = pkgs.writeText "swaync.css" ''
-    @import url("file://${swaync}/etc/xdg/swaync/style.css");
-
-    :root {
-      --noti-bg-focus: transparent;
-      --noti-border-color: transparent;
-      --notification-shadow: none;
-      --border-radius: 16px;
-      --notification-icon-size: 48px;
-      --font-size-summary: 14px;
-      --font-size-body: 14px;
-    }
-
-    .notification-row .notification-background .notification {
-      background: shade(@theme_bg_color, 1.25);
-    }
-
-    .notification-row .notification-background .notification .notification-default-action .notification-content {
-      padding: 6px;
-    }
-
-    .notification-row .notification-background .notification .notification-default-action .notification-content .text-box .body {
-      opacity: 0.8;
-    }
-  '';
-
-  swayncConfig = (pkgs.formats.json { }).generate "swaync.json" (
-    lib.importJSON "${swaync}/etc/xdg/swaync/config.json"
-    // {
-      positionX = "center";
-      positionY = "top";
-      notification-window-width = 344;
-      ignore-gtk-theme = false;
-    }
-  );
 in
 {
   nixpkgs.overlays = [
@@ -155,9 +117,6 @@ in
     spawn-at-startup "${lib.getExe pkgs.app-grid}"
     spawn-at-startup "${lib.getExe stevia}"
     spawn-at-startup "${lib.getExe' pkgs.swayosd "swayosd-server"}" "--style" "${swayosdStyle}"
-    spawn-at-startup "${lib.getExe' swaync "swaync"}" "--style" "${swayncStyle}" "--config" "${swayncConfig}"
-    // We log in automatically, so lock straight away.
-    spawn-at-startup "${config.quad.lock}"
     spawn-at-startup "${lib.getExe pkgs.hypridle}" "--config" "${hypridleConfig}"
 
     binds {

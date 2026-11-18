@@ -10,7 +10,7 @@ let
   background =
     pkgs.runCommand "lock-background.jpg" { nativeBuildInputs = [ pkgs.buildPackages.imagemagick ]; }
       ''
-        magick ${../../background.jpg} -resize 50% -blur 0x16 -modulate 80 $out
+        magick ${../../../background.jpg} -resize 50% -blur 0x16 -modulate 80 $out
       '';
 
   layout = pkgs.writeText "gtklock.ui" ''

@@ -15,11 +15,6 @@
 
   networking.modemmanager.enable = true;
 
-  services = {
-    # Write logs out often, so a crash can be found.
-    journald.settings.Journal.SyncIntervalSec = "15s";
-    geoclue2.enable = true;
-  };
   users.users.geoclue.extraGroups = [ "networkmanager" ];
   location.provider = "geoclue2";
 }
