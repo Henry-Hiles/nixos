@@ -301,11 +301,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793997955,
-        "narHash": "sha256-Smi0gGdpBHiowEIU1oNBkeUx+27VcYJpz2Z7X7hFC1I=",
+        "lastModified": 1795004531,
+        "narHash": "sha256-3fvQO3U9rhUkBNxe56X6Ta5huTShZ2mtavi49o7tMvY=",
         "owner": "degoog-org",
         "repo": "degoog",
-        "rev": "cf012d9b639b9d5d874560ab69b31e02d29a6bb4",
+        "rev": "5490ca46096167cbf9b6f9480e7ac83726c0ce7e",
         "type": "github"
       },
       "original": {
@@ -799,11 +799,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794806514,
-        "narHash": "sha256-hRJv/aBOgTE5HnUFWi7yD1vTckeZ+WNIrrJ/hLhLQiM=",
+        "lastModified": 1794948232,
+        "narHash": "sha256-ngHNaADvk405ZLGgGK4j1AqbXTEVSQFN94Dw0KqSJI8=",
         "ref": "refs/heads/main",
-        "rev": "c3d58126ff1351d85bc03a1139139324898559cb",
-        "revCount": 383,
+        "rev": "51021d3af207c519ab5d9824af940d48ca9eabc1",
+        "revCount": 393,
         "type": "git",
         "url": "https://codeberg.org/pastthepixels/gaypanel"
       },
@@ -860,11 +860,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794715309,
-        "narHash": "sha256-awkBBs5ctFKgEYjpNGpi3t/VqF589n5EWfdinRb2gNI=",
+        "lastModified": 1794963576,
+        "narHash": "sha256-+CPrP74GDJ63f7bgEFC9Av4hbxc7K9WUNv1ZVRifRe8=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "a1293da7dd8e497e08d26173f97e2976b36a31ea",
+        "rev": "2b13c9cb3aa20653e6f8ee0b7f8331a53ea9b0a9",
         "type": "github"
       },
       "original": {
@@ -917,11 +917,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794839305,
-        "narHash": "sha256-LoJibO1DD1is9P2DtjjqHKBFxmupVlbFb3QavT2wnR0=",
+        "lastModified": 1795013460,
+        "narHash": "sha256-GSeulyglamkjHjdD2fCIddwZ2Phy6CZ4GyauzHPi6iE=",
         "ref": "refs/heads/main",
-        "rev": "3112871ceb0f1e94513ebb70c01e84c7f3443100",
-        "revCount": 1255,
+        "rev": "01938119931f92be47ca0c5b44ece2989b0d482e",
+        "revCount": 1267,
         "submodules": true,
         "type": "git",
         "url": "https://git.federated.nexus/Nexus/nexus"
@@ -959,11 +959,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795015583,
-        "narHash": "sha256-hjpdek5tpFs5VWCRLiFWoZxpbDS8LsKF8W1fWjPFGKE=",
+        "lastModified": 1795016524,
+        "narHash": "sha256-gpq5p9sIORvbvR5S095ixBprS2/oXIrdXyg+Y8EQtDs=",
         "owner": "Henry-Hiles",
         "repo": "niri",
-        "rev": "7dccc45036f4e967012fece5a82518e91611445c",
+        "rev": "cd9fabb98e9c3f5048d6f8fd2de5f9460a3efeb8",
         "type": "github"
       },
       "original": {
@@ -1053,11 +1053,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1794537146,
-        "narHash": "sha256-Wpz/7x/YWnDIBu7yj6ixe8j6fIMsidd9Y+o1PqPF3iM=",
+        "lastModified": 1794890597,
+        "narHash": "sha256-lME2lHoDHAaSHP3/okgiVoJ0icVEvsQH8LeU3We7tcc=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "d5cc6833999746cffdfe0598f7bc801a57b887a9",
+        "rev": "04906337b6d53e8bb0eaf0470ae9f070a4d4eb55",
         "type": "github"
       },
       "original": {
@@ -1383,11 +1383,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794833435,
-        "narHash": "sha256-KrUwt40VEm7MaUULGXRRflSlmyRQEam+0CED+ewOLHE=",
+        "lastModified": 1795015701,
+        "narHash": "sha256-S6oHH5S2sziGcqTUBiyzmkABUtsY/JT9eHtozN/N2fg=",
         "ref": "refs/heads/main",
-        "rev": "ba9340cee718a8aae962a2171f44d3a25c793589",
-        "revCount": 8292,
+        "rev": "4c8b5133de1804a6a759169bcb9fe93124d0ee3e",
+        "revCount": 8426,
         "type": "git",
         "url": "https://git.sable.moe/SableClient/sable-next"
       },
