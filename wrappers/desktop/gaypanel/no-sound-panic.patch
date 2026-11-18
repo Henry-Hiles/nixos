@@ -1,6 +1,6 @@
-diff -ru a/src/system/sound.rs b/src/system/sound.rs
---- a/src/system/sound.rs
-+++ b/src/system/sound.rs
+diff -ru a/src/core/system/sound.rs b/src/core/system/sound.rs
+--- a/src/core/system/sound.rs
++++ b/src/core/system/sound.rs
 @@ -158,7 +158,16 @@
  
      fn init() {
