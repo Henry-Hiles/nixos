@@ -5,7 +5,6 @@
   ...
 }:
 let
-  cfg = config.quadphone;
   host = config.nixpkgs.hostPlatform;
 
   otherOverlays = lib.init config.nixpkgs.overlays;
@@ -41,8 +40,7 @@ let
     let
       name = lib.concatStringsSep "." path;
     in
-    !(builtins.elem name cfg.crossPackages)
-    && builtins.match toolchainRegex name == null
+    builtins.match toolchainRegex name == null
     && lib.isDerivation native
     && lib.meta.availableOn host native
     && (native.meta.license.free or true)
@@ -96,15 +94,6 @@ let
       v;
 in
 {
-  options.quadphone.crossPackages = lib.mkOption {
-    type = with lib.types; listOf str;
-    default = [ ];
-    description = ''
-      Top-level attribute names that should always be cross-compiled instead of
-      substituted from the binary cache (i.e. ones that turn out not to be cached).
-    '';
-  };
-
   config = {
     nixpkgs.buildPlatform = "x86_64-linux";
 

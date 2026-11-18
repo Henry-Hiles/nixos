@@ -996,17 +996,18 @@
     },
     "nix-maid": {
       "locked": {
-        "lastModified": 1794213517,
-        "narHash": "sha256-bryY6i495uT5OEz0eSeTPeJ35E6JLpI0PjPGNa5EdRk=",
-        "ref": "refs/heads/master",
-        "rev": "d4f00026e380858e683a022abe313a0ae52ad2c0",
-        "revCount": 136,
+        "lastModified": 1795019049,
+        "narHash": "sha256-bxUur5b6+llgV+XlGcSGApS3Z/iIINYz3Rt4/poxX5c=",
+        "ref": "quad/fix/cross-mustache",
+        "rev": "ccd9b3f24f80e4aa9b25074e50fb1c1a8124f4d0",
+        "revCount": 137,
         "type": "git",
-        "url": "https://codeberg.org/viperML/nix-maid"
+        "url": "https://codeberg.org/Henry-Hiles/nix-maid"
       },
       "original": {
+        "ref": "quad/fix/cross-mustache",
         "type": "git",
-        "url": "https://codeberg.org/viperML/nix-maid"
+        "url": "https://codeberg.org/Henry-Hiles/nix-maid"
       }
     },
     "nix2flatpak": {

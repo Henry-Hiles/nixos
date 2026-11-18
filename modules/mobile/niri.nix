@@ -133,10 +133,9 @@ in
     HandlePowerKeyLongPress = "poweroff";
   };
 
-  # Let GTK use text-input-v3, so the on-screen keyboard gets the text fields.
-  environment.extraInit = ''
-    unset GTK_IM_MODULE QT_IM_MODULE XMODIFIERS
-  '';
+  # GNOME's core-os-services turns on IBus, but GTK has to use text-input-v3
+  # so the on-screen keyboard gets the text fields.
+  i18n.inputMethod.enable = false;
 
   users.users.quadradical.maid.gsettings.settings.org.gnome.desktop = {
     a11y.applications.screen-keyboard-enabled = true;
