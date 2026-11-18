@@ -30,7 +30,8 @@
         /* Menus */
         --gnome-menu-background: #3b4252;
         --gnome-menu-border-color: rgba(0, 0, 0, 0.14);
-        --gnome-menu-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.09),
+        --gnome-menu-shadow:
+            0 1px 5px 1px rgba(0, 0, 0, 0.09),
             0 2px 14px 3px rgba(0, 0, 0, 0.05);
         --gnome-menu-button-hover-background: var(--gnome-button-background);
         --gnome-menu-separator-color: rgba(255, 255, 255, 0.1);
@@ -140,5 +141,9 @@
 @media -moz-pref("quad.mobile") {
     .urlbarView {
         background: var(--gnome-menu-background) !important;
+    }
+
+    :root[customtitlebar] #nav-bar > .titlebar-buttonbox-container {
+        display: none !important;
     }
 }
