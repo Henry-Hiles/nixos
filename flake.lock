@@ -996,11 +996,11 @@
     },
     "nix-maid": {
       "locked": {
-        "lastModified": 1795019049,
-        "narHash": "sha256-bxUur5b6+llgV+XlGcSGApS3Z/iIINYz3Rt4/poxX5c=",
+        "lastModified": 1795021775,
+        "narHash": "sha256-KwipEAmXRwCpFccoUXkE7bw4Rg3Fqlm0GpSVNLlvCTU=",
         "ref": "quad/fix/cross-mustache",
-        "rev": "ccd9b3f24f80e4aa9b25074e50fb1c1a8124f4d0",
-        "revCount": 137,
+        "rev": "f1fc27b1a9f4c2707a229683843edd97738b248b",
+        "revCount": 138,
         "type": "git",
         "url": "https://codeberg.org/Henry-Hiles/nix-maid"
       },
