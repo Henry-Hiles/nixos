@@ -112,6 +112,10 @@ in
           Super-q = "close-focused-window";
           Super-f = "fullscreen-focused-window";
           Super-Ctrl-q = "quit";
+          Super-l = {
+            action = "run-command";
+            arg = "${config.quad.lock}";
+          };
           Super-Ctrl-r = {
             action = "run-command";
             arg = "fht-compositor ipc action reload-config; session-programs";
