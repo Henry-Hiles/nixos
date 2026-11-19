@@ -17,7 +17,7 @@ let
     }
 
     background {
-      path = screenshot
+      path = ${../../../background.jpg}
       blur_passes = 3
     }
 
