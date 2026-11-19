@@ -6,7 +6,6 @@
     heroic
     inkscape
     libreoffice
-    authenticator
     prismlauncher
   ];
 }
