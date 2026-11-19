@@ -8,10 +8,20 @@
 
   boot.initrd = {
     luks.forceLuksSupportInInitrd = true;
-    availableKernelModules = [ "msm" ];
+    kernelModules = [
+      "msm"
+      "qcom_refgen_regulator"
+      "qcom_spmi_haptics"
+    ];
     unl0kr = {
       enable = true;
-      settings.general.backend = "drm";
+      settings = {
+        general.backend = "drm";
+        theme = {
+          default = "nord-dark";
+          alternate = "nord-light";
+        };
+      };
     };
     systemd.settings.Manager.DefaultDeviceTimeoutSec = "infinity";
   };
