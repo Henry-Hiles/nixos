@@ -25,7 +25,7 @@
       flake = false;
     };
     nixphone = {
-      url = "git+https://codeberg.org/nixphone/nixphone";
+      url = "git+https://codeberg.org/nixphone/nixphone?ref=quad/fix/sdm845-initrd";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     continuwuity = {

@@ -8,11 +8,6 @@
 
   boot.initrd = {
     luks.forceLuksSupportInInitrd = true;
-    kernelModules = [
-      "msm"
-      "qcom_refgen_regulator"
-      "qcom_spmi_haptics"
-    ];
     unl0kr = {
       enable = true;
       settings = {

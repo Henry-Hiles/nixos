@@ -1039,15 +1039,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1794327622,
-        "narHash": "sha256-mJlrDqLL7Xqz1avdukOJyaA52EauQMoJ6/DBO7rptQg=",
-        "ref": "refs/heads/master",
-        "rev": "5dc82c9de380dba9df746ad516363d08b1fe4c93",
-        "revCount": 53,
+        "lastModified": 1795105247,
+        "narHash": "sha256-S0pWLHzB0u7y/t9OUk+xhxWNqIFY8DuJA2S2ONNQmww=",
+        "ref": "quad/fix/sdm845-initrd",
+        "rev": "fbcf8cf2e49c21af5cb1bdcf9f661af74d2dc8b3",
+        "revCount": 54,
         "type": "git",
         "url": "https://codeberg.org/nixphone/nixphone"
       },
       "original": {
+        "ref": "quad/fix/sdm845-initrd",
         "type": "git",
         "url": "https://codeberg.org/nixphone/nixphone"
       }
