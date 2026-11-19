@@ -79,6 +79,7 @@ in
             patches = (old.patches or [ ]) ++ [
               ./resize-tiled-windows.patch
               ./lone-modifier.patch
+              ./session-lock-fail-closed.patch
             ];
 
             nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ pkgs.makeWrapper ];
