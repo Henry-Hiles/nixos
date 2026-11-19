@@ -339,6 +339,8 @@ in
       serviceConfig = hardening // {
         Type = "oneshot";
         RemainAfterExit = true;
+        Restart = "on-failure";
+        RestartSec = 5;
         User = "kanidm";
         Group = "kanidm";
         StateDirectory = "kanidm-bootstrap";
@@ -397,8 +399,10 @@ in
     kanidm-mail-sender = {
       description = "Kanidm mail sender";
       wantedBy = [ "multi-user.target" ];
-      wants = [ "network-online.target" ];
-      requires = [ "kanidm-bootstrap.service" ];
+      wants = [
+        "network-online.target"
+        "kanidm-bootstrap.service"
+      ];
       after = [
         "network-online.target"
         "kanidm-bootstrap.service"

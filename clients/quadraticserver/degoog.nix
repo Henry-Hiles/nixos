@@ -20,7 +20,7 @@
         displayName = "Search";
         originUrl = "https://${domain}/oauth2/callback";
         originLanding = "https://${domain}";
-      imageFile = "${config.services.degoog.package}/share/degoog/src/public/images/degoog-logo.svg";
+        imageFile = "${config.services.degoog.package}/share/degoog/src/public/images/degoog-logo.svg";
         basicSecretFile = "/var/lib/kanidm-oauth2-secrets/${client}";
         preferShortUsername = true;
         scopeMaps.idm_all_persons = [
@@ -74,10 +74,14 @@
     };
 
   systemd.services = {
-    caddy.serviceConfig.SupplementaryGroups = [
-      "degoog"
-      "oauth2-proxy"
-    ];
+    caddy = {
+      wants = [ "degoog.service" ];
+      after = [ "degoog.service" ];
+      serviceConfig.SupplementaryGroups = [
+        "degoog"
+        "oauth2-proxy"
+      ];
+    };
 
     oauth2-proxy = {
       requires = [ "kanidm.service" ];
