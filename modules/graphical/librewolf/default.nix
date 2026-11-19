@@ -42,6 +42,7 @@
         "webgl.disabled" = false;
         "font.name-list.emoji" = "";
         "browser.tabs.groups.enabled" = false;
+        "browser.fireButton.enabled" = false;
         "media.peerconnection.enabled" = true;
         "privacy.resistFingerprinting" = false;
         "browser.ml.linkPreview.enabled" = false;
@@ -55,7 +56,6 @@
         "browser.uiCustomization.state" = builtins.toJSON {
           currentVersion = 28;
           placements = {
-            widget-overflow-fixed-list = [ ];
             nav-bar = [
               "back-button"
               "forward-button"
