@@ -1,18 +1,14 @@
 {
   boot = {
-    initrd = {
-      availableKernelModules = [
-        "xhci_pci"
-        "ahci"
-        "nvme"
-        "usb_storage"
-        "sd_mod"
-      ];
-      kernelModules = [ ];
-    };
-    kernelModules = [ "kvm-intel" ];
-    extraModulePackages = [ ];
+    initrd.availableKernelModules = [
+      "nvme"
+      "xhci_pci"
+    ];
+    kernelModules = [ "kvm-amd" ];
   };
 
-  hardware.cpu.intel.updateMicrocode = true;
+  hardware = {
+    amdgpu.initrd.enable = true;
+    cpu.amd.updateMicrocode = true;
+  };
 }
