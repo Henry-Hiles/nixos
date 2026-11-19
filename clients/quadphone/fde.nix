@@ -9,6 +9,10 @@
   boot.initrd = {
     luks.forceLuksSupportInInitrd = true;
     availableKernelModules = [ "msm" ];
-    unl0kr.enable = true;
+    unl0kr = {
+      enable = true;
+      settings.general.backend = "drm";
+    };
+    systemd.settings.Manager.DefaultDeviceTimeoutSec = "infinity";
   };
 }
