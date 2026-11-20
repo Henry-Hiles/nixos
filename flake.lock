@@ -321,11 +321,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794328522,
-        "narHash": "sha256-h2BYMW4nTFpIqnMd8gwAPFmJAp/1wWLQ6vT0NfL5qt4=",
+        "lastModified": 1795168368,
+        "narHash": "sha256-D35n2Q2v1KrlF9LS/pFl8Z3EBMJW6qvPw5q4HMbXXLg=",
         "owner": "nix-community",
         "repo": "disko",
-        "rev": "1dd30c29c88d99ce295f15e27f93c49bc5fbae07",
+        "rev": "44761d4f745b95e037458a0e57133c5700c8e320",
         "type": "github"
       },
       "original": {
@@ -799,11 +799,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794948232,
-        "narHash": "sha256-ngHNaADvk405ZLGgGK4j1AqbXTEVSQFN94Dw0KqSJI8=",
+        "lastModified": 1795036025,
+        "narHash": "sha256-XQGjA5CQrv88VYgYAsAU7Mm9DgkdXkIES5z+nx3L4Gc=",
         "ref": "refs/heads/main",
-        "rev": "51021d3af207c519ab5d9824af940d48ca9eabc1",
-        "revCount": 393,
+        "rev": "82e600e97f56b16634e60f819477dea3f114030d",
+        "revCount": 395,
         "type": "git",
         "url": "https://codeberg.org/pastthepixels/gaypanel"
       },
@@ -917,11 +917,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795013460,
-        "narHash": "sha256-GSeulyglamkjHjdD2fCIddwZ2Phy6CZ4GyauzHPi6iE=",
+        "lastModified": 1795137208,
+        "narHash": "sha256-3F9DXdbI+bm0LDJkfOylFSA38ddQX8vrpWGNZzzmwfw=",
         "ref": "refs/heads/main",
-        "rev": "01938119931f92be47ca0c5b44ece2989b0d482e",
-        "revCount": 1267,
+        "rev": "54f2c93d929fb6497fa395ca799b5e2501e6c450",
+        "revCount": 1274,
         "submodules": true,
         "type": "git",
         "url": "https://git.federated.nexus/Nexus/nexus"
@@ -959,11 +959,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795016524,
-        "narHash": "sha256-gpq5p9sIORvbvR5S095ixBprS2/oXIrdXyg+Y8EQtDs=",
+        "lastModified": 1795022399,
+        "narHash": "sha256-zR4WOSx9uFResEOKJODZWf3Dwx3KTwS1jr005td8gIQ=",
         "owner": "Henry-Hiles",
         "repo": "niri",
-        "rev": "cd9fabb98e9c3f5048d6f8fd2de5f9460a3efeb8",
+        "rev": "fd978543ca412aafd4b2d8465b105ab95c023e66",
         "type": "github"
       },
       "original": {
@@ -1055,11 +1055,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1794890597,
-        "narHash": "sha256-lME2lHoDHAaSHP3/okgiVoJ0icVEvsQH8LeU3We7tcc=",
+        "lastModified": 1795085501,
+        "narHash": "sha256-S5keGWzaKpuXo9MNoIC2FfTIuTyTnx8P4NhYJMEsTLI=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "04906337b6d53e8bb0eaf0470ae9f070a4d4eb55",
+        "rev": "0bb8272318b4ca41bf0edc6224df3e3e3046b70d",
         "type": "github"
       },
       "original": {
@@ -1236,11 +1236,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795014593,
-        "narHash": "sha256-BPxE0o1cicSrKejw1Zy0yNV2c6eEFpYxQLxaJnDwA+A=",
+        "lastModified": 1795215905,
+        "narHash": "sha256-GZ4zdINANpV8+ZRJK/1SZL9hm6gjWHDI89Evm3UZzJs=",
         "ref": "refs/heads/main",
-        "rev": "66bdba9a05985399d99a8d34278dd59fdf0669e5",
-        "revCount": 10,
+        "rev": "6e879ead254cd3e3614ca647a76a45c2522381cc",
+        "revCount": 11,
         "type": "git",
         "url": "https://git.federated.nexus/Henry-Hiles/quadshell"
       },
@@ -1385,11 +1385,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795015701,
-        "narHash": "sha256-S6oHH5S2sziGcqTUBiyzmkABUtsY/JT9eHtozN/N2fg=",
+        "lastModified": 1795215558,
+        "narHash": "sha256-3TM4Bp+9TWNfTFkoXFqhdEaksqMAIxMAj81AnfJlhbs=",
         "ref": "refs/heads/main",
-        "rev": "4c8b5133de1804a6a759169bcb9fe93124d0ee3e",
-        "revCount": 8426,
+        "rev": "ce77df6afa83fa9cb6c8c2b22db6891e0e6b445a",
+        "revCount": 8581,
         "type": "git",
         "url": "https://git.sable.moe/SableClient/sable-next"
       },
@@ -1435,11 +1435,11 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1792920263,
-        "narHash": "sha256-2pkE97wOXAYIn2/Nhs9y+iR0qVT+g/3UtukXdkywxXc=",
+        "lastModified": 1795038909,
+        "narHash": "sha256-u9VYWK6f9T8ZuMliRvX4LUuvJ/k5+6M5y35cZgsyJ8A=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "3e27b6c499e507df6e3bb8eca3614f5c95e28140",
+        "rev": "44aafe27b8b3427201dd53c6a464c196b6a956dd",
         "type": "github"
       },
       "original": {
