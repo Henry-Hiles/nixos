@@ -14,6 +14,8 @@
     gvfs.enable = true;
   };
 
+  security.pam.services.login.enableGnomeKeyring = lib.mkForce false;
+
   systemd.user.tmpfiles.users.quadradical.rules =
     let
       keyring = pkgs.writeText "login.keyring" ''
