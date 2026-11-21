@@ -50,7 +50,8 @@ in
     readOnly = true;
     description = "Locks the session with hyprlock, unless it's already running.";
     default = pkgs.writeShellScript "lock" ''
-      exec ${lib.getExe' pkgs.util-linux "flock"} --nonblock "$XDG_RUNTIME_DIR/hyprlock.lock" \
+      exec ${lib.getExe' config.systemd.package "systemd-run"} --user --scope --collect --quiet -- \
+        ${lib.getExe' pkgs.util-linux "flock"} --nonblock "$XDG_RUNTIME_DIR/hyprlock.lock" \
         ${lib.getExe' config.systemd.package "systemd-cat"} --identifier=hyprlock \
         ${lib.getExe pkgs.hyprlock} --config ${hyprlockConfig}
     '';
