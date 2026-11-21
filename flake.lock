@@ -1236,11 +1236,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795215905,
-        "narHash": "sha256-GZ4zdINANpV8+ZRJK/1SZL9hm6gjWHDI89Evm3UZzJs=",
+        "lastModified": 1795222024,
+        "narHash": "sha256-Lu4ukFA2jpF5B52rJUcAmWYGXo8am/vnTx54al/ATWs=",
         "ref": "refs/heads/main",
-        "rev": "6e879ead254cd3e3614ca647a76a45c2522381cc",
-        "revCount": 11,
+        "rev": "398b4d9642a2546b87218a3c440a739711736783",
+        "revCount": 12,
         "type": "git",
         "url": "https://git.federated.nexus/Henry-Hiles/quadshell"
       },
