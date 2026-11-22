@@ -48,19 +48,14 @@ in
   };
 
   config = {
-    # Prefer the GNOME portal (e.g. Nautilus as the file picker), falling back to GTK. This replaces
-    # the portal config fht-compositor ships.
     xdg.portal.config.fht-compositor = {
       default = [
-        "gnome"
+        "fht-compositor"
         "gtk"
       ];
 
-      # GNOME's sends them to GNOME Shell, GTK's to any notification daemon
-      "org.freedesktop.impl.portal.Notification" = [ "gtk" ];
-
-      # GNOME's needs GNOME Shell, and GTK doesn't have one
-      "org.freedesktop.impl.portal.ScreenCast" = [ "fht-compositor" ];
+      "org.freedesktop.impl.portal.FileChooser" = [ "gnome" ]; # Nautilus
+      "org.freedesktop.impl.portal.AppChooser" = [ "gnome" ];
     };
 
     quad.session = lib.getExe' cfg.package "fht-compositor-session";
