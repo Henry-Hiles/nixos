@@ -35,7 +35,9 @@
 
   programs.firefox = {
     enable = true;
-    package = pkgs.librewolf;
+    package = pkgs.librewolf.override {
+      extraAutoConfig = ''pref("general.config.sandbox_enabled", false);'';
+    };
 
     autoConfig = lib.concatStringsSep "\n" (
       lib.mapAttrsToList (pref: value: "lockPref(\"${pref}\", ${builtins.toJSON value});") {
