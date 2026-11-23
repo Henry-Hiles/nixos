@@ -57,7 +57,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nexus = {
-      url = "git+https://git.federated.nexus/Nexus/nexus";
+      url = "git+https://git.federated.nexus/Nexus/nexus?rev=65890b8e006d5d409614d958d7482e4685bde5e1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     cozybot = {

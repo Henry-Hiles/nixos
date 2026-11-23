@@ -227,16 +227,15 @@
         "treefmt-nix": "treefmt-nix_3"
       },
       "locked": {
-        "lastModified": 1794436491,
-        "narHash": "sha256-1Gbe5ys68lljaWtwn8Z4RhkUnWDfw8AaHQJDKVzzmVA=",
-        "ref": "ea3beb628a3cab6fbc4142b725c9edb043846eb6",
-        "rev": "ea3beb628a3cab6fbc4142b725c9edb043846eb6",
-        "revCount": 8146,
+        "lastModified": 1795368110,
+        "narHash": "sha256-rIdyHJHv44OJD5B9Wo0CCIyR6Vecnxx5MuAPfanJ7n0=",
+        "ref": "refs/heads/main",
+        "rev": "21f3f0c1ebcfad22e5a3ab497d2139a36bd77d6e",
+        "revCount": 8275,
         "type": "git",
         "url": "https://forgejo.ellis.link/Continuwuation/Continuwuity"
       },
       "original": {
-        "ref": "ea3beb628a3cab6fbc4142b725c9edb043846eb6",
         "type": "git",
         "url": "https://forgejo.ellis.link/Continuwuation/Continuwuity"
       }
@@ -917,16 +916,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1795381264,
-        "narHash": "sha256-3CBpNMvT0dmIUfYaSfkr3aRwrwafMwju9cmMxh6OHr8=",
+        "lastModified": 1795371464,
+        "narHash": "sha256-SiQ8+94vNqAZmxE5sncyO24JM3gmtTR+ZNNHOEXQ7rQ=",
         "ref": "refs/heads/main",
-        "rev": "bebbf43a5e5d9ef0a6763dc154e2bd239e9b373d",
-        "revCount": 1284,
+        "rev": "65890b8e006d5d409614d958d7482e4685bde5e1",
+        "revCount": 1283,
         "submodules": true,
         "type": "git",
         "url": "https://git.federated.nexus/Nexus/nexus"
       },
       "original": {
+        "rev": "65890b8e006d5d409614d958d7482e4685bde5e1",
         "type": "git",
         "url": "https://git.federated.nexus/Nexus/nexus"
       }
