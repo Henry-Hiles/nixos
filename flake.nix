@@ -3,7 +3,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     wrapper-manager.url = "git+https://codeberg.org/viperML/wrapper-manager";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    nix-maid.url = "git+https://codeberg.org/Henry-Hiles/nix-maid?ref=quad/fix/cross-mustache";
+    nix-maid.url = "git+https://codeberg.org/viperML/nix-maid";
     gadgetfs = {
       url = "github:sorki/nixos-gadgetfs-proto";
       flake = false;
