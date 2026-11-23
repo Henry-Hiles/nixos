@@ -7,6 +7,7 @@
 
   config.services.greetd = {
     enable = true;
+    restart = true;
     settings =
       let
         initial_session = {
