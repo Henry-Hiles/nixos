@@ -199,11 +199,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1794697202,
-        "narHash": "sha256-TRPCzuPpNgpXM3JQSqLzcVQbQSOR0lVVm+QaZAq/fYo=",
+        "lastModified": 1795451554,
+        "narHash": "sha256-NJOb0EMvQphotsFXsTEZY3hodwWKrWnkWk4ljlcsKW0=",
         "ref": "quad/feat/better-relations",
-        "rev": "037a829df7784ef52946c3fde3fc0fe86422f6ce",
-        "revCount": 8184,
+        "rev": "d9d6ccee4daa49b071dd3bdbdb6f7fd3c63550c3",
+        "revCount": 8306,
         "type": "git",
         "url": "https://forgejo.ellis.link/Henry-Hiles/continuwuity"
       },
@@ -227,11 +227,11 @@
         "treefmt-nix": "treefmt-nix_3"
       },
       "locked": {
-        "lastModified": 1795368110,
-        "narHash": "sha256-rIdyHJHv44OJD5B9Wo0CCIyR6Vecnxx5MuAPfanJ7n0=",
+        "lastModified": 1795410322,
+        "narHash": "sha256-uYlRzQBYsOahNA1VgL0WeAtpGorPbnez9ybyhQnCgyo=",
         "ref": "refs/heads/main",
-        "rev": "21f3f0c1ebcfad22e5a3ab497d2139a36bd77d6e",
-        "revCount": 8275,
+        "rev": "c82aba6f5a324ac008f7bb2088d99034baced702",
+        "revCount": 8293,
         "type": "git",
         "url": "https://forgejo.ellis.link/Continuwuation/Continuwuity"
       },
@@ -916,17 +916,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1795371464,
-        "narHash": "sha256-SiQ8+94vNqAZmxE5sncyO24JM3gmtTR+ZNNHOEXQ7rQ=",
+        "lastModified": 1795446670,
+        "narHash": "sha256-Vbq0sc89RuwfKDTW6JVhRbUCUMfkqdmtB51gbfKeTbc=",
         "ref": "refs/heads/main",
-        "rev": "65890b8e006d5d409614d958d7482e4685bde5e1",
-        "revCount": 1283,
+        "rev": "c08bd819f8e570840c90ac74d2308591e0aa8804",
+        "revCount": 1287,
         "submodules": true,
         "type": "git",
         "url": "https://git.federated.nexus/Nexus/nexus"
       },
       "original": {
-        "rev": "65890b8e006d5d409614d958d7482e4685bde5e1",
         "type": "git",
         "url": "https://git.federated.nexus/Nexus/nexus"
       }
@@ -1384,11 +1383,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795387039,
-        "narHash": "sha256-Ot8WlhUWzxF0l/XKbCh/3yQTlzlPI4Wl0jua4yfRB0w=",
+        "lastModified": 1795448937,
+        "narHash": "sha256-2QJsLSVdvw9JTN7TcRqqY25VBQbk7Gt1xclVyRZ/WYM=",
         "ref": "refs/heads/main",
-        "rev": "78e409533d33e1d923369a85a7c02c54aa09f290",
-        "revCount": 8654,
+        "rev": "5588af29bfb9a892e644f2b1d3f78d67ecd3ce0b",
+        "revCount": 8697,
         "type": "git",
         "url": "https://git.sable.moe/SableClient/sable-next"
       },
