@@ -199,11 +199,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1795451554,
-        "narHash": "sha256-NJOb0EMvQphotsFXsTEZY3hodwWKrWnkWk4ljlcsKW0=",
+        "lastModified": 1795467667,
+        "narHash": "sha256-7ig/P3FFM0X5D0RoVnGZNk1z6hSP9AsYUq+SEHs0hos=",
         "ref": "quad/feat/better-relations",
-        "rev": "d9d6ccee4daa49b071dd3bdbdb6f7fd3c63550c3",
-        "revCount": 8306,
+        "rev": "d75a73870bfc260b0419f0ddab3cd48c4beb258a",
+        "revCount": 8311,
         "type": "git",
         "url": "https://forgejo.ellis.link/Henry-Hiles/continuwuity"
       },
@@ -859,11 +859,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795366757,
-        "narHash": "sha256-Tp4Kh4R7ID1f2mMCDlb2PiFQ/DZZsnXB2u2juWN+TT4=",
+        "lastModified": 1795534022,
+        "narHash": "sha256-xkRZ+PcPWaAyf9YrEBszYD5w2S6/Ac2tIfsufzd4dEQ=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "3b8140d21fa0a70b1b38c2ed29853dfe686234a6",
+        "rev": "b56bcd042b5e69ad188eca20d9bec1bfbf3dd453",
         "type": "github"
       },
       "original": {
@@ -916,11 +916,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795446670,
-        "narHash": "sha256-Vbq0sc89RuwfKDTW6JVhRbUCUMfkqdmtB51gbfKeTbc=",
+        "lastModified": 1795543653,
+        "narHash": "sha256-uDP6CAHTgMjgzH3KLgW+eza74JLXC6WYvIaSwAhE1WY=",
         "ref": "refs/heads/main",
-        "rev": "c08bd819f8e570840c90ac74d2308591e0aa8804",
-        "revCount": 1287,
+        "rev": "812183cc00aa63ebaffa93439a85b65f155796e5",
+        "revCount": 1293,
         "submodules": true,
         "type": "git",
         "url": "https://git.federated.nexus/Nexus/nexus"
@@ -1383,11 +1383,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795448937,
-        "narHash": "sha256-2QJsLSVdvw9JTN7TcRqqY25VBQbk7Gt1xclVyRZ/WYM=",
+        "lastModified": 1795552993,
+        "narHash": "sha256-RBNfATznVt41DW3oSu+n0D4zJoM1XtDgP5px4Pp5SW0=",
         "ref": "refs/heads/main",
-        "rev": "5588af29bfb9a892e644f2b1d3f78d67ecd3ce0b",
-        "revCount": 8697,
+        "rev": "00bf4bfb7511aead7edff0caaa73e7d7759862d6",
+        "revCount": 8797,
         "type": "git",
         "url": "https://git.sable.moe/SableClient/sable-next"
       },
@@ -1433,11 +1433,11 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1795038909,
-        "narHash": "sha256-u9VYWK6f9T8ZuMliRvX4LUuvJ/k5+6M5y35cZgsyJ8A=",
+        "lastModified": 1795479262,
+        "narHash": "sha256-bzTDA4xxj8+KNo/qWDgDGOKqfWWlH5GCkVw+e70HWu0=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "44aafe27b8b3427201dd53c6a464c196b6a956dd",
+        "rev": "926063673683f3ed4810ae3edac4d69df7adf42a",
         "type": "github"
       },
       "original": {
