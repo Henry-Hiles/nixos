@@ -408,11 +408,11 @@
         "rust-overlay": []
       },
       "locked": {
-        "lastModified": 1795343673,
-        "narHash": "sha256-EhYigYydlizarAmGiqqsrR/EeN2xCmrz7IsLJyl8RD0=",
+        "lastModified": 1795556555,
+        "narHash": "sha256-coGnV5YriqWik0VA+S/8W4gFKLzTiXWkrwoCnn4sKlM=",
         "owner": "nferhat",
         "repo": "fht-compositor",
-        "rev": "194a0b15cff8d3feec087c7f6b540e57b921b7a9",
+        "rev": "f57b3a6dd60bad6f36557615b71262091d3fb205",
         "type": "github"
       },
       "original": {
@@ -859,11 +859,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795534022,
-        "narHash": "sha256-xkRZ+PcPWaAyf9YrEBszYD5w2S6/Ac2tIfsufzd4dEQ=",
+        "lastModified": 1795618997,
+        "narHash": "sha256-d9Osol//t6hqeo1xlspsYMbhTJK507h6t0EmPyF5Db0=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "b56bcd042b5e69ad188eca20d9bec1bfbf3dd453",
+        "rev": "6a13737c0ed27c7c285f59e3be423ed972aa605f",
         "type": "github"
       },
       "original": {
@@ -958,11 +958,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795022399,
-        "narHash": "sha256-zR4WOSx9uFResEOKJODZWf3Dwx3KTwS1jr005td8gIQ=",
+        "lastModified": 1795627406,
+        "narHash": "sha256-y7OGzCLtzya/A5Pwwo6QNQ4oEdU8sfuH1Io2s2uK3Zc=",
         "owner": "Henry-Hiles",
         "repo": "niri",
-        "rev": "fd978543ca412aafd4b2d8465b105ab95c023e66",
+        "rev": "a03058cdd7e221a5de0d673fa920eef62a0eaff6",
         "type": "github"
       },
       "original": {
@@ -1383,11 +1383,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795552993,
-        "narHash": "sha256-RBNfATznVt41DW3oSu+n0D4zJoM1XtDgP5px4Pp5SW0=",
+        "lastModified": 1795592047,
+        "narHash": "sha256-tvvXCrZdgTUQ86CE/7UojIcq0rO8qW9Zdu3KcASVqHY=",
         "ref": "refs/heads/main",
-        "rev": "00bf4bfb7511aead7edff0caaa73e7d7759862d6",
-        "revCount": 8797,
+        "rev": "1379fdbe70597cfda7f3135fe3d5cf52f678f97a",
+        "revCount": 8806,
         "type": "git",
         "url": "https://git.sable.moe/SableClient/sable-next"
       },
@@ -1399,11 +1399,11 @@
     "stevia-mobile": {
       "flake": false,
       "locked": {
-        "lastModified": 1794931711,
-        "narHash": "sha256-o77hyGwV3ipquHABWk0zAP3QniiORpi3WmdQ26Dp1pg=",
+        "lastModified": 1795627936,
+        "narHash": "sha256-S9qVsxulLVwiW8wr8xdvVghBeEKF2MC62hGQGiQAA34=",
         "ref": "quad/mobile",
-        "rev": "40ed1ab05b5b81cdabb76a959c4fc681fd216d3b",
-        "revCount": 1348,
+        "rev": "ef13506338c446bfc3373989701773b8a672728f",
+        "revCount": 1352,
         "type": "git",
         "url": "https://gitlab.gnome.org/Henry-Hiles/stevia"
       },
