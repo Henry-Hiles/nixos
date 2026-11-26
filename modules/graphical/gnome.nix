@@ -29,7 +29,7 @@
     in
     [
       "d %h/.local/share/keyrings 0700 - - -"
-      "C %h/.local/share/keyrings/login.keyring 0600 - - - ${keyring}"
+      "C %h/.local/share/keyrings/login.keyring 0600 quadradical users - ${keyring}"
       "f %h/.local/share/keyrings/default 0600 - - - login"
     ];
 
