@@ -408,11 +408,11 @@
         "rust-overlay": []
       },
       "locked": {
-        "lastModified": 1795556555,
-        "narHash": "sha256-coGnV5YriqWik0VA+S/8W4gFKLzTiXWkrwoCnn4sKlM=",
+        "lastModified": 1795692652,
+        "narHash": "sha256-QjxZaPULJCmwrGqL1ydJOTOtCZ0UtZVmoVapHtVa1ZY=",
         "owner": "nferhat",
         "repo": "fht-compositor",
-        "rev": "f57b3a6dd60bad6f36557615b71262091d3fb205",
+        "rev": "c2ce832f4ea037d2e656b1e511bd1c2e307ffd98",
         "type": "github"
       },
       "original": {
@@ -859,11 +859,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795618997,
-        "narHash": "sha256-d9Osol//t6hqeo1xlspsYMbhTJK507h6t0EmPyF5Db0=",
+        "lastModified": 1795713076,
+        "narHash": "sha256-GUY/RHSSnAJKKI3xk7xrSXrsXFgIOgFrRJOD4uub5J8=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "6a13737c0ed27c7c285f59e3be423ed972aa605f",
+        "rev": "361da94fb55c67094ec47322d2757d6616a0de92",
         "type": "github"
       },
       "original": {
@@ -916,11 +916,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795543653,
-        "narHash": "sha256-uDP6CAHTgMjgzH3KLgW+eza74JLXC6WYvIaSwAhE1WY=",
+        "lastModified": 1795728103,
+        "narHash": "sha256-Bmf9futOpKwhBrgAVDaUf3j6Itd7pQa3kD60Co3Ml9A=",
         "ref": "refs/heads/main",
-        "rev": "812183cc00aa63ebaffa93439a85b65f155796e5",
-        "revCount": 1293,
+        "rev": "3cf0b811bbb65604f109251e3175fc77d6aa0e54",
+        "revCount": 1325,
         "submodules": true,
         "type": "git",
         "url": "https://git.federated.nexus/Nexus/nexus"
@@ -958,11 +958,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795643162,
-        "narHash": "sha256-6AXB8sQdkGb/q70TYKOtmJ7thw5DG2cGtKnQsGEL0+0=",
+        "lastModified": 1795729594,
+        "narHash": "sha256-mIGbaalM3nv4bb7p+FjqlZwRN0TDsG/MyCsyF43m3l4=",
         "owner": "Henry-Hiles",
         "repo": "niri",
-        "rev": "f55d79fc88a2b637407f677f38f0f1ee76ecaa2e",
+        "rev": "1f5c782baaa5fe90b6b45eaf598d4c9d52ffbdad",
         "type": "github"
       },
       "original": {
@@ -1383,11 +1383,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795592047,
-        "narHash": "sha256-tvvXCrZdgTUQ86CE/7UojIcq0rO8qW9Zdu3KcASVqHY=",
+        "lastModified": 1795707109,
+        "narHash": "sha256-CLqGhGuMkWQlBnTtBVTYLiom1VIJsNX/KjV/aW0iT/M=",
         "ref": "refs/heads/main",
-        "rev": "1379fdbe70597cfda7f3135fe3d5cf52f678f97a",
-        "revCount": 8806,
+        "rev": "fb6733cae96385ea6a2113915dcae661d512a086",
+        "revCount": 8862,
         "type": "git",
         "url": "https://git.sable.moe/SableClient/sable-next"
       },
